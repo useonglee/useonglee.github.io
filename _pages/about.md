@@ -3,6 +3,15 @@ permalink: /about/
 title: "About"
 ---
 
-Tempor velit sint sunt ipsum tempor enim ad qui ullamco. Est dolore anim ad velit duis dolore minim sunt aliquip amet commodo labore. Ut eu pariatur aute ea aute excepteur laborum. Esse ea esse excepteur minim mollit qui cillum excepteur ex dolore magna. Labore deserunt fugiat incididunt incididunt sint ea. Consequat dolore aute laboris quis proident quis non et est consectetur ex eiusmod sit culpa.
+## 꿈을 기록하는 Blog
 
-Cupidatat ea do et in excepteur in. Ad nostrud ut est esse eu duis ea sunt eiusmod. Aliquip tempor veniam sint elit fugiat. Velit incididunt laboris amet incididunt labore dolore irure velit excepteur commodo deserunt laborum. Consectetur eu fugiat veniam veniam Lorem labore magna eiusmod. Ea occaecat reprehenderit pariatur consectetur minim labore ut aliquip.
+이 블로그는 제가 개발자가 되기 위해 겪는 과정들을 기록하는 블로그입니다. 
+
+매일 TIL을 적고 기록하는 습관을 가지는 것이 목표입니다.
+
+현재 JavaScript를 기반으로 다양한 개발공부를 하고 있습니다.
+
+개발실력은 물론이고 커뮤니케이션에 능통하며, 프로젝트 협업능력이 뛰어난 개발자가 되는 것이 꿈입니다. 
+
+
+

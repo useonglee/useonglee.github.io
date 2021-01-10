@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-10T20:23:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">MM</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>First Lastname</name></author><entry><title type="html">1월 10일 TIL</title><link href="http://localhost:4000/til/TIL/" rel="alternate" type="text/html" title="1월 10일 TIL" /><published>2021-01-10T00:00:00+09:00</published><updated>2021-01-10T00:00:00+09:00</updated><id>http://localhost:4000/til/TIL</id><content type="html" xml:base="http://localhost:4000/til/TIL/">&lt;p&gt;##드디어 깃블로그를 마치다.&lt;/p&gt;
+
+&lt;p&gt;금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.&lt;/p&gt;
+
+&lt;p&gt;아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..&lt;/p&gt;
+
+&lt;p&gt;테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다.&lt;/p&gt;
+
+&lt;p&gt;하지만!!!!!!&lt;/p&gt;
+
+&lt;p&gt;_conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다.&lt;/p&gt;
+
+&lt;p&gt;오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다.&lt;/p&gt;
+
+&lt;p&gt;깃블로그 404 오류 떴을 때&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit --allow-empty -m 'Trigger rebuild'
+git push origin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;깃허브 인증&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote set-url origin ~
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다..&lt;/p&gt;
+
+&lt;p&gt;이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다.&lt;/p&gt;
+
+&lt;p&gt;깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다.&lt;/p&gt;
+
+&lt;p&gt;앞으로 TIL 매일 써야지!!!&lt;/p&gt;</content><author><name>First Lastname</name></author><category term="TIL" /><category term="TIL" /><summary type="html">##드디어 깃블로그를 마치다. 금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다. 아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가….. 테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다. 하지만!!!!!! _conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다. 오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다. 깃블로그 404 오류 떴을 때 git commit --allow-empty -m 'Trigger rebuild' git push origin 이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ 깃허브 인증 git remote set-url origin ~ git push -u origin master 이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ 그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다.. 이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다. 깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다. 앞으로 TIL 매일 써야지!!!</summary></entry><entry><title type="html">나의 첫 포스트</title><link href="http://localhost:4000/blog/first-post/" rel="alternate" type="text/html" title="나의 첫 포스트" /><published>2021-01-10T00:00:00+09:00</published><updated>2021-01-10T00:00:00+09:00</updated><id>http://localhost:4000/blog/first-post</id><content type="html" xml:base="http://localhost:4000/blog/first-post/">&lt;p&gt;나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다.&lt;/p&gt;
+
+&lt;p&gt;지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다.&lt;/p&gt;
+
+&lt;p&gt;미칠 것 같다. 깃블로그 너무 어렵다.&lt;/p&gt;</content><author><name>First Lastname</name></author><category term="Blog" /><category term="Posts" /><summary type="html">나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다. 지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다. 미칠 것 같다. 깃블로그 너무 어렵다.</summary></entry></feed>

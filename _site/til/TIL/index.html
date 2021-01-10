@@ -1,0 +1,559 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>1월 10일 TIL - MM</title>
+<meta name="description" content="##드디어 깃블로그를 마치다.  금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.  아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..  테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다.  하지만!!!!!!  _conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다.  오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다.  깃블로그 404 오류 떴을 때  git commit --allow-empty -m &#39;Trigger rebuild&#39; git push origin   이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ  깃허브 인증  git remote set-url origin ~ git push -u origin master   이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ  그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다..  이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다.  깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다.  앞으로 TIL 매일 써야지!!!">
+
+
+  <meta name="author" content="First Lastname">
+  
+  <meta property="article:author" content="First Lastname">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="MM">
+<meta property="og:title" content="1월 10일 TIL">
+<meta property="og:url" content="http://localhost:4000/til/TIL/">
+
+
+  <meta property="og:description" content="##드디어 깃블로그를 마치다.  금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.  아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..  테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다.  하지만!!!!!!  _conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다.  오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다.  깃블로그 404 오류 떴을 때  git commit --allow-empty -m &#39;Trigger rebuild&#39; git push origin   이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ  깃허브 인증  git remote set-url origin ~ git push -u origin master   이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ  그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다..  이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다.  깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다.  앞으로 TIL 매일 써야지!!!">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-10T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/til/TIL/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MM Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          MM
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">TIL</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="First Lastname" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">First Lastname</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>My awesome biography constrained to a sentence or two goes here.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="1월 10일 TIL">
+    <meta itemprop="description" content="##드디어 깃블로그를 마치다.금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다.하지만!!!!!!_conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다.오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다.깃블로그 404 오류 떴을 때git commit --allow-empty -m &#39;Trigger rebuild&#39;git push origin이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ깃허브 인증git remote set-url origin ~git push -u origin master이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다..이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다.깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다.앞으로 TIL 매일 써야지!!!">
+    <meta itemprop="datePublished" content="2021-01-10T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">1월 10일 TIL
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>##드디어 깃블로그를 마치다.</p>
+
+<p>금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.</p>
+
+<p>아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..</p>
+
+<p>테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다.</p>
+
+<p>하지만!!!!!!</p>
+
+<p>_conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다.</p>
+
+<p>오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다.</p>
+
+<p>깃블로그 404 오류 떴을 때</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit --allow-empty -m 'Trigger rebuild'
+git push origin
+</code></pre></div></div>
+
+<p>이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ</p>
+
+<p>깃허브 인증</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote set-url origin ~
+git push -u origin master
+</code></pre></div></div>
+
+<p>이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ</p>
+
+<p>그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다..</p>
+
+<p>이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다.</p>
+
+<p>깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다.</p>
+
+<p>앞으로 TIL 매일 써야지!!!</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-10T00:00:00+09:00">January 10, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+10%EC%9D%BC+TIL%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/blog/first-post/" class="pagination--pager" title="나의 첫 포스트
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/first-post/" rel="permalink">나의 첫 포스트
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다.
+
+지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다.
+
+미칠 것 같다. 깃블로그 너무 어렵다.
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 MM. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
