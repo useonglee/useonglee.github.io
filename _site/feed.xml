@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-10T20:23:52+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">MM</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>First Lastname</name></author><entry><title type="html">1월 10일 TIL</title><link href="http://localhost:4000/til/TIL/" rel="alternate" type="text/html" title="1월 10일 TIL" /><published>2021-01-10T00:00:00+09:00</published><updated>2021-01-10T00:00:00+09:00</updated><id>http://localhost:4000/til/TIL</id><content type="html" xml:base="http://localhost:4000/til/TIL/">&lt;p&gt;##드디어 깃블로그를 마치다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-11T23:18:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">꿈을 기록하는 Blog</title><subtitle>우성's Dream Coding</subtitle><author><name>이우성</name></author><entry><title type="html">1월 11일 TIL #2</title><link href="http://localhost:4000/pre-course/TIL/" rel="alternate" type="text/html" title="1월 11일 TIL #2" /><published>2021-01-11T00:00:00+09:00</published><updated>2021-01-11T00:00:00+09:00</updated><id>http://localhost:4000/pre-course/TIL</id><content type="html" xml:base="http://localhost:4000/pre-course/TIL/">&lt;h2 id=&quot;코드-변환고차함수--반복문-18번&quot;&gt;코드 변환(고차함수) + 반복문 18번&lt;/h2&gt;
+
+&lt;h2 id=&quot;1고차함수-문제-&quot;&gt;1.고차함수 문제 :&lt;/h2&gt;
+
+&lt;p&gt;아래 코드를 &lt;strong&gt;reduce메서드 한 번만 사용한 코드로 변경하여&lt;/strong&gt; 스스로 작성하고, 직접 설명한 내용을 적어주세요.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;filterMaped&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;filterMaped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [2, 6, 10]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;reduce를 사용한 코드로 변경하기에 앞서 나는 먼저 어떤 배열이었길래 콘솔로그에 [2, 4, 10]이라는 배열이 찍혔는지를 생각 해 보았다.&lt;/p&gt;
+
+&lt;p&gt;필터와 맵을 거쳐간 과정을 보니 arr = [1, 2, 3, 4, 5] 라고 짐작한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pseudocode (수도코드)
+    &lt;ol&gt;
+      &lt;li&gt;reduce(function (acc, cur)) 에서 acc(누적값) 과 cur(현재값) 그리고 초기값을 어떻게 설정해줄지 생각해본다.&lt;/li&gt;
+      &lt;li&gt;값이 나올 때 마다 값을 넣어줄 빈 배열을 할당한다.&lt;/li&gt;
+      &lt;li&gt;초기값을 0으로 설정하고 cur이 홀수이면 cur * 2 를 해준다.&lt;/li&gt;
+      &lt;li&gt;cur을 빈 배열에 push 해주면서 누적값을 undefined로 만든다.&lt;/li&gt;
+      &lt;li&gt;빈 배열을 리턴(반환) 한다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resultArr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+
+ &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;resultArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;     
+ &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해설&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;디버깅을 해보면 알겠지만 acc ,cur 순으로 적어보면&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;0, 1&lt;/li&gt;
+  &lt;li&gt;undefined, 2&lt;/li&gt;
+  &lt;li&gt;undefined, 3&lt;/li&gt;
+  &lt;li&gt;undefined, 4&lt;/li&gt;
+  &lt;li&gt;undefined, 5&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이런식으로 값이 들어가는걸 알 수 있다. 나는 누적값을 적용시키지 않고 cur(현재값)만 빈 배열에 push를 해주는 식으로 reduce코드로 변경시켜봤다. 반복문과 비슷한 형태로 만들어보았다.&lt;/p&gt;
+
+&lt;p&gt;이 공부를 통해 나는 reduce 메서드는 확실히 배열의 요소들을 하나씩 돌며(반복문과 비슷하다) 이전 콜백의 리턴값과 현재 콜백의 리턴값을 가지고 활용하기에 유리한 메서드라고 생각했다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2반복문-18번문제-&quot;&gt;2.반복문 18번문제 :&lt;/h2&gt;
+
+&lt;p&gt;수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;주의사항 : 이중 반복문을 사용해야 합니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;입출력 예시&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;listPrimes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ---&amp;gt; '2-3-5-7-11-13-17'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;*pseudocode(수도코드)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;소수 개념 파악 - 1과 자기자신을 제외하고 나누어 떨어지면 안된다.
+    &lt;ul&gt;
+      &lt;li&gt;2부터 N-1까지의 수 중에서 2의 배수를 모두 체로 거르고 남은 숫자들 중에서 3의 배수로 거르고를 반복해서 제곱근N 까지 나눠서 걸러지지 않고 남은 수들이 모두 소수가 됩니다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;첫번째 반복문을 2부터 시작하여 2씩 증가하면서 순회를 한다.&lt;/li&gt;
+  &lt;li&gt;true 값을 넣어서 이상이 없으면 계속 순회하도록 만든다.&lt;/li&gt;
+  &lt;li&gt;두번째 반복문은 본격적으로 소수를 찾아야하기때문에 제곱근까지만 순회하도록 만든다.&lt;/li&gt;
+  &lt;li&gt;반복문을 2씩 증가시켰기 때문에 2의 배수를 제외시켰고, 그다음 i(3의 배수) 를 j 로 나누면서 나머지 소수에 부합하지 않은 것들을 거른다.&lt;/li&gt;
+  &lt;li&gt;마지막으로, 첫번째 반복문에서 거르고 남겨진 값이 true값이면 소수이기 때문에 소수이면 알맞는 형식으로 리턴한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isReady&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isPrime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isPrime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;isReady&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isReady&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이러한 식으로 코드를 만들어 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;내가 생각했을 때, 반복문 알고리즘 중에서는 가장 어려웠던 문제로 꼽힌다.&lt;/p&gt;
+
+&lt;p&gt;소수를 걸러내야 하는 점, 그리고 이중 반복문에 익숙하지 않았던 점에서 많이 힘들었다.&lt;/p&gt;
+
+&lt;p&gt;true값을 for문 밖에다가 할당해서 삽질을 했었고, 제곱근 값을 구해놓고 parseInt를 쓰지않아서 삽질을 많이   했었다. 처음 문제를 봤을 때는 어떻게 접근해야 되는지 조차 몰랐던 것 같다.&lt;/p&gt;
+
+&lt;p&gt;이제는 여러번 복습끝에 완전히 나의 코드로 만들어냈다. 이 문제만 완벽하게 파악한다면 다른 이중 반복문 문제를 푸는데는 지장이 없을 것으로 여겨진다.&lt;/p&gt;</content><author><name>이우성</name></author><category term="Pre-Course" /><category term="TIL" /><category term="CodeStates" /><summary type="html">코드 변환(고차함수) + 반복문 18번 1.고차함수 문제 : 아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요. const filterMaped = arr.filter(x =&amp;gt; x % 2 !== 0).map(x =&amp;gt; x * 2); console.log(filterMaped) // [2, 6, 10] reduce를 사용한 코드로 변경하기에 앞서 나는 먼저 어떤 배열이었길래 콘솔로그에 [2, 4, 10]이라는 배열이 찍혔는지를 생각 해 보았다. 필터와 맵을 거쳐간 과정을 보니 arr = [1, 2, 3, 4, 5] 라고 짐작한다. pseudocode (수도코드) reduce(function (acc, cur)) 에서 acc(누적값) 과 cur(현재값) 그리고 초기값을 어떻게 설정해줄지 생각해본다. 값이 나올 때 마다 값을 넣어줄 빈 배열을 할당한다. 초기값을 0으로 설정하고 cur이 홀수이면 cur * 2 를 해준다. cur을 빈 배열에 push 해주면서 누적값을 undefined로 만든다. 빈 배열을 리턴(반환) 한다. code let resultArr = []; const result = arr.reduce(function (acc, cur) { if (cur % 2 === 1) { resultArr.push(cur * 2); } },0); 해설 디버깅을 해보면 알겠지만 acc ,cur 순으로 적어보면 0, 1 undefined, 2 undefined, 3 undefined, 4 undefined, 5 이런식으로 값이 들어가는걸 알 수 있다. 나는 누적값을 적용시키지 않고 cur(현재값)만 빈 배열에 push를 해주는 식으로 reduce코드로 변경시켜봤다. 반복문과 비슷한 형태로 만들어보았다. 이 공부를 통해 나는 reduce 메서드는 확실히 배열의 요소들을 하나씩 돌며(반복문과 비슷하다) 이전 콜백의 리턴값과 현재 콜백의 리턴값을 가지고 활용하기에 유리한 메서드라고 생각했다. 2.반복문 18번문제 : 수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 합니다. 주의사항 : 이중 반복문을 사용해야 합니다. 입출력 예시 let output = listPrimes(18); console.log(output); // ---&amp;gt; '2-3-5-7-11-13-17' *pseudocode(수도코드) 소수 개념 파악 - 1과 자기자신을 제외하고 나누어 떨어지면 안된다. 2부터 N-1까지의 수 중에서 2의 배수를 모두 체로 거르고 남은 숫자들 중에서 3의 배수로 거르고를 반복해서 제곱근N 까지 나눠서 걸러지지 않고 남은 수들이 모두 소수가 됩니다. 첫번째 반복문을 2부터 시작하여 2씩 증가하면서 순회를 한다. true 값을 넣어서 이상이 없으면 계속 순회하도록 만든다. 두번째 반복문은 본격적으로 소수를 찾아야하기때문에 제곱근까지만 순회하도록 만든다. 반복문을 2씩 증가시켰기 때문에 2의 배수를 제외시켰고, 그다음 i(3의 배수) 를 j 로 나누면서 나머지 소수에 부합하지 않은 것들을 거른다. 마지막으로, 첫번째 반복문에서 거르고 남겨진 값이 true값이면 소수이기 때문에 소수이면 알맞는 형식으로 리턴한다. let result = '2'; for (let i = 3; i &amp;lt;= num; i+=2) { let isReady = true; let isPrime = parseInt(Math.sqrt(i)); for (let j = 3; j &amp;lt;= isPrime; j+=2) { if (i % j === 0) { isReady = false; break; } } if (isReady) { result = `${result}-${i}` } } return result; 이러한 식으로 코드를 만들어 볼 수 있다. 내가 생각했을 때, 반복문 알고리즘 중에서는 가장 어려웠던 문제로 꼽힌다. 소수를 걸러내야 하는 점, 그리고 이중 반복문에 익숙하지 않았던 점에서 많이 힘들었다. true값을 for문 밖에다가 할당해서 삽질을 했었고, 제곱근 값을 구해놓고 parseInt를 쓰지않아서 삽질을 많이 했었다. 처음 문제를 봤을 때는 어떻게 접근해야 되는지 조차 몰랐던 것 같다. 이제는 여러번 복습끝에 완전히 나의 코드로 만들어냈다. 이 문제만 완벽하게 파악한다면 다른 이중 반복문 문제를 푸는데는 지장이 없을 것으로 여겨진다.</summary></entry><entry><title type="html">1월 10일 TIL #1</title><link href="http://localhost:4000/pre-course/TIL/" rel="alternate" type="text/html" title="1월 10일 TIL #1" /><published>2021-01-10T00:00:00+09:00</published><updated>2021-01-10T00:00:00+09:00</updated><id>http://localhost:4000/pre-course/TIL</id><content type="html" xml:base="http://localhost:4000/pre-course/TIL/">&lt;p&gt;##드디어 깃블로그를 마치다.&lt;/p&gt;
 
 &lt;p&gt;금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.&lt;/p&gt;
 
@@ -34,8 +146,8 @@ git push -u origin master
 
 &lt;p&gt;깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다.&lt;/p&gt;
 
-&lt;p&gt;앞으로 TIL 매일 써야지!!!&lt;/p&gt;</content><author><name>First Lastname</name></author><category term="TIL" /><category term="TIL" /><summary type="html">##드디어 깃블로그를 마치다. 금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다. 아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가….. 테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다. 하지만!!!!!! _conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다. 오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다. 깃블로그 404 오류 떴을 때 git commit --allow-empty -m 'Trigger rebuild' git push origin 이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ 깃허브 인증 git remote set-url origin ~ git push -u origin master 이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ 그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다.. 이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다. 깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다. 앞으로 TIL 매일 써야지!!!</summary></entry><entry><title type="html">나의 첫 포스트</title><link href="http://localhost:4000/blog/first-post/" rel="alternate" type="text/html" title="나의 첫 포스트" /><published>2021-01-10T00:00:00+09:00</published><updated>2021-01-10T00:00:00+09:00</updated><id>http://localhost:4000/blog/first-post</id><content type="html" xml:base="http://localhost:4000/blog/first-post/">&lt;p&gt;나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다.&lt;/p&gt;
+&lt;p&gt;앞으로 TIL 매일 써야지!!!&lt;/p&gt;</content><author><name>이우성</name></author><category term="Pre-Course" /><category term="TIL" /><category term="CodeStates" /><summary type="html">##드디어 깃블로그를 마치다. 금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다. 아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가….. 테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다. 하지만!!!!!! _conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다. 오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다. 깃블로그 404 오류 떴을 때 git commit --allow-empty -m 'Trigger rebuild' git push origin 이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ 깃허브 인증 git remote set-url origin ~ git push -u origin master 이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ 그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다.. 이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다. 깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다. 앞으로 TIL 매일 써야지!!!</summary></entry><entry><title type="html">나의 첫 포스트</title><link href="http://localhost:4000/blog/first-post/" rel="alternate" type="text/html" title="나의 첫 포스트" /><published>2021-01-09T00:00:00+09:00</published><updated>2021-01-09T00:00:00+09:00</updated><id>http://localhost:4000/blog/first-post</id><content type="html" xml:base="http://localhost:4000/blog/first-post/">&lt;p&gt;나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다.&lt;/p&gt;
 
 &lt;p&gt;지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다.&lt;/p&gt;
 
-&lt;p&gt;미칠 것 같다. 깃블로그 너무 어렵다.&lt;/p&gt;</content><author><name>First Lastname</name></author><category term="Blog" /><category term="Posts" /><summary type="html">나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다. 지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다. 미칠 것 같다. 깃블로그 너무 어렵다.</summary></entry></feed>
+&lt;p&gt;미칠 것 같다. 깃블로그 너무 어렵다.&lt;/p&gt;</content><author><name>이우성</name></author><category term="Blog" /><category term="Posts" /><summary type="html">나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다. 지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다. 미칠 것 같다. 깃블로그 너무 어렵다.</summary></entry></feed>
