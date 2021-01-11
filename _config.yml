@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: 꿈을 기록하는 Blog
-email: useong0830@gmail.com
+email: useonglee.github.io
 description: >- # this means to ignore newlines until "baseurl:"
   우성's Dream Coding
 twitter_username: 
