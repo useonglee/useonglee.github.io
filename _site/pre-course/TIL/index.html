@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>1월 11일 TIL #2 - 꿈을 기록하는 Blog</title>
-<meta name="description" content="코드 변환(고차함수) + 반복문 18번  1.고차함수 문제 :  아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요.  const filterMaped = arr.filter(x =&gt; x % 2 !== 0).map(x =&gt; x * 2); console.log(filterMaped) // [2, 6, 10]   reduce를 사용한 코드로 변경하기에 앞서 나는 먼저 어떤 배열이었길래 콘솔로그에 [2, 4, 10]이라는 배열이 찍혔는지를 생각 해 보았다.  필터와 맵을 거쳐간 과정을 보니 arr = [1, 2, 3, 4, 5] 라고 짐작한다.     pseudocode (수도코드)            reduce(function (acc, cur)) 에서 acc(누적값) 과 cur(현재값) 그리고 초기값을 어떻게 설정해줄지 생각해본다.       값이 나올 때 마다 값을 넣어줄 빈 배열을 할당한다.       초기값을 0으로 설정하고 cur이 홀수이면 cur * 2 를 해준다.       cur을 빈 배열에 push 해주면서 누적값을 undefined로 만든다.       빈 배열을 리턴(반환) 한다.           code   let resultArr = [];   const result = arr.reduce(function (acc, cur) {        if (cur % 2 === 1) {       resultArr.push(cur * 2);      }       },0);      해설   디버깅을 해보면 알겠지만 acc ,cur 순으로 적어보면     0, 1   undefined, 2   undefined, 3   undefined, 4   undefined, 5   이런식으로 값이 들어가는걸 알 수 있다. 나는 누적값을 적용시키지 않고 cur(현재값)만 빈 배열에 push를 해주는 식으로 reduce코드로 변경시켜봤다. 반복문과 비슷한 형태로 만들어보았다.  이 공부를 통해 나는 reduce 메서드는 확실히 배열의 요소들을 하나씩 돌며(반복문과 비슷하다) 이전 콜백의 리턴값과 현재 콜백의 리턴값을 가지고 활용하기에 유리한 메서드라고 생각했다.    2.반복문 18번문제 :  수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 합니다.          주의사항 : 이중 반복문을 사용해야 합니다.           입출력 예시      let output = listPrimes(18); console.log(output); // ---&gt; &#39;2-3-5-7-11-13-17&#39;   *pseudocode(수도코드)    소수 개념 파악 - 1과 자기자신을 제외하고 나누어 떨어지면 안된다.            2부터 N-1까지의 수 중에서 2의 배수를 모두 체로 거르고 남은 숫자들 중에서 3의 배수로 거르고를 반복해서 제곱근N 까지 나눠서 걸러지지 않고 남은 수들이 모두 소수가 됩니다.           첫번째 반복문을 2부터 시작하여 2씩 증가하면서 순회를 한다.   true 값을 넣어서 이상이 없으면 계속 순회하도록 만든다.   두번째 반복문은 본격적으로 소수를 찾아야하기때문에 제곱근까지만 순회하도록 만든다.   반복문을 2씩 증가시켰기 때문에 2의 배수를 제외시켰고, 그다음 i(3의 배수) 를 j 로 나누면서 나머지 소수에 부합하지 않은 것들을 거른다.   마지막으로, 첫번째 반복문에서 거르고 남겨진 값이 true값이면 소수이기 때문에 소수이면 알맞는 형식으로 리턴한다.   let result = &#39;2&#39;;   for (let i = 3; i &lt;= num; i+=2) {     let isReady = true;     let isPrime = parseInt(Math.sqrt(i));     for (let j = 3; j &lt;= isPrime; j+=2) {       if (i % j === 0) {         isReady = false;         break;       }     }     if (isReady) {       result = `${result}-${i}`     }   }   return result;   이러한 식으로 코드를 만들어 볼 수 있다.  내가 생각했을 때, 반복문 알고리즘 중에서는 가장 어려웠던 문제로 꼽힌다.  소수를 걸러내야 하는 점, 그리고 이중 반복문에 익숙하지 않았던 점에서 많이 힘들었다.  true값을 for문 밖에다가 할당해서 삽질을 했었고, 제곱근 값을 구해놓고 parseInt를 쓰지않아서 삽질을 많이   했었다. 처음 문제를 봤을 때는 어떻게 접근해야 되는지 조차 몰랐던 것 같다.  이제는 여러번 복습끝에 완전히 나의 코드로 만들어냈다. 이 문제만 완벽하게 파악한다면 다른 이중 반복문 문제를 푸는데는 지장이 없을 것으로 여겨진다.  내일의 TIW(today I Will)  배열, 객체, 고차함수!">
+<!-- begin _includes/seo.html --><title>1월 12일 TIL #3 - 꿈을 기록하는 Blog</title>
+<meta name="description" content="목차     shuffle 메서드 설명   객체 21번   고차함수 31번     shuffle 메서드 설명          shuffle 레퍼런스 설명 :      아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!     코드를 한 줄씩 설명해보세요. (코드의 각 키워드가 무슨 의미인지 한 번 되돌아봅시다.)   이 메서드의 작동 원리에 대해서 설명해주세요.        필요한 경우가 어떤 경우가 있을지 고민하여 하나의 예를 들어주세요.      code   _.shuffle = function (arr) {   let arrCloned = arr.slice();   for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {     const toIdx = Math.floor(Math.random() * arr.length);     let temp = arrCloned[fromIdx];     arrCloned[fromIdx] = arrCloned[toIdx];     arrCloned[toIdx] = temp;   }   return arrCloned; };   shuffle 메서드는 배열 요소의 순서가 랜덤하게 변경된 새로운 배열을 리턴한다.  다양한 상황 (ex. 비디오 또는 음악 재생의 순서를 섞을 때) 에서 유용하게 쓰일 수 있다.  그러면 본격적으로 코드를 설명하기위해 한 줄씩 파헤쳐보자 !  code  let arrCloned = arr.slice();  arrCloned 이라는 변수에 얕은 복사를 통하여 배열을 가져왔다. 여기서 중요한 점은 slice() 는 원본을 대체하지 않는 점, 즉 원본은 따로 있다는 뜻이다.  String 및 Number 객체 가 아닌 경우 문자열과 숫자는 새 배열에 복사한다. 이 새 배열에서는 마음대로 값을 바꿔도 원본에 아무런 영향을 주지 않는 다는 점을 명심하자.   for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {   주어진 배열의 요소를 확인하기 위해 for loop 를 사용하였다. 일반적인 배열 반복문이다.  const toIdx = Math.floor(Math.random() * arr.length);   이부분에서 특히 random() 메서드가 생소해서 많이 찾아봤던 것 같다. 먼저 ranmdom() 메서드는 0이상 1 미만의 부동소숫점 의사 난수를 반환 값으로 한다. 그렇기때문에 앞에 floor(반버림) 메서드를 사용하여 정수인 난수를 생성한다고 보면 될 것 같다. round(반올림) 메서드를 사용할 수 도 있지만, 이렇게 하면 난수가 고르게 분포하지 않게 된다.  random() 메서드에 배열의 길이(arr.length)를 곱해준 이유는 배열의 길이에 가까운 임의의 정수를 생성하기 위함인 것 같다.  let temp = arrCloned[fromIdx];   얕은복사를 통해 가져온 배열의 요소를 temp라는 변수에 할당을 한다. 할당을 한 이유에 대해서는 밑에서 설명한다.  다음 코드를 넘어가기 전에 배열 비구조화 할당 문법을 충분히 이해를 하고 가자. 이해를 돕기 위해 먼저 간단한 코드를 예시로 든다.  const array = [1, 2]; const [one, two] = array;  console.log(one);  // 1 console.log(two);  // 2  이 문법은 배열 안에 있는 원소를 다른 이름으로 새로 선언해주고 싶을 때 사용하면 매우 유용하다.  arrCloned[fromIdx] = arrCloned[toIdx]; arrCloned[toIdx] = temp;   이 코드를 설명하기 위해 먼저 arrCloned = [1, ‘a’, 2, ‘b’] 라는 배열이라고 가정하자. 반복문을 통해 첫번째 i 는 arrCloned[0] 가 될 것이고 값은 1 이다. toIdx는 random() 메서드를 통해 임의로 3의 정수가 나왔다고 가정하자. 위에 코드는  arrCloned[0] = arrCloned[3]; arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유); 이렇게 반복문을 한 번 돌고 나면 배열은 [‘b’, ‘a’, 2, 1] 이라는 값으로 임의로 변하게 된다. 이런 식으로 반복문을 다 돌고나면 랜덤하게 변경된 새로운 배열 값이 나올 것 이다.이 부분이 shuffle 메서드의 핵심인 것 같다.  return arrCloned;  그리고 반복문을 다돌고 새로 배열된 배열 값을 리턴(반환) 해준다.  이 공부를 통해 shuffle 메서드를 완벽히 짚고 넘어갈 수 있게 되었다. 얕은 복사를 통해 랜덤하게 배열을 섞을 때 사용하면 유용한 메서드라고 생각한다. 앞서 설명했듯이 음악 재생을 랜덤으로 돌릴 때나 무작위로 섞고 싶을 때 사용하면 유용할 것 같다.    객체 21번   문자열을 입력받아 가장 많이 반복되는 문자를 리턴해야 합니다.     주의사항 :            띄어쓰기는 제외       가장 많이 반복되는 문자가 다수일 경우, 먼저 도달한 문자를 리턴       빈 문자열을 입력받은 경우, 빈 문자열을 리턴           입출력 예시   let output = mostFrequentCharacter(&#39;apples not oranges&#39;); console.log(output); // --&gt; &#39;p&#39;  output = mostFrequentCharacter(&#39;hello world&#39;); console.log(output); // --&gt; &#39;l&#39;      pseudocode(수도코드)            문자열을 반복문으로 순회를 하면서 어떤 문자가 가장 많이 반복되는지 카운트를 세어주어야 한다.       리턴되는 값은 문자열이기 때문에 문자열도 같이 할당한다.       반복문으로 문자열을 순회하면서, 띄어쓰기는 건너뛰고 객체에 key 값과 value값을 할당한다.       반복문으로 문자열을 순회하면서, 반복되는 문자열을 카운트해준다.       가장 많이 카운트 된 문자를 가져온다.       비구조화 할당을 통해 가장 많이 반복된 문자를 할당한다.       할당된 객체를 리턴한다.           let obj = {max: 0, countStr: &#39;&#39;};     for (let i = 0; i &lt; str.length; i++) {      if (str[i] === &#39; &#39;) {        continue;      }      if (obj[str[i]] === undefined) {        obj[str[i]] = 0;      }      obj[str[i]]++;    if (obj[&#39;max&#39;] &lt; obj[str[i]]) {      obj[&#39;max&#39;] = obj[str[i]];      obj[&#39;countStr&#39;] = str[i];    }   }    return obj[&#39;countStr&#39;];   이 문제의 핵심은 먼저 카운트를 할 객체를 할당하고, 카운트가 된 값을 비구조화 할당으로 가져오는 것이다. 나는 이 문제를 풀 때 처음에는 max = str[0] 로 할당하고 max 값의 문자를 반환하려고 했다. 오랜 삽질 끝에    let obj = {};   let max = str[0];    if(str === &#39;&#39;) {         return &#39;&#39;;   }    for(let i = 0; i &lt; str.length; i++) {     if(str[i] === &#39; &#39;) {                             continue;                                 }                                         else if(obj[str[i]] === undefined) {             obj[str[i]] = 0;     }     obj[str[i]]++;         if(obj[max] &lt; obj[str[i]]) {              obj[str[i]];                    max = str[i];           }   }        if( Object.keys(obj).length === 0 ) {      return &#39;&#39;;    }        return max;         이 코드로 문제를 풀어보기도 했다. 하지만 이 삽질이 결국 HA 시험에 큰 도움이 되었다. HA 시험 1번 문제를 가볍게 풀 수 있었다.    고차함수 31번   아래 조건에 맞게 변형된 배열을 리턴해야 합니다.     주의사항 :            반복문 사용 금지       배열을 리턴       학생들의 성적을 평균값으로 변형해야 합니다.           입출력 예시   let studentList = [   {     name: &#39;Anna&#39;,     gender: &#39;female&#39;,     grades: [4.5, 3.5, 4],   },   {     name: &#39;Dennis&#39;,     gender: &#39;male&#39;,     country: &#39;Germany&#39;,     grades: [5, 1.5, 4],   },   {     name: &#39;Martha&#39;,     gender: &#39;female&#39;,     grades: [5, 4, 4, 3],   }, ];  console.log(output); // --&gt; [   { name: &#39;Anna&#39;, gender: &#39;female&#39;, grades: 4 },   { name: &#39;Martha&#39;, gender: &#39;female&#39;, grades: 4 }, ];      pseudocode(수도코드)            먼저 value 값이 ‘female’ 인 것만 필터링을 한다.       변형된 값을 반환하기 위해 맵핑을 하며 리턴을 한다.       평균 값을 구하기 위해 reduce 함수를 사용한다.       구한 평균값을 객체에 할당해준다.       객체를 리턴(반환)한다.             const filtering = students.filter (el =&gt; el.gender === &#39;female&#39;);    return filtering.map (function (el) {     const average = el.grades.reduce (function (acc, cur) {       return acc + cur;     }, 0);      const grade = average / el.grades.length;     el.grades = grade;          return el;   });   각 함수의 뜻을 정확히 이해하면 쉽게 풀 수 있는 문제였다. 함수를 하나씩 차근 차근 써가면서 내려가보니 답을 찾을 수 있었다.하지만 이 문제 또한 삽질을 안 한건 아니다. 매개변수 el 값을 계속 가져오면서 마지막에 평균 값을 할당하는 것이 막혔었다. 원리를 하나씩 짚어보며 풀어가다보니 해결할 수 있었다.  내일의 TIW(today I Will)  재귀함수, 알고리즘">
 
 
   <meta name="author" content="이우성">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
-<meta property="og:title" content="1월 11일 TIL #2">
+<meta property="og:title" content="1월 12일 TIL #3">
 <meta property="og:url" content="http://localhost:4000/pre-course/TIL/">
 
 
-  <meta property="og:description" content="코드 변환(고차함수) + 반복문 18번  1.고차함수 문제 :  아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요.  const filterMaped = arr.filter(x =&gt; x % 2 !== 0).map(x =&gt; x * 2); console.log(filterMaped) // [2, 6, 10]   reduce를 사용한 코드로 변경하기에 앞서 나는 먼저 어떤 배열이었길래 콘솔로그에 [2, 4, 10]이라는 배열이 찍혔는지를 생각 해 보았다.  필터와 맵을 거쳐간 과정을 보니 arr = [1, 2, 3, 4, 5] 라고 짐작한다.     pseudocode (수도코드)            reduce(function (acc, cur)) 에서 acc(누적값) 과 cur(현재값) 그리고 초기값을 어떻게 설정해줄지 생각해본다.       값이 나올 때 마다 값을 넣어줄 빈 배열을 할당한다.       초기값을 0으로 설정하고 cur이 홀수이면 cur * 2 를 해준다.       cur을 빈 배열에 push 해주면서 누적값을 undefined로 만든다.       빈 배열을 리턴(반환) 한다.           code   let resultArr = [];   const result = arr.reduce(function (acc, cur) {        if (cur % 2 === 1) {       resultArr.push(cur * 2);      }       },0);      해설   디버깅을 해보면 알겠지만 acc ,cur 순으로 적어보면     0, 1   undefined, 2   undefined, 3   undefined, 4   undefined, 5   이런식으로 값이 들어가는걸 알 수 있다. 나는 누적값을 적용시키지 않고 cur(현재값)만 빈 배열에 push를 해주는 식으로 reduce코드로 변경시켜봤다. 반복문과 비슷한 형태로 만들어보았다.  이 공부를 통해 나는 reduce 메서드는 확실히 배열의 요소들을 하나씩 돌며(반복문과 비슷하다) 이전 콜백의 리턴값과 현재 콜백의 리턴값을 가지고 활용하기에 유리한 메서드라고 생각했다.    2.반복문 18번문제 :  수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 합니다.          주의사항 : 이중 반복문을 사용해야 합니다.           입출력 예시      let output = listPrimes(18); console.log(output); // ---&gt; &#39;2-3-5-7-11-13-17&#39;   *pseudocode(수도코드)    소수 개념 파악 - 1과 자기자신을 제외하고 나누어 떨어지면 안된다.            2부터 N-1까지의 수 중에서 2의 배수를 모두 체로 거르고 남은 숫자들 중에서 3의 배수로 거르고를 반복해서 제곱근N 까지 나눠서 걸러지지 않고 남은 수들이 모두 소수가 됩니다.           첫번째 반복문을 2부터 시작하여 2씩 증가하면서 순회를 한다.   true 값을 넣어서 이상이 없으면 계속 순회하도록 만든다.   두번째 반복문은 본격적으로 소수를 찾아야하기때문에 제곱근까지만 순회하도록 만든다.   반복문을 2씩 증가시켰기 때문에 2의 배수를 제외시켰고, 그다음 i(3의 배수) 를 j 로 나누면서 나머지 소수에 부합하지 않은 것들을 거른다.   마지막으로, 첫번째 반복문에서 거르고 남겨진 값이 true값이면 소수이기 때문에 소수이면 알맞는 형식으로 리턴한다.   let result = &#39;2&#39;;   for (let i = 3; i &lt;= num; i+=2) {     let isReady = true;     let isPrime = parseInt(Math.sqrt(i));     for (let j = 3; j &lt;= isPrime; j+=2) {       if (i % j === 0) {         isReady = false;         break;       }     }     if (isReady) {       result = `${result}-${i}`     }   }   return result;   이러한 식으로 코드를 만들어 볼 수 있다.  내가 생각했을 때, 반복문 알고리즘 중에서는 가장 어려웠던 문제로 꼽힌다.  소수를 걸러내야 하는 점, 그리고 이중 반복문에 익숙하지 않았던 점에서 많이 힘들었다.  true값을 for문 밖에다가 할당해서 삽질을 했었고, 제곱근 값을 구해놓고 parseInt를 쓰지않아서 삽질을 많이   했었다. 처음 문제를 봤을 때는 어떻게 접근해야 되는지 조차 몰랐던 것 같다.  이제는 여러번 복습끝에 완전히 나의 코드로 만들어냈다. 이 문제만 완벽하게 파악한다면 다른 이중 반복문 문제를 푸는데는 지장이 없을 것으로 여겨진다.  내일의 TIW(today I Will)  배열, 객체, 고차함수!">
+  <meta property="og:description" content="목차     shuffle 메서드 설명   객체 21번   고차함수 31번     shuffle 메서드 설명          shuffle 레퍼런스 설명 :      아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!     코드를 한 줄씩 설명해보세요. (코드의 각 키워드가 무슨 의미인지 한 번 되돌아봅시다.)   이 메서드의 작동 원리에 대해서 설명해주세요.        필요한 경우가 어떤 경우가 있을지 고민하여 하나의 예를 들어주세요.      code   _.shuffle = function (arr) {   let arrCloned = arr.slice();   for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {     const toIdx = Math.floor(Math.random() * arr.length);     let temp = arrCloned[fromIdx];     arrCloned[fromIdx] = arrCloned[toIdx];     arrCloned[toIdx] = temp;   }   return arrCloned; };   shuffle 메서드는 배열 요소의 순서가 랜덤하게 변경된 새로운 배열을 리턴한다.  다양한 상황 (ex. 비디오 또는 음악 재생의 순서를 섞을 때) 에서 유용하게 쓰일 수 있다.  그러면 본격적으로 코드를 설명하기위해 한 줄씩 파헤쳐보자 !  code  let arrCloned = arr.slice();  arrCloned 이라는 변수에 얕은 복사를 통하여 배열을 가져왔다. 여기서 중요한 점은 slice() 는 원본을 대체하지 않는 점, 즉 원본은 따로 있다는 뜻이다.  String 및 Number 객체 가 아닌 경우 문자열과 숫자는 새 배열에 복사한다. 이 새 배열에서는 마음대로 값을 바꿔도 원본에 아무런 영향을 주지 않는 다는 점을 명심하자.   for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {   주어진 배열의 요소를 확인하기 위해 for loop 를 사용하였다. 일반적인 배열 반복문이다.  const toIdx = Math.floor(Math.random() * arr.length);   이부분에서 특히 random() 메서드가 생소해서 많이 찾아봤던 것 같다. 먼저 ranmdom() 메서드는 0이상 1 미만의 부동소숫점 의사 난수를 반환 값으로 한다. 그렇기때문에 앞에 floor(반버림) 메서드를 사용하여 정수인 난수를 생성한다고 보면 될 것 같다. round(반올림) 메서드를 사용할 수 도 있지만, 이렇게 하면 난수가 고르게 분포하지 않게 된다.  random() 메서드에 배열의 길이(arr.length)를 곱해준 이유는 배열의 길이에 가까운 임의의 정수를 생성하기 위함인 것 같다.  let temp = arrCloned[fromIdx];   얕은복사를 통해 가져온 배열의 요소를 temp라는 변수에 할당을 한다. 할당을 한 이유에 대해서는 밑에서 설명한다.  다음 코드를 넘어가기 전에 배열 비구조화 할당 문법을 충분히 이해를 하고 가자. 이해를 돕기 위해 먼저 간단한 코드를 예시로 든다.  const array = [1, 2]; const [one, two] = array;  console.log(one);  // 1 console.log(two);  // 2  이 문법은 배열 안에 있는 원소를 다른 이름으로 새로 선언해주고 싶을 때 사용하면 매우 유용하다.  arrCloned[fromIdx] = arrCloned[toIdx]; arrCloned[toIdx] = temp;   이 코드를 설명하기 위해 먼저 arrCloned = [1, ‘a’, 2, ‘b’] 라는 배열이라고 가정하자. 반복문을 통해 첫번째 i 는 arrCloned[0] 가 될 것이고 값은 1 이다. toIdx는 random() 메서드를 통해 임의로 3의 정수가 나왔다고 가정하자. 위에 코드는  arrCloned[0] = arrCloned[3]; arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유); 이렇게 반복문을 한 번 돌고 나면 배열은 [‘b’, ‘a’, 2, 1] 이라는 값으로 임의로 변하게 된다. 이런 식으로 반복문을 다 돌고나면 랜덤하게 변경된 새로운 배열 값이 나올 것 이다.이 부분이 shuffle 메서드의 핵심인 것 같다.  return arrCloned;  그리고 반복문을 다돌고 새로 배열된 배열 값을 리턴(반환) 해준다.  이 공부를 통해 shuffle 메서드를 완벽히 짚고 넘어갈 수 있게 되었다. 얕은 복사를 통해 랜덤하게 배열을 섞을 때 사용하면 유용한 메서드라고 생각한다. 앞서 설명했듯이 음악 재생을 랜덤으로 돌릴 때나 무작위로 섞고 싶을 때 사용하면 유용할 것 같다.    객체 21번   문자열을 입력받아 가장 많이 반복되는 문자를 리턴해야 합니다.     주의사항 :            띄어쓰기는 제외       가장 많이 반복되는 문자가 다수일 경우, 먼저 도달한 문자를 리턴       빈 문자열을 입력받은 경우, 빈 문자열을 리턴           입출력 예시   let output = mostFrequentCharacter(&#39;apples not oranges&#39;); console.log(output); // --&gt; &#39;p&#39;  output = mostFrequentCharacter(&#39;hello world&#39;); console.log(output); // --&gt; &#39;l&#39;      pseudocode(수도코드)            문자열을 반복문으로 순회를 하면서 어떤 문자가 가장 많이 반복되는지 카운트를 세어주어야 한다.       리턴되는 값은 문자열이기 때문에 문자열도 같이 할당한다.       반복문으로 문자열을 순회하면서, 띄어쓰기는 건너뛰고 객체에 key 값과 value값을 할당한다.       반복문으로 문자열을 순회하면서, 반복되는 문자열을 카운트해준다.       가장 많이 카운트 된 문자를 가져온다.       비구조화 할당을 통해 가장 많이 반복된 문자를 할당한다.       할당된 객체를 리턴한다.           let obj = {max: 0, countStr: &#39;&#39;};     for (let i = 0; i &lt; str.length; i++) {      if (str[i] === &#39; &#39;) {        continue;      }      if (obj[str[i]] === undefined) {        obj[str[i]] = 0;      }      obj[str[i]]++;    if (obj[&#39;max&#39;] &lt; obj[str[i]]) {      obj[&#39;max&#39;] = obj[str[i]];      obj[&#39;countStr&#39;] = str[i];    }   }    return obj[&#39;countStr&#39;];   이 문제의 핵심은 먼저 카운트를 할 객체를 할당하고, 카운트가 된 값을 비구조화 할당으로 가져오는 것이다. 나는 이 문제를 풀 때 처음에는 max = str[0] 로 할당하고 max 값의 문자를 반환하려고 했다. 오랜 삽질 끝에    let obj = {};   let max = str[0];    if(str === &#39;&#39;) {         return &#39;&#39;;   }    for(let i = 0; i &lt; str.length; i++) {     if(str[i] === &#39; &#39;) {                             continue;                                 }                                         else if(obj[str[i]] === undefined) {             obj[str[i]] = 0;     }     obj[str[i]]++;         if(obj[max] &lt; obj[str[i]]) {              obj[str[i]];                    max = str[i];           }   }        if( Object.keys(obj).length === 0 ) {      return &#39;&#39;;    }        return max;         이 코드로 문제를 풀어보기도 했다. 하지만 이 삽질이 결국 HA 시험에 큰 도움이 되었다. HA 시험 1번 문제를 가볍게 풀 수 있었다.    고차함수 31번   아래 조건에 맞게 변형된 배열을 리턴해야 합니다.     주의사항 :            반복문 사용 금지       배열을 리턴       학생들의 성적을 평균값으로 변형해야 합니다.           입출력 예시   let studentList = [   {     name: &#39;Anna&#39;,     gender: &#39;female&#39;,     grades: [4.5, 3.5, 4],   },   {     name: &#39;Dennis&#39;,     gender: &#39;male&#39;,     country: &#39;Germany&#39;,     grades: [5, 1.5, 4],   },   {     name: &#39;Martha&#39;,     gender: &#39;female&#39;,     grades: [5, 4, 4, 3],   }, ];  console.log(output); // --&gt; [   { name: &#39;Anna&#39;, gender: &#39;female&#39;, grades: 4 },   { name: &#39;Martha&#39;, gender: &#39;female&#39;, grades: 4 }, ];      pseudocode(수도코드)            먼저 value 값이 ‘female’ 인 것만 필터링을 한다.       변형된 값을 반환하기 위해 맵핑을 하며 리턴을 한다.       평균 값을 구하기 위해 reduce 함수를 사용한다.       구한 평균값을 객체에 할당해준다.       객체를 리턴(반환)한다.             const filtering = students.filter (el =&gt; el.gender === &#39;female&#39;);    return filtering.map (function (el) {     const average = el.grades.reduce (function (acc, cur) {       return acc + cur;     }, 0);      const grade = average / el.grades.length;     el.grades = grade;          return el;   });   각 함수의 뜻을 정확히 이해하면 쉽게 풀 수 있는 문제였다. 함수를 하나씩 차근 차근 써가면서 내려가보니 답을 찾을 수 있었다.하지만 이 문제 또한 삽질을 안 한건 아니다. 매개변수 el 값을 계속 가져오면서 마지막에 평균 값을 할당하는 것이 막혔었다. 원리를 하나씩 짚어보며 풀어가다보니 해결할 수 있었다.  내일의 TIW(today I Will)  재귀함수, 알고리즘">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-01-11T00:00:00+09:00">
+  <meta property="article:published_time" content="2021-01-12T00:00:00+09:00">
 
 
 
@@ -267,15 +267,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="1월 11일 TIL #2">
-    <meta itemprop="description" content="코드 변환(고차함수) + 반복문 18번1.고차함수 문제 :아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요.const filterMaped = arr.filter(x =&gt; x % 2 !== 0).map(x =&gt; x * 2);console.log(filterMaped) // [2, 6, 10]reduce를 사용한 코드로 변경하기에 앞서 나는 먼저 어떤 배열이었길래 콘솔로그에 [2, 4, 10]이라는 배열이 찍혔는지를 생각 해 보았다.필터와 맵을 거쳐간 과정을 보니 arr = [1, 2, 3, 4, 5] 라고 짐작한다.  pseudocode (수도코드)          reduce(function (acc, cur)) 에서 acc(누적값) 과 cur(현재값) 그리고 초기값을 어떻게 설정해줄지 생각해본다.      값이 나올 때 마다 값을 넣어줄 빈 배열을 할당한다.      초기값을 0으로 설정하고 cur이 홀수이면 cur * 2 를 해준다.      cur을 빈 배열에 push 해주면서 누적값을 undefined로 만든다.      빈 배열을 리턴(반환) 한다.        codelet resultArr = []; const result = arr.reduce(function (acc, cur) {       if (cur % 2 === 1) {      resultArr.push(cur * 2);     }      },0);  해설디버깅을 해보면 알겠지만 acc ,cur 순으로 적어보면  0, 1  undefined, 2  undefined, 3  undefined, 4  undefined, 5이런식으로 값이 들어가는걸 알 수 있다. 나는 누적값을 적용시키지 않고 cur(현재값)만 빈 배열에 push를 해주는 식으로 reduce코드로 변경시켜봤다. 반복문과 비슷한 형태로 만들어보았다.이 공부를 통해 나는 reduce 메서드는 확실히 배열의 요소들을 하나씩 돌며(반복문과 비슷하다) 이전 콜백의 리턴값과 현재 콜백의 리턴값을 가지고 활용하기에 유리한 메서드라고 생각했다.2.반복문 18번문제 :수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 합니다.      주의사항 : 이중 반복문을 사용해야 합니다.        입출력 예시  let output = listPrimes(18);console.log(output); // ---&gt; &#39;2-3-5-7-11-13-17&#39;*pseudocode(수도코드)  소수 개념 파악 - 1과 자기자신을 제외하고 나누어 떨어지면 안된다.          2부터 N-1까지의 수 중에서 2의 배수를 모두 체로 거르고 남은 숫자들 중에서 3의 배수로 거르고를 반복해서 제곱근N 까지 나눠서 걸러지지 않고 남은 수들이 모두 소수가 됩니다.        첫번째 반복문을 2부터 시작하여 2씩 증가하면서 순회를 한다.  true 값을 넣어서 이상이 없으면 계속 순회하도록 만든다.  두번째 반복문은 본격적으로 소수를 찾아야하기때문에 제곱근까지만 순회하도록 만든다.  반복문을 2씩 증가시켰기 때문에 2의 배수를 제외시켰고, 그다음 i(3의 배수) 를 j 로 나누면서 나머지 소수에 부합하지 않은 것들을 거른다.  마지막으로, 첫번째 반복문에서 거르고 남겨진 값이 true값이면 소수이기 때문에 소수이면 알맞는 형식으로 리턴한다.let result = &#39;2&#39;;  for (let i = 3; i &lt;= num; i+=2) {    let isReady = true;    let isPrime = parseInt(Math.sqrt(i));    for (let j = 3; j &lt;= isPrime; j+=2) {      if (i % j === 0) {        isReady = false;        break;      }    }    if (isReady) {      result = `${result}-${i}`    }  }  return result;이러한 식으로 코드를 만들어 볼 수 있다.내가 생각했을 때, 반복문 알고리즘 중에서는 가장 어려웠던 문제로 꼽힌다.소수를 걸러내야 하는 점, 그리고 이중 반복문에 익숙하지 않았던 점에서 많이 힘들었다.true값을 for문 밖에다가 할당해서 삽질을 했었고, 제곱근 값을 구해놓고 parseInt를 쓰지않아서 삽질을 많이   했었다. 처음 문제를 봤을 때는 어떻게 접근해야 되는지 조차 몰랐던 것 같다.이제는 여러번 복습끝에 완전히 나의 코드로 만들어냈다. 이 문제만 완벽하게 파악한다면 다른 이중 반복문 문제를 푸는데는 지장이 없을 것으로 여겨진다.내일의 TIW(today I Will)배열, 객체, 고차함수!">
-    <meta itemprop="datePublished" content="2021-01-11T00:00:00+09:00">
+    <meta itemprop="headline" content="1월 12일 TIL #3">
+    <meta itemprop="description" content="목차  shuffle 메서드 설명  객체 21번  고차함수 31번shuffle 메서드 설명      shuffle 레퍼런스 설명 :  아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!  코드를 한 줄씩 설명해보세요. (코드의 각 키워드가 무슨 의미인지 한 번 되돌아봅시다.)  이 메서드의 작동 원리에 대해서 설명해주세요.      필요한 경우가 어떤 경우가 있을지 고민하여 하나의 예를 들어주세요.    code_.shuffle = function (arr) {  let arrCloned = arr.slice();  for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {    const toIdx = Math.floor(Math.random() * arr.length);    let temp = arrCloned[fromIdx];    arrCloned[fromIdx] = arrCloned[toIdx];    arrCloned[toIdx] = temp;  }  return arrCloned;};shuffle 메서드는 배열 요소의 순서가 랜덤하게 변경된 새로운 배열을 리턴한다.다양한 상황 (ex. 비디오 또는 음악 재생의 순서를 섞을 때) 에서 유용하게 쓰일 수 있다.그러면 본격적으로 코드를 설명하기위해 한 줄씩 파헤쳐보자 !codelet arrCloned = arr.slice();arrCloned 이라는 변수에 얕은 복사를 통하여 배열을 가져왔다. 여기서 중요한 점은 slice() 는 원본을 대체하지 않는 점, 즉 원본은 따로 있다는 뜻이다.String 및 Number 객체 가 아닌 경우 문자열과 숫자는 새 배열에 복사한다. 이 새 배열에서는 마음대로 값을 바꿔도 원본에 아무런 영향을 주지 않는 다는 점을 명심하자. for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {주어진 배열의 요소를 확인하기 위해 for loop 를 사용하였다. 일반적인 배열 반복문이다.const toIdx = Math.floor(Math.random() * arr.length);이부분에서 특히 random() 메서드가 생소해서 많이 찾아봤던 것 같다. 먼저 ranmdom() 메서드는 0이상 1 미만의 부동소숫점 의사 난수를 반환 값으로 한다. 그렇기때문에 앞에 floor(반버림) 메서드를 사용하여 정수인 난수를 생성한다고 보면 될 것 같다. round(반올림) 메서드를 사용할 수 도 있지만, 이렇게 하면 난수가 고르게 분포하지 않게 된다.random() 메서드에 배열의 길이(arr.length)를 곱해준 이유는 배열의 길이에 가까운 임의의 정수를 생성하기 위함인 것 같다.let temp = arrCloned[fromIdx];얕은복사를 통해 가져온 배열의 요소를 temp라는 변수에 할당을 한다. 할당을 한 이유에 대해서는 밑에서 설명한다.다음 코드를 넘어가기 전에 배열 비구조화 할당 문법을 충분히 이해를 하고 가자. 이해를 돕기 위해 먼저 간단한 코드를 예시로 든다.const array = [1, 2];const [one, two] = array;console.log(one);  // 1console.log(two);  // 2이 문법은 배열 안에 있는 원소를 다른 이름으로 새로 선언해주고 싶을 때 사용하면 매우 유용하다.arrCloned[fromIdx] = arrCloned[toIdx];arrCloned[toIdx] = temp;이 코드를 설명하기 위해 먼저 arrCloned = [1, ‘a’, 2, ‘b’] 라는 배열이라고 가정하자. 반복문을 통해 첫번째 i 는 arrCloned[0] 가 될 것이고 값은 1 이다. toIdx는 random() 메서드를 통해 임의로 3의 정수가 나왔다고 가정하자.위에 코드는 arrCloned[0] = arrCloned[3];arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유);이렇게 반복문을 한 번 돌고 나면 배열은 [‘b’, ‘a’, 2, 1] 이라는 값으로 임의로 변하게 된다. 이런 식으로 반복문을 다 돌고나면 랜덤하게 변경된 새로운 배열 값이 나올 것 이다.이 부분이 shuffle 메서드의 핵심인 것 같다.return arrCloned;그리고 반복문을 다돌고 새로 배열된 배열 값을 리턴(반환) 해준다.이 공부를 통해 shuffle 메서드를 완벽히 짚고 넘어갈 수 있게 되었다. 얕은 복사를 통해 랜덤하게 배열을 섞을 때 사용하면 유용한 메서드라고 생각한다. 앞서 설명했듯이 음악 재생을 랜덤으로 돌릴 때나 무작위로 섞고 싶을 때 사용하면 유용할 것 같다.객체 21번문자열을 입력받아 가장 많이 반복되는 문자를 리턴해야 합니다.  주의사항 :          띄어쓰기는 제외      가장 많이 반복되는 문자가 다수일 경우, 먼저 도달한 문자를 리턴      빈 문자열을 입력받은 경우, 빈 문자열을 리턴        입출력 예시let output = mostFrequentCharacter(&#39;apples not oranges&#39;);console.log(output); // --&gt; &#39;p&#39;output = mostFrequentCharacter(&#39;hello world&#39;);console.log(output); // --&gt; &#39;l&#39;  pseudocode(수도코드)          문자열을 반복문으로 순회를 하면서 어떤 문자가 가장 많이 반복되는지 카운트를 세어주어야 한다.      리턴되는 값은 문자열이기 때문에 문자열도 같이 할당한다.      반복문으로 문자열을 순회하면서, 띄어쓰기는 건너뛰고 객체에 key 값과 value값을 할당한다.      반복문으로 문자열을 순회하면서, 반복되는 문자열을 카운트해준다.      가장 많이 카운트 된 문자를 가져온다.      비구조화 할당을 통해 가장 많이 반복된 문자를 할당한다.      할당된 객체를 리턴한다.      let obj = {max: 0, countStr: &#39;&#39;};    for (let i = 0; i &lt; str.length; i++) {     if (str[i] === &#39; &#39;) {       continue;     }     if (obj[str[i]] === undefined) {       obj[str[i]] = 0;     }     obj[str[i]]++;   if (obj[&#39;max&#39;] &lt; obj[str[i]]) {     obj[&#39;max&#39;] = obj[str[i]];     obj[&#39;countStr&#39;] = str[i];   }  }   return obj[&#39;countStr&#39;];이 문제의 핵심은 먼저 카운트를 할 객체를 할당하고, 카운트가 된 값을 비구조화 할당으로 가져오는 것이다. 나는 이 문제를 풀 때 처음에는 max = str[0] 로 할당하고 max 값의 문자를 반환하려고 했다. 오랜 삽질 끝에  let obj = {};  let max = str[0];   if(str === &#39;&#39;) {        return &#39;&#39;;  }  for(let i = 0; i &lt; str.length; i++) {    if(str[i] === &#39; &#39;) {                            continue;                                }                                        else if(obj[str[i]] === undefined) {            obj[str[i]] = 0;    }    obj[str[i]]++;        if(obj[max] &lt; obj[str[i]]) {             obj[str[i]];                   max = str[i];          }  }       if( Object.keys(obj).length === 0 ) {     return &#39;&#39;;   }       return max;      이 코드로 문제를 풀어보기도 했다. 하지만 이 삽질이 결국 HA 시험에 큰 도움이 되었다. HA 시험 1번 문제를 가볍게 풀 수 있었다.고차함수 31번아래 조건에 맞게 변형된 배열을 리턴해야 합니다.  주의사항 :          반복문 사용 금지      배열을 리턴      학생들의 성적을 평균값으로 변형해야 합니다.        입출력 예시let studentList = [  {    name: &#39;Anna&#39;,    gender: &#39;female&#39;,    grades: [4.5, 3.5, 4],  },  {    name: &#39;Dennis&#39;,    gender: &#39;male&#39;,    country: &#39;Germany&#39;,    grades: [5, 1.5, 4],  },  {    name: &#39;Martha&#39;,    gender: &#39;female&#39;,    grades: [5, 4, 4, 3],  },];console.log(output); // --&gt;[  { name: &#39;Anna&#39;, gender: &#39;female&#39;, grades: 4 },  { name: &#39;Martha&#39;, gender: &#39;female&#39;, grades: 4 },];  pseudocode(수도코드)          먼저 value 값이 ‘female’ 인 것만 필터링을 한다.      변형된 값을 반환하기 위해 맵핑을 하며 리턴을 한다.      평균 값을 구하기 위해 reduce 함수를 사용한다.      구한 평균값을 객체에 할당해준다.      객체를 리턴(반환)한다.        const filtering = students.filter (el =&gt; el.gender === &#39;female&#39;);  return filtering.map (function (el) {    const average = el.grades.reduce (function (acc, cur) {      return acc + cur;    }, 0);    const grade = average / el.grades.length;    el.grades = grade;        return el;  });각 함수의 뜻을 정확히 이해하면 쉽게 풀 수 있는 문제였다. 함수를 하나씩 차근 차근 써가면서 내려가보니 답을 찾을 수 있었다.하지만 이 문제 또한 삽질을 안 한건 아니다. 매개변수 el 값을 계속 가져오면서 마지막에 평균 값을 할당하는 것이 막혔었다. 원리를 하나씩 짚어보며 풀어가다보니 해결할 수 있었다.내일의 TIW(today I Will)재귀함수, 알고리즘">
+    <meta itemprop="datePublished" content="2021-01-12T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">1월 11일 TIL #2
+          <h1 id="page-title" class="page__title" itemprop="headline">1월 12일 TIL #3
 </h1>
           
 
@@ -291,7 +291,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          4 minute read
         
       </span>
     
@@ -303,123 +303,263 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="코드-변환고차함수--반복문-18번">코드 변환(고차함수) + 반복문 18번</h2>
+        <h2 id="목차">목차</h2>
 
-<h2 id="1고차함수-문제-">1.고차함수 문제 :</h2>
+<ol>
+  <li><a href="#shuffle-메서드-설명">shuffle 메서드 설명</a></li>
+  <li><a href="#객체-21번">객체 21번</a></li>
+  <li><a href="#고차함수-31번">고차함수 31번</a></li>
+</ol>
 
-<p>아래 코드를 <strong>reduce메서드 한 번만 사용한 코드로 변경하여</strong> 스스로 작성하고, 직접 설명한 내용을 적어주세요.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">filterMaped</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filterMaped</span><span class="p">)</span> <span class="c1">// [2, 6, 10]</span>
-</code></pre></div></div>
-
-<p>reduce를 사용한 코드로 변경하기에 앞서 나는 먼저 어떤 배열이었길래 콘솔로그에 [2, 4, 10]이라는 배열이 찍혔는지를 생각 해 보았다.</p>
-
-<p>필터와 맵을 거쳐간 과정을 보니 arr = [1, 2, 3, 4, 5] 라고 짐작한다.</p>
+<hr />
+<h2 id="shuffle-메서드-설명">shuffle 메서드 설명</h2>
 
 <ul>
-  <li>pseudocode (수도코드)
-    <ol>
-      <li>reduce(function (acc, cur)) 에서 acc(누적값) 과 cur(현재값) 그리고 초기값을 어떻게 설정해줄지 생각해본다.</li>
-      <li>값이 나올 때 마다 값을 넣어줄 빈 배열을 할당한다.</li>
-      <li>초기값을 0으로 설정하고 cur이 홀수이면 cur * 2 를 해준다.</li>
-      <li>cur을 빈 배열에 push 해주면서 누적값을 undefined로 만든다.</li>
-      <li>빈 배열을 리턴(반환) 한다.</li>
-    </ol>
+  <li>
+    <h2 id="shuffle-레퍼런스-설명-">shuffle 레퍼런스 설명 :</h2>
+  </li>
+</ul>
+
+<p>아래 shuffle 레퍼런스 코드에 대해서 <strong>최대한 자세히 설명해주세요!</strong></p>
+
+<ul>
+  <li>코드를 한 줄씩 설명해보세요. (코드의 각 키워드가 무슨 의미인지 한 번 되돌아봅시다.)</li>
+  <li>이 메서드의 작동 원리에 대해서 설명해주세요.</li>
+  <li>
+    <p>필요한 경우가 어떤 경우가 있을지 고민하여 하나의 예를 들어주세요.</p>
   </li>
   <li>code</li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">resultArr</span> <span class="o">=</span> <span class="p">[];</span>
-
- <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>  
-     <span class="k">if</span> <span class="p">(</span><span class="nx">cur</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">resultArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cur</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
-     <span class="p">}</span>     
- <span class="p">},</span><span class="mi">0</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">_</span><span class="p">.</span><span class="nx">shuffle</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arrCloned</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">fromIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">fromIdx</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">fromIdx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">toIdx</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nx">arrCloned</span><span class="p">[</span><span class="nx">fromIdx</span><span class="p">];</span>
+    <span class="nx">arrCloned</span><span class="p">[</span><span class="nx">fromIdx</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arrCloned</span><span class="p">[</span><span class="nx">toIdx</span><span class="p">];</span>
+    <span class="nx">arrCloned</span><span class="p">[</span><span class="nx">toIdx</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">arrCloned</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div></div>
 
-<ul>
-  <li>해설</li>
-</ul>
+<p>shuffle 메서드는 배열 요소의 순서가 랜덤하게 변경된 새로운 배열을 리턴한다.</p>
 
-<p>디버깅을 해보면 알겠지만 acc ,cur 순으로 적어보면</p>
+<p>다양한 상황 (ex. 비디오 또는 음악 재생의 순서를 섞을 때) 에서 유용하게 쓰일 수 있다.</p>
 
-<ol>
-  <li>0, 1</li>
-  <li>undefined, 2</li>
-  <li>undefined, 3</li>
-  <li>undefined, 4</li>
-  <li>undefined, 5</li>
-</ol>
+<p>그러면 본격적으로 코드를 설명하기위해 한 줄씩 파헤쳐보자 !</p>
 
-<p>이런식으로 값이 들어가는걸 알 수 있다. 나는 누적값을 적용시키지 않고 cur(현재값)만 빈 배열에 push를 해주는 식으로 reduce코드로 변경시켜봤다. 반복문과 비슷한 형태로 만들어보았다.</p>
+<p><strong>code</strong></p>
 
-<p>이 공부를 통해 나는 reduce 메서드는 확실히 배열의 요소들을 하나씩 돌며(반복문과 비슷하다) 이전 콜백의 리턴값과 현재 콜백의 리턴값을 가지고 활용하기에 유리한 메서드라고 생각했다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arrCloned</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+</code></pre></div></div>
+<p>arrCloned 이라는 변수에 얕은 복사를 통하여 배열을 가져왔다. 여기서 중요한 점은 slice() 는 원본을 대체하지 않는 점, 즉 원본은 따로 있다는 뜻이다.</p>
+
+<p><u>String 및 Number 객체</u> 가 아닌 경우 문자열과 숫자는 새 배열에 복사한다. 이 새 배열에서는 마음대로 값을 바꿔도 원본에 아무런 영향을 주지 않는 다는 점을 명심하자.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">fromIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">fromIdx</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">fromIdx</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div></div>
+
+<p>주어진 배열의 요소를 확인하기 위해 for loop 를 사용하였다. 일반적인 배열 반복문이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">toIdx</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>이부분에서 특히 random() 메서드가 생소해서 많이 찾아봤던 것 같다. 먼저 ranmdom() 메서드는 <u>0이상 1 미만의 부동소숫점 의사 난수</u>를 반환 값으로 한다.<br /> 그렇기때문에 앞에 floor(반버림) 메서드를 사용하여 정수인 난수를 생성한다고 보면 될 것 같다. round(반올림) 메서드를 사용할 수 도 있지만, 이렇게 하면 난수가 고르게 분포하지 않게 된다.</p>
+
+<p>random() 메서드에 배열의 길이(arr.length)를 곱해준 이유는 배열의 길이에 가까운 임의의 정수를 생성하기 위함인 것 같다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="nx">arrCloned</span><span class="p">[</span><span class="nx">fromIdx</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>얕은복사를 통해 가져온 배열의 요소를 temp라는 변수에 할당을 한다. 할당을 한 이유에 대해서는 밑에서 설명한다.</p>
+
+<p>다음 코드를 넘어가기 전에 <strong>배열 비구조화 할당</strong> 문법을 충분히 이해를 하고 가자. 이해를 돕기 위해 먼저 간단한 코드를 예시로 든다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="kd">const</span> <span class="p">[</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">]</span> <span class="o">=</span> <span class="nx">array</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">one</span><span class="p">);</span>  <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">two</span><span class="p">);</span>  <span class="c1">// 2</span>
+</code></pre></div></div>
+<p>이 문법은 배열 안에 있는 원소를 다른 이름으로 새로 선언해주고 싶을 때 사용하면 매우 유용하다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">arrCloned</span><span class="p">[</span><span class="nx">fromIdx</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arrCloned</span><span class="p">[</span><span class="nx">toIdx</span><span class="p">];</span>
+<span class="nx">arrCloned</span><span class="p">[</span><span class="nx">toIdx</span><span class="p">]</span> <span class="o">=</span> <span class="nx">temp</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>이 코드를 설명하기 위해 먼저 <strong>arrCloned = [1, ‘a’, 2, ‘b’]</strong> 라는 배열이라고 가정하자.<br /> 반복문을 통해 첫번째 i 는 arrCloned[0] 가 될 것이고 값은 1 이다. toIdx는 random() 메서드를 통해 임의로 3의 정수가 나왔다고 가정하자.<br />
+위에 코드는<br /> 
+arrCloned[0] = arrCloned[3];<br />
+arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유);<br />
+이렇게 반복문을 한 번 돌고 나면 배열은 [‘b’, ‘a’, 2, 1] 이라는 값으로 임의로 변하게 된다. 이런 식으로 반복문을 다 돌고나면 랜덤하게 변경된 새로운 배열 값이 나올 것 이다.<br />이 부분이 <u>shuffle 메서드의 핵심</u>인 것 같다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="nx">arrCloned</span><span class="p">;</span>
+</code></pre></div></div>
+<p>그리고 반복문을 다돌고 새로 배열된 배열 값을 리턴(반환) 해준다.</p>
+
+<p>이 공부를 통해 shuffle 메서드를 완벽히 짚고 넘어갈 수 있게 되었다. 얕은 복사를 통해 랜덤하게 배열을 섞을 때 사용하면 유용한 메서드라고 생각한다. 앞서 설명했듯이 음악 재생을 랜덤으로 돌릴 때나 무작위로 섞고 싶을 때 사용하면 유용할 것 같다.</p>
 
 <hr />
 
-<h2 id="2반복문-18번문제-">2.반복문 18번문제 :</h2>
+<h2 id="객체-21번">객체 21번</h2>
+<hr />
 
-<p>수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 합니다.</p>
+<p>문자열을 입력받아 가장 많이 반복되는 문자를 리턴해야 합니다.</p>
 
 <ul>
-  <li>
-    <p>주의사항 : 이중 반복문을 사용해야 합니다.</p>
+  <li>주의사항 :
+    <ol>
+      <li>띄어쓰기는 제외</li>
+      <li>가장 많이 반복되는 문자가 다수일 경우, 먼저 도달한 문자를 리턴</li>
+      <li>빈 문자열을 입력받은 경우, 빈 문자열을 리턴</li>
+    </ol>
   </li>
-  <li>
-    <p>입출력 예시</p>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">mostFrequentCharacter</span><span class="p">(</span><span class="dl">'</span><span class="s1">apples not oranges</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; 'p'</span>
+
+<span class="nx">output</span> <span class="o">=</span> <span class="nx">mostFrequentCharacter</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; 'l'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)
+    <ol>
+      <li>문자열을 반복문으로 순회를 하면서 어떤 문자가 가장 많이 반복되는지 카운트를 세어주어야 한다.</li>
+      <li>리턴되는 값은 문자열이기 때문에 문자열도 같이 할당한다.</li>
+      <li>반복문으로 문자열을 순회하면서, 띄어쓰기는 건너뛰고 객체에 key 값과 value값을 할당한다.</li>
+      <li>반복문으로 문자열을 순회하면서, 반복되는 문자열을 카운트해준다.</li>
+      <li>가장 많이 카운트 된 문자를 가져온다.</li>
+      <li>비구조화 할당을 통해 가장 많이 반복된 문자를 할당한다.</li>
+      <li>할당된 객체를 리턴한다.</li>
+    </ol>
   </li>
 </ul>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">listPrimes</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// ---&gt; '2-3-5-7-11-13-17'</span>
-</code></pre></div></div>
-
-<p>*pseudocode(수도코드)</p>
-<ol>
-  <li>소수 개념 파악 - 1과 자기자신을 제외하고 나누어 떨어지면 안된다.
-    <ul>
-      <li>2부터 N-1까지의 수 중에서 2의 배수를 모두 체로 거르고 남은 숫자들 중에서 3의 배수로 거르고를 반복해서 제곱근N 까지 나눠서 걸러지지 않고 남은 수들이 모두 소수가 됩니다.</li>
-    </ul>
-  </li>
-  <li>첫번째 반복문을 2부터 시작하여 2씩 증가하면서 순회를 한다.</li>
-  <li>true 값을 넣어서 이상이 없으면 계속 순회하도록 만든다.</li>
-  <li>두번째 반복문은 본격적으로 소수를 찾아야하기때문에 제곱근까지만 순회하도록 만든다.</li>
-  <li>반복문을 2씩 증가시켰기 때문에 2의 배수를 제외시켰고, 그다음 i(3의 배수) 를 j 로 나누면서 나머지 소수에 부합하지 않은 것들을 거른다.</li>
-  <li>마지막으로, 첫번째 반복문에서 거르고 남겨진 값이 true값이면 소수이기 때문에 소수이면 알맞는 형식으로 리턴한다.</li>
-</ol>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">+=</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">isReady</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">isPrime</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">isPrime</span><span class="p">;</span> <span class="nx">j</span><span class="o">+=</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">isReady</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">isReady</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">result</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">result</span><span class="p">}</span><span class="s2">-</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">`</span>
-    <span class="p">}</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">max</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">countStr</span><span class="p">:</span> <span class="dl">''</span><span class="p">};</span> 
+   <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">continue</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="dl">'</span><span class="s1">max</span><span class="dl">'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]])</span> <span class="p">{</span>
+     <span class="nx">obj</span><span class="p">[</span><span class="dl">'</span><span class="s1">max</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]];</span>
+     <span class="nx">obj</span><span class="p">[</span><span class="dl">'</span><span class="s1">countStr</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+   <span class="p">}</span>
   <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+   <span class="k">return</span> <span class="nx">obj</span><span class="p">[</span><span class="dl">'</span><span class="s1">countStr</span><span class="dl">'</span><span class="p">];</span>
 </code></pre></div></div>
 
-<p>이러한 식으로 코드를 만들어 볼 수 있다.</p>
+<p>이 문제의 핵심은 먼저 카운트를 할 객체를 할당하고, 카운트가 된 값을 비구조화 할당으로 가져오는 것이다.<br /> 나는 이 문제를 풀 때 처음에는 max = str[0] 로 할당하고 max 값의 문자를 반환하려고 했다. 오랜 삽질 끝에</p>
 
-<p>내가 생각했을 때, 반복문 알고리즘 중에서는 가장 어려웠던 문제로 꼽힌다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">str</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> 
+  <span class="k">if</span><span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">''</span><span class="p">)</span> <span class="p">{</span>    
+    <span class="k">return</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="p">}</span>
 
-<p>소수를 걸러내야 하는 점, 그리고 이중 반복문에 익숙하지 않았던 점에서 많이 힘들었다.</p>
+  <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>                    
+        <span class="k">continue</span><span class="p">;</span>                            
+    <span class="p">}</span>                                    
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>      
+      <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>  
+      <span class="k">if</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">max</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]])</span> <span class="p">{</span>   
+          <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]];</span>         
+          <span class="nx">max</span> <span class="o">=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>    
+      <span class="p">}</span>
+  <span class="p">}</span>    
+   <span class="k">if</span><span class="p">(</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="dl">''</span><span class="p">;</span>
+   <span class="p">}</span>
+       <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>      
+</code></pre></div></div>
 
-<p>true값을 for문 밖에다가 할당해서 삽질을 했었고, 제곱근 값을 구해놓고 parseInt를 쓰지않아서 삽질을 많이   했었다. 처음 문제를 봤을 때는 어떻게 접근해야 되는지 조차 몰랐던 것 같다.</p>
+<p>이 코드로 문제를 풀어보기도 했다. 하지만 이 삽질이 결국 HA 시험에 큰 도움이 되었다. HA 시험 1번 문제를 가볍게 풀 수 있었다.</p>
 
-<p>이제는 여러번 복습끝에 완전히 나의 코드로 만들어냈다. 이 문제만 완벽하게 파악한다면 다른 이중 반복문 문제를 푸는데는 지장이 없을 것으로 여겨진다.</p>
+<hr />
+
+<h2 id="고차함수-31번">고차함수 31번</h2>
+<hr />
+
+<p>아래 조건에 맞게 변형된 배열을 리턴해야 합니다.</p>
+
+<ul>
+  <li>주의사항 :
+    <ol>
+      <li>반복문 사용 금지</li>
+      <li>배열을 리턴</li>
+      <li>학생들의 성적을 평균값으로 변형해야 합니다.</li>
+    </ol>
+  </li>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">studentList</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Anna</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">gender</span><span class="p">:</span> <span class="dl">'</span><span class="s1">female</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">grades</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Dennis</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">gender</span><span class="p">:</span> <span class="dl">'</span><span class="s1">male</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">country</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Germany</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">grades</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Martha</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">gender</span><span class="p">:</span> <span class="dl">'</span><span class="s1">female</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">grades</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt;</span>
+<span class="p">[</span>
+  <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Anna</span><span class="dl">'</span><span class="p">,</span> <span class="na">gender</span><span class="p">:</span> <span class="dl">'</span><span class="s1">female</span><span class="dl">'</span><span class="p">,</span> <span class="na">grades</span><span class="p">:</span> <span class="mi">4</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Martha</span><span class="dl">'</span><span class="p">,</span> <span class="na">gender</span><span class="p">:</span> <span class="dl">'</span><span class="s1">female</span><span class="dl">'</span><span class="p">,</span> <span class="na">grades</span><span class="p">:</span> <span class="mi">4</span> <span class="p">},</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)
+    <ol>
+      <li>먼저 value 값이 ‘female’ 인 것만 필터링을 한다.</li>
+      <li>변형된 값을 반환하기 위해 맵핑을 하며 리턴을 한다.</li>
+      <li>평균 값을 구하기 위해 reduce 함수를 사용한다.</li>
+      <li>구한 평균값을 객체에 할당해준다.</li>
+      <li>객체를 리턴(반환)한다.</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">filtering</span> <span class="o">=</span> <span class="nx">students</span><span class="p">.</span><span class="nx">filter</span> <span class="p">(</span><span class="nx">el</span> <span class="o">=&gt;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">gender</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">female</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">filtering</span><span class="p">.</span><span class="nx">map</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">average</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">grades</span><span class="p">.</span><span class="nx">reduce</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">;</span>
+    <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="kd">const</span> <span class="nx">grade</span> <span class="o">=</span> <span class="nx">average</span> <span class="o">/</span> <span class="nx">el</span><span class="p">.</span><span class="nx">grades</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">grades</span> <span class="o">=</span> <span class="nx">grade</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="nx">el</span><span class="p">;</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p>각 함수의 뜻을 정확히 이해하면 쉽게 풀 수 있는 문제였다. 함수를 하나씩 차근 차근 써가면서 내려가보니 답을 찾을 수 있었다.<br />하지만 이 문제 또한 삽질을 안 한건 아니다. 매개변수 el 값을 계속 가져오면서 마지막에 평균 값을 할당하는 것이 막혔었다.<br /> 원리를 하나씩 짚어보며 풀어가다보니 해결할 수 있었다.</p>
 
 <p>내일의 TIW(today I Will)</p>
 
-<p>배열, 객체, 고차함수!</p>
+<p>재귀함수, 알고리즘</p>
 
 
         
@@ -428,29 +568,6 @@
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#codestates" class="page__taxonomy-item" rel="tag">CodeStates</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
-    
-    </span>
-  </p>
-
-
 
 
   
@@ -473,7 +590,7 @@
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-11T00:00:00+09:00">January 11, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-12T00:00:00+09:00">January 12, 2021</time></p>
 
 
       </footer>
@@ -481,7 +598,7 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+11%EC%9D%BC+TIL+%232%20http%3A%2F%2Flocalhost%3A4000%2Fpre-course%2FTIL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+12%EC%9D%BC+TIL+%233%20http%3A%2F%2Flocalhost%3A4000%2Fpre-course%2FTIL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpre-course%2FTIL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -492,7 +609,7 @@
       
   <nav class="pagination">
     
-      <a href="/pre-course/TIL/" class="pagination--pager" title="1월 10일 TIL #1
+      <a href="/pre-course/TIL/" class="pagination--pager" title="1월 11일 TIL #2
 ">Previous</a>
     
     
@@ -510,6 +627,60 @@
     <div class="page__related">
       <h4 class="page__related-title">You May Also Enjoy</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/pre-course/TIL/" rel="permalink">1월 11일 TIL #2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  [코드 변환(고차함수)](#코드-변환(고차함수)
+  반복문 18번
+
+
+
+
+코드 변환(고차함수)
+
+1.고차함수 문제 :
+
+아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요.
+
+const filterMaped =...</p>
+  </article>
+</div>
+
         
           
 
@@ -552,51 +723,6 @@
 아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..
 
 테마를 다운받고 레퍼지토리에 커밋하는건 어렵...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/blog/first-post/" rel="permalink">나의 첫 포스트
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다.
-
-지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다.
-
-미칠 것 같다. 깃블로그 너무 어렵다.
-
-</p>
   </article>
 </div>
 
