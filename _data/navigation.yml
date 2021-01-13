@@ -1,8 +1,8 @@
 main:
   - title: "TIL"
     url: /posts/
-  - title: "Categories"
-    url: /categories/
+  - title: "Monthly"
+    url: /month-archive/
   - title: "Tags"
     url: /tags/
   - title: "About"

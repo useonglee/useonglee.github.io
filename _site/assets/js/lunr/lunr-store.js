@@ -22,4 +22,10 @@ var store = [{
         "tags": [],
         "url": "http://localhost:4000/pre-course/TIL3/",
         "teaser": null
+      },{
+        "title": "1월 13일 TIL #4",
+        "excerpt":"목차 재귀함수 15번 알고리즘 16번 재귀함수 15번 다차원 배열을 입력받아 1차원 배열로 변환하여 리턴 주의사항 : 배열을 리턴 immutability 입출력 예시 let output = flattenArr([[1], 2, [3, 4], 5]); console.log(output); // --&gt; [1, 2, 3, 4, 5] output = flattenArr([[2, [[3]]], 4, [[[5]]]); console.log(output); // --&gt; [2, 3, 4, 5]...","categories": ["Pre-Course"],
+        "tags": [],
+        "url": "http://localhost:4000/pre-course/TIL4/",
+        "teaser": null
       }]
