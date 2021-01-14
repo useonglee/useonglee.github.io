@@ -12,7 +12,7 @@ var store = [{
         "teaser": null
       },{
         "title": "1월 11일 TIL #2",
-        "excerpt":"목차 코드 변환(고차함수) 반복문 18번 코드 변환(고차함수) 1.고차함수 문제 : 아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요. const filterMaped = arr.filter(x =&gt; x % 2 !== 0).map(x =&gt; x * 2); console.log(filterMaped) // [2, 6, 10] reduce를 사용한 코드로 변경하기에 앞서 나는 먼저...","categories": ["2021/01"],
+        "excerpt":"목차 코드 변환(고차함수) 반복문 18번 코드 변환(고차함수) 고차함수 문제 : 아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요. const filterMaped = arr.filter(x =&gt; x % 2 !== 0).map(x =&gt; x * 2); console.log(filterMaped) // [2, 6, 10] reduce를 사용한 코드로 변경하기에 앞서 나는 먼저...","categories": ["2021/01"],
         "tags": ["TIL","Pre-Course"],
         "url": "http://localhost:4000/2021/01/TIL2/",
         "teaser": null
@@ -24,8 +24,14 @@ var store = [{
         "teaser": null
       },{
         "title": "1월 13일 TIL #4",
-        "excerpt":"목차 재귀함수 15번 알고리즘 16번 재귀함수 15번 다차원 배열을 입력받아 1차원 배열로 변환하여 리턴 주의사항 : 배열을 리턴 immutability 입출력 예시 let output = flattenArr([[1], 2, [3, 4], 5]); console.log(output); // --&gt; [1, 2, 3, 4, 5] output = flattenArr([[2, [[3]]], 4, [[[5]]]); console.log(output); // --&gt; [2, 3, 4, 5]...","categories": ["2021/01"],
+        "excerpt":"목차 재귀함수 15번 알고리즘 16번 재귀함수 15번 재귀함수 문제 : 다차원 배열을 입력받아 1차원 배열로 변환하여 리턴 주의사항 : 배열을 리턴 immutability 입출력 예시 let output = flattenArr([[1], 2, [3, 4], 5]); console.log(output); // --&gt; [1, 2, 3, 4, 5] output = flattenArr([[2, [[3]]], 4, [[[5]]]); console.log(output); // --&gt; [2,...","categories": ["2021/01"],
         "tags": ["TIL","Pre-Course"],
         "url": "http://localhost:4000/2021/01/TIL4/",
+        "teaser": null
+      },{
+        "title": "1월 14일 TIL #5",
+        "excerpt":"목차 유효성 검사 DOM HA 4번 유효성 검사 :point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다. 코드를 보면서 설명 // html &lt;button id=\"btn-signup\"&gt;회원가입&lt;/button&gt; // js // html 버튼요소를 불러온다. const btnSignup = document.querySelector('#btn-signup') // 이벤트 핸들러 function handleInputIdChange() { let valid = moreThanLength(inputId.value,...","categories": ["2021/01"],
+        "tags": ["TIL","Pre-Course"],
+        "url": "http://localhost:4000/2021/01/TIL5/",
         "teaser": null
       }]

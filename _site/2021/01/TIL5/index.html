@@ -1,0 +1,917 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>1월 14일 TIL #5 - 꿈을 기록하는 Blog</title>
+<meta name="description" content="목차     유효성 검사   DOM   HA 4번     유효성 검사   :point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.     코드를 보면서 설명   // html &lt;button id=&quot;btn-signup&quot;&gt;회원가입&lt;/button&gt;   // js // html 버튼요소를 불러온다. const btnSignup = document.querySelector(&#39;#btn-signup&#39;)  // 이벤트 핸들러  function handleInputIdChange() {   let valid = moreThanLength(inputId.value, 4)    if (valid) {     setAsValid(&#39;#input-id&#39;)   // 아이디 입력 value가 참 일 경우   }   else {                     // 아이디 입력이 옳지 않을 경우     displayErrorMessage(&#39;#input-id&#39;, &#39;아이디는 4자 이상을 입력&#39;)   } }  function handleBtnSignupClick() {   let validId = moreThanLength(inputId.value, 4)   let validPw = strongPassword(inputPassword.value)    if (validId &amp;&amp; validPw) {     hideInvalidMessage()   }   // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음   else {     showInvalidMessage(&#39;필요한 정보를 다 입력하지 않았어요&#39;);   }          // 하나라도 잘못 입력할 경우 }  function setAsValid(selector) {    // 입력값이 참일 경우 class(&#39;valid&#39;)를 추가해준다.   let form = document.querySelector(selector)   form.classList.remove(&#39;invalid&#39;)   form.classList.add(&#39;valid&#39;) }  // 엘리먼트와 이벤트핸들러 연결 btnSignup.onclick = handleBtnSignupClick;    DOM     :point_up: What is the DOM?   DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다.  DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다.  console.dir  개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태     :point_up_2: DOM 문법   const target = document.querySelector(&#39;#container&#39;) // html에 있는 ul#container 불러오기  const testDiv = document.createElement(&#39;div&#39;);      // &lt;div&gt;&lt;/div&gt; 생성  testDiv.textContent = &#39;hello&#39;; console.log(testDiv)   // &lt;div&gt;hello&lt;/div&gt;   testDiv.classlist.add(&#39;name&#39;) console.log(testDiv)  // &lt;div class = &quot;name&quot;&gt;hello&lt;/div&gt;  target.append(testDiv) // 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다.  let btn = document.querySelectorAll(&#39;.name&#39;); // 모든 class = name 을 가져온다.  btn.onclick = handleClick; // onclick 이벤트  function handleClick () {   console.log(input.value) }     HA 4번      :point_right: HA 4번 풀이하면서 공부      문제 : 사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다.        주의사항 : &lt;a&gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다.      입출력 예시 :   let list = [   { firstName: &#39;Joe&#39;, lastName: &#39;Blow&#39;, age: 42, role: &#39;clerk&#39; },   { firstName: &#39;Mary&#39;, lastName: &#39;Jenkins&#39;, age: 36, role: &#39;manager&#39; }, ];  test4(list); // --&gt; &#39;ul#container&#39;가 아래와 같이 변경되어야 합니다. &lt;ul id=&quot;container&quot;&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Joe Blow&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;42&lt;/div&gt;   &lt;/li&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Mary Jenkins&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;36&lt;/div&gt;   &lt;/li&gt; &lt;/ul&gt; -------------------------------------------------------- &lt;html&gt;   &lt;body&gt;     &lt;ul id=&quot;container&quot;&gt;&lt;/ul&gt;   &lt;/body&gt; &lt;/html&gt;      pseudocode(수도코드)            html에 있는 container를 불러온다.       forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다.       사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다.       for loop 를 활용해 모든 class에 onclick 함수를 적용한다.       만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다.       click 함수를 실행한다.           function printRole(user) {   // Joe Blow를 클릭하면 clerk 이   // Mary Jenkins를 클릭하면 manager 가 찍힙니다.   // 이 함수는 수정하지 마십시오.   console.log(user.role); }  function test4(arr) {   const target = document.querySelector(&#39;#container&#39;);    arr.forEach(el =&gt; {     const li = document.createElement(&#39;li&#39;);     const a = document.createElement(&#39;a&#39;);     const div = document.createElement(&#39;div&#39;);      a.className = &#39;name&#39;;     a.textContent = el.firstName + &#39; &#39; + el.lastName;      div.className = &#39;age&#39;;     div.textContent = el.age;      target.append(li);     li.append(a);     li.append(div);   });    let btn = document.querySelectorAll(&#39;.name&#39;);    function click () {     for (let i = 0; i &lt; btn.length; i++) {       btn[i].onclick = function () {         for (let j = 0; j &lt; arr.length; j++) {           let name = arr[j].firstName + &#39; &#39; + arr[j].lastName;           if (btn[i].textContent === name) {             return printRole (arr[j]);           }         }       }     }   }   click(); }   HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다.     :punch: 내일의 TIW(today I Will)   HA문제 2번, 3번, 6번 풀이">
+
+
+  <meta name="author" content="이우성">
+  
+  <meta property="article:author" content="이우성">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="꿈을 기록하는 Blog">
+<meta property="og:title" content="1월 14일 TIL #5">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL5/">
+
+
+  <meta property="og:description" content="목차     유효성 검사   DOM   HA 4번     유효성 검사   :point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.     코드를 보면서 설명   // html &lt;button id=&quot;btn-signup&quot;&gt;회원가입&lt;/button&gt;   // js // html 버튼요소를 불러온다. const btnSignup = document.querySelector(&#39;#btn-signup&#39;)  // 이벤트 핸들러  function handleInputIdChange() {   let valid = moreThanLength(inputId.value, 4)    if (valid) {     setAsValid(&#39;#input-id&#39;)   // 아이디 입력 value가 참 일 경우   }   else {                     // 아이디 입력이 옳지 않을 경우     displayErrorMessage(&#39;#input-id&#39;, &#39;아이디는 4자 이상을 입력&#39;)   } }  function handleBtnSignupClick() {   let validId = moreThanLength(inputId.value, 4)   let validPw = strongPassword(inputPassword.value)    if (validId &amp;&amp; validPw) {     hideInvalidMessage()   }   // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음   else {     showInvalidMessage(&#39;필요한 정보를 다 입력하지 않았어요&#39;);   }          // 하나라도 잘못 입력할 경우 }  function setAsValid(selector) {    // 입력값이 참일 경우 class(&#39;valid&#39;)를 추가해준다.   let form = document.querySelector(selector)   form.classList.remove(&#39;invalid&#39;)   form.classList.add(&#39;valid&#39;) }  // 엘리먼트와 이벤트핸들러 연결 btnSignup.onclick = handleBtnSignupClick;    DOM     :point_up: What is the DOM?   DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다.  DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다.  console.dir  개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태     :point_up_2: DOM 문법   const target = document.querySelector(&#39;#container&#39;) // html에 있는 ul#container 불러오기  const testDiv = document.createElement(&#39;div&#39;);      // &lt;div&gt;&lt;/div&gt; 생성  testDiv.textContent = &#39;hello&#39;; console.log(testDiv)   // &lt;div&gt;hello&lt;/div&gt;   testDiv.classlist.add(&#39;name&#39;) console.log(testDiv)  // &lt;div class = &quot;name&quot;&gt;hello&lt;/div&gt;  target.append(testDiv) // 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다.  let btn = document.querySelectorAll(&#39;.name&#39;); // 모든 class = name 을 가져온다.  btn.onclick = handleClick; // onclick 이벤트  function handleClick () {   console.log(input.value) }     HA 4번      :point_right: HA 4번 풀이하면서 공부      문제 : 사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다.        주의사항 : &lt;a&gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다.      입출력 예시 :   let list = [   { firstName: &#39;Joe&#39;, lastName: &#39;Blow&#39;, age: 42, role: &#39;clerk&#39; },   { firstName: &#39;Mary&#39;, lastName: &#39;Jenkins&#39;, age: 36, role: &#39;manager&#39; }, ];  test4(list); // --&gt; &#39;ul#container&#39;가 아래와 같이 변경되어야 합니다. &lt;ul id=&quot;container&quot;&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Joe Blow&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;42&lt;/div&gt;   &lt;/li&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Mary Jenkins&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;36&lt;/div&gt;   &lt;/li&gt; &lt;/ul&gt; -------------------------------------------------------- &lt;html&gt;   &lt;body&gt;     &lt;ul id=&quot;container&quot;&gt;&lt;/ul&gt;   &lt;/body&gt; &lt;/html&gt;      pseudocode(수도코드)            html에 있는 container를 불러온다.       forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다.       사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다.       for loop 를 활용해 모든 class에 onclick 함수를 적용한다.       만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다.       click 함수를 실행한다.           function printRole(user) {   // Joe Blow를 클릭하면 clerk 이   // Mary Jenkins를 클릭하면 manager 가 찍힙니다.   // 이 함수는 수정하지 마십시오.   console.log(user.role); }  function test4(arr) {   const target = document.querySelector(&#39;#container&#39;);    arr.forEach(el =&gt; {     const li = document.createElement(&#39;li&#39;);     const a = document.createElement(&#39;a&#39;);     const div = document.createElement(&#39;div&#39;);      a.className = &#39;name&#39;;     a.textContent = el.firstName + &#39; &#39; + el.lastName;      div.className = &#39;age&#39;;     div.textContent = el.age;      target.append(li);     li.append(a);     li.append(div);   });    let btn = document.querySelectorAll(&#39;.name&#39;);    function click () {     for (let i = 0; i &lt; btn.length; i++) {       btn[i].onclick = function () {         for (let j = 0; j &lt; arr.length; j++) {           let name = arr[j].firstName + &#39; &#39; + arr[j].lastName;           if (btn[i].textContent === name) {             return printRole (arr[j]);           }         }       }     }   }   click(); }   HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다.     :punch: 내일의 TIW(today I Will)   HA문제 2번, 3번, 6번 풀이">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-14T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL5/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          꿈을 기록하는 Blog
+          
+        </a>
+        <ul class="visible-links">
+<li class="masthead__menu-item">
+              <a href="/posts/">TIL</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/categories/">Monthly</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li>
+</ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이우성</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>JavaScript기반 개발공부<br><br> 코드스테이츠 Full pre 9기</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="1월 14일 TIL #5">
+    <meta itemprop="description" content="목차  유효성 검사  DOM  HA 4번유효성 검사:point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.  코드를 보면서 설명// html&lt;button id=&quot;btn-signup&quot;&gt;회원가입&lt;/button&gt;// js// html 버튼요소를 불러온다.const btnSignup = document.querySelector('#btn-signup')// 이벤트 핸들러 function handleInputIdChange() {  let valid = moreThanLength(inputId.value, 4)   if (valid) {    setAsValid('#input-id')   // 아이디 입력 value가 참 일 경우  }  else {                     // 아이디 입력이 옳지 않을 경우    displayErrorMessage('#input-id', '아이디는 4자 이상을 입력')  }}function handleBtnSignupClick() {  let validId = moreThanLength(inputId.value, 4)  let validPw = strongPassword(inputPassword.value)  if (validId &amp;&amp; validPw) {    hideInvalidMessage()  }  // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음  else {    showInvalidMessage('필요한 정보를 다 입력하지 않았어요');  }          // 하나라도 잘못 입력할 경우}function setAsValid(selector) {   // 입력값이 참일 경우 class('valid')를 추가해준다.  let form = document.querySelector(selector)  form.classList.remove('invalid')  form.classList.add('valid')}// 엘리먼트와 이벤트핸들러 연결btnSignup.onclick = handleBtnSignupClick;DOM  :point_up: What is the DOM?DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다.DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다.console.dir개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태  :point_up_2: DOM 문법const target = document.querySelector('#container')// html에 있는 ul#container 불러오기const testDiv = document.createElement('div');     // &lt;div&gt;&lt;/div&gt; 생성testDiv.textContent = 'hello';console.log(testDiv)   // &lt;div&gt;hello&lt;/div&gt; testDiv.classlist.add('name')console.log(testDiv)  // &lt;div class = &quot;name&quot;&gt;hello&lt;/div&gt;target.append(testDiv)// 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다.let btn = document.querySelectorAll('.name');// 모든 class = name 을 가져온다.btn.onclick = handleClick; // onclick 이벤트function handleClick () {  console.log(input.value)}HA 4번  :point_right: HA 4번 풀이하면서 공부  문제 :사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다.      주의사항 :&lt;a&gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다.    입출력 예시 :let list = [  { firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk' },  { firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager' },];test4(list);// --&gt; 'ul#container'가 아래와 같이 변경되어야 합니다.&lt;ul id=&quot;container&quot;&gt;  &lt;li&gt;    &lt;a class=&quot;name&quot;&gt;Joe Blow&lt;/a&gt;    &lt;div class=&quot;age&quot;&gt;42&lt;/div&gt;  &lt;/li&gt;  &lt;li&gt;    &lt;a class=&quot;name&quot;&gt;Mary Jenkins&lt;/a&gt;    &lt;div class=&quot;age&quot;&gt;36&lt;/div&gt;  &lt;/li&gt;&lt;/ul&gt;--------------------------------------------------------&lt;html&gt;  &lt;body&gt;    &lt;ul id=&quot;container&quot;&gt;&lt;/ul&gt;  &lt;/body&gt;&lt;/html&gt;  pseudocode(수도코드)          html에 있는 container를 불러온다.      forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다.      사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다.      for loop 를 활용해 모든 class에 onclick 함수를 적용한다.      만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다.      click 함수를 실행한다.      function printRole(user) {  // Joe Blow를 클릭하면 clerk 이  // Mary Jenkins를 클릭하면 manager 가 찍힙니다.  // 이 함수는 수정하지 마십시오.  console.log(user.role);}function test4(arr) {  const target = document.querySelector('#container');  arr.forEach(el =&gt; {    const li = document.createElement('li');    const a = document.createElement('a');    const div = document.createElement('div');    a.className = 'name';    a.textContent = el.firstName + ' ' + el.lastName;    div.className = 'age';    div.textContent = el.age;    target.append(li);    li.append(a);    li.append(div);  });  let btn = document.querySelectorAll('.name');  function click () {    for (let i = 0; i &lt; btn.length; i++) {      btn[i].onclick = function () {        for (let j = 0; j &lt; arr.length; j++) {          let name = arr[j].firstName + ' ' + arr[j].lastName;          if (btn[i].textContent === name) {            return printRole (arr[j]);          }        }      }    }  }  click();}HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다.  :punch: 내일의 TIW(today I Will)HA문제 2번, 3번, 6번 풀이">
+    <meta itemprop="datePublished" content="2021-01-14T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">1월 14일 TIL #5
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="목차">목차</h2>
+
+<ol>
+  <li><a href="#%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC">유효성 검사</a></li>
+  <li><a href="#DOM">DOM</a></li>
+  <li><a href="#HA-4%EB%B2%88">HA 4번</a></li>
+</ol>
+
+<hr>
+
+<h2 id="유효성-검사">유효성 검사</h2>
+<hr>
+<p><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, <u>유효성 검사가 필요하다.</u></p>
+
+<ul>
+  <li>코드를 보면서 설명</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// html
+<span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"btn-signup"</span><span class="nt">&gt;</span>회원가입<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// js</span>
+<span class="c1">// html 버튼요소를 불러온다.</span>
+<span class="kd">const</span> <span class="nx">btnSignup</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#btn-signup</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="c1">// 이벤트 핸들러 </span>
+<span class="kd">function</span> <span class="nx">handleInputIdChange</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">valid</span> <span class="o">=</span> <span class="nx">moreThanLength</span><span class="p">(</span><span class="nx">inputId</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> 
+  <span class="k">if</span> <span class="p">(</span><span class="nx">valid</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setAsValid</span><span class="p">(</span><span class="dl">'</span><span class="s1">#input-id</span><span class="dl">'</span><span class="p">)</span>   <span class="c1">// 아이디 입력 value가 참 일 경우</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>                     <span class="c1">// 아이디 입력이 옳지 않을 경우</span>
+    <span class="nx">displayErrorMessage</span><span class="p">(</span><span class="dl">'</span><span class="s1">#input-id</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">아이디는 4자 이상을 입력</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">handleBtnSignupClick</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">validId</span> <span class="o">=</span> <span class="nx">moreThanLength</span><span class="p">(</span><span class="nx">inputId</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+  <span class="kd">let</span> <span class="nx">validPw</span> <span class="o">=</span> <span class="nx">strongPassword</span><span class="p">(</span><span class="nx">inputPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">validId</span> <span class="o">&amp;&amp;</span> <span class="nx">validPw</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">hideInvalidMessage</span><span class="p">()</span>
+  <span class="p">}</span>
+  <span class="c1">// 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">showInvalidMessage</span><span class="p">(</span><span class="dl">'</span><span class="s1">필요한 정보를 다 입력하지 않았어요</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>          <span class="c1">// 하나라도 잘못 입력할 경우</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">setAsValid</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="c1">// 입력값이 참일 경우 class('valid')를 추가해준다.</span>
+  <span class="kd">let</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">selector</span><span class="p">)</span>
+  <span class="nx">form</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="dl">'</span><span class="s1">invalid</span><span class="dl">'</span><span class="p">)</span>
+  <span class="nx">form</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">valid</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 엘리먼트와 이벤트핸들러 연결</span>
+<span class="nx">btnSignup</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">handleBtnSignupClick</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<h2 id="dom">DOM</h2>
+
+<blockquote>
+  <p><img class="emoji" title=":point_up:" alt=":point_up:" src="https://github.githubassets.com/images/icons/emoji/unicode/261d.png" height="20" width="20"> What is the DOM?</p>
+</blockquote>
+
+<p>DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다.</p>
+
+<p>DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다.</p>
+
+<p><strong>console.dir</strong></p>
+
+<p>개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.<br>나오는 모양이 object처럼 나온다. 즉, [key: value] 형태</p>
+
+<blockquote>
+  <p><img class="emoji" title=":point_up_2:" alt=":point_up_2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f446.png" height="20" width="20"> DOM 문법</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#container</span><span class="dl">'</span><span class="p">)</span>
+<span class="c1">// html에 있는 ul#container 불러오기</span>
+
+<span class="kd">const</span> <span class="nx">testDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">div</span><span class="dl">'</span><span class="p">);</span>     
+<span class="c1">// &lt;div&gt;&lt;/div&gt; 생성</span>
+
+<span class="nx">testDiv</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">testDiv</span><span class="p">)</span>   <span class="c1">// &lt;div&gt;hello&lt;/div&gt; </span>
+
+<span class="nx">testDiv</span><span class="p">.</span><span class="nx">classlist</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">testDiv</span><span class="p">)</span>  <span class="c1">// &lt;div class = "name"&gt;hello&lt;/div&gt;</span>
+
+<span class="nx">target</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">testDiv</span><span class="p">)</span>
+<span class="c1">// 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다.</span>
+
+<span class="kd">let</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">.name</span><span class="dl">'</span><span class="p">);</span>
+<span class="c1">// 모든 class = name 을 가져온다.</span>
+
+<span class="nx">btn</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">handleClick</span><span class="p">;</span> <span class="c1">// onclick 이벤트</span>
+
+<span class="kd">function</span> <span class="nx">handleClick</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr>
+
+<h2 id="ha-4번">HA 4번</h2>
+<hr>
+
+<blockquote>
+  <p><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> HA 4번 풀이하면서 공부</p>
+</blockquote>
+
+<ul>
+  <li>문제 :
+사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다.</li>
+  <li>
+    <p>주의사항 :
+<code class="language-plaintext highlighter-rouge">&lt;a&gt;</code>요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다.</p>
+  </li>
+  <li>입출력 예시 :</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">list</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Joe</span><span class="dl">'</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Blow</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="na">role</span><span class="p">:</span> <span class="dl">'</span><span class="s1">clerk</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Mary</span><span class="dl">'</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Jenkins</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="na">role</span><span class="p">:</span> <span class="dl">'</span><span class="s1">manager</span><span class="dl">'</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="nx">test4</span><span class="p">(</span><span class="nx">list</span><span class="p">);</span>
+<span class="c1">// --&gt; 'ul#container'가 아래와 같이 변경되어야 합니다.</span>
+<span class="o">&lt;</span><span class="nx">ul</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">container</span><span class="dl">"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">a</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Joe</span> <span class="nx">Blow</span><span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">age</span><span class="dl">"</span><span class="o">&gt;</span><span class="mi">42</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">a</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Mary</span> <span class="nx">Jenkins</span><span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">age</span><span class="dl">"</span><span class="o">&gt;</span><span class="mi">36</span><span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span><span class="o">--------------------------------------------------------</span>
+<span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ul</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">container</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/html</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)
+    <ol>
+      <li>html에 있는 container를 불러온다.</li>
+      <li>forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다.</li>
+      <li>사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다.</li>
+      <li>for loop 를 활용해 모든 class에 onclick 함수를 적용한다.</li>
+      <li>만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 <code class="language-plaintext highlighter-rouge">printRole</code> 함수를 리턴한다.</li>
+      <li>click 함수를 실행한다.</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">printRole</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Joe Blow를 클릭하면 clerk 이</span>
+  <span class="c1">// Mary Jenkins를 클릭하면 manager 가 찍힙니다.</span>
+  <span class="c1">// 이 함수는 수정하지 마십시오.</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">role</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">test4</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#container</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">el</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">li</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">div</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="nx">a</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">el</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+
+    <span class="nx">div</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">age</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
+
+    <span class="nx">target</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+    <span class="nx">li</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+    <span class="nx">li</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="kd">let</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">.name</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="kd">function</span> <span class="nx">click</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">btn</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">btn</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">firstName</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">lastName</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">btn</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">textContent</span> <span class="o">===</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">printRole</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. <br>특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다.</p>
+
+<blockquote>
+  <p><img class="emoji" title=":punch:" alt=":punch:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png" height="20" width="20"> <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>HA문제 2번, 3번, 6번 풀이</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-14T00:00:00+09:00">January 14, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+14%EC%9D%BC+TIL+%235%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/2021/01/TIL4/" class="pagination--pager" title="1월 13일 TIL #4
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL4/" rel="permalink">1월 13일 TIL #4
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  재귀함수 15번
+  알고리즘 16번
+
+
+
+
+재귀함수 15번
+
+  
+    
+      재귀함수 문제 :
+    
+  
+
+
+다차원 배열을 입력받아 1차원 배열로 변환하여 리턴
+
+
+  주의사항 :
+    
+      배열을 리턴
+      immutability
+    
+...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL3/" rel="permalink">1월 12일 TIL #3
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  shuffle 메서드 설명
+  객체 21번
+  고차함수 31번
+
+
+
+
+shuffle 메서드 설명
+
+
+  
+    
+      shuffle 레퍼런스 설명 :
+    
+  
+
+
+아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!
+
+
+  코드를 한 줄씩...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL2/" rel="permalink">1월 11일 TIL #2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  코드 변환(고차함수)
+  반복문 18번
+
+
+
+
+코드 변환(고차함수)
+
+
+  
+    
+      고차함수 문제 :
+    
+  
+
+
+아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요.
+
+const filter...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL1/" rel="permalink">1월 10일 TIL #1
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">##드디어 깃블로그를 마치다.
+
+금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.
+
+아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..
+
+테마를 다운받고 레퍼지토리에 커밋하는건 어렵...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+<form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term...">
+  </form>
+  <div id="results" class="results"></div>
+</div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2021 꿈을 기록하는 Blog. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
