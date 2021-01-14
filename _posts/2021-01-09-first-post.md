@@ -1,8 +1,6 @@
 ---
 title: "나의 첫 포스트"
 excerpt_separator: "<!--more-->"
-categories:
-  - Blog
 tags:
   - Posts
 

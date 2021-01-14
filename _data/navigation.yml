@@ -2,7 +2,7 @@ main:
   - title: "TIL"
     url: /posts/
   - title: "Monthly"
-    url: /month-archive/
+    url: /categories/
   - title: "Tags"
     url: /tags/
   - title: "About"

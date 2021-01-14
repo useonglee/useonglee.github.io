@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
 <meta property="og:title" content="1월 13일 TIL #4">
-<meta property="og:url" content="http://localhost:4000/pre-course/TIL4/">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL4/">
 
 
   <meta property="og:description" content="목차     재귀함수 15번   알고리즘 16번     재귀함수 15번    다차원 배열을 입력받아 1차원 배열로 변환하여 리턴     주의사항 :            배열을 리턴       immutability           입출력 예시   let output = flattenArr([[1], 2, [3, 4], 5]); console.log(output); // --&gt; [1, 2, 3, 4, 5]  output = flattenArr([[2, [[3]]], 4, [[[5]]]); console.log(output); // --&gt; [2, 3, 4, 5]      pseudocode(수도코드)            1차원 배열을 담아줄 빈 배열을 할당한다.       반복문으로 배열을 돌며 배열인지 아닌지를 구분한다.       배열일 경우 먼저 재귀함수 호출을 할당한다.       그 후에 할당한 변수를 빈 배열에 push 한다. 단, 몇차원 배열이 나올지 모르니 spread syntax 사용한다.       배열이 아닐 경우 바로 빈 배열에 push 한다.       빈 배열을 리턴(반환) 한다.           code     let resultArr = [];    if (arr.length === 0) {     return [];   }    for (let i = 0; i &lt; arr.length; i++) {     if (Array.isArray(arr[i])) {        const result = flattenArr(arr[i]);       resultArr.push(...result);     }      else {       resultArr.push(arr[i]);     }   }    return resultArr;   이 문제를 복습하면서 spread syntax 에 대해 다시 짚고 넘어갈 수 있었다.  근데 사실 내가 처음 풀었을 때는 전혀 다른 코드로 풀었다.  return arr.reduce(function(acc, cur) {   return acc.concat(Array.isArray(cur) ? flattenArr(cur) : cur); },[]); }   reduce 메서드를 활용한 재귀함수 풀이방식이다. 다른 각도에서 문제를 풀어보았다.    알고리즘 16번   문자열을 입력받아 아이소그램(isogram)인지 여부를 리턴해야 합니다. 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.     주의사항 :            대소문자를 구별하지 않는다.       빈 문자열을 입력받은 경우, true를 리턴해야 한다.       빈 문자열을 입력받은 경우, 빈 문자열을 리턴           입출력 예시   let output = isIsogram(&#39;aba&#39;); console.log(output); // false  output = isIsogram(&#39;Dermatoglyphics&#39;); console.log(output); // true      pseudocode(수도코드)            먼저 문자열을 대문자로 모두 바꿔준다.       이중 반복문을 사용한다.       두번째 반복문은 첫번째 반복문 i 와 겹치지 않기위해 i + 1부터 시작한다.       i === j 가 되면 false 를 반환한다.       그렇지 않으면 true를 반환한다.             if (str === &#39;&#39;) {     return true;   }    let upper = str.toUpperCase();    for (let i = 0; i &lt; upper.length; i++) {     for (let j = i+1; j &lt; upper.length; j++) {       if (upper[i] === upper[j]) {         return false;       }     }   }   return true;   나는 이러한 방식으로 문제를 풀어 보았다. 하지만 레퍼런스 코드는 for loop 를 한 번만 활용하였다.    if (str.length === 0) {     return true;   }    let cache = {};   let strLowered = str.toLowerCase();    for (let i = 0; i &lt; strLowered.length; i++) {     if (cache[strLowered[i]]) {       return false;     }     cache[strLowered[i]] = true;   }    return true;   아무래도 for loop 를 한 번만 활용했으니까 레퍼런스 코드가 더 좋은 코드일까?  레퍼런스 코드를 보고 “아~ 저렇게도 풀 수 있구나를 느꼈다” 문제를 풀 때는 쉽게 풀었지만레퍼런스 코드를 보면서 다른 각도에서 코드를 보는 법도 배우게 되었다.  내일의 TIW(today I Will)  DOM, 유효성 검사">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/pre-course/TIL4/">
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL4/">
 
 
 
@@ -131,7 +131,7 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/posts/">TIL</a>
             </li><li class="masthead__menu-item">
-              <a href="/month-archive/">Monthly</a>
+              <a href="/categories/">Monthly</a>
             </li><li class="masthead__menu-item">
               <a href="/tags/">Tags</a>
             </li><li class="masthead__menu-item">
@@ -467,6 +467,29 @@
       <footer class="page__meta">
         
         
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
 
 
   
@@ -482,7 +505,7 @@
     
       
       
-      <a href="/categories/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a>
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
     
     </span>
   </p>
@@ -497,18 +520,18 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+13%EC%9D%BC+TIL+%234%20http%3A%2F%2Flocalhost%3A4000%2Fpre-course%2FTIL4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+13%EC%9D%BC+TIL+%234%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL4%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fpre-course%2FTIL4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL4%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fpre-course%2FTIL4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL4%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/pre-course/TIL3/" class="pagination--pager" title="1월 12일 TIL #3
+      <a href="/2021/01/TIL3/" class="pagination--pager" title="1월 12일 TIL #3
 ">Previous</a>
     
     
@@ -536,7 +559,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/pre-course/TIL3/" rel="permalink">1월 12일 TIL #3
+        <a href="/2021/01/TIL3/" rel="permalink">1월 12일 TIL #3
 </a>
       
     </h2>
@@ -596,7 +619,7 @@ shuffle 메서드 설명
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/pre-course/TIL2/" rel="permalink">1월 11일 TIL #2
+        <a href="/2021/01/TIL2/" rel="permalink">1월 11일 TIL #2
 </a>
       
     </h2>
@@ -650,7 +673,7 @@ const filterMaped = arr.filter(x =...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/pre-course/TIL1/" rel="permalink">1월 10일 TIL #1
+        <a href="/2021/01/TIL1/" rel="permalink">1월 10일 TIL #1
 </a>
       
     </h2>
@@ -695,7 +718,7 @@ const filterMaped = arr.filter(x =...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/first-post/" rel="permalink">나의 첫 포스트
+        <a href="/first-post/" rel="permalink">나의 첫 포스트
 </a>
       
     </h2>
