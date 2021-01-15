@@ -1,0 +1,838 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>1월 15일 TIL #6 - 꿈을 기록하는 Blog</title>
+<meta name="description" content="목차     함수 호이스팅(Hoisting)   reduce 활용해서 배열을 객체로   onclick 함수     &gt;함수 호이스팅(Hoisting)   :point_right: 호이스팅은 말 그대로 끌어 올린 다는 것이다.  자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수 ‘선언’ 을 끌어올리는 것이다.함수 호이스팅이 발생하는 원인은 자바스크립트의 변수 생성(Instantiation)과 초기화(Initialization)의 작업이 분리돼서 진행되기 때문이다.  for (var i = 0; i &lt; arr.length; i++) {   // anyting; } console.log(i)  일반적으로 변수는 Block scope {} 안에서 유효하기 때문에 블록 스코프가 종료된 시점에서는 console.log가 작동하지 않는다. 하지만 이러한 경우에는 var 가 호이스팅되기 때문에 i의 값이 찍힌다. function test() {   return &#39;test&#39;; }  console.log(test());  // test  이렇게 함수 선언식을 사용했을 때도 결과는 마찬가지이다. 이런식으로 하나씩 콘솔을 찍어가며 해봤더니 호이스팅의 개념에 대해 잡힌 것 같다.     :metal:함수 표현식 권장      먼저 함수 선언식의 예를 살펴보자.   console.log(sum(2, 3));  function sum(x ,y) {   return x + y; }  sum(2, 3)은 아직 sum() 함수가 정의되지 않았음에도 불구하고 sum() 함수를 호출하는 것이 가능하다.  이것은 함수가 자신이 위치한 코드에 상관없이 함수 선언문 형태로 정의한 함수의 유효 범위는 코드의 맨 처음부터 시작한다는 것을 확인할 수 있다. 이것을 함수 호이스팅이라 부른다.     함수 표현식   console.log(sum(2, 3)); //error  function sum(x ,y) {   return x + y; }  console.log(sum(4, 5)); // 9  sum(2, 3) 함수는 실행되지 않는다. 왜냐하면 함수 표현식 형태로 sum() 함수가 정의되어 있기 때문이다.  하지만 sum(3, 4)와 같이 함수가 생성된 이후에는 호출이 가능하다.  이렇게 함수 호이스팅에 대해서 다시 한번 복습하게 되었다.  reduce 활용해서 배열을 객체로      :point_up: 배열을 객체로   function foo4(arr) {   return ar.reduce(function (acc, cur, idx) {      acc[idx] = cur;      retun acc;   }, {}); }          foo4 [0, 1, 2];  // 정답: {&quot;0&quot;: 0, &quot;1&quot;: 1, &quot;2&quot;: 2}  오늘 그동안 배웠던 socrativa 내용들을 정리하면서 다시 한 번 깨닫게 된 내용이다.  onclick 함수      :point_right:onclick 함수, 헬프데스크에 물어봤었던 내용   :question:질문 내용 : onclick 함수를 사용할 때, 함수 선언식과 함수표현식의 차이와 둘 중에 어느 것이 더 실용적인가?  // helperFunction.js function printHello() {   console.log(&#39;hello&#39;); } module.exports = printHello;   // index.js const printHello = require(&#39;helperFunction의 경로&#39;); const tweetBtn = document.getElementById(&quot;tweet&quot;); tweetBtn.onclick = printHello  함수 표현식을 사용한다면 tweetBtn.onclick = 구현할 함수로 볼 수 있다.  함수 선언식을 사용한다면 helperFunction.js 와 같이 다른 파일에 분리를 한 후, 그 안에서 해당 함수를 가져옴으로써 구현하는 방식.  :exclamation:답변: 기능별로, 카테고리별로 파일을 모듈화(나누는 것) 하기에 용이한 방식이고, 다른 개발자와 협업을 할 때에도 용이하다. (표현식의 경우, 한파일에 모든 것이 다 담겨있고 마치 부록이 없는 수백쪽짜리 책을 읽어야 하는 것과 같다고 보면 된다.)  :metal:결론: onclick함수는 선언식을 사용하자!     :punch: 내일의 TIW(today I Will)   HA문제 2번, 3번, 6번 풀이">
+
+
+  <meta name="author" content="이우성">
+  
+  <meta property="article:author" content="이우성">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="꿈을 기록하는 Blog">
+<meta property="og:title" content="1월 15일 TIL #6">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL6/">
+
+
+  <meta property="og:description" content="목차     함수 호이스팅(Hoisting)   reduce 활용해서 배열을 객체로   onclick 함수     &gt;함수 호이스팅(Hoisting)   :point_right: 호이스팅은 말 그대로 끌어 올린 다는 것이다.  자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수 ‘선언’ 을 끌어올리는 것이다.함수 호이스팅이 발생하는 원인은 자바스크립트의 변수 생성(Instantiation)과 초기화(Initialization)의 작업이 분리돼서 진행되기 때문이다.  for (var i = 0; i &lt; arr.length; i++) {   // anyting; } console.log(i)  일반적으로 변수는 Block scope {} 안에서 유효하기 때문에 블록 스코프가 종료된 시점에서는 console.log가 작동하지 않는다. 하지만 이러한 경우에는 var 가 호이스팅되기 때문에 i의 값이 찍힌다. function test() {   return &#39;test&#39;; }  console.log(test());  // test  이렇게 함수 선언식을 사용했을 때도 결과는 마찬가지이다. 이런식으로 하나씩 콘솔을 찍어가며 해봤더니 호이스팅의 개념에 대해 잡힌 것 같다.     :metal:함수 표현식 권장      먼저 함수 선언식의 예를 살펴보자.   console.log(sum(2, 3));  function sum(x ,y) {   return x + y; }  sum(2, 3)은 아직 sum() 함수가 정의되지 않았음에도 불구하고 sum() 함수를 호출하는 것이 가능하다.  이것은 함수가 자신이 위치한 코드에 상관없이 함수 선언문 형태로 정의한 함수의 유효 범위는 코드의 맨 처음부터 시작한다는 것을 확인할 수 있다. 이것을 함수 호이스팅이라 부른다.     함수 표현식   console.log(sum(2, 3)); //error  function sum(x ,y) {   return x + y; }  console.log(sum(4, 5)); // 9  sum(2, 3) 함수는 실행되지 않는다. 왜냐하면 함수 표현식 형태로 sum() 함수가 정의되어 있기 때문이다.  하지만 sum(3, 4)와 같이 함수가 생성된 이후에는 호출이 가능하다.  이렇게 함수 호이스팅에 대해서 다시 한번 복습하게 되었다.  reduce 활용해서 배열을 객체로      :point_up: 배열을 객체로   function foo4(arr) {   return ar.reduce(function (acc, cur, idx) {      acc[idx] = cur;      retun acc;   }, {}); }          foo4 [0, 1, 2];  // 정답: {&quot;0&quot;: 0, &quot;1&quot;: 1, &quot;2&quot;: 2}  오늘 그동안 배웠던 socrativa 내용들을 정리하면서 다시 한 번 깨닫게 된 내용이다.  onclick 함수      :point_right:onclick 함수, 헬프데스크에 물어봤었던 내용   :question:질문 내용 : onclick 함수를 사용할 때, 함수 선언식과 함수표현식의 차이와 둘 중에 어느 것이 더 실용적인가?  // helperFunction.js function printHello() {   console.log(&#39;hello&#39;); } module.exports = printHello;   // index.js const printHello = require(&#39;helperFunction의 경로&#39;); const tweetBtn = document.getElementById(&quot;tweet&quot;); tweetBtn.onclick = printHello  함수 표현식을 사용한다면 tweetBtn.onclick = 구현할 함수로 볼 수 있다.  함수 선언식을 사용한다면 helperFunction.js 와 같이 다른 파일에 분리를 한 후, 그 안에서 해당 함수를 가져옴으로써 구현하는 방식.  :exclamation:답변: 기능별로, 카테고리별로 파일을 모듈화(나누는 것) 하기에 용이한 방식이고, 다른 개발자와 협업을 할 때에도 용이하다. (표현식의 경우, 한파일에 모든 것이 다 담겨있고 마치 부록이 없는 수백쪽짜리 책을 읽어야 하는 것과 같다고 보면 된다.)  :metal:결론: onclick함수는 선언식을 사용하자!     :punch: 내일의 TIW(today I Will)   HA문제 2번, 3번, 6번 풀이">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-15T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL6/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          꿈을 기록하는 Blog
+          <span class="site-subtitle">since 2021</span>
+        </a>
+        <ul class="visible-links">
+<li class="masthead__menu-item">
+              <a href="/posts/">TIL</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/categories/">Monthly</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li>
+</ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이우성</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>JavaScript기반 개발공부<br><br> 코드스테이츠 Full pre 9기</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="1월 15일 TIL #6">
+    <meta itemprop="description" content="목차  함수 호이스팅(Hoisting)  reduce 활용해서 배열을 객체로  onclick 함수&gt;함수 호이스팅(Hoisting):point_right: 호이스팅은 말 그대로 끌어 올린 다는 것이다. 자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수 ‘선언’ 을 끌어올리는 것이다.함수 호이스팅이 발생하는 원인은 자바스크립트의 변수 생성(Instantiation)과 초기화(Initialization)의 작업이 분리돼서 진행되기 때문이다.for (var i = 0; i &lt; arr.length; i++) {  // anyting;}console.log(i)일반적으로 변수는 Block scope {} 안에서 유효하기 때문에 블록 스코프가 종료된 시점에서는 console.log가 작동하지 않는다.하지만 이러한 경우에는 var 가 호이스팅되기 때문에 i의 값이 찍힌다.function test() {  return 'test';}console.log(test());  // test이렇게 함수 선언식을 사용했을 때도 결과는 마찬가지이다. 이런식으로 하나씩 콘솔을 찍어가며 해봤더니 호이스팅의 개념에 대해 잡힌 것 같다.  :metal:함수 표현식 권장  먼저 함수 선언식의 예를 살펴보자.console.log(sum(2, 3));function sum(x ,y) {  return x + y;}sum(2, 3)은 아직 sum() 함수가 정의되지 않았음에도 불구하고 sum() 함수를 호출하는 것이 가능하다.이것은 함수가 자신이 위치한 코드에 상관없이 함수 선언문 형태로 정의한 함수의 유효 범위는 코드의 맨 처음부터 시작한다는 것을 확인할 수 있다. 이것을 함수 호이스팅이라 부른다.  함수 표현식console.log(sum(2, 3)); //errorfunction sum(x ,y) {  return x + y;}console.log(sum(4, 5)); // 9sum(2, 3) 함수는 실행되지 않는다. 왜냐하면 함수 표현식 형태로 sum() 함수가 정의되어 있기 때문이다.하지만 sum(3, 4)와 같이 함수가 생성된 이후에는 호출이 가능하다.이렇게 함수 호이스팅에 대해서 다시 한번 복습하게 되었다.reduce 활용해서 배열을 객체로  :point_up: 배열을 객체로function foo4(arr) {  return ar.reduce(function (acc, cur, idx) {    acc[idx] = cur;    retun acc;  }, {});}        foo4 [0, 1, 2];// 정답: {&quot;0&quot;: 0, &quot;1&quot;: 1, &quot;2&quot;: 2}오늘 그동안 배웠던 socrativa 내용들을 정리하면서 다시 한 번 깨닫게 된 내용이다.onclick 함수  :point_right:onclick 함수, 헬프데스크에 물어봤었던 내용:question:질문 내용 : onclick 함수를 사용할 때, 함수 선언식과 함수표현식의 차이와 둘 중에 어느 것이 더 실용적인가?// helperFunction.jsfunction printHello() {  console.log('hello');}module.exports = printHello;// index.jsconst printHello = require('helperFunction의 경로');const tweetBtn = document.getElementById(&quot;tweet&quot;);tweetBtn.onclick = printHello함수 표현식을 사용한다면 tweetBtn.onclick = 구현할 함수로 볼 수 있다.함수 선언식을 사용한다면 helperFunction.js 와 같이 다른 파일에 분리를 한 후, 그 안에서 해당 함수를 가져옴으로써 구현하는 방식.:exclamation:답변: 기능별로, 카테고리별로 파일을 모듈화(나누는 것) 하기에 용이한 방식이고, 다른 개발자와 협업을 할 때에도 용이하다. (표현식의 경우, 한파일에 모든 것이 다 담겨있고 마치 부록이 없는 수백쪽짜리 책을 읽어야 하는 것과 같다고 보면 된다.):metal:결론: onclick함수는 선언식을 사용하자!  :punch: 내일의 TIW(today I Will)HA문제 2번, 3번, 6번 풀이">
+    <meta itemprop="datePublished" content="2021-01-15T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">1월 15일 TIL #6
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="목차">목차</h2>
+
+<ol>
+  <li><a href="#%ED%95%A8%EC%88%98-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85(Hoisting)">함수 호이스팅(Hoisting)</a></li>
+  <li><a href="#reduce-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-%EB%B0%B0%EC%97%B4%EC%9D%84-%EA%B0%9D%EC%B2%B4%EB%A1%9C">reduce 활용해서 배열을 객체로</a></li>
+  <li><a href="#onclick-%ED%95%A8%EC%88%98">onclick 함수</a></li>
+</ol>
+
+<hr>
+
+<h2 id="함수-호이스팅hoisting">&gt;함수 호이스팅(Hoisting)</h2>
+<hr>
+<p><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> <strong>호이스팅은 말 그대로 끌어 올린 다는 것이다.</strong> <br>
+자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수 ‘선언’ 을 끌어올리는 것이다.<br>함수 호이스팅이 발생하는 원인은 자바스크립트의 변수 생성(Instantiation)과 초기화(Initialization)의 작업이 분리돼서 진행되기 때문이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// anyting;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</code></pre></div></div>
+<p>일반적으로 변수는 Block scope {} 안에서 유효하기 때문에 블록 스코프가 종료된 시점에서는 console.log가 작동하지 않는다.<br>
+하지만 이러한 경우에는 var 가 호이스팅되기 때문에 i의 값이 찍힌다.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="dl">'</span><span class="s1">test</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">());</span>  <span class="c1">// test</span>
+</code></pre></div></div>
+<p>이렇게 함수 선언식을 사용했을 때도 결과는 마찬가지이다. 이런식으로 하나씩 콘솔을 찍어가며 해봤더니 호이스팅의 개념에 대해 잡힌 것 같다.</p>
+
+<blockquote>
+  <p><img class="emoji" title=":metal:" alt=":metal:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f918.png" height="20" width="20"><strong>함수 표현식 권장</strong></p>
+</blockquote>
+
+<ul>
+  <li>먼저 함수 선언식의 예를 살펴보자.</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span> <span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>sum(2, 3)은 아직 sum() 함수가 정의되지 않았음에도 불구하고 sum() 함수를 호출하는 것이 가능하다.</p>
+
+<p>이것은 함수가 자신이 위치한 코드에 상관없이 함수 선언문 형태로 정의한 함수의 유효 범위는 코드의 맨 처음부터 시작한다는 것을 확인할 수 있다. <br>이것을 함수 호이스팅이라 부른다.</p>
+
+<ul>
+  <li>함수 표현식</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span> <span class="c1">//error</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span> <span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span> <span class="c1">// 9</span>
+</code></pre></div></div>
+<p>sum(2, 3) 함수는 실행되지 않는다. 왜냐하면 함수 표현식 형태로 sum() 함수가 정의되어 있기 때문이다.</p>
+
+<p>하지만 sum(3, 4)와 같이 함수가 생성된 이후에는 호출이 가능하다.</p>
+
+<p>이렇게 함수 호이스팅에 대해서 다시 한번 복습하게 되었다.</p>
+
+<h2 id="reduce-활용해서-배열을-객체로">reduce 활용해서 배열을 객체로</h2>
+<hr>
+<blockquote>
+  <p><img class="emoji" title=":point_up:" alt=":point_up:" src="https://github.githubassets.com/images/icons/emoji/unicode/261d.png" height="20" width="20"> 배열을 객체로</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo4</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">ar</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nx">acc</span><span class="p">[</span><span class="nx">idx</span><span class="p">]</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">;</span>
+
+    <span class="nx">retun</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">{});</span>
+<span class="p">}</span>
+    
+    <span class="nx">foo4</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+
+<span class="c1">// 정답: {"0": 0, "1": 1, "2": 2}</span>
+</code></pre></div></div>
+<p>오늘 그동안 배웠던 socrativa 내용들을 정리하면서 다시 한 번 깨닫게 된 내용이다.</p>
+
+<h2 id="onclick-함수">onclick 함수</h2>
+<hr>
+<blockquote>
+  <p><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">onclick 함수, 헬프데스크에 물어봤었던 내용</p>
+</blockquote>
+
+<p><img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20">질문 내용 : onclick 함수를 사용할 때, 함수 선언식과 함수표현식의 차이와 둘 중에 어느 것이 더 실용적인가?</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// helperFunction.js</span>
+<span class="kd">function</span> <span class="nx">printHello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">printHello</span><span class="p">;</span>
+
+
+<span class="c1">// index.js</span>
+<span class="kd">const</span> <span class="nx">printHello</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">helperFunction의 경로</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">tweetBtn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">tweet</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">tweetBtn</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">printHello</span>
+</code></pre></div></div>
+<p>함수 표현식을 사용한다면 <code class="language-plaintext highlighter-rouge">tweetBtn.onclick = 구현할 함수</code>로 볼 수 있다.</p>
+
+<p>함수 선언식을 사용한다면 <strong>helperFunction.js</strong> 와 같이 다른 파일에 분리를 한 후, 그 안에서 해당 함수를 가져옴으로써 구현하는 방식.</p>
+
+<p><img class="emoji" title=":exclamation:" alt=":exclamation:" src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png" height="20" width="20">답변: 기능별로, 카테고리별로 파일을 모듈화(나누는 것) 하기에 용이한 방식이고, 다른 개발자와 협업을 할 때에도 용이하다. (표현식의 경우, 한파일에 모든 것이 다 담겨있고 마치 부록이 없는 수백쪽짜리 책을 읽어야 하는 것과 같다고 보면 된다.)</p>
+
+<p><strong><img class="emoji" title=":metal:" alt=":metal:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f918.png" height="20" width="20">결론: onclick함수는 선언식을 사용하자!</strong></p>
+
+<blockquote>
+  <p><img class="emoji" title=":punch:" alt=":punch:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png" height="20" width="20"> <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>HA문제 2번, 3번, 6번 풀이</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-15T00:00:00+09:00">January 15, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+15%EC%9D%BC+TIL+%236%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL6%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL6%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL6%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/2021/01/TIL5/" class="pagination--pager" title="1월 14일 TIL #5
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL5/" rel="permalink">1월 14일 TIL #5
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  유효성 검사
+  DOM
+  HA 4번
+
+
+
+
+유효성 검사
+
+
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.
+
+
+  코드를 보면서 설명
+
+
+// html
+<button id="btn-s...&lt;/div&gt;"></button></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL4/" rel="permalink">1월 13일 TIL #4
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  재귀함수 15번
+  알고리즘 16번
+
+
+
+
+재귀함수 15번
+
+  
+    
+      재귀함수 문제 :
+    
+  
+
+
+다차원 배열을 입력받아 1차원 배열로 변환하여 리턴
+
+
+  주의사항 :
+    
+      배열을 리턴
+      immutability
+    
+...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL3/" rel="permalink">1월 12일 TIL #3
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  shuffle 메서드 설명
+  객체 21번
+  고차함수 31번
+
+
+
+
+shuffle 메서드 설명
+
+
+  
+    
+      shuffle 레퍼런스 설명 :
+    
+  
+
+
+아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!
+
+
+  코드를 한 줄씩...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL2/" rel="permalink">1월 11일 TIL #2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  코드 변환(고차함수)
+  반복문 18번
+
+
+
+
+코드 변환(고차함수)
+
+
+  
+    
+      고차함수 문제 :
+    
+  
+
+
+아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요.
+
+const filter...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+<form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term...">
+  </form>
+  <div id="results" class="results"></div>
+</div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2021 꿈을 기록하는 Blog. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
