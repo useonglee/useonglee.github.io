@@ -46,4 +46,10 @@ var store = [{
         "tags": ["TIL","Pre-Course"],
         "url": "http://localhost:4000/2021/01/TIL7/",
         "teaser": null
+      },{
+        "title": "1월 17일 TIL #8",
+        "excerpt":"목차 test 6번 test 6번 :point_right:test 6번문제 풀이 : 피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다. 주의 사항 : 리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다. 입출력 예시 : const fn = test6(); console.log(fn()); // --&gt; 0 console.log(fn()); // --&gt; 1...","categories": ["2021/01"],
+        "tags": ["TIL","Pre-Course"],
+        "url": "http://localhost:4000/2021/01/TIL8/",
+        "teaser": null
       }]

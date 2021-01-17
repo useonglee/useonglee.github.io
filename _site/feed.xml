@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-16T22:57:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">꿈을 기록하는 Blog</title><subtitle>우성's Dream Coding</subtitle><author><name>이우성</name></author><entry><title type="html">1월 16일 TIL #7</title><link href="http://localhost:4000/2021/01/TIL7/" rel="alternate" type="text/html" title="1월 16일 TIL #7" /><published>2021-01-16T00:00:00+09:00</published><updated>2021-01-16T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL7</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL7/">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-17T23:16:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">꿈을 기록하는 Blog</title><subtitle>우성's Dream Coding</subtitle><author><name>이우성</name></author><entry><title type="html">1월 17일 TIL #8</title><link href="http://localhost:4000/2021/01/TIL8/" rel="alternate" type="text/html" title="1월 17일 TIL #8" /><published>2021-01-17T00:00:00+09:00</published><updated>2021-01-17T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL8</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL8/">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#test-6번&quot;&gt;test 6번&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;test-6번&quot;&gt;test 6번&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;point_righttest-6번문제-풀이-&quot;&gt;:point_right:test 6번문제 풀이 :&lt;/h2&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주의 사항 :
+    &lt;ol&gt;
+      &lt;li&gt;리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;입출력 예시 :&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 0&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 1&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 1&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 2&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 3&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pseudocode(수도코드)
+    &lt;ol&gt;
+      &lt;li&gt;피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.&lt;/li&gt;
+      &lt;li&gt;클로저 함수를 만든다.&lt;/li&gt;
+      &lt;li&gt;0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.&lt;/li&gt;
+      &lt;li&gt;3번째 호출부터는 더한 값을 반환한다.&lt;/li&gt;
+      &lt;li&gt;num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)&lt;/li&gt;
+      &lt;li&gt;반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.&lt;/li&gt;
+      &lt;li&gt;클로져함수를 리턴한다.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
+
+&lt;span class=&quot;c1&quot;&gt;// 클로저 함수&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resultFibo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 함수실행이 될 때 마다 1씩 증가&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 피보나치의 수열&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;     
+      &lt;span class=&quot;nx&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 가장 마지막 요소만 리턴한다.&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resultFibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.&lt;/p&gt;
+
+&lt;p&gt;그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…&lt;/p&gt;
+
+&lt;p&gt;그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.&lt;/p&gt;
+
+&lt;p&gt;다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;:punch: &lt;strong&gt;내일의 TIW(today I Will)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;변수와 자료형&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="TIL" /><category term="Pre-Course" /><summary type="html">목차 test 6번 test 6번 :point_right:test 6번문제 풀이 : 피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다. 주의 사항 : 리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다. 입출력 예시 : const fn = test6(); console.log(fn()); // --&amp;gt; 0 console.log(fn()); // --&amp;gt; 1 console.log(fn()); // --&amp;gt; 1 console.log(fn()); // --&amp;gt; 2 console.log(fn()); // --&amp;gt; 3 console.log(fn()); // --&amp;gt; 5 pseudocode(수도코드) 피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다. 클로저 함수를 만든다. 0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다. 3번째 호출부터는 더한 값을 반환한다. num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열) 반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다. 클로져함수를 리턴한다. let fibo = [0, 1]; // 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에 let num = -1; // 클로저 함수 function resultFibo () { num++; // 함수실행이 될 때 마다 1씩 증가 if (num &amp;lt;= 1) { return num; } // 피보나치의 수열 if (num &amp;gt;= 2) { fibo.push(fibo[num - 2] + fibo[num - 1]); } return fibo[fibo.length-1]; // 가장 마지막 요소만 리턴한다. } return resultFibo; 나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다. 그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다… 그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다. 다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray: :punch: 내일의 TIW(today I Will) 변수와 자료형</summary></entry><entry><title type="html">1월 16일 TIL #7</title><link href="http://localhost:4000/2021/01/TIL7/" rel="alternate" type="text/html" title="1월 16일 TIL #7" /><published>2021-01-16T00:00:00+09:00</published><updated>2021-01-16T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL7</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL7/">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#test-2번&quot;&gt;test 2번&lt;/a&gt;&lt;/li&gt;

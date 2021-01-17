@@ -1,0 +1,788 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>1월 17일 TIL #8 - 꿈을 기록하는 Blog</title>
+<meta name="description" content="목차     test 6번     test 6번    :point_right:test 6번문제 풀이 :   피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.     주의 사항 :            리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.           입출력 예시 :   const fn = test6(); console.log(fn()); // --&gt; 0 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 2 console.log(fn()); // --&gt; 3 console.log(fn()); // --&gt; 5      pseudocode(수도코드)            피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.       클로저 함수를 만든다.       0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.       3번째 호출부터는 더한 값을 반환한다.       num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)       반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.       클로져함수를 리턴한다.             let fibo = [0, 1];  // 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에   let num = -1;      // 클로저 함수   function resultFibo () {     num++;   // 함수실행이 될 때 마다 1씩 증가     if (num &lt;= 1) {       return num;     } // 피보나치의 수열     if (num &gt;= 2) {            fibo.push(fibo[num - 2] + fibo[num - 1]);     }     return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.   }   return resultFibo;   나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.  그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…  그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.  다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:     :punch: 내일의 TIW(today I Will)   변수와 자료형">
+
+
+  <meta name="author" content="이우성">
+  
+  <meta property="article:author" content="이우성">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="꿈을 기록하는 Blog">
+<meta property="og:title" content="1월 17일 TIL #8">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL8/">
+
+
+  <meta property="og:description" content="목차     test 6번     test 6번    :point_right:test 6번문제 풀이 :   피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.     주의 사항 :            리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.           입출력 예시 :   const fn = test6(); console.log(fn()); // --&gt; 0 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 2 console.log(fn()); // --&gt; 3 console.log(fn()); // --&gt; 5      pseudocode(수도코드)            피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.       클로저 함수를 만든다.       0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.       3번째 호출부터는 더한 값을 반환한다.       num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)       반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.       클로져함수를 리턴한다.             let fibo = [0, 1];  // 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에   let num = -1;      // 클로저 함수   function resultFibo () {     num++;   // 함수실행이 될 때 마다 1씩 증가     if (num &lt;= 1) {       return num;     } // 피보나치의 수열     if (num &gt;= 2) {            fibo.push(fibo[num - 2] + fibo[num - 1]);     }     return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.   }   return resultFibo;   나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.  그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…  그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.  다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:     :punch: 내일의 TIW(today I Will)   변수와 자료형">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-17T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL8/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          꿈을 기록하는 Blog
+          <span class="site-subtitle">since 2021</span>
+        </a>
+        <ul class="visible-links">
+<li class="masthead__menu-item">
+              <a href="/posts/">TIL</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/categories/">Monthly</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li>
+</ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이우성</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>JavaScript기반 개발공부<br><br> 코드스테이츠 Full pre 9기</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="1월 17일 TIL #8">
+    <meta itemprop="description" content="목차  test 6번test 6번  :point_right:test 6번문제 풀이 :피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.  주의 사항 :          리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.        입출력 예시 :const fn = test6();console.log(fn()); // --&gt; 0console.log(fn()); // --&gt; 1console.log(fn()); // --&gt; 1console.log(fn()); // --&gt; 2console.log(fn()); // --&gt; 3console.log(fn()); // --&gt; 5  pseudocode(수도코드)          피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.      클로저 함수를 만든다.      0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.      3번째 호출부터는 더한 값을 반환한다.      num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)      반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.      클로져함수를 리턴한다.        let fibo = [0, 1];// 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에  let num = -1;    // 클로저 함수  function resultFibo () {    num++;   // 함수실행이 될 때 마다 1씩 증가    if (num &lt;= 1) {      return num;    }// 피보나치의 수열    if (num &gt;= 2) {           fibo.push(fibo[num - 2] + fibo[num - 1]);    }    return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.  }  return resultFibo;나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:  :punch: 내일의 TIW(today I Will)변수와 자료형">
+    <meta itemprop="datePublished" content="2021-01-17T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">1월 17일 TIL #8
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="목차">목차</h2>
+
+<ol>
+  <li><a href="#test-6%EB%B2%88">test 6번</a></li>
+</ol>
+
+<hr>
+<h2 id="test-6번">test 6번</h2>
+<blockquote>
+  <h2 id="point_righttest-6번문제-풀이-">
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 6번문제 풀이 :</h2>
+</blockquote>
+
+<p>피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.</p>
+
+<ul>
+  <li>주의 사항 :
+    <ol>
+      <li>리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.</li>
+    </ol>
+  </li>
+  <li>입출력 예시 :</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">test6</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">());</span> <span class="c1">// --&gt; 0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">());</span> <span class="c1">// --&gt; 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">());</span> <span class="c1">// --&gt; 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">());</span> <span class="c1">// --&gt; 2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">());</span> <span class="c1">// --&gt; 3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span><span class="p">());</span> <span class="c1">// --&gt; 5</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)
+    <ol>
+      <li>피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.</li>
+      <li>클로저 함수를 만든다.</li>
+      <li>0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.</li>
+      <li>3번째 호출부터는 더한 값을 반환한다.</li>
+      <li>num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)</li>
+      <li>반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.</li>
+      <li>클로져함수를 리턴한다.</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">fibo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+
+<span class="c1">// 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에</span>
+  <span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>    
+
+<span class="c1">// 클로저 함수</span>
+  <span class="kd">function</span> <span class="nx">resultFibo</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">num</span><span class="o">++</span><span class="p">;</span>   <span class="c1">// 함수실행이 될 때 마다 1씩 증가</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">num</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="c1">// 피보나치의 수열</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>     
+      <span class="nx">fibo</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">fibo</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">fibo</span><span class="p">[</span><span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">fibo</span><span class="p">[</span><span class="nx">fibo</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>   <span class="c1">// 가장 마지막 요소만 리턴한다.</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">resultFibo</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.</p>
+
+<p>그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…</p>
+
+<p>그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.</p>
+
+<p>다음 시험때는 금방 다 풀겠지??….. 제발..!!<img class="emoji" title=":pray:" alt=":pray:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f64f.png" height="20" width="20"></p>
+
+<blockquote>
+  <p><img class="emoji" title=":punch:" alt=":punch:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png" height="20" width="20"> <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>변수와 자료형</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-17T00:00:00+09:00">January 17, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+17%EC%9D%BC+TIL+%238%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL8%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL8%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL8%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/2021/01/TIL7/" class="pagination--pager" title="1월 16일 TIL #7
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  test 2번
+  test 3번
+
+
+
+
+test 2번
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 2번문제 풀이 :
+
+
+수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.
+
+
+  주의 사항 :
+    
+      음수를 입력받은 경우, 첫번째 수는 음수로 계산
+   ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  함수 호이스팅 (Hoisting)
+  reduce 활용해서 배열을 객체로
+  onclick 함수
+
+
+
+
+함수 호이스팅 (Hoisting)
+
+
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 호이스팅은 말 그대로 끌어 올린 다는 것이다. 
+자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL5/" rel="permalink">1월 14일 TIL #5
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  유효성 검사
+  DOM
+  HA 4번
+
+
+
+
+유효성 검사
+
+
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.
+
+
+  코드를 보면서 설명
+
+
+// html
+<button id="btn-s...&lt;/div&gt;"></button></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL4/" rel="permalink">1월 13일 TIL #4
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  재귀함수 15번
+  알고리즘 16번
+
+
+
+
+재귀함수 15번
+
+  
+    
+      재귀함수 문제 :
+    
+  
+
+
+다차원 배열을 입력받아 1차원 배열로 변환하여 리턴
+
+
+  주의사항 :
+    
+      배열을 리턴
+      immutability
+    
+...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+<form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term...">
+  </form>
+  <div id="results" class="results"></div>
+</div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2021 꿈을 기록하는 Blog. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
