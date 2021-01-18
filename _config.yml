@@ -13,11 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+theme: minimal-mistakes
 title: 꿈을 기록하는 Blog
 email: useong0830@gmail.com
 subtitle: "since 2021"
 url: https://useonglee.github.io/
-baseurl: ''
+baseurl: "/blog/"
 description: >- # this means to ignore newlines until "baseurl:"
   우성's Dream Coding
 twitter_username: 
@@ -27,7 +28,7 @@ search: true
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+#remote_theme: mmistakes/minimal-mistakes
 # Outputting
 permalink: /:categories/:title/
 paginate: 7 # amount of posts to show
