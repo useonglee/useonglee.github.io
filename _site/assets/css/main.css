@@ -145,10 +145,10 @@ a:focus, button:focus { /* Default*/ outline: thin dotted #6f777d; /* Webkit*/ o
 /* ========================================================================== STYLE RESETS ========================================================================== */
 * { box-sizing: border-box; }
 
-html { /* apply a natural box layout model to all elements */ box-sizing: border-box; background-color: #fff; font-size: 14px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-@media (min-width: 48em) { html { font-size: 16px; } }
-@media (min-width: 64em) { html { font-size: 18px; } }
-@media (min-width: 80em) { html { font-size: 20px; } }
+html { /* apply a natural box layout model to all elements */ box-sizing: border-box; background-color: #fff; font-size: 16px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+@media (min-width: 48em) { html { font-size: 18px; } }
+@media (min-width: 64em) { html { font-size: 20px; } }
+@media (min-width: 80em) { html { font-size: 22px; } }
 
 /* Remove margin */
 body { margin: 0; }
@@ -1192,7 +1192,7 @@ body { display: -webkit-box; display: -ms-flexbox; display: flex; min-height: 10
 /* Author profile and links ========================================================================== */
 .author__avatar { display: table-cell; vertical-align: top; width: 36px; height: 36px; }
 @media (min-width: 64em) { .author__avatar { display: block; width: auto; height: auto; } }
-.author__avatar img { max-width: 175px; border-radius: 15%; }
+.author__avatar img { max-width: 110px; border-radius: 50%; }
 @media (min-width: 64em) { .author__avatar img { padding: 5px; border: 1px solid #f2f3f3; } }
 
 .author__content { display: table-cell; vertical-align: top; padding-left: 15px; padding-right: 25px; line-height: 1; }
@@ -1275,33 +1275,3 @@ body { display: -webkit-box; display: -ms-flexbox; display: flex; min-height: 10
   .page__hero-caption a { color: #000 !important; }
   /* Hide the following elements on print ========================================================================== */
   .masthead, .toc, .page__share, .page__related, .pagination, .ads, .page__footer, .page__comments-form, .author__avatar, .author__content, .author__urls-wrapper, .nav__list, .sidebar, .adsbygoogle { display: none !important; height: 1px !important; } }
-  
---- 
-# Only the main Sass file needs front matter (the dashes are enough) 
---- 
-
-@charset "utf-8";
-
-$sans-serif: -apple-system, BlinkMacSystemFont, "Nanum Gothic", "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes";
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
-@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
-
-html {
-    font-size: 14px; // originally 16px
-
-    @include breakpoint($medium) {
-        font-size: 16px; // originally 18px
-    }
-
-    @include breakpoint($large) {
-        font-size: 18px; // originally 20px
-    }
-
-    @include breakpoint($x-large) {
-        font-size: 20px; // originally 22px
-    }
-}

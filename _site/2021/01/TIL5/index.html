@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
 <meta property="og:title" content="1월 14일 TIL #5">
-<meta property="og:url" content="http://localhost:4000/2021/01/TIL5/">
+<meta property="og:url" content="http://localhost:4000/blog/2021/01/TIL5/">
 
 
   <meta property="og:description" content="목차     유효성 검사   DOM   HA 4번     유효성 검사   :point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.     코드를 보면서 설명   // html &lt;button id=&quot;btn-signup&quot;&gt;회원가입&lt;/button&gt;   // js // html 버튼요소를 불러온다. const btnSignup = document.querySelector(&#39;#btn-signup&#39;)  // 이벤트 핸들러  function handleInputIdChange() {   let valid = moreThanLength(inputId.value, 4)    if (valid) {     setAsValid(&#39;#input-id&#39;)   // 아이디 입력 value가 참 일 경우   }   else {                     // 아이디 입력이 옳지 않을 경우     displayErrorMessage(&#39;#input-id&#39;, &#39;아이디는 4자 이상을 입력&#39;)   } }  function handleBtnSignupClick() {   let validId = moreThanLength(inputId.value, 4)   let validPw = strongPassword(inputPassword.value)    if (validId &amp;&amp; validPw) {     hideInvalidMessage()   }   // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음   else {     showInvalidMessage(&#39;필요한 정보를 다 입력하지 않았어요&#39;);   }          // 하나라도 잘못 입력할 경우 }  function setAsValid(selector) {    // 입력값이 참일 경우 class(&#39;valid&#39;)를 추가해준다.   let form = document.querySelector(selector)   form.classList.remove(&#39;invalid&#39;)   form.classList.add(&#39;valid&#39;) }  // 엘리먼트와 이벤트핸들러 연결 btnSignup.onclick = handleBtnSignupClick;    DOM      :point_up: What is the DOM?   DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다.  DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다.  console.dir  개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태     :point_up_2: DOM 문법   const target = document.querySelector(&#39;#container&#39;) // html에 있는 ul#container 불러오기  const testDiv = document.createElement(&#39;div&#39;);      // &lt;div&gt;&lt;/div&gt; 생성  testDiv.textContent = &#39;hello&#39;; console.log(testDiv)   // &lt;div&gt;hello&lt;/div&gt;   testDiv.classlist.add(&#39;name&#39;) console.log(testDiv)  // &lt;div class = &quot;name&quot;&gt;hello&lt;/div&gt;  target.append(testDiv) // 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다.  let btn = document.querySelectorAll(&#39;.name&#39;); // 모든 class = name 을 가져온다.  btn.onclick = handleClick; // onclick 이벤트  function handleClick () {   console.log(input.value) }   HA 4번      :point_right: HA 4번 풀이하면서 공부      문제 : 사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다.        주의사항 : &lt;a&gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다.      입출력 예시 :   let list = [   { firstName: &#39;Joe&#39;, lastName: &#39;Blow&#39;, age: 42, role: &#39;clerk&#39; },   { firstName: &#39;Mary&#39;, lastName: &#39;Jenkins&#39;, age: 36, role: &#39;manager&#39; }, ];  test4(list); // --&gt; &#39;ul#container&#39;가 아래와 같이 변경되어야 합니다. &lt;ul id=&quot;container&quot;&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Joe Blow&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;42&lt;/div&gt;   &lt;/li&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Mary Jenkins&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;36&lt;/div&gt;   &lt;/li&gt; &lt;/ul&gt; -------------------------------------------------------- &lt;html&gt;   &lt;body&gt;     &lt;ul id=&quot;container&quot;&gt;&lt;/ul&gt;   &lt;/body&gt; &lt;/html&gt;      pseudocode(수도코드)            html에 있는 container를 불러온다.       forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다.       사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다.       for loop 를 활용해 모든 class에 onclick 함수를 적용한다.       만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다.       click 함수를 실행한다.           function printRole(user) {   // Joe Blow를 클릭하면 clerk 이   // Mary Jenkins를 클릭하면 manager 가 찍힙니다.   // 이 함수는 수정하지 마십시오.   console.log(user.role); }  function test4(arr) {   const target = document.querySelector(&#39;#container&#39;);    arr.forEach(el =&gt; {     const li = document.createElement(&#39;li&#39;);     const a = document.createElement(&#39;a&#39;);     const div = document.createElement(&#39;div&#39;);      a.className = &#39;name&#39;;     a.textContent = el.firstName + &#39; &#39; + el.lastName;      div.className = &#39;age&#39;;     div.textContent = el.age;      target.append(li);     li.append(a);     li.append(div);   });    let btn = document.querySelectorAll(&#39;.name&#39;);    function click () {     for (let i = 0; i &lt; btn.length; i++) {       btn[i].onclick = function () {         for (let j = 0; j &lt; arr.length; j++) {           let name = arr[j].firstName + &#39; &#39; + arr[j].lastName;           if (btn[i].textContent === name) {             return printRole (arr[j]);           }         }       }     }   }   click(); }   HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다.     :punch: 내일의 TIW(today I Will)   socrative 복습, onclick 함수">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/2021/01/TIL5/">
+<link rel="canonical" href="http://localhost:4000/blog/2021/01/TIL5/">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "http://localhost:4000/"
+      "url": "http://localhost:4000/blog/"
     
   }
 </script>
@@ -65,7 +65,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
+<link href="/blog/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +75,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/blog/assets/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
 <!--[if IE]>
@@ -124,22 +124,22 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-        <a class="site-title" href="/">
+        <a class="site-title" href="/blog/">
           꿈을 기록하는 Blog
           <span class="site-subtitle">since 2021</span>
         </a>
         <ul class="visible-links">
 <li class="masthead__menu-item">
-              <a href="/posts/">TIL</a>
+              <a href="/blog/posts/">TIL</a>
             </li>
 <li class="masthead__menu-item">
-              <a href="/categories/">Monthly</a>
+              <a href="/blog/categories/">Monthly</a>
             </li>
 <li class="masthead__menu-item">
-              <a href="/tags/">Tags</a>
+              <a href="/blog/tags/">Tags</a>
             </li>
 <li class="masthead__menu-item">
-              <a href="/about/">About</a>
+              <a href="/blog/about/">About</a>
             </li>
 </ul>
         
@@ -177,7 +177,7 @@
   
     <div class="author__avatar">
       
-        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
+        <img src="/blog/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
       
     </div>
   
@@ -541,11 +541,11 @@
     
       
       
-      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+      <a href="/blog/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+      <a href="/blog/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
     
     </span>
   </p>
@@ -566,7 +566,7 @@
     
       
       
-      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+      <a href="/blog/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
     
     </span>
   </p>
@@ -581,22 +581,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+14%EC%9D%BC+TIL+%235%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+14%EC%9D%BC+TIL+%235%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2021%2F01%2FTIL5%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2021%2F01%2FTIL5%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2021%2F01%2FTIL5%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/2021/01/TIL4/" class="pagination--pager" title="1월 13일 TIL #4
+      <a href="/blog/2021/01/TIL4/" class="pagination--pager" title="1월 13일 TIL #4
 ">Previous</a>
     
     
-      <a href="/2021/01/TIL6/" class="pagination--pager" title="1월 15일 TIL #6
+      <a href="/blog/2021/01/TIL6/" class="pagination--pager" title="1월 15일 TIL #6
 ">Next</a>
     
   </nav>
@@ -621,7 +621,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
+        <a href="/blog/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
 </a>
       
     </h2>
@@ -679,7 +679,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+        <a href="/blog/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
 </a>
       
     </h2>
@@ -736,7 +736,7 @@ test 6번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
+        <a href="/blog/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
 </a>
       
     </h2>
@@ -795,7 +795,7 @@ test 2번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
+        <a href="/blog/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
 </a>
       
     </h2>
@@ -883,7 +883,7 @@ test 2번
       
     
 
-    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="/blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
@@ -893,14 +893,14 @@ test 2번
     </div>
 
     
-  <script src="/assets/js/main.min.js"></script>
+  <script src="/blog/assets/js/main.min.js"></script>
 
 
 
 
-<script src="/assets/js/lunr/lunr.min.js"></script>
-<script src="/assets/js/lunr/lunr-store.js"></script>
-<script src="/assets/js/lunr/lunr-en.js"></script>
+<script src="/blog/assets/js/lunr/lunr.min.js"></script>
+<script src="/blog/assets/js/lunr/lunr-store.js"></script>
+<script src="/blog/assets/js/lunr/lunr-en.js"></script>
 
 
 
