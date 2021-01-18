@@ -1,4 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-17T23:16:47+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">꿈을 기록하는 Blog</title><subtitle>우성's Dream Coding</subtitle><author><name>이우성</name></author><entry><title type="html">1월 17일 TIL #8</title><link href="http://localhost:4000/2021/01/TIL8/" rel="alternate" type="text/html" title="1월 17일 TIL #8" /><published>2021-01-17T00:00:00+09:00</published><updated>2021-01-17T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL8</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL8/">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-18T23:23:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">꿈을 기록하는 Blog</title><subtitle>우성's Dream Coding</subtitle><author><name>이우성</name></author><entry><title type="html">1월 18일 TIL #9</title><link href="http://localhost:4000/2021/01/TIL9/" rel="alternate" type="text/html" title="1월 18일 TIL #9" /><published>2021-01-18T00:00:00+09:00</published><updated>2021-01-18T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL9</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL9/">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#변수와-타입&quot;&gt;변수와 타입&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#함수&quot;&gt;함수&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#join과-undefined의-관계&quot;&gt;join과 undefined의 관계&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;변수와-타입&quot;&gt;변수와 타입&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;point_right변수와-타입-기초-&quot;&gt;:point_right:변수와 타입 기초 :&lt;/h2&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 변수(variable)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.&lt;/p&gt;
+
+&lt;p&gt;변수에 이름을 지어주고(선언) 값을 넣어준다(할당).&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// 값이 숫자가 될 수도 있고&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;useong&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 문자열이 될 수도 있다.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;프로그래밍에서는 ‘=’ 연산자의 뜻은 &lt;strong&gt;절대로 같다는 뜻이 아니다&lt;/strong&gt;&lt;br /&gt;
+메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다.&lt;br /&gt;
+(할당의 개념)&lt;/p&gt;
+
+&lt;p&gt;변수는 동일한 변수를 이용해 대입할 수 있다.
+사용했던 let은 또 사용하면 에러가 난다.&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;     
+&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// let num = num + 2 =&amp;gt; 에러&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 10;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 타입(type)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;타입을 확인할 때는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type of&lt;/code&gt; 연산자를 써서 무슨 타입인지 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;원시자료형 (number, string, boolean, undefined, function) 도 타입이다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// expected output: &quot;number&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;useong&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// expected output: &quot;string&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// expected output: &quot;boolean&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;undeclaredVariable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// expected output: &quot;undefined&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){});&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// expected output: &quot;function&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// expected output: &quot;object&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// expected output: &quot;object&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;함수&quot;&gt;함수&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;point_up_2함수-기초-&quot;&gt;:point_up_2:함수 기초 :&lt;/h2&gt;
+  &lt;p&gt;&lt;strong&gt;3. 함수(function)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.&lt;/li&gt;
+  &lt;li&gt;함수 선언식과 함수 표현식이 있다.&lt;/li&gt;
+  &lt;li&gt;return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.&lt;/li&gt;
+  &lt;li&gt;매개변수(parameter) 와 전달인자(argument)가 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;welcome to&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// word = 전달인자(argument)&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gitBlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;wrong type&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; useonglee!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;gitBlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 'welcome to useonglee!'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//함수 선언식&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myFunction&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// input : 매개변수(parameter)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//함수 표현식&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;저번에 올렸던 호이스팅과도 관련이 있다.&lt;/p&gt;
+
+&lt;p&gt;함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.&lt;/p&gt;
+
+&lt;p&gt;이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.&lt;/p&gt;
+
+&lt;p&gt;하지만 난 함수 표현식을 더 선호한다.&lt;/p&gt;
+
+&lt;p&gt;알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;join과-undefined의-관계&quot;&gt;join과 undefined의 관계&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;questionjoin과-undefined의-관계-&quot;&gt;:question:join과 undefined의 관계 :&lt;/h2&gt;
+  &lt;p&gt;이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,&lt;/p&gt;
+
+&lt;p&gt;배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만&lt;/p&gt;
+
+&lt;p&gt;문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.&lt;/p&gt;
+
+&lt;p&gt;이 부분이 궁금해서 질문을 했었다.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//배열에는 undefined를 푸쉬할 수 있다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [ undefined ]&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [undefined, 1, 2, 3]&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// &quot;123&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;abc&quot; + undefined === &quot;abcundefined&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다.
+undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.&lt;/p&gt;
+
+&lt;p&gt;사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,&lt;/p&gt;
+
+&lt;p&gt;나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.&lt;/p&gt;
+
+&lt;p&gt;이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.&lt;/p&gt;
+
+&lt;p&gt;문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;:punch: &lt;strong&gt;내일의 TIW(today I Will)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;조건문과 문자열&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="TIL" /><category term="Pre-Course" /><summary type="html">목차 변수와 타입 함수 join과 undefined의 관계 변수와 타입 :point_right:변수와 타입 기초 : 1. 변수(variable) 변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다. 변수에 이름을 지어주고(선언) 값을 넣어준다(할당). let number = 1; // 값이 숫자가 될 수도 있고 let name = 'useong' // 문자열이 될 수도 있다. 프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념) 변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1; num = num + 2; // let num = num + 2 =&amp;gt; 에러 num = num + 3; num = num + 4; console.log(num) // 10; 2. 타입(type) 타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다. 원시자료형 (number, string, boolean, undefined, function) 도 타입이다. console.log(typeof 1); // expected output: &quot;number&quot; console.log(typeof 'useong'); // expected output: &quot;string&quot; console.log(typeof true); // expected output: &quot;boolean&quot; console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot; console.log(typeof function(){}); // expected output: &quot;function&quot; console.log(typeof {a : 1}); // expected output: &quot;object&quot; console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot; 함수 :point_up_2:함수 기초 : 3. 함수(function) 함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다. 함수 선언식과 함수 표현식이 있다. return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다. 매개변수(parameter) 와 전달인자(argument)가 있다. let word = 'welcome to'; // word = 전달인자(argument) function gitBlog(word) { if (typeof word !== 'string') { return 'wrong type'; } else { return word + ' useonglee!'; } } console.log(gitBlog(word)) // 'welcome to useonglee!' 함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다. //함수 선언식 function myFunction (input) { // input : 매개변수(parameter) console.log(input); } //함수 표현식 let myFunction = function (input) { console.log(input); } 저번에 올렸던 호이스팅과도 관련이 있다. 함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다. 이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다. 하지만 난 함수 표현식을 더 선호한다. 알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다. join과 undefined의 관계 :question:join과 undefined의 관계 : 이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다. 알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만, 배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’ 으로 나왔지만 문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다. 이 부분이 궁금해서 질문을 했었다. //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ] arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join('')) // &quot;123&quot; 그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다. 위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때 &quot;abc&quot; + undefined === &quot;abcundefined&quot; 와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다. 사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만, 나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다. 이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다. 문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다. :punch: 내일의 TIW(today I Will) 조건문과 문자열</summary></entry><entry><title type="html">1월 17일 TIL #8</title><link href="http://localhost:4000/2021/01/TIL8/" rel="alternate" type="text/html" title="1월 17일 TIL #8" /><published>2021-01-17T00:00:00+09:00</published><updated>2021-01-17T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL8</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL8/">&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;#test-6번&quot;&gt;test 6번&lt;/a&gt;&lt;/li&gt;

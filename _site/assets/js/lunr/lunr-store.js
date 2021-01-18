@@ -52,4 +52,10 @@ var store = [{
         "tags": ["TIL","Pre-Course"],
         "url": "http://localhost:4000/2021/01/TIL8/",
         "teaser": null
+      },{
+        "title": "1월 18일 TIL #9",
+        "excerpt":"목차 변수와 타입 함수 join과 undefined의 관계 변수와 타입 :point_right:변수와 타입 기초 : 1. 변수(variable) 변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다. 변수에 이름을 지어주고(선언) 값을 넣어준다(할당). let number = 1; // 값이 숫자가 될 수도 있고 let name = 'useong' // 문자열이 될 수도 있다. 프로그래밍에서는 ‘=’ 연산자의 뜻은...","categories": ["2021/01"],
+        "tags": ["TIL","Pre-Course"],
+        "url": "http://localhost:4000/2021/01/TIL9/",
+        "teaser": null
       }]

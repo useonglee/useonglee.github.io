@@ -1,0 +1,866 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>1월 18일 TIL #9 - 꿈을 기록하는 Blog</title>
+<meta name="description" content="목차     변수와 타입   함수   join과 undefined의 관계     변수와 타입    :point_right:변수와 타입 기초 :   1. 변수(variable)  변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.  변수에 이름을 지어주고(선언) 값을 넣어준다(할당).  let number = 1;      // 값이 숫자가 될 수도 있고 let name = &#39;useong&#39;  // 문자열이 될 수도 있다.  프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념)  변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1;      num = num + 2;   // let num = num + 2 =&gt; 에러 num = num + 3; num = num + 4;  console.log(num) // 10;    2. 타입(type)  타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.  원시자료형 (number, string, boolean, undefined, function) 도 타입이다.  console.log(typeof 1); // expected output: &quot;number&quot;  console.log(typeof &#39;useong&#39;); // expected output: &quot;string&quot;  console.log(typeof true); // expected output: &quot;boolean&quot;  console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot;  console.log(typeof function(){}); // expected output: &quot;function&quot;  console.log(typeof {a : 1}); // expected output: &quot;object&quot;  console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot;     함수    :point_up_2:함수 기초 :   3. 함수(function)      함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.   함수 선언식과 함수 표현식이 있다.   return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.   매개변수(parameter) 와 전달인자(argument)가 있다.   let word = &#39;welcome to&#39;;  // word = 전달인자(argument)  function gitBlog(word) {   if (typeof word !== &#39;string&#39;) {     return &#39;wrong type&#39;;   }   else {     return word + &#39; useonglee!&#39;;   } } console.log(gitBlog(word)) // &#39;welcome to useonglee!&#39;   함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.  //함수 선언식 function myFunction (input) {  // input : 매개변수(parameter)   console.log(input); }  //함수 표현식 let myFunction = function (input) {   console.log(input); }   저번에 올렸던 호이스팅과도 관련이 있다.  함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.  이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.  하지만 난 함수 표현식을 더 선호한다.  알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.    join과 undefined의 관계    :question:join과 undefined의 관계 :   이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.   알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,  배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만  문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.  이 부분이 궁금해서 질문을 했었다.  //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ]  arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join(&#39;&#39;)) // &quot;123&quot;   그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.  위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때  &quot;abc&quot; + undefined === &quot;abcundefined&quot;  와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.  사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,  나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.  이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.  문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.     :punch: 내일의 TIW(today I Will)   조건문과 문자열">
+
+
+  <meta name="author" content="이우성">
+  
+  <meta property="article:author" content="이우성">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="꿈을 기록하는 Blog">
+<meta property="og:title" content="1월 18일 TIL #9">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL9/">
+
+
+  <meta property="og:description" content="목차     변수와 타입   함수   join과 undefined의 관계     변수와 타입    :point_right:변수와 타입 기초 :   1. 변수(variable)  변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.  변수에 이름을 지어주고(선언) 값을 넣어준다(할당).  let number = 1;      // 값이 숫자가 될 수도 있고 let name = &#39;useong&#39;  // 문자열이 될 수도 있다.  프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념)  변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1;      num = num + 2;   // let num = num + 2 =&gt; 에러 num = num + 3; num = num + 4;  console.log(num) // 10;    2. 타입(type)  타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.  원시자료형 (number, string, boolean, undefined, function) 도 타입이다.  console.log(typeof 1); // expected output: &quot;number&quot;  console.log(typeof &#39;useong&#39;); // expected output: &quot;string&quot;  console.log(typeof true); // expected output: &quot;boolean&quot;  console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot;  console.log(typeof function(){}); // expected output: &quot;function&quot;  console.log(typeof {a : 1}); // expected output: &quot;object&quot;  console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot;     함수    :point_up_2:함수 기초 :   3. 함수(function)      함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.   함수 선언식과 함수 표현식이 있다.   return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.   매개변수(parameter) 와 전달인자(argument)가 있다.   let word = &#39;welcome to&#39;;  // word = 전달인자(argument)  function gitBlog(word) {   if (typeof word !== &#39;string&#39;) {     return &#39;wrong type&#39;;   }   else {     return word + &#39; useonglee!&#39;;   } } console.log(gitBlog(word)) // &#39;welcome to useonglee!&#39;   함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.  //함수 선언식 function myFunction (input) {  // input : 매개변수(parameter)   console.log(input); }  //함수 표현식 let myFunction = function (input) {   console.log(input); }   저번에 올렸던 호이스팅과도 관련이 있다.  함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.  이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.  하지만 난 함수 표현식을 더 선호한다.  알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.    join과 undefined의 관계    :question:join과 undefined의 관계 :   이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.   알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,  배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만  문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.  이 부분이 궁금해서 질문을 했었다.  //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ]  arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join(&#39;&#39;)) // &quot;123&quot;   그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.  위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때  &quot;abc&quot; + undefined === &quot;abcundefined&quot;  와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.  사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,  나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.  이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.  문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.     :punch: 내일의 TIW(today I Will)   조건문과 문자열">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-18T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL9/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          꿈을 기록하는 Blog
+          <span class="site-subtitle">since 2021</span>
+        </a>
+        <ul class="visible-links">
+<li class="masthead__menu-item">
+              <a href="/posts/">TIL</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/categories/">Monthly</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li>
+</ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이우성</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>JavaScript기반 개발공부<br><br> 코드스테이츠 Full pre 9기</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="1월 18일 TIL #9">
+    <meta itemprop="description" content="목차  변수와 타입  함수  join과 undefined의 관계변수와 타입  :point_right:변수와 타입 기초 :1. 변수(variable)변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.변수에 이름을 지어주고(선언) 값을 넣어준다(할당).let number = 1;      // 값이 숫자가 될 수도 있고let name = 'useong'  // 문자열이 될 수도 있다.프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다.(할당의 개념)변수는 동일한 변수를 이용해 대입할 수 있다.사용했던 let은 또 사용하면 에러가 난다.let num = 1;     num = num + 2;   // let num = num + 2 =&gt; 에러num = num + 3;num = num + 4;console.log(num) // 10;2. 타입(type)타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.원시자료형 (number, string, boolean, undefined, function) 도 타입이다.console.log(typeof 1);// expected output: &quot;number&quot;console.log(typeof 'useong');// expected output: &quot;string&quot;console.log(typeof true);// expected output: &quot;boolean&quot;console.log(typeof undeclaredVariable);// expected output: &quot;undefined&quot;console.log(typeof function(){});// expected output: &quot;function&quot;console.log(typeof {a : 1});// expected output: &quot;object&quot;console.log(typeof [1, 2, 3]);// expected output: &quot;object&quot;함수  :point_up_2:함수 기초 :  3. 함수(function)  함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.  함수 선언식과 함수 표현식이 있다.  return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.  매개변수(parameter) 와 전달인자(argument)가 있다.let word = 'welcome to';  // word = 전달인자(argument)function gitBlog(word) {  if (typeof word !== 'string') {    return 'wrong type';  }  else {    return word + ' useonglee!';  }}console.log(gitBlog(word)) // 'welcome to useonglee!'함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.//함수 선언식function myFunction (input) {  // input : 매개변수(parameter)  console.log(input);}//함수 표현식let myFunction = function (input) {  console.log(input);}저번에 올렸던 호이스팅과도 관련이 있다.함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.하지만 난 함수 표현식을 더 선호한다.알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.join과 undefined의 관계  :question:join과 undefined의 관계 :  이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.이 부분이 궁금해서 질문을 했었다.//배열에는 undefined를 푸쉬할 수 있다.let arr = [];arr.push(undefined);console.log(arr) // [ undefined ]arr.push(1, 2, 3)console.log(arr) // [undefined, 1, 2, 3]console.log(arr.join('')) // &quot;123&quot;그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때&quot;abc&quot; + undefined === &quot;abcundefined&quot;와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다.undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.  :punch: 내일의 TIW(today I Will)조건문과 문자열">
+    <meta itemprop="datePublished" content="2021-01-18T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">1월 18일 TIL #9
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="목차">목차</h2>
+
+<ol>
+  <li><a href="#%EB%B3%80%EC%88%98%EC%99%80-%ED%83%80%EC%9E%85">변수와 타입</a></li>
+  <li><a href="#%ED%95%A8%EC%88%98">함수</a></li>
+  <li><a href="#join%EA%B3%BC-undefined%EC%9D%98-%EA%B4%80%EA%B3%84">join과 undefined의 관계</a></li>
+</ol>
+
+<hr>
+<h2 id="변수와-타입">변수와 타입</h2>
+<blockquote>
+  <h2 id="point_right변수와-타입-기초-">
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">변수와 타입 기초 :</h2>
+</blockquote>
+
+<p><strong>1. 변수(variable)</strong></p>
+
+<p>변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.</p>
+
+<p>변수에 이름을 지어주고(선언) 값을 넣어준다(할당).</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>      <span class="c1">// 값이 숫자가 될 수도 있고</span>
+<span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">useong</span><span class="dl">'</span>  <span class="c1">// 문자열이 될 수도 있다.</span>
+</code></pre></div></div>
+<p>프로그래밍에서는 ‘=’ 연산자의 뜻은 <strong>절대로 같다는 뜻이 아니다</strong><br>
+메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다.<br>
+(할당의 개념)</p>
+
+<p>변수는 동일한 변수를 이용해 대입할 수 있다.
+사용했던 let은 또 사용하면 에러가 난다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>     
+<span class="nx">num</span> <span class="o">=</span> <span class="nx">num</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>   <span class="c1">// let num = num + 2 =&gt; 에러</span>
+<span class="nx">num</span> <span class="o">=</span> <span class="nx">num</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">num</span> <span class="o">=</span> <span class="nx">num</span> <span class="o">+</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="c1">// 10;</span>
+</code></pre></div></div>
+<hr>
+
+<p><strong>2. 타입(type)</strong></p>
+
+<p>타입을 확인할 때는 <code class="language-plaintext highlighter-rouge">type of</code> 연산자를 써서 무슨 타입인지 확인할 수 있다.</p>
+
+<p>원시자료형 (number, string, boolean, undefined, function) 도 타입이다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="mi">1</span><span class="p">);</span>
+<span class="c1">// expected output: "number"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="dl">'</span><span class="s1">useong</span><span class="dl">'</span><span class="p">);</span>
+<span class="c1">// expected output: "string"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kc">true</span><span class="p">);</span>
+<span class="c1">// expected output: "boolean"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">undeclaredVariable</span><span class="p">);</span>
+<span class="c1">// expected output: "undefined"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="kd">function</span><span class="p">(){});</span>
+<span class="c1">// expected output: "function"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="p">{</span><span class="na">a</span> <span class="p">:</span> <span class="mi">1</span><span class="p">});</span>
+<span class="c1">// expected output: "object"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+<span class="c1">// expected output: "object"</span>
+</code></pre></div></div>
+
+<hr>
+<h2 id="함수">함수</h2>
+<blockquote>
+  <h2 id="point_up_2함수-기초-">
+<img class="emoji" title=":point_up_2:" alt=":point_up_2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f446.png" height="20" width="20">함수 기초 :</h2>
+  <p><strong>3. 함수(function)</strong></p>
+</blockquote>
+
+<ul>
+  <li>함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.</li>
+  <li>함수 선언식과 함수 표현식이 있다.</li>
+  <li>return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.</li>
+  <li>매개변수(parameter) 와 전달인자(argument)가 있다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">word</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">welcome to</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// word = 전달인자(argument)</span>
+
+<span class="kd">function</span> <span class="nx">gitBlog</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">word</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">wrong type</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">word</span> <span class="o">+</span> <span class="dl">'</span><span class="s1"> useonglee!</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">gitBlog</span><span class="p">(</span><span class="nx">word</span><span class="p">))</span> <span class="c1">// 'welcome to useonglee!'</span>
+</code></pre></div></div>
+
+<p>함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//함수 선언식</span>
+<span class="kd">function</span> <span class="nx">myFunction</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// input : 매개변수(parameter)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//함수 표현식</span>
+<span class="kd">let</span> <span class="nx">myFunction</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>저번에 올렸던 호이스팅과도 관련이 있다.</p>
+
+<p>함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.</p>
+
+<p>이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.</p>
+
+<p>하지만 난 함수 표현식을 더 선호한다.</p>
+
+<p>알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.</p>
+
+<hr>
+<h2 id="join과-undefined의-관계">join과 undefined의 관계</h2>
+<blockquote>
+  <h2 id="questionjoin과-undefined의-관계-">
+<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20">join과 undefined의 관계 :</h2>
+  <p>이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.</p>
+</blockquote>
+
+<p>알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,</p>
+
+<p>배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만</p>
+
+<p>문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.</p>
+
+<p>이 부분이 궁금해서 질문을 했었다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//배열에는 undefined를 푸쉬할 수 있다.</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kc">undefined</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="c1">// [ undefined ]</span>
+
+<span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="c1">// [undefined, 1, 2, 3]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">))</span> <span class="c1">// "123"</span>
+</code></pre></div></div>
+
+<p>그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.</p>
+
+<p>위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때</p>
+
+<p><code class="language-plaintext highlighter-rouge">"abc" + undefined === "abcundefined"</code></p>
+
+<p>와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다.
+undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.</p>
+
+<p>사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,</p>
+
+<p>나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.</p>
+
+<p>이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.</p>
+
+<p>문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.</p>
+
+<blockquote>
+  <p><img class="emoji" title=":punch:" alt=":punch:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png" height="20" width="20"> <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>조건문과 문자열</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-18T00:00:00+09:00">January 18, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+18%EC%9D%BC+TIL+%239%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL9%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL9%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL9%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/2021/01/TIL8/" class="pagination--pager" title="1월 17일 TIL #8
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  test 6번
+
+
+
+
+test 6번
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 6번문제 풀이 :
+
+
+피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.
+
+
+  주의 사항 :
+    
+      리턴되는 클로저 내부 함수(inner function)의 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  test 2번
+  test 3번
+
+
+
+
+test 2번
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 2번문제 풀이 :
+
+
+수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.
+
+
+  주의 사항 :
+    
+      음수를 입력받은 경우, 첫번째 수는 음수로 계산
+   ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  함수 호이스팅 (Hoisting)
+  reduce 활용해서 배열을 객체로
+  onclick 함수
+
+
+
+
+함수 호이스팅 (Hoisting)
+
+
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 호이스팅은 말 그대로 끌어 올린 다는 것이다. 
+자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL5/" rel="permalink">1월 14일 TIL #5
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  유효성 검사
+  DOM
+  HA 4번
+
+
+
+
+유효성 검사
+
+
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.
+
+
+  코드를 보면서 설명
+
+
+// html
+<button id="btn-s...&lt;/div&gt;"></button></p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+<form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term...">
+  </form>
+  <div id="results" class="results"></div>
+</div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2021 꿈을 기록하는 Blog. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
