@@ -20,7 +20,7 @@ url: https://useonglee.github.io/
 baseurl: ""
 description: >- # this means to ignore newlines until "baseurl:"
   우성's Dream Coding
-twitter_username: 
+twitter_username:
 github_username: useonglee
 minimal_mistakes_skin: "default"
 search: true

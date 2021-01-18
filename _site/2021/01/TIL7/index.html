@@ -23,7 +23,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
 <meta property="og:title" content="1월 16일 TIL #7">
-<meta property="og:url" content="http://localhost:4000/blog/2021/01/TIL7/">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL7/">
 
 
   <meta property="og:description" content="목차     test 2번   test 3번     test 2번    :point_right:test 2번문제 풀이 :   수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.     주의 사항 :            음수를 입력받은 경우, 첫번째 수는 음수로 계산       number 타입을 리턴           입출력 예시 :   let output = test2(1148); console.log(output); // --&gt; 14 = 1 + 1 + 4 + 8  output = test2(-316); console.log(output); // --&gt; 4 = -3 + 1 + 6      pseudocode(수도코드)            반복문을 돌기 위해 숫자열을 문자열로 바꾼다.       더해줄 공간이 필요하기 때문에 result = 0 을 할당한다.       만약 arr[0] === &#39;-&#39; 일 경우 반복문을 arr[2] 부터 순회를 하고 2부터 n까지의 합을 arr[1]에서 빼준다.       이 조건문에 해당하지 않을 경우, 문자열을 숫자열로 변환해서 다 더해준다.       result 리턴             let str = String(num);   let result = 0;    if (str[0] === &#39;-&#39;) {     for (let i = 2; i &lt; str.length; i++) {       result += Number(str[i]);    // arr[2]부터 arr[n] 까지 먼저 다 더해준다.     }     return result - Number(str[1]);     }    for (let i = 0; i &lt; str.length; i++) {  // 위에 조건문에 해당하지 않을 경우     result += Number(str[i]);   }   return result;   이 문제는 간단하면서도 복잡했던 것 같다. 특히, 첫번째 문자열이 ‘-‘ 일 경우에 많이 헤맸던 것 같다.  H.A 문제들도 알고리즘 스프린트할 때와 비슷하게 풀 듯 말 듯 안풀리다가 풀리는 경우가 많았다.    test 3번    :point_right:test 3번문제 풀이 :   각 자리의 수를 곱한 결과물들이 한자리 수가 될 때까지 반복적으로 곱한다.          주의 사항 :  없음           입출력 예시 :      let output = test3(786); console.log(output); // --&gt; 0  /* 예를 들어 786을 인자로 넘길 경우, 함수는 0을 리턴해야 합니다. 7 * 8 * 6 -&gt; 336 3 * 3 * 6 -&gt; 54 5 * 4 -&gt; 20 2 * 0 -&gt; 0 */      pseudocode(수도코드)            숫자열을 순회하기 위해 먼저 문자열로 변환한다.       문자열의 길이가 1이되면 그대로 리턴. (base case)       그렇지 않은 경우, reduce 메서드를 활용해서 곱해준다.       재귀함수 호출             let str = String(num);   let arr = str.split(&#39;&#39;);  // (base case)   if (arr.length === 1) {         return Number(arr[0]);      }    if (arr.length &gt; 1) {     const result = arr.reduce(function (acc, cur) {       return acc * cur;     });     return test3(result);  // 재귀함수 호출   }   이 문제는 배웠던 내용만 잘 활용하면 쉽게 풀 수 있는 문제였다.  전반적으로 H.A 문제는 딱 여기까지 쉬웠고 그 뒤로는 나락이였다고 한다…     :punch: 내일의 TIW(today I Will)   test 5번, 6번 문제">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/blog/2021/01/TIL7/">
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL7/">
 
 
 
@@ -52,7 +52,7 @@
     
       "@type": "Person",
       "name": null,
-      "url": "http://localhost:4000/blog/"
+      "url": "http://localhost:4000/"
     
   }
 </script>
@@ -65,7 +65,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/blog/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +75,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/blog/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
 <!--[if IE]>
@@ -124,22 +124,22 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-        <a class="site-title" href="/blog/">
+        <a class="site-title" href="/">
           꿈을 기록하는 Blog
           <span class="site-subtitle">since 2021</span>
         </a>
         <ul class="visible-links">
 <li class="masthead__menu-item">
-              <a href="/blog/posts/">TIL</a>
+              <a href="/posts/">TIL</a>
             </li>
 <li class="masthead__menu-item">
-              <a href="/blog/categories/">Monthly</a>
+              <a href="/categories/">Monthly</a>
             </li>
 <li class="masthead__menu-item">
-              <a href="/blog/tags/">Tags</a>
+              <a href="/tags/">Tags</a>
             </li>
 <li class="masthead__menu-item">
-              <a href="/blog/about/">About</a>
+              <a href="/about/">About</a>
             </li>
 </ul>
         
@@ -177,7 +177,7 @@
   
     <div class="author__avatar">
       
-        <img src="/blog/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
+        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
       
     </div>
   
@@ -461,11 +461,11 @@
     
       
       
-      <a href="/blog/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
     
       
       
-      <a href="/blog/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
     
     </span>
   </p>
@@ -486,7 +486,7 @@
     
       
       
-      <a href="/blog/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
     
     </span>
   </p>
@@ -501,22 +501,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+16%EC%9D%BC+TIL+%237%20http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2021%2F01%2FTIL7%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+16%EC%9D%BC+TIL+%237%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL7%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2021%2F01%2FTIL7%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL7%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fblog%2F2021%2F01%2FTIL7%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL7%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/2021/01/TIL6/" class="pagination--pager" title="1월 15일 TIL #6
+      <a href="/2021/01/TIL6/" class="pagination--pager" title="1월 15일 TIL #6
 ">Previous</a>
     
     
-      <a href="/blog/2021/01/TIL8/" class="pagination--pager" title="1월 17일 TIL #8
+      <a href="/2021/01/TIL8/" class="pagination--pager" title="1월 17일 TIL #8
 ">Next</a>
     
   </nav>
@@ -541,7 +541,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
+        <a href="/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
 </a>
       
     </h2>
@@ -599,7 +599,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
 </a>
       
     </h2>
@@ -656,7 +656,7 @@ test 6번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
+        <a href="/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
 </a>
       
     </h2>
@@ -709,7 +709,7 @@ test 6번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/2021/01/TIL5/" rel="permalink">1월 14일 TIL #5
+        <a href="/2021/01/TIL5/" rel="permalink">1월 14일 TIL #5
 </a>
       
     </h2>
@@ -803,7 +803,7 @@ test 6번
       
     
 
-    <li><a href="/blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
@@ -813,14 +813,14 @@ test 6번
     </div>
 
     
-  <script src="/blog/assets/js/main.min.js"></script>
+  <script src="/assets/js/main.min.js"></script>
 
 
 
 
-<script src="/blog/assets/js/lunr/lunr.min.js"></script>
-<script src="/blog/assets/js/lunr/lunr-store.js"></script>
-<script src="/blog/assets/js/lunr/lunr-en.js"></script>
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
 
 
 
