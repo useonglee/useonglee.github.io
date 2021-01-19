@@ -58,4 +58,10 @@ var store = [{
         "tags": ["TIL","Pre-Course"],
         "url": "http://localhost:4000/2021/01/TIL9/",
         "teaser": null
+      },{
+        "title": "1월 19일 TIL #10",
+        "excerpt":"목차 조건문 조건문 알고리즘 13번 문제 문자열 다루기 parseFloat 과 parseInt NaN의 이해 조건문 :point_right:조건문 기초 : 1. if…else if…문법 if (truthy or falsy 한 값) { //괄호안에 대한 결과값 } else if (/*if안에 괄호가 falsy한 경우*/) { //괄호안에 대한 결과값 } else { //if 와 else if에 대한 조건이...","categories": ["2021/01"],
+        "tags": ["TIL","Pre-Course"],
+        "url": "http://localhost:4000/2021/01/TIL10/",
+        "teaser": null
       }]

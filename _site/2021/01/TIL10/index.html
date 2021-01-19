@@ -1,0 +1,1015 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>1월 19일 TIL #10 - 꿈을 기록하는 Blog</title>
+<meta name="description" content="목차     조건문   조건문 알고리즘 13번 문제   문자열 다루기   parseFloat 과 parseInt   NaN의 이해     조건문    :point_right:조건문 기초 :   1. if…else if…문법  if (truthy or falsy 한 값) {   //괄호안에 대한 결과값 } else if (/*if안에 괄호가 falsy한 경우*/) {   //괄호안에 대한 결과값 } else {   //if 와 else if에 대한 조건이 모두 다 만족하지 않을 때의 값 }   조건문은 기본적으로 이 문법에 해당한다. 여기서 주의해야 할 점은 자바스크립트에서는 거짓으로 취급하는 값이 있다.  기본적으로    false   undefined   null   0   NaN   the empty string (“”)   에 대한 값은 false 값으로 취급된다.  2. if 중첩문  if (truthy or falsy 한 값) {   if (첫번째에 해당되면서) {   // 두가지 if에 해당되는 값   }   else {   // 첫번째 if 조건에는 해당되지만 두번째는 해당이 안될 때    } }   이런식으로 if 문은 중첩해서 사용할 수 도 있다.    조건문 알고리즘 13번 문제    :point_up_2:조건문 13번 :   점수를 입력받아 점수에 해당하는 등급을 리턴해야 합니다.     주의사항 :            만약 주어진 점수가 100을 초과하거나 0 미만인 경우, 문자열 ‘INVALID SCORE’를 리턴해야 합니다.       각 등급의 최고 점수보다 7점 이하인 경우, 등급과 함께 ‘-‘를 리턴해야 합니다.       각 등급의 최저 점수보다 8점 이상인 경우, 등급과 함께 ‘+’를 리턴해야 합니다. F+ 와 F- 는 존재하지 않습니다.           입출력 예시 :     let output = convertScoreToGradeWithPlusAndMinus(91); console.log(output); // &#39;A-&#39;           pseudocode(수도코드)            주의사항 1번째를 먼저 해결해 준다.       1의 자리를 구해서 0~2 는 ‘-‘ , 8~9 는 ‘+’ 값이 나오도록 만든다.       100점일 경우 따로 조건문을 만들어준다.       각 점수마다 해당하는 등급의 값을 넣어준다.       return (반환) 할 때 등급 + 일의자리 를 해준다.             if (100 &lt; score || score &lt; 0) {     return &#39;INVALID SCORE&#39;;   }   let ones = score % 10;   let plusAndMinus = &#39;&#39;;   let grade = &#39;&#39;;    if (ones &gt;= 0 &amp;&amp; ones &lt;= 2) {     plusAndMinus = &#39;-&#39;;   }   else if (ones &gt;= 8 &amp;&amp; ones &lt;= 9) {     plusAndMinus = &#39;+&#39;;   }   if (score === 100) {     return &#39;A+&#39;   }   else if (score &gt;= 90) {     grade = &#39;A&#39;;   }   else if (score &gt;= 80) {     grade = &#39;B&#39;;   }   else if (score &gt;= 70) {     grade = &#39;C&#39;;   }   else if (score &gt;= 60) {     grade = &#39;D&#39;;   }   else {     return &#39;F&#39;;   }   return grade + plusAndMinus;   처음 접했을 때는 상당히 어려웠었던 문제!!:thumbsup:  계속 반복하다보니… 이젠 기계적으로 푸는 경지에 오르게 되었다..  그래도 그만큼 실력이 늘었다는 뜻이니 뿌듯하다 :)    문자열 다루기    :metal:문자열 다루기 기초 :   1. 문자열 속성 및 메서드 정리!   //String() let num = 123; let str = String(num);  console.log(str) // &#39;123&#39;;   //indexOf() let str = &#39;hello world&#39;; let findIndex = str.indexOf(&#39;w&#39;);  // 찾고 싶은 문자를 넣는다.  console.log(findIndex) // 6;   //replace() let str = &#39;hello world&#39;; let replaceStr = str.replace(&#39;hello&#39;, &#39;hi&#39;); // 문자를 바꾼다.  console.log(replaceStr) // &#39;hi world&#39;;   //substring(), substr() let str = &#39;hello world&#39;; let sliceStr1 = str.substr(0, 5); let sliceStr2 = str.substr(6);  console.log(sliceStr1); // hello; console.log(sliceStr2); // world;   //split() let str = &#39;hello world&#39;; let splitStr1 = str.split(&#39;&#39;);  // 괄호안에는 쪼개는 기준을 넣어준다. let splitStr2 = str.split(&#39; &#39;);   console.log(splitStr1); //[&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;]; console.log(splitStr2); //[&quot;hello&quot;, &quot;world&quot;]  //단, split은 배열로 변한다는 점을 명심하자!  //concat() let str1 = &#39;hello&#39;; let str2 = &#39;world&#39;; let concatStr = str1.concat(str2); // 1과 2를 합침.  console.log(concatStr) // &#39;helloworld&#39;   //trim() let str = &#39;  hello world  &#39;; let result = str.trim();    console.log(result); // &#39;hello world&#39;  // 양 쪽 끝의 공백만 잡아주니 명심하자!     Advanced Challanges      띄어쓰기 (“ “) 로 문자열을 구분하여, 배열로 바꿀 수 있다. str.split(“ “).join(“ “)   let str = &#39;hello world&#39;; let arr = str.split(&#39; &#39;); // [&#39;hello&#39;, &#39;world&#39;]  let joinArr = arr.join(&#39; &#39;); // &#39;hello world&#39;  다시 문자열로 변환  let result = str.split(&#39; &#39;).join(&#39; &#39;);  // 메서드 체이닝  console.log(result) // &#39;hello world&#39;     parseFloat 과 parseInt    :metal:parseFloat, parseInt 정리 :   1. parseFloat    수로 시작할 때 그 수를 실수로 바꾼다.   띄어쓰기로 여러개의 수가 있으면 첫번째 수만 가져온다.   공백으로 시작하면 그 공백은 무시한다.   수가 아닌 문자로 시작하면 NaN을 반환한다.   첫글자 이후에 숫자로 변환할 수 없는 값이 오는 경우, 그 이후 값들은 무시합니다.   console.log(parseFloat(&#39;12.34&#39;));         // 12.34  console.log(parseFloat(&#39;12.34 56.78&#39;));  // 12.34  console.log(parseFloat(&#39; 12.34&#39;));       // 12.34  console.log(parseFloat(&#39;A 12.34&#39;));     // NaN  console.log(parseFloat(&#39;12.34abcd55&#39;)); // 12.34 // 이 경우 55도 숫자로 변환할 수 있지만 &#39;abcd&#39; 뒤에 있으므로 무시된다.   2. parseInt     10진수 처리는 parseFloat 과 동일하다.   2진법과 16진법 등 다른 처리가 있다.   //parseInt(string, radix)  /* radix =  - optional - string 문자열을 읽을 진법(수의 진법 체계의 진법) - 2~36의 수 */  console.log(parseInt(&#39;10&#39;, 2)); // 2  // 10을 2진법으로 변환했기 때문에 2가 나온다.  console.log(parseInt(&quot;2&quot;, 2)); // NaN // 2진법에서는 2라는 숫자가 없으므로 NaN을 리턴.  console.log(parseInt(&quot;0xF&quot;)); // 15 // 첫 번째 파라미터인 문자열이 &#39;0x&#39; 또는 &#39;0X&#39;로 시작한다면 // 자동으로 문자열을 16진수로 읽어서, 10진수로 변환한 값을 리턴.  console.log(parseInt(&quot;0XF&quot;)); // 15  console.log(parseInt(&quot;0XFkk&quot;)); // 15   ※ parseInt() 사용 시 두 번째 파라미터를 입력하지 않아도, 첫 번째 문자열 파라미터의 값에 따라 자동으로 진법을 구분하기도 한다.  따라서, 특정 값에 따른 오류를 방지하기 위해 두 번째 파라미터인 radix 값을 반드시 입력해 주는 것이 좋다.    NaN의 이해    :+1:NaN 정리 :   1. 오늘 배운 NaN에 대한 개념!  mdn : 전역 NaN 속성은 Not-A-Number(숫자가 아님)를 나타냅니다.     NaN 판별   NaN은 다른 모든 값과 비교(==, !=, ===, !==)했을 때 같지 않으며, 다른 NaN과도 같지 않습니다.  NaN의 판별은 Number.isNaN() 또는 isNaN()을 사용하면 제일 분명하게 수행할 수 있습니다.  아니면, 오로지 NaN만이 자기자신과 비교했을 때 같지 않음을 이용할 수도 있습니다.  NaN === NaN;        // false  Number.NaN === NaN; // false  isNaN(NaN);         // true  isNaN(Number.NaN);  // true  마지막으로 이해를 돕기 위한 사진…!       :punch: 내일의 TIW(today I Will)   반복문과 반복문-알고리즘 문제">
+
+
+  <meta name="author" content="이우성">
+  
+  <meta property="article:author" content="이우성">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="꿈을 기록하는 Blog">
+<meta property="og:title" content="1월 19일 TIL #10">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL10/">
+
+
+  <meta property="og:description" content="목차     조건문   조건문 알고리즘 13번 문제   문자열 다루기   parseFloat 과 parseInt   NaN의 이해     조건문    :point_right:조건문 기초 :   1. if…else if…문법  if (truthy or falsy 한 값) {   //괄호안에 대한 결과값 } else if (/*if안에 괄호가 falsy한 경우*/) {   //괄호안에 대한 결과값 } else {   //if 와 else if에 대한 조건이 모두 다 만족하지 않을 때의 값 }   조건문은 기본적으로 이 문법에 해당한다. 여기서 주의해야 할 점은 자바스크립트에서는 거짓으로 취급하는 값이 있다.  기본적으로    false   undefined   null   0   NaN   the empty string (“”)   에 대한 값은 false 값으로 취급된다.  2. if 중첩문  if (truthy or falsy 한 값) {   if (첫번째에 해당되면서) {   // 두가지 if에 해당되는 값   }   else {   // 첫번째 if 조건에는 해당되지만 두번째는 해당이 안될 때    } }   이런식으로 if 문은 중첩해서 사용할 수 도 있다.    조건문 알고리즘 13번 문제    :point_up_2:조건문 13번 :   점수를 입력받아 점수에 해당하는 등급을 리턴해야 합니다.     주의사항 :            만약 주어진 점수가 100을 초과하거나 0 미만인 경우, 문자열 ‘INVALID SCORE’를 리턴해야 합니다.       각 등급의 최고 점수보다 7점 이하인 경우, 등급과 함께 ‘-‘를 리턴해야 합니다.       각 등급의 최저 점수보다 8점 이상인 경우, 등급과 함께 ‘+’를 리턴해야 합니다. F+ 와 F- 는 존재하지 않습니다.           입출력 예시 :     let output = convertScoreToGradeWithPlusAndMinus(91); console.log(output); // &#39;A-&#39;           pseudocode(수도코드)            주의사항 1번째를 먼저 해결해 준다.       1의 자리를 구해서 0~2 는 ‘-‘ , 8~9 는 ‘+’ 값이 나오도록 만든다.       100점일 경우 따로 조건문을 만들어준다.       각 점수마다 해당하는 등급의 값을 넣어준다.       return (반환) 할 때 등급 + 일의자리 를 해준다.             if (100 &lt; score || score &lt; 0) {     return &#39;INVALID SCORE&#39;;   }   let ones = score % 10;   let plusAndMinus = &#39;&#39;;   let grade = &#39;&#39;;    if (ones &gt;= 0 &amp;&amp; ones &lt;= 2) {     plusAndMinus = &#39;-&#39;;   }   else if (ones &gt;= 8 &amp;&amp; ones &lt;= 9) {     plusAndMinus = &#39;+&#39;;   }   if (score === 100) {     return &#39;A+&#39;   }   else if (score &gt;= 90) {     grade = &#39;A&#39;;   }   else if (score &gt;= 80) {     grade = &#39;B&#39;;   }   else if (score &gt;= 70) {     grade = &#39;C&#39;;   }   else if (score &gt;= 60) {     grade = &#39;D&#39;;   }   else {     return &#39;F&#39;;   }   return grade + plusAndMinus;   처음 접했을 때는 상당히 어려웠었던 문제!!:thumbsup:  계속 반복하다보니… 이젠 기계적으로 푸는 경지에 오르게 되었다..  그래도 그만큼 실력이 늘었다는 뜻이니 뿌듯하다 :)    문자열 다루기    :metal:문자열 다루기 기초 :   1. 문자열 속성 및 메서드 정리!   //String() let num = 123; let str = String(num);  console.log(str) // &#39;123&#39;;   //indexOf() let str = &#39;hello world&#39;; let findIndex = str.indexOf(&#39;w&#39;);  // 찾고 싶은 문자를 넣는다.  console.log(findIndex) // 6;   //replace() let str = &#39;hello world&#39;; let replaceStr = str.replace(&#39;hello&#39;, &#39;hi&#39;); // 문자를 바꾼다.  console.log(replaceStr) // &#39;hi world&#39;;   //substring(), substr() let str = &#39;hello world&#39;; let sliceStr1 = str.substr(0, 5); let sliceStr2 = str.substr(6);  console.log(sliceStr1); // hello; console.log(sliceStr2); // world;   //split() let str = &#39;hello world&#39;; let splitStr1 = str.split(&#39;&#39;);  // 괄호안에는 쪼개는 기준을 넣어준다. let splitStr2 = str.split(&#39; &#39;);   console.log(splitStr1); //[&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;]; console.log(splitStr2); //[&quot;hello&quot;, &quot;world&quot;]  //단, split은 배열로 변한다는 점을 명심하자!  //concat() let str1 = &#39;hello&#39;; let str2 = &#39;world&#39;; let concatStr = str1.concat(str2); // 1과 2를 합침.  console.log(concatStr) // &#39;helloworld&#39;   //trim() let str = &#39;  hello world  &#39;; let result = str.trim();    console.log(result); // &#39;hello world&#39;  // 양 쪽 끝의 공백만 잡아주니 명심하자!     Advanced Challanges      띄어쓰기 (“ “) 로 문자열을 구분하여, 배열로 바꿀 수 있다. str.split(“ “).join(“ “)   let str = &#39;hello world&#39;; let arr = str.split(&#39; &#39;); // [&#39;hello&#39;, &#39;world&#39;]  let joinArr = arr.join(&#39; &#39;); // &#39;hello world&#39;  다시 문자열로 변환  let result = str.split(&#39; &#39;).join(&#39; &#39;);  // 메서드 체이닝  console.log(result) // &#39;hello world&#39;     parseFloat 과 parseInt    :metal:parseFloat, parseInt 정리 :   1. parseFloat    수로 시작할 때 그 수를 실수로 바꾼다.   띄어쓰기로 여러개의 수가 있으면 첫번째 수만 가져온다.   공백으로 시작하면 그 공백은 무시한다.   수가 아닌 문자로 시작하면 NaN을 반환한다.   첫글자 이후에 숫자로 변환할 수 없는 값이 오는 경우, 그 이후 값들은 무시합니다.   console.log(parseFloat(&#39;12.34&#39;));         // 12.34  console.log(parseFloat(&#39;12.34 56.78&#39;));  // 12.34  console.log(parseFloat(&#39; 12.34&#39;));       // 12.34  console.log(parseFloat(&#39;A 12.34&#39;));     // NaN  console.log(parseFloat(&#39;12.34abcd55&#39;)); // 12.34 // 이 경우 55도 숫자로 변환할 수 있지만 &#39;abcd&#39; 뒤에 있으므로 무시된다.   2. parseInt     10진수 처리는 parseFloat 과 동일하다.   2진법과 16진법 등 다른 처리가 있다.   //parseInt(string, radix)  /* radix =  - optional - string 문자열을 읽을 진법(수의 진법 체계의 진법) - 2~36의 수 */  console.log(parseInt(&#39;10&#39;, 2)); // 2  // 10을 2진법으로 변환했기 때문에 2가 나온다.  console.log(parseInt(&quot;2&quot;, 2)); // NaN // 2진법에서는 2라는 숫자가 없으므로 NaN을 리턴.  console.log(parseInt(&quot;0xF&quot;)); // 15 // 첫 번째 파라미터인 문자열이 &#39;0x&#39; 또는 &#39;0X&#39;로 시작한다면 // 자동으로 문자열을 16진수로 읽어서, 10진수로 변환한 값을 리턴.  console.log(parseInt(&quot;0XF&quot;)); // 15  console.log(parseInt(&quot;0XFkk&quot;)); // 15   ※ parseInt() 사용 시 두 번째 파라미터를 입력하지 않아도, 첫 번째 문자열 파라미터의 값에 따라 자동으로 진법을 구분하기도 한다.  따라서, 특정 값에 따른 오류를 방지하기 위해 두 번째 파라미터인 radix 값을 반드시 입력해 주는 것이 좋다.    NaN의 이해    :+1:NaN 정리 :   1. 오늘 배운 NaN에 대한 개념!  mdn : 전역 NaN 속성은 Not-A-Number(숫자가 아님)를 나타냅니다.     NaN 판별   NaN은 다른 모든 값과 비교(==, !=, ===, !==)했을 때 같지 않으며, 다른 NaN과도 같지 않습니다.  NaN의 판별은 Number.isNaN() 또는 isNaN()을 사용하면 제일 분명하게 수행할 수 있습니다.  아니면, 오로지 NaN만이 자기자신과 비교했을 때 같지 않음을 이용할 수도 있습니다.  NaN === NaN;        // false  Number.NaN === NaN; // false  isNaN(NaN);         // true  isNaN(Number.NaN);  // true  마지막으로 이해를 돕기 위한 사진…!       :punch: 내일의 TIW(today I Will)   반복문과 반복문-알고리즘 문제">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-01-19T00:00:00+09:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL10/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          꿈을 기록하는 Blog
+          <span class="site-subtitle">since 2021</span>
+        </a>
+        <ul class="visible-links">
+<li class="masthead__menu-item">
+              <a href="/posts/">TIL</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/categories/">Monthly</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li>
+<li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li>
+</ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">이우성</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>JavaScript기반 개발공부<br><br> 코드스테이츠 Full pre 9기</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="1월 19일 TIL #10">
+    <meta itemprop="description" content="목차  조건문  조건문 알고리즘 13번 문제  문자열 다루기  parseFloat 과 parseInt  NaN의 이해조건문  :point_right:조건문 기초 :1. if…else if…문법if (truthy or falsy 한 값) {  //괄호안에 대한 결과값}else if (/*if안에 괄호가 falsy한 경우*/) {  //괄호안에 대한 결과값}else {  //if 와 else if에 대한 조건이 모두 다 만족하지 않을 때의 값}조건문은 기본적으로 이 문법에 해당한다. 여기서 주의해야 할 점은 자바스크립트에서는 거짓으로 취급하는 값이 있다.기본적으로  false  undefined  null  0  NaN  the empty string (“”)에 대한 값은 false 값으로 취급된다.2. if 중첩문if (truthy or falsy 한 값) {  if (첫번째에 해당되면서) {  // 두가지 if에 해당되는 값  }  else {  // 첫번째 if 조건에는 해당되지만 두번째는 해당이 안될 때   }}이런식으로 if 문은 중첩해서 사용할 수 도 있다.조건문 알고리즘 13번 문제  :point_up_2:조건문 13번 :점수를 입력받아 점수에 해당하는 등급을 리턴해야 합니다.  주의사항 :          만약 주어진 점수가 100을 초과하거나 0 미만인 경우, 문자열 ‘INVALID SCORE’를 리턴해야 합니다.      각 등급의 최고 점수보다 7점 이하인 경우, 등급과 함께 ‘-‘를 리턴해야 합니다.      각 등급의 최저 점수보다 8점 이상인 경우, 등급과 함께 ‘+’를 리턴해야 합니다.F+ 와 F- 는 존재하지 않습니다.        입출력 예시 :    let output = convertScoreToGradeWithPlusAndMinus(91);console.log(output); // 'A-'        pseudocode(수도코드)          주의사항 1번째를 먼저 해결해 준다.      1의 자리를 구해서 0~2 는 ‘-‘ , 8~9 는 ‘+’ 값이 나오도록 만든다.      100점일 경우 따로 조건문을 만들어준다.      각 점수마다 해당하는 등급의 값을 넣어준다.      return (반환) 할 때 등급 + 일의자리 를 해준다.        if (100 &lt; score || score &lt; 0) {    return 'INVALID SCORE';  }  let ones = score % 10;  let plusAndMinus = '';  let grade = '';  if (ones &gt;= 0 &amp;&amp; ones &lt;= 2) {    plusAndMinus = '-';  }  else if (ones &gt;= 8 &amp;&amp; ones &lt;= 9) {    plusAndMinus = '+';  }  if (score === 100) {    return 'A+'  }  else if (score &gt;= 90) {    grade = 'A';  }  else if (score &gt;= 80) {    grade = 'B';  }  else if (score &gt;= 70) {    grade = 'C';  }  else if (score &gt;= 60) {    grade = 'D';  }  else {    return 'F';  }  return grade + plusAndMinus;처음 접했을 때는 상당히 어려웠었던 문제!!:thumbsup: 계속 반복하다보니… 이젠 기계적으로 푸는 경지에 오르게 되었다..그래도 그만큼 실력이 늘었다는 뜻이니 뿌듯하다 :)문자열 다루기  :metal:문자열 다루기 기초 :  1. 문자열 속성 및 메서드 정리!//String()let num = 123;let str = String(num);console.log(str) // '123';//indexOf()let str = 'hello world';let findIndex = str.indexOf('w');  // 찾고 싶은 문자를 넣는다.console.log(findIndex) // 6;//replace()let str = 'hello world';let replaceStr = str.replace('hello', 'hi'); // 문자를 바꾼다.console.log(replaceStr) // 'hi world';//substring(), substr()let str = 'hello world';let sliceStr1 = str.substr(0, 5);let sliceStr2 = str.substr(6);console.log(sliceStr1); // hello;console.log(sliceStr2); // world;//split()let str = 'hello world';let splitStr1 = str.split('');  // 괄호안에는 쪼개는 기준을 넣어준다.let splitStr2 = str.split(' '); console.log(splitStr1); //[&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;];console.log(splitStr2); //[&quot;hello&quot;, &quot;world&quot;]//단, split은 배열로 변한다는 점을 명심하자!//concat()let str1 = 'hello';let str2 = 'world';let concatStr = str1.concat(str2); // 1과 2를 합침.console.log(concatStr) // 'helloworld'//trim()let str = '  hello world  ';let result = str.trim();  console.log(result); // 'hello world'// 양 쪽 끝의 공백만 잡아주니 명심하자!  Advanced Challanges  띄어쓰기 (“ “) 로 문자열을 구분하여, 배열로 바꿀 수 있다. str.split(“ “).join(“ “)let str = 'hello world';let arr = str.split(' '); // ['hello', 'world']let joinArr = arr.join(' '); // 'hello world'  다시 문자열로 변환let result = str.split(' ').join(' ');  // 메서드 체이닝console.log(result) // 'hello world'parseFloat 과 parseInt  :metal:parseFloat, parseInt 정리 :1. parseFloat  수로 시작할 때 그 수를 실수로 바꾼다.  띄어쓰기로 여러개의 수가 있으면 첫번째 수만 가져온다.  공백으로 시작하면 그 공백은 무시한다.  수가 아닌 문자로 시작하면 NaN을 반환한다.  첫글자 이후에 숫자로 변환할 수 없는 값이 오는 경우, 그 이후 값들은 무시합니다.console.log(parseFloat('12.34'));         // 12.34console.log(parseFloat('12.34 56.78'));  // 12.34console.log(parseFloat(' 12.34'));       // 12.34console.log(parseFloat('A 12.34'));     // NaNconsole.log(parseFloat('12.34abcd55')); // 12.34// 이 경우 55도 숫자로 변환할 수 있지만 'abcd' 뒤에 있으므로 무시된다.2. parseInt  10진수 처리는 parseFloat 과 동일하다.  2진법과 16진법 등 다른 처리가 있다.//parseInt(string, radix)/* radix = - optional- string 문자열을 읽을 진법(수의 진법 체계의 진법)- 2~36의 수*/console.log(parseInt('10', 2)); // 2 // 10을 2진법으로 변환했기 때문에 2가 나온다.console.log(parseInt(&quot;2&quot;, 2)); // NaN// 2진법에서는 2라는 숫자가 없으므로 NaN을 리턴.console.log(parseInt(&quot;0xF&quot;)); // 15// 첫 번째 파라미터인 문자열이 '0x' 또는 '0X'로 시작한다면// 자동으로 문자열을 16진수로 읽어서, 10진수로 변환한 값을 리턴.console.log(parseInt(&quot;0XF&quot;)); // 15console.log(parseInt(&quot;0XFkk&quot;)); // 15※ parseInt() 사용 시 두 번째 파라미터를 입력하지 않아도,첫 번째 문자열 파라미터의 값에 따라 자동으로 진법을 구분하기도 한다.따라서, 특정 값에 따른 오류를 방지하기 위해두 번째 파라미터인 radix 값을 반드시 입력해 주는 것이 좋다.NaN의 이해  :+1:NaN 정리 :1. 오늘 배운 NaN에 대한 개념!mdn : 전역 NaN 속성은 Not-A-Number(숫자가 아님)를 나타냅니다.  NaN 판별NaN은 다른 모든 값과 비교(==, !=, ===, !==)했을 때 같지 않으며, 다른 NaN과도 같지 않습니다.NaN의 판별은 Number.isNaN() 또는 isNaN()을 사용하면 제일 분명하게 수행할 수 있습니다.아니면, 오로지 NaN만이 자기자신과 비교했을 때 같지 않음을 이용할 수도 있습니다.NaN === NaN;        // falseNumber.NaN === NaN; // falseisNaN(NaN);         // trueisNaN(Number.NaN);  // true마지막으로 이해를 돕기 위한 사진…!  :punch: 내일의 TIW(today I Will)반복문과 반복문-알고리즘 문제">
+    <meta itemprop="datePublished" content="2021-01-19T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">1월 19일 TIL #10
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="목차">목차</h2>
+
+<ol>
+  <li><a href="#%EC%A1%B0%EA%B1%B4%EB%AC%B8">조건문</a></li>
+  <li><a href="#%EC%A1%B0%EA%B1%B4%EB%AC%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-13%EB%B2%88-%EB%AC%B8%EC%A0%9C">조건문 알고리즘 13번 문제</a></li>
+  <li><a href="#%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%8B%A4%EB%A3%A8%EA%B8%B0">문자열 다루기</a></li>
+  <li><a href="#parseFloat-%EA%B3%BC-parseInt">parseFloat 과 parseInt</a></li>
+  <li><a href="#NaN%EC%9D%98-%EC%9D%B4%ED%95%B4">NaN의 이해</a></li>
+</ol>
+
+<hr>
+<h2 id="조건문">조건문</h2>
+<blockquote>
+  <h2 id="point_right조건문-기초-">
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">조건문 기초 :</h2>
+</blockquote>
+
+<p><strong>1. if…else if…문법</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">truthy</span> <span class="nx">or</span> <span class="nx">falsy</span> <span class="nx">한</span> <span class="nx">값</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//괄호안에 대한 결과값</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="cm">/*if안에 괄호가 falsy한 경우*/</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//괄호안에 대한 결과값</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="c1">//if 와 else if에 대한 조건이 모두 다 만족하지 않을 때의 값</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>조건문은 기본적으로 이 문법에 해당한다. 여기서 주의해야 할 점은 자바스크립트에서는 거짓으로 취급하는 값이 있다.</p>
+
+<p>기본적으로</p>
+<ol>
+  <li>false</li>
+  <li>undefined</li>
+  <li>null</li>
+  <li>0</li>
+  <li>NaN</li>
+  <li>the empty string (“”)</li>
+</ol>
+
+<p>에 대한 값은 false 값으로 취급된다.</p>
+
+<p><strong>2. if 중첩문</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">truthy</span> <span class="nx">or</span> <span class="nx">falsy</span> <span class="nx">한</span> <span class="nx">값</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">첫번째에</span> <span class="nx">해당되면서</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 두가지 if에 해당되는 값</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// 첫번째 if 조건에는 해당되지만 두번째는 해당이 안될 때 </span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이런식으로 if 문은 중첩해서 사용할 수 도 있다.</p>
+
+<hr>
+<h2 id="조건문-알고리즘-13번-문제">조건문 알고리즘 13번 문제</h2>
+<blockquote>
+  <h2 id="point_up_2조건문-13번-">
+<img class="emoji" title=":point_up_2:" alt=":point_up_2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f446.png" height="20" width="20">조건문 13번 :</h2>
+</blockquote>
+
+<p>점수를 입력받아 점수에 해당하는 등급을 리턴해야 합니다.</p>
+
+<ul>
+  <li>주의사항 :
+    <ol>
+      <li>만약 주어진 점수가 100을 초과하거나 0 미만인 경우, 문자열 ‘INVALID SCORE’를 리턴해야 합니다.</li>
+      <li>각 등급의 최고 점수보다 7점 이하인 경우, 등급과 함께 ‘-‘를 리턴해야 합니다.</li>
+      <li>각 등급의 최저 점수보다 8점 이상인 경우, 등급과 함께 ‘+’를 리턴해야 합니다.
+F+ 와 F- 는 존재하지 않습니다.</li>
+    </ol>
+  </li>
+  <li>입출력 예시 :
+    <div class="language-js highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">convertScoreToGradeWithPlusAndMinus</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// 'A-'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>pseudocode(수도코드)
+    <ol>
+      <li>주의사항 1번째를 먼저 해결해 준다.</li>
+      <li>1의 자리를 구해서 0~2 는 ‘-‘ , 8~9 는 ‘+’ 값이 나오도록 만든다.</li>
+      <li>100점일 경우 따로 조건문을 만들어준다.</li>
+      <li>각 점수마다 해당하는 등급의 값을 넣어준다.</li>
+      <li>return (반환) 할 때 등급 + 일의자리 를 해준다.</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="nx">score</span> <span class="o">||</span> <span class="nx">score</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">INVALID SCORE</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">let</span> <span class="nx">ones</span> <span class="o">=</span> <span class="nx">score</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">plusAndMinus</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">grade</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ones</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">ones</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">plusAndMinus</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">ones</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="nx">ones</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">plusAndMinus</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">+</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">===</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">A+</span><span class="dl">'</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">A</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">B</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">C</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">D</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">F</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">grade</span> <span class="o">+</span> <span class="nx">plusAndMinus</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>처음 접했을 때는 상당히 어려웠었던 문제!!<img class="emoji" title=":thumbsup:" alt=":thumbsup:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20"> <br>
+계속 반복하다보니… 이젠 기계적으로 푸는 경지에 오르게 되었다..</p>
+
+<p>그래도 그만큼 실력이 늘었다는 뜻이니 뿌듯하다 :)</p>
+
+<hr>
+<h2 id="문자열-다루기">문자열 다루기</h2>
+<blockquote>
+  <h2 id="metal문자열-다루기-기초-">
+<img class="emoji" title=":metal:" alt=":metal:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f918.png" height="20" width="20">문자열 다루기 기초 :</h2>
+  <p><strong>1. 문자열 속성 및 메서드 정리!</strong></p>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//String()</span>
+<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="c1">// '123';</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//indexOf()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">findIndex</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">w</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// 찾고 싶은 문자를 넣는다.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">findIndex</span><span class="p">)</span> <span class="c1">// 6;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//replace()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">replaceStr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 문자를 바꾼다.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">replaceStr</span><span class="p">)</span> <span class="c1">// 'hi world';</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//substring(), substr()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sliceStr1</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sliceStr2</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sliceStr1</span><span class="p">);</span> <span class="c1">// hello;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sliceStr2</span><span class="p">);</span> <span class="c1">// world;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//split()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">splitStr1</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>  <span class="c1">// 괄호안에는 쪼개는 기준을 넣어준다.</span>
+<span class="kd">let</span> <span class="nx">splitStr2</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span> 
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">splitStr1</span><span class="p">);</span> <span class="c1">//["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">splitStr2</span><span class="p">);</span> <span class="c1">//["hello", "world"]</span>
+
+<span class="c1">//단, split은 배열로 변한다는 점을 명심하자!</span>
+</code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//concat()</span>
+<span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">concatStr</span> <span class="o">=</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">str2</span><span class="p">);</span> <span class="c1">// 1과 2를 합침.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">concatStr</span><span class="p">)</span> <span class="c1">// 'helloworld'</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//trim()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">  hello world  </span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>  
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 'hello world'</span>
+
+<span class="c1">// 양 쪽 끝의 공백만 잡아주니 명심하자!</span>
+</code></pre></div></div>
+<blockquote>
+  <p><strong>Advanced Challanges</strong></p>
+</blockquote>
+
+<ul>
+  <li>띄어쓰기 (“ “) 로 문자열을 구분하여, 배열로 바꿀 수 있다. str.split(“ “).join(“ “)</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span> <span class="c1">// ['hello', 'world']</span>
+
+<span class="kd">let</span> <span class="nx">joinArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 'hello world'  다시 문자열로 변환</span>
+
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// 메서드 체이닝</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="c1">// 'hello world'</span>
+</code></pre></div></div>
+
+<hr>
+<h2 id="parsefloat-과-parseint">parseFloat 과 parseInt</h2>
+<blockquote>
+  <h2 id="metalparsefloat-parseint-정리-">
+<img class="emoji" title=":metal:" alt=":metal:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f918.png" height="20" width="20">parseFloat, parseInt 정리 :</h2>
+</blockquote>
+
+<p><strong>1. parseFloat</strong></p>
+<ul>
+  <li>수로 시작할 때 그 수를 실수로 바꾼다.</li>
+  <li>띄어쓰기로 여러개의 수가 있으면 첫번째 수만 가져온다.</li>
+  <li>공백으로 시작하면 그 공백은 무시한다.</li>
+  <li>수가 아닌 문자로 시작하면 NaN을 반환한다.</li>
+  <li>첫글자 이후에 숫자로 변환할 수 없는 값이 오는 경우, 그 이후 값들은 무시합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">12.34</span><span class="dl">'</span><span class="p">));</span>         <span class="c1">// 12.34</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">12.34 56.78</span><span class="dl">'</span><span class="p">));</span>  <span class="c1">// 12.34</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1"> 12.34</span><span class="dl">'</span><span class="p">));</span>       <span class="c1">// 12.34</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">A 12.34</span><span class="dl">'</span><span class="p">));</span>     <span class="c1">// NaN</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">12.34abcd55</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// 12.34</span>
+<span class="c1">// 이 경우 55도 숫자로 변환할 수 있지만 'abcd' 뒤에 있으므로 무시된다.</span>
+</code></pre></div></div>
+
+<p><strong>2. parseInt</strong></p>
+
+<ul>
+  <li>10진수 처리는 parseFloat 과 동일하다.</li>
+  <li>2진법과 16진법 등 다른 처리가 있다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//parseInt(string, radix)</span>
+
+<span class="cm">/* radix = 
+- optional
+- string 문자열을 읽을 진법(수의 진법 체계의 진법)
+- 2~36의 수
+*/</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 2 </span>
+<span class="c1">// 10을 2진법으로 변환했기 때문에 2가 나온다.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// NaN</span>
+<span class="c1">// 2진법에서는 2라는 숫자가 없으므로 NaN을 리턴.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">0xF</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 15</span>
+<span class="c1">// 첫 번째 파라미터인 문자열이 '0x' 또는 '0X'로 시작한다면</span>
+<span class="c1">// 자동으로 문자열을 16진수로 읽어서, 10진수로 변환한 값을 리턴.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">0XF</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 15</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">0XFkk</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 15</span>
+</code></pre></div></div>
+
+<p>※ parseInt() 사용 시 두 번째 파라미터를 입력하지 않아도,<br>
+첫 번째 문자열 파라미터의 값에 따라 자동으로 진법을 구분하기도 한다.</p>
+
+<p>따라서, 특정 값에 따른 오류를 방지하기 위해<br>
+두 번째 파라미터인 <strong>radix</strong> 값을 반드시 입력해 주는 것이 좋다.</p>
+
+<hr>
+<h2 id="nan의-이해">NaN의 이해</h2>
+<blockquote>
+  <h2 id="1nan-정리-">
+<img class="emoji" title=":+1:" alt=":+1:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20">NaN 정리 :</h2>
+</blockquote>
+
+<p><strong>1. 오늘 배운 NaN에 대한 개념!</strong></p>
+
+<p>mdn : 전역 NaN 속성은 Not-A-Number(숫자가 아님)를 나타냅니다.</p>
+
+<ul>
+  <li>NaN 판별</li>
+</ul>
+
+<p><strong>NaN은 다른 모든 값과 비교(==, !=, ===, !==)했을 때 같지 않으며</strong>, 다른 NaN과도 같지 않습니다.</p>
+
+<p>NaN의 판별은 Number.isNaN() 또는 isNaN()을 사용하면 제일 분명하게 수행할 수 있습니다.</p>
+
+<p>아니면, 오로지 NaN만이 자기자신과 비교했을 때 같지 않음을 이용할 수도 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">NaN</span> <span class="o">===</span> <span class="kc">NaN</span><span class="p">;</span>        <span class="c1">// false</span>
+
+<span class="nb">Number</span><span class="p">.</span><span class="kc">NaN</span> <span class="o">===</span> <span class="kc">NaN</span><span class="p">;</span> <span class="c1">// false</span>
+
+<span class="nb">isNaN</span><span class="p">(</span><span class="kc">NaN</span><span class="p">);</span>         <span class="c1">// true</span>
+
+<span class="nb">isNaN</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="kc">NaN</span><span class="p">);</span>  <span class="c1">// true</span>
+</code></pre></div></div>
+<p>마지막으로 이해를 돕기 위한 사진…!</p>
+
+<p><img src="https://user-images.githubusercontent.com/75570915/105057361-7cd8d700-5ab8-11eb-967d-fc798e73c3be.jpg" width="70%" height="70%"></p>
+
+<blockquote>
+  <p><img class="emoji" title=":punch:" alt=":punch:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png" height="20" width="20"> <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>반복문과 반복문-알고리즘 문제</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-19T00:00:00+09:00">January 19, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+19%EC%9D%BC+TIL+%2310%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL10%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL10%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL10%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/2021/01/TIL9/" class="pagination--pager" title="1월 18일 TIL #9
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  변수와 타입
+  함수
+  join과 undefined의 관계
+
+
+
+
+변수와 타입
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">변수와 타입 기초 :
+
+
+1. 변수(variable)
+
+변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.
+
+변수에 이름을 지어주고(선언...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  test 6번
+
+
+
+
+test 6번
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 6번문제 풀이 :
+
+
+피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.
+
+
+  주의 사항 :
+    
+      리턴되는 클로저 내부 함수(inner function)의 ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  test 2번
+  test 3번
+
+
+
+
+test 2번
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 2번문제 풀이 :
+
+
+수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.
+
+
+  주의 사항 :
+    
+      음수를 입력받은 경우, 첫번째 수는 음수로 계산
+   ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">목차
+
+
+  함수 호이스팅 (Hoisting)
+  reduce 활용해서 배열을 객체로
+  onclick 함수
+
+
+
+
+함수 호이스팅 (Hoisting)
+
+
+<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 호이스팅은 말 그대로 끌어 올린 다는 것이다. 
+자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap">
+<form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term...">
+  </form>
+  <div id="results" class="results"></div>
+</div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2021 꿈을 기록하는 Blog. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
