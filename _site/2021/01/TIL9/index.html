@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>TIL #9 - 꿈을 기록하는 Blog</title>
-<meta name="description" content="목차     변수와 타입   함수   join과 undefined의 관계     변수와 타입    :point_right:변수와 타입 기초 :   1. 변수(variable)  변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.  변수에 이름을 지어주고(선언) 값을 넣어준다(할당).  let number = 1;      // 값이 숫자가 될 수도 있고 let name = &#39;useong&#39;  // 문자열이 될 수도 있다.  프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념)  변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1;      num = num + 2;   // let num = num + 2 =&gt; 에러 num = num + 3; num = num + 4;  console.log(num) // 10;    2. 타입(type)  타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.  원시자료형 (number, string, boolean, undefined, function) 도 타입이다.  console.log(typeof 1); // expected output: &quot;number&quot;  console.log(typeof &#39;useong&#39;); // expected output: &quot;string&quot;  console.log(typeof true); // expected output: &quot;boolean&quot;  console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot;  console.log(typeof function(){}); // expected output: &quot;function&quot;  console.log(typeof {a : 1}); // expected output: &quot;object&quot;  console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot;     함수    :point_up_2:함수 기초 :   3. 함수(function)      함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.   함수 선언식과 함수 표현식이 있다.   return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.   매개변수(parameter) 와 전달인자(argument)가 있다.   let word = &#39;welcome to&#39;;  // word = 전달인자(argument)  function gitBlog(word) {   if (typeof word !== &#39;string&#39;) {     return &#39;wrong type&#39;;   }   else {     return word + &#39; useonglee!&#39;;   } } console.log(gitBlog(word)) // &#39;welcome to useonglee!&#39;   함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.  //함수 선언식 function myFunction (input) {  // input : 매개변수(parameter)   console.log(input); }  //함수 표현식 let myFunction = function (input) {   console.log(input); }   저번에 올렸던 호이스팅과도 관련이 있다.  함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.  이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.  하지만 난 함수 표현식을 더 선호한다.  알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.    join과 undefined의 관계    :question:join과 undefined의 관계 :   이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.   알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,  배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만  문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.  이 부분이 궁금해서 질문을 했었다.  //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ]  arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join(&#39;&#39;)) // &quot;123&quot;   그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.  위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때  &quot;abc&quot; + undefined === &quot;abcundefined&quot;  와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.  사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,  나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.  이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.  문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.     :punch: 내일의 TIW(today I Will)   조건문과 문자열">
+<meta name="description" content="1. 변수와 타입     변수와 타입 기초 :   1. 변수(variable)  변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.  변수에 이름을 지어주고(선언) 값을 넣어준다(할당).  let number = 1;      // 값이 숫자가 될 수도 있고 let name = &#39;useong&#39;  // 문자열이 될 수도 있다.  프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념)  변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1;      num = num + 2;   // let num = num + 2 =&gt; 에러 num = num + 3; num = num + 4;  console.log(num) // 10;    2. 타입(type)  타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.  원시자료형 (number, string, boolean, undefined, function) 도 타입이다.  console.log(typeof 1); // expected output: &quot;number&quot;  console.log(typeof &#39;useong&#39;); // expected output: &quot;string&quot;  console.log(typeof true); // expected output: &quot;boolean&quot;  console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot;  console.log(typeof function(){}); // expected output: &quot;function&quot;  console.log(typeof {a : 1}); // expected output: &quot;object&quot;  console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot;      2. 함수     함수 기초 :   3. 함수(function)     함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.   함수 선언식과 함수 표현식이 있다.   return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.   매개변수(parameter) 와 전달인자(argument)가 있다.   let word = &#39;welcome to&#39;;  // word = 전달인자(argument)  function gitBlog(word) {   if (typeof word !== &#39;string&#39;) {     return &#39;wrong type&#39;;   }   else {     return word + &#39; useonglee!&#39;;   } } console.log(gitBlog(word)) // &#39;welcome to useonglee!&#39;   함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.  //함수 선언식 function myFunction (input) {  // input : 매개변수(parameter)   console.log(input); }  //함수 표현식 let myFunction = function (input) {   console.log(input); }   저번에 올렸던 호이스팅과도 관련이 있다.  함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.  이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.  하지만 난 함수 표현식을 더 선호한다.  알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.      3. join과 undefined의 관계     join과 undefined의 관계 :   이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.  알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,  배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만  문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.  이 부분이 궁금해서 질문을 했었다.  //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ]  arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join(&#39;&#39;)) // &quot;123&quot;   그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.  위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때  &quot;abc&quot; + undefined === &quot;abcundefined&quot;  와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.  사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,  나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.  이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.  문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.     :punch: 내일의 TIW(today I Will)   조건문과 문자열">
 
 
   <meta name="author" content="이우성">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:4000/2021/01/TIL9/">
 
 
-  <meta property="og:description" content="목차     변수와 타입   함수   join과 undefined의 관계     변수와 타입    :point_right:변수와 타입 기초 :   1. 변수(variable)  변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.  변수에 이름을 지어주고(선언) 값을 넣어준다(할당).  let number = 1;      // 값이 숫자가 될 수도 있고 let name = &#39;useong&#39;  // 문자열이 될 수도 있다.  프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념)  변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1;      num = num + 2;   // let num = num + 2 =&gt; 에러 num = num + 3; num = num + 4;  console.log(num) // 10;    2. 타입(type)  타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.  원시자료형 (number, string, boolean, undefined, function) 도 타입이다.  console.log(typeof 1); // expected output: &quot;number&quot;  console.log(typeof &#39;useong&#39;); // expected output: &quot;string&quot;  console.log(typeof true); // expected output: &quot;boolean&quot;  console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot;  console.log(typeof function(){}); // expected output: &quot;function&quot;  console.log(typeof {a : 1}); // expected output: &quot;object&quot;  console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot;     함수    :point_up_2:함수 기초 :   3. 함수(function)      함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.   함수 선언식과 함수 표현식이 있다.   return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.   매개변수(parameter) 와 전달인자(argument)가 있다.   let word = &#39;welcome to&#39;;  // word = 전달인자(argument)  function gitBlog(word) {   if (typeof word !== &#39;string&#39;) {     return &#39;wrong type&#39;;   }   else {     return word + &#39; useonglee!&#39;;   } } console.log(gitBlog(word)) // &#39;welcome to useonglee!&#39;   함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.  //함수 선언식 function myFunction (input) {  // input : 매개변수(parameter)   console.log(input); }  //함수 표현식 let myFunction = function (input) {   console.log(input); }   저번에 올렸던 호이스팅과도 관련이 있다.  함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.  이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.  하지만 난 함수 표현식을 더 선호한다.  알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.    join과 undefined의 관계    :question:join과 undefined의 관계 :   이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.   알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,  배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만  문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.  이 부분이 궁금해서 질문을 했었다.  //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ]  arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join(&#39;&#39;)) // &quot;123&quot;   그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.  위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때  &quot;abc&quot; + undefined === &quot;abcundefined&quot;  와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.  사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,  나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.  이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.  문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.     :punch: 내일의 TIW(today I Will)   조건문과 문자열">
+  <meta property="og:description" content="1. 변수와 타입     변수와 타입 기초 :   1. 변수(variable)  변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.  변수에 이름을 지어주고(선언) 값을 넣어준다(할당).  let number = 1;      // 값이 숫자가 될 수도 있고 let name = &#39;useong&#39;  // 문자열이 될 수도 있다.  프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념)  변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1;      num = num + 2;   // let num = num + 2 =&gt; 에러 num = num + 3; num = num + 4;  console.log(num) // 10;    2. 타입(type)  타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.  원시자료형 (number, string, boolean, undefined, function) 도 타입이다.  console.log(typeof 1); // expected output: &quot;number&quot;  console.log(typeof &#39;useong&#39;); // expected output: &quot;string&quot;  console.log(typeof true); // expected output: &quot;boolean&quot;  console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot;  console.log(typeof function(){}); // expected output: &quot;function&quot;  console.log(typeof {a : 1}); // expected output: &quot;object&quot;  console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot;      2. 함수     함수 기초 :   3. 함수(function)     함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.   함수 선언식과 함수 표현식이 있다.   return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.   매개변수(parameter) 와 전달인자(argument)가 있다.   let word = &#39;welcome to&#39;;  // word = 전달인자(argument)  function gitBlog(word) {   if (typeof word !== &#39;string&#39;) {     return &#39;wrong type&#39;;   }   else {     return word + &#39; useonglee!&#39;;   } } console.log(gitBlog(word)) // &#39;welcome to useonglee!&#39;   함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.  //함수 선언식 function myFunction (input) {  // input : 매개변수(parameter)   console.log(input); }  //함수 표현식 let myFunction = function (input) {   console.log(input); }   저번에 올렸던 호이스팅과도 관련이 있다.  함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.  이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.  하지만 난 함수 표현식을 더 선호한다.  알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.      3. join과 undefined의 관계     join과 undefined의 관계 :   이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.  알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,  배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만  문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.  이 부분이 궁금해서 질문을 했었다.  //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ]  arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join(&#39;&#39;)) // &quot;123&quot;   그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.  위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때  &quot;abc&quot; + undefined === &quot;abcundefined&quot;  와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.  사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,  나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.  이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.  문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.     :punch: 내일의 TIW(today I Will)   조건문과 문자열">
 
 
 
@@ -277,7 +277,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="TIL #9">
-    <meta itemprop="description" content="목차  변수와 타입  함수  join과 undefined의 관계변수와 타입  :point_right:변수와 타입 기초 :1. 변수(variable)변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.변수에 이름을 지어주고(선언) 값을 넣어준다(할당).let number = 1;      // 값이 숫자가 될 수도 있고let name = 'useong'  // 문자열이 될 수도 있다.프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다.(할당의 개념)변수는 동일한 변수를 이용해 대입할 수 있다.사용했던 let은 또 사용하면 에러가 난다.let num = 1;     num = num + 2;   // let num = num + 2 =&gt; 에러num = num + 3;num = num + 4;console.log(num) // 10;2. 타입(type)타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.원시자료형 (number, string, boolean, undefined, function) 도 타입이다.console.log(typeof 1);// expected output: &quot;number&quot;console.log(typeof 'useong');// expected output: &quot;string&quot;console.log(typeof true);// expected output: &quot;boolean&quot;console.log(typeof undeclaredVariable);// expected output: &quot;undefined&quot;console.log(typeof function(){});// expected output: &quot;function&quot;console.log(typeof {a : 1});// expected output: &quot;object&quot;console.log(typeof [1, 2, 3]);// expected output: &quot;object&quot;함수  :point_up_2:함수 기초 :  3. 함수(function)  함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.  함수 선언식과 함수 표현식이 있다.  return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.  매개변수(parameter) 와 전달인자(argument)가 있다.let word = 'welcome to';  // word = 전달인자(argument)function gitBlog(word) {  if (typeof word !== 'string') {    return 'wrong type';  }  else {    return word + ' useonglee!';  }}console.log(gitBlog(word)) // 'welcome to useonglee!'함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.//함수 선언식function myFunction (input) {  // input : 매개변수(parameter)  console.log(input);}//함수 표현식let myFunction = function (input) {  console.log(input);}저번에 올렸던 호이스팅과도 관련이 있다.함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.하지만 난 함수 표현식을 더 선호한다.알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.join과 undefined의 관계  :question:join과 undefined의 관계 :  이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.이 부분이 궁금해서 질문을 했었다.//배열에는 undefined를 푸쉬할 수 있다.let arr = [];arr.push(undefined);console.log(arr) // [ undefined ]arr.push(1, 2, 3)console.log(arr) // [undefined, 1, 2, 3]console.log(arr.join('')) // &quot;123&quot;그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때&quot;abc&quot; + undefined === &quot;abcundefined&quot;와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다.undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.  :punch: 내일의 TIW(today I Will)조건문과 문자열">
+    <meta itemprop="description" content="1. 변수와 타입  변수와 타입 기초 :1. 변수(variable)변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.변수에 이름을 지어주고(선언) 값을 넣어준다(할당).let number = 1;      // 값이 숫자가 될 수도 있고let name = 'useong'  // 문자열이 될 수도 있다.프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다.(할당의 개념)변수는 동일한 변수를 이용해 대입할 수 있다.사용했던 let은 또 사용하면 에러가 난다.let num = 1;     num = num + 2;   // let num = num + 2 =&gt; 에러num = num + 3;num = num + 4;console.log(num) // 10;2. 타입(type)타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.원시자료형 (number, string, boolean, undefined, function) 도 타입이다.console.log(typeof 1);// expected output: &quot;number&quot;console.log(typeof 'useong');// expected output: &quot;string&quot;console.log(typeof true);// expected output: &quot;boolean&quot;console.log(typeof undeclaredVariable);// expected output: &quot;undefined&quot;console.log(typeof function(){});// expected output: &quot;function&quot;console.log(typeof {a : 1});// expected output: &quot;object&quot;console.log(typeof [1, 2, 3]);// expected output: &quot;object&quot;2. 함수  함수 기초 :3. 함수(function)  함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.  함수 선언식과 함수 표현식이 있다.  return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.  매개변수(parameter) 와 전달인자(argument)가 있다.let word = 'welcome to';  // word = 전달인자(argument)function gitBlog(word) {  if (typeof word !== 'string') {    return 'wrong type';  }  else {    return word + ' useonglee!';  }}console.log(gitBlog(word)) // 'welcome to useonglee!'함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.//함수 선언식function myFunction (input) {  // input : 매개변수(parameter)  console.log(input);}//함수 표현식let myFunction = function (input) {  console.log(input);}저번에 올렸던 호이스팅과도 관련이 있다.함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.하지만 난 함수 표현식을 더 선호한다.알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.3. join과 undefined의 관계  join과 undefined의 관계 :이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.이 부분이 궁금해서 질문을 했었다.//배열에는 undefined를 푸쉬할 수 있다.let arr = [];arr.push(undefined);console.log(arr) // [ undefined ]arr.push(1, 2, 3)console.log(arr) // [undefined, 1, 2, 3]console.log(arr.join('')) // &quot;123&quot;그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때&quot;abc&quot; + undefined === &quot;abcundefined&quot;와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다.undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.  :punch: 내일의 TIW(today I Will)조건문과 문자열">
     <meta itemprop="datePublished" content="2021-01-18T00:00:00+09:00">
     
 
@@ -312,19 +312,26 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="목차">목차</h2>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title">
+<i class="fas fa-file-alt"></i> 페이지 주요 목차</h4></header>
+              <ul class="toc__menu">
+<li><a href="#1-%EB%B3%80%EC%88%98%EC%99%80-%ED%83%80%EC%9E%85">1. 변수와 타입</a></li>
+<li><a href="#%EB%B3%80%EC%88%98%EC%99%80-%ED%83%80%EC%9E%85-%EA%B8%B0%EC%B4%88-">변수와 타입 기초 :</a></li>
+<li><a href="#2-%ED%95%A8%EC%88%98">2. 함수</a></li>
+<li><a href="#%ED%95%A8%EC%88%98-%EA%B8%B0%EC%B4%88-">함수 기초 :</a></li>
+<li><a href="#3-join%EA%B3%BC-undefined%EC%9D%98-%EA%B4%80%EA%B3%84">3. join과 undefined의 관계</a></li>
+<li><a href="#join%EA%B3%BC-undefined%EC%9D%98-%EA%B4%80%EA%B3%84-">join과 undefined의 관계 :</a></li>
+</ul>
 
-<ol>
-  <li><a href="#%EB%B3%80%EC%88%98%EC%99%80-%ED%83%80%EC%9E%85">변수와 타입</a></li>
-  <li><a href="#%ED%95%A8%EC%88%98">함수</a></li>
-  <li><a href="#join%EA%B3%BC-undefined%EC%9D%98-%EA%B4%80%EA%B3%84">join과 undefined의 관계</a></li>
-</ol>
+            </nav>
+          </aside>
+        
+        <h2 id="1-변수와-타입">1. 변수와 타입</h2>
 
-<hr>
-<h2 id="변수와-타입">변수와 타입</h2>
 <blockquote>
-  <h2 id="point_right변수와-타입-기초-">
-<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">변수와 타입 기초 :</h2>
+  <h2 id="변수와-타입-기초-">변수와 타입 기초 :</h2>
 </blockquote>
 
 <p><strong>1. 변수(variable)</strong></p>
@@ -378,14 +385,17 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
 <span class="c1">// expected output: "object"</span>
 </code></pre></div></div>
+<p><br>
+<br>
+<br></p>
 
-<hr>
-<h2 id="함수">함수</h2>
+<h2 id="2-함수">2. 함수</h2>
+
 <blockquote>
-  <h2 id="point_up_2함수-기초-">
-<img class="emoji" title=":point_up_2:" alt=":point_up_2:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f446.png" height="20" width="20">함수 기초 :</h2>
-  <p><strong>3. 함수(function)</strong></p>
+  <h2 id="함수-기초-">함수 기초 :</h2>
 </blockquote>
+
+<p><strong>3. 함수(function)</strong></p>
 
 <ul>
   <li>함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.</li>
@@ -430,13 +440,17 @@
 
 <p>알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.</p>
 
-<hr>
-<h2 id="join과-undefined의-관계">join과 undefined의 관계</h2>
+<p><br>
+<br>
+<br></p>
+
+<h2 id="3-join과-undefined의-관계">3. join과 undefined의 관계</h2>
+
 <blockquote>
-  <h2 id="questionjoin과-undefined의-관계-">
-<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20">join과 undefined의 관계 :</h2>
-  <p>이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.</p>
+  <h2 id="join과-undefined의-관계-">join과 undefined의 관계 :</h2>
 </blockquote>
+
+<p>이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.</p>
 
 <p>알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,</p>
 
@@ -499,11 +513,7 @@ undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.
     
       
       
-      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a>
     
     </span>
   </p>
@@ -579,13 +589,72 @@ undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/2021/01/TIL/" rel="permalink">TIL #11
+</a>
+      
+    </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/20/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. 반복문 for while
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> for, while :
+
+
+
+1-1 for loop 문법
+
+반복문은 반복할 조건을 초기화, 조건식, 증감문 순으로 넣어준다.
+
+
+  초기화 : 시작부분이라고도 표현할 수 있다. i = 0 // 0부터 시작하겠다.
+  조건...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/2021/01/TIL10/" rel="permalink">TIL #10
 </a>
       
     </h2>
 
     
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
 	
 <!-- 카테고리만 보여주는 코드 -->
 
@@ -612,27 +681,21 @@ undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">목차
+    <p class="archive__item-excerpt" itemprop="description">1. 조건문
 
-
-  조건문
-  조건문 알고리즘 13번 문제
-  문자열 다루기
-  parseFloat 과 parseInt
-  NaN의 이해
-
-
-
-
-조건문
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">조건문 기초 :
+  조건문 기초 :
 
 
 1. if…else if…문법
 
 if (truthy or falsy 한 값) {
-  //...</p>
+  //괄호안에 대한 결과값
+}
+else if (/*if안에 괄호가 falsy한 경우*/) {
+  //괄호안에 대한 결과값
+}
+else {
+  //if 와 else...</p>
   </article>
 </div>
 
@@ -652,7 +715,7 @@ if (truthy or falsy 한 값) {
     </h2>
 
     
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
 	
 <!-- 카테고리만 보여주는 코드 -->
 
@@ -679,17 +742,10 @@ if (truthy or falsy 한 값) {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">목차
+    <p class="archive__item-excerpt" itemprop="description">1. test 6번
 
 
-  test 6번
-
-
-
-
-test 6번
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 6번문제 풀이 :
+  test 6번문제 풀이 :
 
 
 피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.
@@ -697,7 +753,7 @@ test 6번
 
   주의 사항 :
     
-      리턴되는 클로저 내부 함수(inner function)의 ...</p>
+      리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 ...</p>
   </article>
 </div>
 
@@ -717,7 +773,7 @@ test 6번
     </h2>
 
     
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
 	
 <!-- 카테고리만 보여주는 코드 -->
 
@@ -744,16 +800,7 @@ test 6번
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">목차
-
-
-  test 2번
-  test 3번
-
-
-
-
-test 2번
+    <p class="archive__item-excerpt" itemprop="description">test 2번
 
   <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 2번문제 풀이 :
 
@@ -764,68 +811,10 @@ test 2번
   주의 사항 :
     
       음수를 입력받은 경우, 첫번째 수는 음수로 계산
-   ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+      number 타입을 리턴
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL6/" rel="permalink">TIL #6
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/15/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">목차
-
-
-  함수 호이스팅 (Hoisting)
-  reduce 활용해서 배열을 객체로
-  onclick 함수
-
-
-
-
-함수 호이스팅 (Hoisting)
-
-
-<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 호이스팅은 말 그대로 끌어 올린 다는 것이다. 
-자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수...</p>
+  
+  입출...</p>
   </article>
 </div>
 

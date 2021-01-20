@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>TIL #8 - 꿈을 기록하는 Blog</title>
-<meta name="description" content="목차     test 6번     test 6번    :point_right:test 6번문제 풀이 :   피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.     주의 사항 :            리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.           입출력 예시 :   const fn = test6(); console.log(fn()); // --&gt; 0 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 2 console.log(fn()); // --&gt; 3 console.log(fn()); // --&gt; 5      pseudocode(수도코드)            피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.       클로저 함수를 만든다.       0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.       3번째 호출부터는 더한 값을 반환한다.       num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)       반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.       클로져함수를 리턴한다.             let fibo = [0, 1];  // 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에   let num = -1;      // 클로저 함수   function resultFibo () {     num++;   // 함수실행이 될 때 마다 1씩 증가     if (num &lt;= 1) {       return num;     } // 피보나치의 수열     if (num &gt;= 2) {            fibo.push(fibo[num - 2] + fibo[num - 1]);     }     return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.   }   return resultFibo;   나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.  그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…  그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.  다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:     :punch: 내일의 TIW(today I Will)   변수와 자료형">
+<meta name="description" content="1. test 6번     test 6번문제 풀이 :   피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.     주의 사항 :            리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.           입출력 예시 :   const fn = test6(); console.log(fn()); // --&gt; 0 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 2 console.log(fn()); // --&gt; 3 console.log(fn()); // --&gt; 5      pseudocode(수도코드)            피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.       클로저 함수를 만든다.       0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.       3번째 호출부터는 더한 값을 반환한다.       num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)       반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.       클로져함수를 리턴한다.             let fibo = [0, 1];  // 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에   let num = -1;      // 클로저 함수   function resultFibo () {     num++;   // 함수실행이 될 때 마다 1씩 증가     if (num &lt;= 1) {       return num;     } // 피보나치의 수열     if (num &gt;= 2) {            fibo.push(fibo[num - 2] + fibo[num - 1]);     }     return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.   }   return resultFibo;      나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.  그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…  그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.  다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:     :punch: 내일의 TIW(today I Will)   변수와 자료형">
 
 
   <meta name="author" content="이우성">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:4000/2021/01/TIL8/">
 
 
-  <meta property="og:description" content="목차     test 6번     test 6번    :point_right:test 6번문제 풀이 :   피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.     주의 사항 :            리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.           입출력 예시 :   const fn = test6(); console.log(fn()); // --&gt; 0 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 2 console.log(fn()); // --&gt; 3 console.log(fn()); // --&gt; 5      pseudocode(수도코드)            피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.       클로저 함수를 만든다.       0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.       3번째 호출부터는 더한 값을 반환한다.       num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)       반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.       클로져함수를 리턴한다.             let fibo = [0, 1];  // 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에   let num = -1;      // 클로저 함수   function resultFibo () {     num++;   // 함수실행이 될 때 마다 1씩 증가     if (num &lt;= 1) {       return num;     } // 피보나치의 수열     if (num &gt;= 2) {            fibo.push(fibo[num - 2] + fibo[num - 1]);     }     return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.   }   return resultFibo;   나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.  그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…  그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.  다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:     :punch: 내일의 TIW(today I Will)   변수와 자료형">
+  <meta property="og:description" content="1. test 6번     test 6번문제 풀이 :   피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.     주의 사항 :            리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.           입출력 예시 :   const fn = test6(); console.log(fn()); // --&gt; 0 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 1 console.log(fn()); // --&gt; 2 console.log(fn()); // --&gt; 3 console.log(fn()); // --&gt; 5      pseudocode(수도코드)            피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.       클로저 함수를 만든다.       0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.       3번째 호출부터는 더한 값을 반환한다.       num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)       반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.       클로져함수를 리턴한다.             let fibo = [0, 1];  // 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에   let num = -1;      // 클로저 함수   function resultFibo () {     num++;   // 함수실행이 될 때 마다 1씩 증가     if (num &lt;= 1) {       return num;     } // 피보나치의 수열     if (num &gt;= 2) {            fibo.push(fibo[num - 2] + fibo[num - 1]);     }     return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.   }   return resultFibo;      나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.  그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…  그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.  다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:     :punch: 내일의 TIW(today I Will)   변수와 자료형">
 
 
 
@@ -277,7 +277,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="TIL #8">
-    <meta itemprop="description" content="목차  test 6번test 6번  :point_right:test 6번문제 풀이 :피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.  주의 사항 :          리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.        입출력 예시 :const fn = test6();console.log(fn()); // --&gt; 0console.log(fn()); // --&gt; 1console.log(fn()); // --&gt; 1console.log(fn()); // --&gt; 2console.log(fn()); // --&gt; 3console.log(fn()); // --&gt; 5  pseudocode(수도코드)          피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.      클로저 함수를 만든다.      0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.      3번째 호출부터는 더한 값을 반환한다.      num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)      반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.      클로져함수를 리턴한다.        let fibo = [0, 1];// 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에  let num = -1;    // 클로저 함수  function resultFibo () {    num++;   // 함수실행이 될 때 마다 1씩 증가    if (num &lt;= 1) {      return num;    }// 피보나치의 수열    if (num &gt;= 2) {           fibo.push(fibo[num - 2] + fibo[num - 1]);    }    return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.  }  return resultFibo;나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:  :punch: 내일의 TIW(today I Will)변수와 자료형">
+    <meta itemprop="description" content="1. test 6번  test 6번문제 풀이 :피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.  주의 사항 :          리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 방법 중 어떤 것이어도 상관없다.        입출력 예시 :const fn = test6();console.log(fn()); // --&gt; 0console.log(fn()); // --&gt; 1console.log(fn()); // --&gt; 1console.log(fn()); // --&gt; 2console.log(fn()); // --&gt; 3console.log(fn()); // --&gt; 5  pseudocode(수도코드)          피보나치의 수열을 만들어주기 위해 새로운 배열 [0, 1] 을 할당한다.      클로저 함수를 만든다.      0 과 1은 값이 그대로 반환되기 때문에 값으르 그대로 반환 시킨다.      3번째 호출부터는 더한 값을 반환한다.      num-2 요소와 num-1 요소를 더한 값을 반환한다. (피보나치의 수열)      반환되는 값은 배열의 가장 마지막 자리이기 때문에 마지막 요소만 리턴한다.      클로져함수를 리턴한다.        let fibo = [0, 1];// 2번 실행이 될 때 까지는 num의 값이 나와야 하기때문에  let num = -1;    // 클로저 함수  function resultFibo () {    num++;   // 함수실행이 될 때 마다 1씩 증가    if (num &lt;= 1) {      return num;    }// 피보나치의 수열    if (num &gt;= 2) {           fibo.push(fibo[num - 2] + fibo[num - 1]);    }    return fibo[fibo.length-1];   // 가장 마지막 요소만 리턴한다.  }  return resultFibo;나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.그래서인지 이 문제가 나왔을 때는 정말 반갑게 여겨졌지만, 그것도 잠시였고 클로저 함수를 본 순간 멘붕이 왔었다…그래도 이 문제도 잘 해결해 나아가서 다행이었지만 아직도 H.A 5번과 7번은 해결하지 못했다.다음 시험때는 금방 다 풀겠지??….. 제발..!!:pray:  :punch: 내일의 TIW(today I Will)변수와 자료형">
     <meta itemprop="datePublished" content="2021-01-17T00:00:00+09:00">
     
 
@@ -312,17 +312,22 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="목차">목차</h2>
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title">
+<i class="fas fa-file-alt"></i> 페이지 주요 목차</h4></header>
+              <ul class="toc__menu">
+<li><a href="#1-test-6%EB%B2%88">1. test 6번</a></li>
+<li><a href="#test-6%EB%B2%88%EB%AC%B8%EC%A0%9C-%ED%92%80%EC%9D%B4-">test 6번문제 풀이 :</a></li>
+</ul>
 
-<ol>
-  <li><a href="#test-6%EB%B2%88">test 6번</a></li>
-</ol>
+            </nav>
+          </aside>
+        
+        <h2 id="1-test-6번">1. test 6번</h2>
 
-<hr>
-<h2 id="test-6번">test 6번</h2>
 <blockquote>
-  <h2 id="point_righttest-6번문제-풀이-">
-<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 6번문제 풀이 :</h2>
+  <h2 id="test-6번문제-풀이-">test 6번문제 풀이 :</h2>
 </blockquote>
 
 <p>피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.</p>
@@ -378,6 +383,8 @@
   <span class="p">}</span>
   <span class="k">return</span> <span class="nx">resultFibo</span><span class="p">;</span>
 </code></pre></div></div>
+<hr>
+<p><br></p>
 
 <p>나는 H.A 시험을 보기 전 부터 배열 25번(피보나치 문제) 를 정말 많이 복습을 해왔다.</p>
 
@@ -413,11 +420,7 @@
     
       
       
-      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a>
     
     </span>
   </p>
@@ -493,13 +496,72 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/2021/01/TIL/" rel="permalink">TIL #11
+</a>
+      
+    </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/20/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. 반복문 for while
+
+  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> for, while :
+
+
+
+1-1 for loop 문법
+
+반복문은 반복할 조건을 초기화, 조건식, 증감문 순으로 넣어준다.
+
+
+  초기화 : 시작부분이라고도 표현할 수 있다. i = 0 // 0부터 시작하겠다.
+  조건...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/2021/01/TIL10/" rel="permalink">TIL #10
 </a>
       
     </h2>
 
     
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
 	
 <!-- 카테고리만 보여주는 코드 -->
 
@@ -526,27 +588,21 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">목차
+    <p class="archive__item-excerpt" itemprop="description">1. 조건문
 
-
-  조건문
-  조건문 알고리즘 13번 문제
-  문자열 다루기
-  parseFloat 과 parseInt
-  NaN의 이해
-
-
-
-
-조건문
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">조건문 기초 :
+  조건문 기초 :
 
 
 1. if…else if…문법
 
 if (truthy or falsy 한 값) {
-  //...</p>
+  //괄호안에 대한 결과값
+}
+else if (/*if안에 괄호가 falsy한 경우*/) {
+  //괄호안에 대한 결과값
+}
+else {
+  //if 와 else...</p>
   </article>
 </div>
 
@@ -566,7 +622,7 @@ if (truthy or falsy 한 값) {
     </h2>
 
     
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
 	
 <!-- 카테고리만 보여주는 코드 -->
 
@@ -593,26 +649,19 @@ if (truthy or falsy 한 값) {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">목차
+    <p class="archive__item-excerpt" itemprop="description">1. 변수와 타입
 
 
-  변수와 타입
-  함수
-  join과 undefined의 관계
-
-
-
-
-변수와 타입
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">변수와 타입 기초 :
+  변수와 타입 기초 :
 
 
 1. 변수(variable)
 
 변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.
 
-변수에 이름을 지어주고(선언...</p>
+변수에 이름을 지어주고(선언) 값을 넣어준다(할당).
+
+let number = 1;      // 값이 숫자가 될 수도 있고...</p>
   </article>
 </div>
 
@@ -632,7 +681,7 @@ if (truthy or falsy 한 값) {
     </h2>
 
     
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
 	
 <!-- 카테고리만 보여주는 코드 -->
 
@@ -659,16 +708,7 @@ if (truthy or falsy 한 값) {
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">목차
-
-
-  test 2번
-  test 3번
-
-
-
-
-test 2번
+    <p class="archive__item-excerpt" itemprop="description">test 2번
 
   <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 2번문제 풀이 :
 
@@ -679,68 +719,10 @@ test 2번
   주의 사항 :
     
       음수를 입력받은 경우, 첫번째 수는 음수로 계산
-   ...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+      number 타입을 리턴
     
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL6/" rel="permalink">TIL #6
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/15/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">목차
-
-
-  함수 호이스팅 (Hoisting)
-  reduce 활용해서 배열을 객체로
-  onclick 함수
-
-
-
-
-함수 호이스팅 (Hoisting)
-
-
-<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 호이스팅은 말 그대로 끌어 올린 다는 것이다. 
-자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수...</p>
+  
+  입출...</p>
   </article>
 </div>
 
