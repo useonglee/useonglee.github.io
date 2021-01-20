@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>1월 14일 TIL #5 - 꿈을 기록하는 Blog</title>
+<!-- begin _includes/seo.html --><title>TIL #5 - 꿈을 기록하는 Blog</title>
 <meta name="description" content="목차     유효성 검사   DOM   HA 4번     유효성 검사   :point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.     코드를 보면서 설명   // html &lt;button id=&quot;btn-signup&quot;&gt;회원가입&lt;/button&gt;   // js // html 버튼요소를 불러온다. const btnSignup = document.querySelector(&#39;#btn-signup&#39;)  // 이벤트 핸들러  function handleInputIdChange() {   let valid = moreThanLength(inputId.value, 4)    if (valid) {     setAsValid(&#39;#input-id&#39;)   // 아이디 입력 value가 참 일 경우   }   else {                     // 아이디 입력이 옳지 않을 경우     displayErrorMessage(&#39;#input-id&#39;, &#39;아이디는 4자 이상을 입력&#39;)   } }  function handleBtnSignupClick() {   let validId = moreThanLength(inputId.value, 4)   let validPw = strongPassword(inputPassword.value)    if (validId &amp;&amp; validPw) {     hideInvalidMessage()   }   // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음   else {     showInvalidMessage(&#39;필요한 정보를 다 입력하지 않았어요&#39;);   }          // 하나라도 잘못 입력할 경우 }  function setAsValid(selector) {    // 입력값이 참일 경우 class(&#39;valid&#39;)를 추가해준다.   let form = document.querySelector(selector)   form.classList.remove(&#39;invalid&#39;)   form.classList.add(&#39;valid&#39;) }  // 엘리먼트와 이벤트핸들러 연결 btnSignup.onclick = handleBtnSignupClick;    DOM      :point_up: What is the DOM?   DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다.  DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다.  console.dir  개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태     :point_up_2: DOM 문법   const target = document.querySelector(&#39;#container&#39;) // html에 있는 ul#container 불러오기  const testDiv = document.createElement(&#39;div&#39;);      // &lt;div&gt;&lt;/div&gt; 생성  testDiv.textContent = &#39;hello&#39;; console.log(testDiv)   // &lt;div&gt;hello&lt;/div&gt;   testDiv.classlist.add(&#39;name&#39;) console.log(testDiv)  // &lt;div class = &quot;name&quot;&gt;hello&lt;/div&gt;  target.append(testDiv) // 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다.  let btn = document.querySelectorAll(&#39;.name&#39;); // 모든 class = name 을 가져온다.  btn.onclick = handleClick; // onclick 이벤트  function handleClick () {   console.log(input.value) }   HA 4번      :point_right: HA 4번 풀이하면서 공부      문제 : 사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다.        주의사항 : &lt;a&gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다.      입출력 예시 :   let list = [   { firstName: &#39;Joe&#39;, lastName: &#39;Blow&#39;, age: 42, role: &#39;clerk&#39; },   { firstName: &#39;Mary&#39;, lastName: &#39;Jenkins&#39;, age: 36, role: &#39;manager&#39; }, ];  test4(list); // --&gt; &#39;ul#container&#39;가 아래와 같이 변경되어야 합니다. &lt;ul id=&quot;container&quot;&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Joe Blow&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;42&lt;/div&gt;   &lt;/li&gt;   &lt;li&gt;     &lt;a class=&quot;name&quot;&gt;Mary Jenkins&lt;/a&gt;     &lt;div class=&quot;age&quot;&gt;36&lt;/div&gt;   &lt;/li&gt; &lt;/ul&gt; -------------------------------------------------------- &lt;html&gt;   &lt;body&gt;     &lt;ul id=&quot;container&quot;&gt;&lt;/ul&gt;   &lt;/body&gt; &lt;/html&gt;      pseudocode(수도코드)            html에 있는 container를 불러온다.       forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다.       사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다.       for loop 를 활용해 모든 class에 onclick 함수를 적용한다.       만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다.       click 함수를 실행한다.           function printRole(user) {   // Joe Blow를 클릭하면 clerk 이   // Mary Jenkins를 클릭하면 manager 가 찍힙니다.   // 이 함수는 수정하지 마십시오.   console.log(user.role); }  function test4(arr) {   const target = document.querySelector(&#39;#container&#39;);    arr.forEach(el =&gt; {     const li = document.createElement(&#39;li&#39;);     const a = document.createElement(&#39;a&#39;);     const div = document.createElement(&#39;div&#39;);      a.className = &#39;name&#39;;     a.textContent = el.firstName + &#39; &#39; + el.lastName;      div.className = &#39;age&#39;;     div.textContent = el.age;      target.append(li);     li.append(a);     li.append(div);   });    let btn = document.querySelectorAll(&#39;.name&#39;);    function click () {     for (let i = 0; i &lt; btn.length; i++) {       btn[i].onclick = function () {         for (let j = 0; j &lt; arr.length; j++) {           let name = arr[j].firstName + &#39; &#39; + arr[j].lastName;           if (btn[i].textContent === name) {             return printRole (arr[j]);           }         }       }     }   }   click(); }   HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다.     :punch: 내일의 TIW(today I Will)   socrative 복습, onclick 함수">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
-<meta property="og:title" content="1월 14일 TIL #5">
+<meta property="og:title" content="TIL #5">
 <meta property="og:url" content="http://localhost:4000/2021/01/TIL5/">
 
 
@@ -205,6 +205,10 @@
             <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
+          
+            <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
       
 
       
@@ -272,7 +276,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="1월 14일 TIL #5">
+    <meta itemprop="headline" content="TIL #5">
     <meta itemprop="description" content="목차  유효성 검사  DOM  HA 4번유효성 검사:point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.  코드를 보면서 설명// html&lt;button id=&quot;btn-signup&quot;&gt;회원가입&lt;/button&gt;// js// html 버튼요소를 불러온다.const btnSignup = document.querySelector('#btn-signup')// 이벤트 핸들러 function handleInputIdChange() {  let valid = moreThanLength(inputId.value, 4)   if (valid) {    setAsValid('#input-id')   // 아이디 입력 value가 참 일 경우  }  else {                     // 아이디 입력이 옳지 않을 경우    displayErrorMessage('#input-id', '아이디는 4자 이상을 입력')  }}function handleBtnSignupClick() {  let validId = moreThanLength(inputId.value, 4)  let validPw = strongPassword(inputPassword.value)  if (validId &amp;&amp; validPw) {    hideInvalidMessage()  }  // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음  else {    showInvalidMessage('필요한 정보를 다 입력하지 않았어요');  }          // 하나라도 잘못 입력할 경우}function setAsValid(selector) {   // 입력값이 참일 경우 class('valid')를 추가해준다.  let form = document.querySelector(selector)  form.classList.remove('invalid')  form.classList.add('valid')}// 엘리먼트와 이벤트핸들러 연결btnSignup.onclick = handleBtnSignupClick;DOM  :point_up: What is the DOM?DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다.DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다.console.dir개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태  :point_up_2: DOM 문법const target = document.querySelector('#container')// html에 있는 ul#container 불러오기const testDiv = document.createElement('div');     // &lt;div&gt;&lt;/div&gt; 생성testDiv.textContent = 'hello';console.log(testDiv)   // &lt;div&gt;hello&lt;/div&gt; testDiv.classlist.add('name')console.log(testDiv)  // &lt;div class = &quot;name&quot;&gt;hello&lt;/div&gt;target.append(testDiv)// 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다.let btn = document.querySelectorAll('.name');// 모든 class = name 을 가져온다.btn.onclick = handleClick; // onclick 이벤트function handleClick () {  console.log(input.value)}HA 4번  :point_right: HA 4번 풀이하면서 공부  문제 :사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다.      주의사항 :&lt;a&gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다.    입출력 예시 :let list = [  { firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk' },  { firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager' },];test4(list);// --&gt; 'ul#container'가 아래와 같이 변경되어야 합니다.&lt;ul id=&quot;container&quot;&gt;  &lt;li&gt;    &lt;a class=&quot;name&quot;&gt;Joe Blow&lt;/a&gt;    &lt;div class=&quot;age&quot;&gt;42&lt;/div&gt;  &lt;/li&gt;  &lt;li&gt;    &lt;a class=&quot;name&quot;&gt;Mary Jenkins&lt;/a&gt;    &lt;div class=&quot;age&quot;&gt;36&lt;/div&gt;  &lt;/li&gt;&lt;/ul&gt;--------------------------------------------------------&lt;html&gt;  &lt;body&gt;    &lt;ul id=&quot;container&quot;&gt;&lt;/ul&gt;  &lt;/body&gt;&lt;/html&gt;  pseudocode(수도코드)          html에 있는 container를 불러온다.      forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다.      사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다.      for loop 를 활용해 모든 class에 onclick 함수를 적용한다.      만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다.      click 함수를 실행한다.      function printRole(user) {  // Joe Blow를 클릭하면 clerk 이  // Mary Jenkins를 클릭하면 manager 가 찍힙니다.  // 이 함수는 수정하지 마십시오.  console.log(user.role);}function test4(arr) {  const target = document.querySelector('#container');  arr.forEach(el =&gt; {    const li = document.createElement('li');    const a = document.createElement('a');    const div = document.createElement('div');    a.className = 'name';    a.textContent = el.firstName + ' ' + el.lastName;    div.className = 'age';    div.textContent = el.age;    target.append(li);    li.append(a);    li.append(div);  });  let btn = document.querySelectorAll('.name');  function click () {    for (let i = 0; i &lt; btn.length; i++) {      btn[i].onclick = function () {        for (let j = 0; j &lt; arr.length; j++) {          let name = arr[j].firstName + ' ' + arr[j].lastName;          if (btn[i].textContent === name) {            return printRole (arr[j]);          }        }      }    }  }  click();}HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다.  :punch: 내일의 TIW(today I Will)socrative 복습, onclick 함수">
     <meta itemprop="datePublished" content="2021-01-14T00:00:00+09:00">
     
@@ -280,7 +284,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">1월 14일 TIL #5
+          <h1 id="page-title" class="page__title" itemprop="headline">TIL #5
 </h1>
           
 
@@ -581,7 +585,7 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+14%EC%9D%BC+TIL+%235%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=TIL+%235%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL5%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -592,11 +596,11 @@
       
   <nav class="pagination">
     
-      <a href="/2021/01/TIL4/" class="pagination--pager" title="1월 13일 TIL #4
+      <a href="/2021/01/TIL4/" class="pagination--pager" title="TIL #4
 ">Previous</a>
     
     
-      <a href="/2021/01/TIL6/" class="pagination--pager" title="1월 15일 TIL #6
+      <a href="/2021/01/TIL6/" class="pagination--pager" title="TIL #6
 ">Next</a>
     
   </nav>
@@ -621,10 +625,18 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL10/" rel="permalink">1월 19일 TIL #10
+        <a href="/2021/01/TIL10/" rel="permalink">TIL #10
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/19/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -680,10 +692,18 @@ if (truthy or falsy 한 값) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
+        <a href="/2021/01/TIL9/" rel="permalink">TIL #9
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/18/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -738,10 +758,18 @@ if (truthy or falsy 한 값) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+        <a href="/2021/01/TIL8/" rel="permalink">TIL #8
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/17/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -795,10 +823,18 @@ test 6번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
+        <a href="/2021/01/TIL7/" rel="permalink">TIL #7
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/16/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">

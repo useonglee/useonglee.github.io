@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>1월 16일 TIL #7 - 꿈을 기록하는 Blog</title>
+<!-- begin _includes/seo.html --><title>TIL #7 - 꿈을 기록하는 Blog</title>
 <meta name="description" content="목차     test 2번   test 3번     test 2번    :point_right:test 2번문제 풀이 :   수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.     주의 사항 :            음수를 입력받은 경우, 첫번째 수는 음수로 계산       number 타입을 리턴           입출력 예시 :   let output = test2(1148); console.log(output); // --&gt; 14 = 1 + 1 + 4 + 8  output = test2(-316); console.log(output); // --&gt; 4 = -3 + 1 + 6      pseudocode(수도코드)            반복문을 돌기 위해 숫자열을 문자열로 바꾼다.       더해줄 공간이 필요하기 때문에 result = 0 을 할당한다.       만약 arr[0] === &#39;-&#39; 일 경우 반복문을 arr[2] 부터 순회를 하고 2부터 n까지의 합을 arr[1]에서 빼준다.       이 조건문에 해당하지 않을 경우, 문자열을 숫자열로 변환해서 다 더해준다.       result 리턴             let str = String(num);   let result = 0;    if (str[0] === &#39;-&#39;) {     for (let i = 2; i &lt; str.length; i++) {       result += Number(str[i]);    // arr[2]부터 arr[n] 까지 먼저 다 더해준다.     }     return result - Number(str[1]);     }    for (let i = 0; i &lt; str.length; i++) {  // 위에 조건문에 해당하지 않을 경우     result += Number(str[i]);   }   return result;   이 문제는 간단하면서도 복잡했던 것 같다. 특히, 첫번째 문자열이 ‘-‘ 일 경우에 많이 헤맸던 것 같다.  H.A 문제들도 알고리즘 스프린트할 때와 비슷하게 풀 듯 말 듯 안풀리다가 풀리는 경우가 많았다.    test 3번    :point_right:test 3번문제 풀이 :   각 자리의 수를 곱한 결과물들이 한자리 수가 될 때까지 반복적으로 곱한다.          주의 사항 :  없음           입출력 예시 :      let output = test3(786); console.log(output); // --&gt; 0  /* 예를 들어 786을 인자로 넘길 경우, 함수는 0을 리턴해야 합니다. 7 * 8 * 6 -&gt; 336 3 * 3 * 6 -&gt; 54 5 * 4 -&gt; 20 2 * 0 -&gt; 0 */      pseudocode(수도코드)            숫자열을 순회하기 위해 먼저 문자열로 변환한다.       문자열의 길이가 1이되면 그대로 리턴. (base case)       그렇지 않은 경우, reduce 메서드를 활용해서 곱해준다.       재귀함수 호출             let str = String(num);   let arr = str.split(&#39;&#39;);  // (base case)   if (arr.length === 1) {         return Number(arr[0]);      }    if (arr.length &gt; 1) {     const result = arr.reduce(function (acc, cur) {       return acc * cur;     });     return test3(result);  // 재귀함수 호출   }   이 문제는 배웠던 내용만 잘 활용하면 쉽게 풀 수 있는 문제였다.  전반적으로 H.A 문제는 딱 여기까지 쉬웠고 그 뒤로는 나락이였다고 한다…     :punch: 내일의 TIW(today I Will)   test 5번, 6번 문제">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
-<meta property="og:title" content="1월 16일 TIL #7">
+<meta property="og:title" content="TIL #7">
 <meta property="og:url" content="http://localhost:4000/2021/01/TIL7/">
 
 
@@ -205,6 +205,10 @@
             <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
+          
+            <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
       
 
       
@@ -272,7 +276,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="1월 16일 TIL #7">
+    <meta itemprop="headline" content="TIL #7">
     <meta itemprop="description" content="목차  test 2번  test 3번test 2번  :point_right:test 2번문제 풀이 :수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.  주의 사항 :          음수를 입력받은 경우, 첫번째 수는 음수로 계산      number 타입을 리턴        입출력 예시 :let output = test2(1148);console.log(output); // --&gt; 14 = 1 + 1 + 4 + 8output = test2(-316);console.log(output); // --&gt; 4 = -3 + 1 + 6  pseudocode(수도코드)          반복문을 돌기 위해 숫자열을 문자열로 바꾼다.      더해줄 공간이 필요하기 때문에 result = 0 을 할당한다.      만약 arr[0] === '-' 일 경우 반복문을 arr[2] 부터 순회를 하고 2부터 n까지의 합을 arr[1]에서 빼준다.      이 조건문에 해당하지 않을 경우, 문자열을 숫자열로 변환해서 다 더해준다.      result 리턴        let str = String(num);  let result = 0;  if (str[0] === '-') {    for (let i = 2; i &lt; str.length; i++) {      result += Number(str[i]);    // arr[2]부터 arr[n] 까지 먼저 다 더해준다.    }    return result - Number(str[1]);    }  for (let i = 0; i &lt; str.length; i++) {  // 위에 조건문에 해당하지 않을 경우    result += Number(str[i]);  }  return result;이 문제는 간단하면서도 복잡했던 것 같다. 특히, 첫번째 문자열이 ‘-‘ 일 경우에 많이 헤맸던 것 같다.H.A 문제들도 알고리즘 스프린트할 때와 비슷하게 풀 듯 말 듯 안풀리다가 풀리는 경우가 많았다.test 3번  :point_right:test 3번문제 풀이 :각 자리의 수를 곱한 결과물들이 한자리 수가 될 때까지 반복적으로 곱한다.      주의 사항 : 없음        입출력 예시 :  let output = test3(786);console.log(output); // --&gt; 0/*예를 들어 786을 인자로 넘길 경우, 함수는 0을 리턴해야 합니다.7 * 8 * 6 -&gt; 3363 * 3 * 6 -&gt; 545 * 4 -&gt; 202 * 0 -&gt; 0*/  pseudocode(수도코드)          숫자열을 순회하기 위해 먼저 문자열로 변환한다.      문자열의 길이가 1이되면 그대로 리턴. (base case)      그렇지 않은 경우, reduce 메서드를 활용해서 곱해준다.      재귀함수 호출        let str = String(num);  let arr = str.split('');// (base case)  if (arr.length === 1) {        return Number(arr[0]);     }  if (arr.length &gt; 1) {    const result = arr.reduce(function (acc, cur) {      return acc * cur;    });    return test3(result);  // 재귀함수 호출  }이 문제는 배웠던 내용만 잘 활용하면 쉽게 풀 수 있는 문제였다.전반적으로 H.A 문제는 딱 여기까지 쉬웠고 그 뒤로는 나락이였다고 한다…  :punch: 내일의 TIW(today I Will)test 5번, 6번 문제">
     <meta itemprop="datePublished" content="2021-01-16T00:00:00+09:00">
     
@@ -280,7 +284,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">1월 16일 TIL #7
+          <h1 id="page-title" class="page__title" itemprop="headline">TIL #7
 </h1>
           
 
@@ -501,7 +505,7 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+16%EC%9D%BC+TIL+%237%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL7%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=TIL+%237%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL7%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL7%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -512,11 +516,11 @@
       
   <nav class="pagination">
     
-      <a href="/2021/01/TIL6/" class="pagination--pager" title="1월 15일 TIL #6
+      <a href="/2021/01/TIL6/" class="pagination--pager" title="TIL #6
 ">Previous</a>
     
     
-      <a href="/2021/01/TIL8/" class="pagination--pager" title="1월 17일 TIL #8
+      <a href="/2021/01/TIL8/" class="pagination--pager" title="TIL #8
 ">Next</a>
     
   </nav>
@@ -541,10 +545,18 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL10/" rel="permalink">1월 19일 TIL #10
+        <a href="/2021/01/TIL10/" rel="permalink">TIL #10
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/19/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -600,10 +612,18 @@ if (truthy or falsy 한 값) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
+        <a href="/2021/01/TIL9/" rel="permalink">TIL #9
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/18/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -658,10 +678,18 @@ if (truthy or falsy 한 값) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+        <a href="/2021/01/TIL8/" rel="permalink">TIL #8
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/17/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -715,10 +743,18 @@ test 6번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
+        <a href="/2021/01/TIL6/" rel="permalink">TIL #6
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/15/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">

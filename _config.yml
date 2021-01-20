@@ -67,6 +67,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/useonglee"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: mailto:useong0830@gmail.com
 
 footer:
   links:

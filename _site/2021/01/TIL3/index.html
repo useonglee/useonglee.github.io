@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>1월 12일 TIL #3 - 꿈을 기록하는 Blog</title>
+<!-- begin _includes/seo.html --><title>TIL #3 - 꿈을 기록하는 Blog</title>
 <meta name="description" content="목차     shuffle 메서드 설명   객체 21번   고차함수 31번     shuffle 메서드 설명                 shuffle 레퍼런스 설명 :           아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!     코드를 한 줄씩 설명해보세요. (코드의 각 키워드가 무슨 의미인지 한 번 되돌아봅시다.)   이 메서드의 작동 원리에 대해서 설명해주세요.        필요한 경우가 어떤 경우가 있을지 고민하여 하나의 예를 들어주세요.      code   _.shuffle = function (arr) {   let arrCloned = arr.slice();   for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {     const toIdx = Math.floor(Math.random() * arr.length);     let temp = arrCloned[fromIdx];     arrCloned[fromIdx] = arrCloned[toIdx];     arrCloned[toIdx] = temp;   }   return arrCloned; };   shuffle 메서드는 배열 요소의 순서가 랜덤하게 변경된 새로운 배열을 리턴한다.  다양한 상황 (ex. 비디오 또는 음악 재생의 순서를 섞을 때) 에서 유용하게 쓰일 수 있다.  그러면 본격적으로 코드를 설명하기위해 한 줄씩 파헤쳐보자 !     :point_right: code   let arrCloned = arr.slice();  arrCloned 이라는 변수에 얕은 복사를 통하여 배열을 가져왔다. 여기서 중요한 점은 slice() 는 원본을 대체하지 않는 점, 즉 원본은 따로 있다는 뜻이다.  String 및 Number 객체 가 아닌 경우 문자열과 숫자는 새 배열에 복사한다. 이 새 배열에서는 마음대로 값을 바꿔도 원본에 아무런 영향을 주지 않는 다는 점을 명심하자.   for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {   주어진 배열의 요소를 확인하기 위해 for loop 를 사용하였다. 일반적인 배열 반복문이다.  const toIdx = Math.floor(Math.random() * arr.length);   이부분에서 특히 random() 메서드가 생소해서 많이 찾아봤던 것 같다. 먼저 ranmdom() 메서드는 0이상 1 미만의 부동소숫점 의사 난수를 반환 값으로 한다. 그렇기때문에 앞에 floor(반버림) 메서드를 사용하여 정수인 난수를 생성한다고 보면 될 것 같다. round(반올림) 메서드를 사용할 수 도 있지만, 이렇게 하면 난수가 고르게 분포하지 않게 된다.  random() 메서드에 배열의 길이(arr.length)를 곱해준 이유는 배열의 길이에 가까운 임의의 정수를 생성하기 위함인 것 같다.  let temp = arrCloned[fromIdx];   얕은복사를 통해 가져온 배열의 요소를 temp라는 변수에 할당을 한다. 할당을 한 이유에 대해서는 밑에서 설명한다.  다음 코드를 넘어가기 전에 배열 비구조화 할당 문법을 충분히 이해를 하고 가자. 이해를 돕기 위해 먼저 간단한 코드를 예시로 든다.  const array = [1, 2]; const [one, two] = array;  console.log(one);  // 1 console.log(two);  // 2  이 문법은 배열 안에 있는 원소를 다른 이름으로 새로 선언해주고 싶을 때 사용하면 매우 유용하다.  arrCloned[fromIdx] = arrCloned[toIdx]; arrCloned[toIdx] = temp;   이 코드를 설명하기 위해 먼저 arrCloned = [1, ‘a’, 2, ‘b’] 라는 배열이라고 가정하자. 반복문을 통해 첫번째 i 는 arrCloned[0] 가 될 것이고 값은 1 이다. toIdx는 random() 메서드를 통해 임의로 3의 정수가 나왔다고 가정하자. 위에 코드는  arrCloned[0] = arrCloned[3]; arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유); 이렇게 반복문을 한 번 돌고 나면 배열은 [‘b’, ‘a’, 2, 1] 이라는 값으로 임의로 변하게 된다. 이런 식으로 반복문을 다 돌고나면 랜덤하게 변경된 새로운 배열 값이 나올 것 이다.이 부분이 shuffle 메서드의 핵심인 것 같다.  return arrCloned;  그리고 반복문을 다돌고 새로 배열된 배열 값을 리턴(반환) 해준다.  이 공부를 통해 shuffle 메서드를 완벽히 짚고 넘어갈 수 있게 되었다. 얕은 복사를 통해 랜덤하게 배열을 섞을 때 사용하면 유용한 메서드라고 생각한다. 앞서 설명했듯이 음악 재생을 랜덤으로 돌릴 때나 무작위로 섞고 싶을 때 사용하면 유용할 것 같다.    객체 21번                객체 문제 :           문자열을 입력받아 가장 많이 반복되는 문자를 리턴해야 합니다.     주의사항 :            띄어쓰기는 제외       가장 많이 반복되는 문자가 다수일 경우, 먼저 도달한 문자를 리턴       빈 문자열을 입력받은 경우, 빈 문자열을 리턴           입출력 예시   let output = mostFrequentCharacter(&#39;apples not oranges&#39;); console.log(output); // --&gt; &#39;p&#39;  output = mostFrequentCharacter(&#39;hello world&#39;); console.log(output); // --&gt; &#39;l&#39;      pseudocode(수도코드)            문자열을 반복문으로 순회를 하면서 어떤 문자가 가장 많이 반복되는지 카운트를 세어주어야 한다.       리턴되는 값은 문자열이기 때문에 문자열도 같이 할당한다.       반복문으로 문자열을 순회하면서, 띄어쓰기는 건너뛰고 객체에 key 값과 value값을 할당한다.       반복문으로 문자열을 순회하면서, 반복되는 문자열을 카운트해준다.       가장 많이 카운트 된 문자를 가져온다.       비구조화 할당을 통해 가장 많이 반복된 문자를 할당한다.       할당된 객체를 리턴한다.           let obj = {max: 0, countStr: &#39;&#39;};     for (let i = 0; i &lt; str.length; i++) {      if (str[i] === &#39; &#39;) {        continue;      }      if (obj[str[i]] === undefined) {        obj[str[i]] = 0;      }      obj[str[i]]++;    if (obj[&#39;max&#39;] &lt; obj[str[i]]) {      obj[&#39;max&#39;] = obj[str[i]];      obj[&#39;countStr&#39;] = str[i];    }   }    return obj[&#39;countStr&#39;];   이 문제의 핵심은 먼저 카운트를 할 객체를 할당하고, 카운트가 된 값을 비구조화 할당으로 가져오는 것이다. 나는 이 문제를 풀 때 처음에는 max = str[0] 로 할당하고 max 값의 문자를 반환하려고 했다. 오랜 삽질 끝에    let obj = {};   let max = str[0];    if(str === &#39;&#39;) {         return &#39;&#39;;   }    for(let i = 0; i &lt; str.length; i++) {     if(str[i] === &#39; &#39;) {                             continue;                                 }                                         else if(obj[str[i]] === undefined) {             obj[str[i]] = 0;     }     obj[str[i]]++;         if(obj[max] &lt; obj[str[i]]) {              obj[str[i]];                    max = str[i];           }   }        if( Object.keys(obj).length === 0 ) {      return &#39;&#39;;    }        return max;         이 코드로 문제를 풀어보기도 했다. 하지만 이 삽질이 결국 HA 시험에 큰 도움이 되었다. HA 시험 1번 문제를 가볍게 풀 수 있었다.    고차함수 31번                고차함수 문제 :           아래 조건에 맞게 변형된 배열을 리턴해야 합니다.     주의사항 :            반복문 사용 금지       배열을 리턴       학생들의 성적을 평균값으로 변형해야 합니다.           입출력 예시   let studentList = [   {     name: &#39;Anna&#39;,     gender: &#39;female&#39;,     grades: [4.5, 3.5, 4],   },   {     name: &#39;Dennis&#39;,     gender: &#39;male&#39;,     country: &#39;Germany&#39;,     grades: [5, 1.5, 4],   },   {     name: &#39;Martha&#39;,     gender: &#39;female&#39;,     grades: [5, 4, 4, 3],   }, ];  console.log(output); // --&gt; [   { name: &#39;Anna&#39;, gender: &#39;female&#39;, grades: 4 },   { name: &#39;Martha&#39;, gender: &#39;female&#39;, grades: 4 }, ];      pseudocode(수도코드)            먼저 value 값이 ‘female’ 인 것만 필터링을 한다.       변형된 값을 반환하기 위해 맵핑을 하며 리턴을 한다.       평균 값을 구하기 위해 reduce 함수를 사용한다.       구한 평균값을 객체에 할당해준다.       객체를 리턴(반환)한다.             const filtering = students.filter (el =&gt; el.gender === &#39;female&#39;);    return filtering.map (function (el) {     const average = el.grades.reduce (function (acc, cur) {       return acc + cur;     }, 0);      const grade = average / el.grades.length;     el.grades = grade;          return el;   });   각 함수의 뜻을 정확히 이해하면 쉽게 풀 수 있는 문제였다. 함수를 하나씩 차근 차근 써가면서 내려가보니 답을 찾을 수 있었다.하지만 이 문제 또한 삽질을 안 한건 아니다. 매개변수 el 값을 계속 가져오면서 마지막에 평균 값을 할당하는 것이 막혔었다. 원리를 하나씩 짚어보며 풀어가다보니 해결할 수 있었다.     :punch: 내일의 TIW(today I Will)   재귀함수, 알고리즘">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
-<meta property="og:title" content="1월 12일 TIL #3">
+<meta property="og:title" content="TIL #3">
 <meta property="og:url" content="http://localhost:4000/2021/01/TIL3/">
 
 
@@ -205,6 +205,10 @@
             <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
+          
+            <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
       
 
       
@@ -272,7 +276,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="1월 12일 TIL #3">
+    <meta itemprop="headline" content="TIL #3">
     <meta itemprop="description" content="목차  shuffle 메서드 설명  객체 21번  고차함수 31번shuffle 메서드 설명            shuffle 레퍼런스 설명 :      아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!  코드를 한 줄씩 설명해보세요. (코드의 각 키워드가 무슨 의미인지 한 번 되돌아봅시다.)  이 메서드의 작동 원리에 대해서 설명해주세요.      필요한 경우가 어떤 경우가 있을지 고민하여 하나의 예를 들어주세요.    code_.shuffle = function (arr) {  let arrCloned = arr.slice();  for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {    const toIdx = Math.floor(Math.random() * arr.length);    let temp = arrCloned[fromIdx];    arrCloned[fromIdx] = arrCloned[toIdx];    arrCloned[toIdx] = temp;  }  return arrCloned;};shuffle 메서드는 배열 요소의 순서가 랜덤하게 변경된 새로운 배열을 리턴한다.다양한 상황 (ex. 비디오 또는 음악 재생의 순서를 섞을 때) 에서 유용하게 쓰일 수 있다.그러면 본격적으로 코드를 설명하기위해 한 줄씩 파헤쳐보자 !  :point_right: codelet arrCloned = arr.slice();arrCloned 이라는 변수에 얕은 복사를 통하여 배열을 가져왔다. 여기서 중요한 점은 slice() 는 원본을 대체하지 않는 점, 즉 원본은 따로 있다는 뜻이다.String 및 Number 객체 가 아닌 경우 문자열과 숫자는 새 배열에 복사한다. 이 새 배열에서는 마음대로 값을 바꿔도 원본에 아무런 영향을 주지 않는 다는 점을 명심하자. for (let fromIdx = 0; fromIdx &lt; arr.length; fromIdx++) {주어진 배열의 요소를 확인하기 위해 for loop 를 사용하였다. 일반적인 배열 반복문이다.const toIdx = Math.floor(Math.random() * arr.length);이부분에서 특히 random() 메서드가 생소해서 많이 찾아봤던 것 같다. 먼저 ranmdom() 메서드는 0이상 1 미만의 부동소숫점 의사 난수를 반환 값으로 한다. 그렇기때문에 앞에 floor(반버림) 메서드를 사용하여 정수인 난수를 생성한다고 보면 될 것 같다. round(반올림) 메서드를 사용할 수 도 있지만, 이렇게 하면 난수가 고르게 분포하지 않게 된다.random() 메서드에 배열의 길이(arr.length)를 곱해준 이유는 배열의 길이에 가까운 임의의 정수를 생성하기 위함인 것 같다.let temp = arrCloned[fromIdx];얕은복사를 통해 가져온 배열의 요소를 temp라는 변수에 할당을 한다. 할당을 한 이유에 대해서는 밑에서 설명한다.다음 코드를 넘어가기 전에 배열 비구조화 할당 문법을 충분히 이해를 하고 가자. 이해를 돕기 위해 먼저 간단한 코드를 예시로 든다.const array = [1, 2];const [one, two] = array;console.log(one);  // 1console.log(two);  // 2이 문법은 배열 안에 있는 원소를 다른 이름으로 새로 선언해주고 싶을 때 사용하면 매우 유용하다.arrCloned[fromIdx] = arrCloned[toIdx];arrCloned[toIdx] = temp;이 코드를 설명하기 위해 먼저 arrCloned = [1, ‘a’, 2, ‘b’] 라는 배열이라고 가정하자. 반복문을 통해 첫번째 i 는 arrCloned[0] 가 될 것이고 값은 1 이다. toIdx는 random() 메서드를 통해 임의로 3의 정수가 나왔다고 가정하자.위에 코드는 arrCloned[0] = arrCloned[3];arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유);이렇게 반복문을 한 번 돌고 나면 배열은 [‘b’, ‘a’, 2, 1] 이라는 값으로 임의로 변하게 된다. 이런 식으로 반복문을 다 돌고나면 랜덤하게 변경된 새로운 배열 값이 나올 것 이다.이 부분이 shuffle 메서드의 핵심인 것 같다.return arrCloned;그리고 반복문을 다돌고 새로 배열된 배열 값을 리턴(반환) 해준다.이 공부를 통해 shuffle 메서드를 완벽히 짚고 넘어갈 수 있게 되었다. 얕은 복사를 통해 랜덤하게 배열을 섞을 때 사용하면 유용한 메서드라고 생각한다. 앞서 설명했듯이 음악 재생을 랜덤으로 돌릴 때나 무작위로 섞고 싶을 때 사용하면 유용할 것 같다.객체 21번            객체 문제 :      문자열을 입력받아 가장 많이 반복되는 문자를 리턴해야 합니다.  주의사항 :          띄어쓰기는 제외      가장 많이 반복되는 문자가 다수일 경우, 먼저 도달한 문자를 리턴      빈 문자열을 입력받은 경우, 빈 문자열을 리턴        입출력 예시let output = mostFrequentCharacter('apples not oranges');console.log(output); // --&gt; 'p'output = mostFrequentCharacter('hello world');console.log(output); // --&gt; 'l'  pseudocode(수도코드)          문자열을 반복문으로 순회를 하면서 어떤 문자가 가장 많이 반복되는지 카운트를 세어주어야 한다.      리턴되는 값은 문자열이기 때문에 문자열도 같이 할당한다.      반복문으로 문자열을 순회하면서, 띄어쓰기는 건너뛰고 객체에 key 값과 value값을 할당한다.      반복문으로 문자열을 순회하면서, 반복되는 문자열을 카운트해준다.      가장 많이 카운트 된 문자를 가져온다.      비구조화 할당을 통해 가장 많이 반복된 문자를 할당한다.      할당된 객체를 리턴한다.      let obj = {max: 0, countStr: ''};    for (let i = 0; i &lt; str.length; i++) {     if (str[i] === ' ') {       continue;     }     if (obj[str[i]] === undefined) {       obj[str[i]] = 0;     }     obj[str[i]]++;   if (obj['max'] &lt; obj[str[i]]) {     obj['max'] = obj[str[i]];     obj['countStr'] = str[i];   }  }   return obj['countStr'];이 문제의 핵심은 먼저 카운트를 할 객체를 할당하고, 카운트가 된 값을 비구조화 할당으로 가져오는 것이다. 나는 이 문제를 풀 때 처음에는 max = str[0] 로 할당하고 max 값의 문자를 반환하려고 했다. 오랜 삽질 끝에  let obj = {};  let max = str[0];   if(str === '') {        return '';  }  for(let i = 0; i &lt; str.length; i++) {    if(str[i] === ' ') {                            continue;                                }                                        else if(obj[str[i]] === undefined) {            obj[str[i]] = 0;    }    obj[str[i]]++;        if(obj[max] &lt; obj[str[i]]) {             obj[str[i]];                   max = str[i];          }  }       if( Object.keys(obj).length === 0 ) {     return '';   }       return max;      이 코드로 문제를 풀어보기도 했다. 하지만 이 삽질이 결국 HA 시험에 큰 도움이 되었다. HA 시험 1번 문제를 가볍게 풀 수 있었다.고차함수 31번            고차함수 문제 :      아래 조건에 맞게 변형된 배열을 리턴해야 합니다.  주의사항 :          반복문 사용 금지      배열을 리턴      학생들의 성적을 평균값으로 변형해야 합니다.        입출력 예시let studentList = [  {    name: 'Anna',    gender: 'female',    grades: [4.5, 3.5, 4],  },  {    name: 'Dennis',    gender: 'male',    country: 'Germany',    grades: [5, 1.5, 4],  },  {    name: 'Martha',    gender: 'female',    grades: [5, 4, 4, 3],  },];console.log(output); // --&gt;[  { name: 'Anna', gender: 'female', grades: 4 },  { name: 'Martha', gender: 'female', grades: 4 },];  pseudocode(수도코드)          먼저 value 값이 ‘female’ 인 것만 필터링을 한다.      변형된 값을 반환하기 위해 맵핑을 하며 리턴을 한다.      평균 값을 구하기 위해 reduce 함수를 사용한다.      구한 평균값을 객체에 할당해준다.      객체를 리턴(반환)한다.        const filtering = students.filter (el =&gt; el.gender === 'female');  return filtering.map (function (el) {    const average = el.grades.reduce (function (acc, cur) {      return acc + cur;    }, 0);    const grade = average / el.grades.length;    el.grades = grade;        return el;  });각 함수의 뜻을 정확히 이해하면 쉽게 풀 수 있는 문제였다. 함수를 하나씩 차근 차근 써가면서 내려가보니 답을 찾을 수 있었다.하지만 이 문제 또한 삽질을 안 한건 아니다. 매개변수 el 값을 계속 가져오면서 마지막에 평균 값을 할당하는 것이 막혔었다. 원리를 하나씩 짚어보며 풀어가다보니 해결할 수 있었다.  :punch: 내일의 TIW(today I Will)재귀함수, 알고리즘">
     <meta itemprop="datePublished" content="2021-01-12T00:00:00+09:00">
     
@@ -280,7 +284,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">1월 12일 TIL #3
+          <h1 id="page-title" class="page__title" itemprop="headline">TIL #3
 </h1>
           
 
@@ -643,7 +647,7 @@ arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유);<br>
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+12%EC%9D%BC+TIL+%233%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL3%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=TIL+%233%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL3%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL3%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -654,11 +658,11 @@ arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유);<br>
       
   <nav class="pagination">
     
-      <a href="/2021/01/TIL2/" class="pagination--pager" title="1월 11일 TIL #2
+      <a href="/2021/01/TIL2/" class="pagination--pager" title="TIL #2
 ">Previous</a>
     
     
-      <a href="/2021/01/TIL4/" class="pagination--pager" title="1월 13일 TIL #4
+      <a href="/2021/01/TIL4/" class="pagination--pager" title="TIL #4
 ">Next</a>
     
   </nav>
@@ -683,10 +687,18 @@ arrCloned[3] = temp (arrCloned[fromIdx] 변수를 할당한 이유);<br>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL10/" rel="permalink">1월 19일 TIL #10
+        <a href="/2021/01/TIL10/" rel="permalink">TIL #10
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/19/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -742,10 +754,18 @@ if (truthy or falsy 한 값) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL9/" rel="permalink">1월 18일 TIL #9
+        <a href="/2021/01/TIL9/" rel="permalink">TIL #9
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/18/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -800,10 +820,18 @@ if (truthy or falsy 한 값) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+        <a href="/2021/01/TIL8/" rel="permalink">TIL #8
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/17/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -857,10 +885,18 @@ test 6번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
+        <a href="/2021/01/TIL7/" rel="permalink">TIL #7
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/16/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">

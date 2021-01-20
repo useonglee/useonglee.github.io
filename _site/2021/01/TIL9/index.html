@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>1월 18일 TIL #9 - 꿈을 기록하는 Blog</title>
+<!-- begin _includes/seo.html --><title>TIL #9 - 꿈을 기록하는 Blog</title>
 <meta name="description" content="목차     변수와 타입   함수   join과 undefined의 관계     변수와 타입    :point_right:변수와 타입 기초 :   1. 변수(variable)  변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.  변수에 이름을 지어주고(선언) 값을 넣어준다(할당).  let number = 1;      // 값이 숫자가 될 수도 있고 let name = &#39;useong&#39;  // 문자열이 될 수도 있다.  프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다 메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다. (할당의 개념)  변수는 동일한 변수를 이용해 대입할 수 있다. 사용했던 let은 또 사용하면 에러가 난다. let num = 1;      num = num + 2;   // let num = num + 2 =&gt; 에러 num = num + 3; num = num + 4;  console.log(num) // 10;    2. 타입(type)  타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.  원시자료형 (number, string, boolean, undefined, function) 도 타입이다.  console.log(typeof 1); // expected output: &quot;number&quot;  console.log(typeof &#39;useong&#39;); // expected output: &quot;string&quot;  console.log(typeof true); // expected output: &quot;boolean&quot;  console.log(typeof undeclaredVariable); // expected output: &quot;undefined&quot;  console.log(typeof function(){}); // expected output: &quot;function&quot;  console.log(typeof {a : 1}); // expected output: &quot;object&quot;  console.log(typeof [1, 2, 3]); // expected output: &quot;object&quot;     함수    :point_up_2:함수 기초 :   3. 함수(function)      함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.   함수 선언식과 함수 표현식이 있다.   return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.   매개변수(parameter) 와 전달인자(argument)가 있다.   let word = &#39;welcome to&#39;;  // word = 전달인자(argument)  function gitBlog(word) {   if (typeof word !== &#39;string&#39;) {     return &#39;wrong type&#39;;   }   else {     return word + &#39; useonglee!&#39;;   } } console.log(gitBlog(word)) // &#39;welcome to useonglee!&#39;   함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.  //함수 선언식 function myFunction (input) {  // input : 매개변수(parameter)   console.log(input); }  //함수 표현식 let myFunction = function (input) {   console.log(input); }   저번에 올렸던 호이스팅과도 관련이 있다.  함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.  이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.  하지만 난 함수 표현식을 더 선호한다.  알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.    join과 undefined의 관계    :question:join과 undefined의 관계 :   이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.   알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,  배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만  문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.  이 부분이 궁금해서 질문을 했었다.  //배열에는 undefined를 푸쉬할 수 있다. let arr = []; arr.push(undefined); console.log(arr) // [ undefined ]  arr.push(1, 2, 3) console.log(arr) // [undefined, 1, 2, 3] console.log(arr.join(&#39;&#39;)) // &quot;123&quot;   그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.  위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때  &quot;abc&quot; + undefined === &quot;abcundefined&quot;  와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다. undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.  사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,  나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.  이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.  문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.     :punch: 내일의 TIW(today I Will)   조건문과 문자열">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
-<meta property="og:title" content="1월 18일 TIL #9">
+<meta property="og:title" content="TIL #9">
 <meta property="og:url" content="http://localhost:4000/2021/01/TIL9/">
 
 
@@ -205,6 +205,10 @@
             <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
+          
+            <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
       
 
       
@@ -272,7 +276,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="1월 18일 TIL #9">
+    <meta itemprop="headline" content="TIL #9">
     <meta itemprop="description" content="목차  변수와 타입  함수  join과 undefined의 관계변수와 타입  :point_right:변수와 타입 기초 :1. 변수(variable)변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.변수에 이름을 지어주고(선언) 값을 넣어준다(할당).let number = 1;      // 값이 숫자가 될 수도 있고let name = 'useong'  // 문자열이 될 수도 있다.프로그래밍에서는 ‘=’ 연산자의 뜻은 절대로 같다는 뜻이 아니다메모리라는 보관함에 값을 저장한다고 이해하면 좋을 것 같다.(할당의 개념)변수는 동일한 변수를 이용해 대입할 수 있다.사용했던 let은 또 사용하면 에러가 난다.let num = 1;     num = num + 2;   // let num = num + 2 =&gt; 에러num = num + 3;num = num + 4;console.log(num) // 10;2. 타입(type)타입을 확인할 때는 type of 연산자를 써서 무슨 타입인지 확인할 수 있다.원시자료형 (number, string, boolean, undefined, function) 도 타입이다.console.log(typeof 1);// expected output: &quot;number&quot;console.log(typeof 'useong');// expected output: &quot;string&quot;console.log(typeof true);// expected output: &quot;boolean&quot;console.log(typeof undeclaredVariable);// expected output: &quot;undefined&quot;console.log(typeof function(){});// expected output: &quot;function&quot;console.log(typeof {a : 1});// expected output: &quot;object&quot;console.log(typeof [1, 2, 3]);// expected output: &quot;object&quot;함수  :point_up_2:함수 기초 :  3. 함수(function)  함수는 “작은 기능의 단위” 라고 표현해도 좋을 것 같다.  함수 선언식과 함수 표현식이 있다.  return (함수를 반환하는 기능) 과 console.log(현재 원하는 값을 확인) 기능이 있다.  매개변수(parameter) 와 전달인자(argument)가 있다.let word = 'welcome to';  // word = 전달인자(argument)function gitBlog(word) {  if (typeof word !== 'string') {    return 'wrong type';  }  else {    return word + ' useonglee!';  }}console.log(gitBlog(word)) // 'welcome to useonglee!'함수 선언식과 표현식은 겉보기에는 비슷해보이지만 약간의 차이가 있다.//함수 선언식function myFunction (input) {  // input : 매개변수(parameter)  console.log(input);}//함수 표현식let myFunction = function (input) {  console.log(input);}저번에 올렸던 호이스팅과도 관련이 있다.함수 선언식은 호이스팅에 영향을 받는다. 즉, 함수 선언식은 코드를 구현한 위치와 관계없이 자바스크립트를 해석할 때 맨위로 끌어 올려진다.이와 반대로, 표현식은 호출 순서에 따라서 정상적으로 함수가 실행되지 않을 수 있다.하지만 난 함수 표현식을 더 선호한다.알고리즘을 풀 때, 클로져로도 자주 사용하게 되고, 콜백 함수로도 사용할 일이 많기 때문이다.join과 undefined의 관계  :question:join과 undefined의 관계 :  이 부분은 내가 helpdesk에 올렸던 질문이라서 이 내용으로도 블로깅을 해보려고 한다.알고리즘 13번문제와 관련해서 질문을 했었다. 해결한 문제였지만,배열에 문자열을 push하고 join을 사용했을 때는 ‘YouCanDoIt’  으로 나왔지만문자열을 더해줬을 때는 ‘YouCanDoItundefinedundefined’ 으로 반환이 되었다.이 부분이 궁금해서 질문을 했었다.//배열에는 undefined를 푸쉬할 수 있다.let arr = [];arr.push(undefined);console.log(arr) // [ undefined ]arr.push(1, 2, 3)console.log(arr) // [undefined, 1, 2, 3]console.log(arr.join('')) // &quot;123&quot;그렇다면 undefined가 있는 배열에 join을 사용한다면 어떻게 될지 한번 보겠습니다.위와 같이 배열에 undefined를 push하는것은 되지만, 문자열로 더해줄때&quot;abc&quot; + undefined === &quot;abcundefined&quot;와 같이 되는 특성으로 ‘YouCanDoItundefinedundefined’ 와 같은 값이 출력이 되는 것 입니다.undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.사실 알고리즘 문제 13번을 풀었기때문에 그냥 넘어갈 수 도 있었던 문제였지만,나의 단순한 호기심이 이 결과를 초래했다. 이 호기심이 없었더라면 이 개념에 대해서는 전혀 알고 넘어가지 못했을 것이다.이런식으로 helpdesk를 확실히 잘 이용해야만 학습에 더 효과적인 것 같다.문제를 푸는 것도 중요하지만 질문을 하는 자세도 중요하다는 것을 깨달았다.  :punch: 내일의 TIW(today I Will)조건문과 문자열">
     <meta itemprop="datePublished" content="2021-01-18T00:00:00+09:00">
     
@@ -280,7 +284,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">1월 18일 TIL #9
+          <h1 id="page-title" class="page__title" itemprop="headline">TIL #9
 </h1>
           
 
@@ -535,7 +539,7 @@ undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=1%EC%9B%94+18%EC%9D%BC+TIL+%239%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL9%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=TIL+%239%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL9%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL9%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -546,11 +550,11 @@ undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.
       
   <nav class="pagination">
     
-      <a href="/2021/01/TIL8/" class="pagination--pager" title="1월 17일 TIL #8
+      <a href="/2021/01/TIL8/" class="pagination--pager" title="TIL #8
 ">Previous</a>
     
     
-      <a href="/2021/01/TIL10/" class="pagination--pager" title="1월 19일 TIL #10
+      <a href="/2021/01/TIL10/" class="pagination--pager" title="TIL #10
 ">Next</a>
     
   </nav>
@@ -575,10 +579,18 @@ undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL10/" rel="permalink">1월 19일 TIL #10
+        <a href="/2021/01/TIL10/" rel="permalink">TIL #10
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/19/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -634,10 +646,18 @@ if (truthy or falsy 한 값) {
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL8/" rel="permalink">1월 17일 TIL #8
+        <a href="/2021/01/TIL8/" rel="permalink">TIL #8
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/17/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -691,10 +711,18 @@ test 6번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL7/" rel="permalink">1월 16일 TIL #7
+        <a href="/2021/01/TIL7/" rel="permalink">TIL #7
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/16/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
@@ -750,10 +778,18 @@ test 2번
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL6/" rel="permalink">1월 15일 TIL #6
+        <a href="/2021/01/TIL6/" rel="permalink">TIL #6
 </a>
       
     </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> TILPre-Course</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/15/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
     
 
   <p class="page__meta">
