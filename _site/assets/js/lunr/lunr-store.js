@@ -70,4 +70,10 @@ var store = [{
         "tags": ["Pre-Course"],
         "url": "http://localhost:4000/2021/01/TIL/",
         "teaser": null
+      },{
+        "title": "TIL #12",
+        "excerpt":"1. html 배운 내용 정리 :point_right: html 기초 : 외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용 먼저, HTML은 구조를 만든다! 즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수...","categories": ["2021/01"],
+        "tags": ["Pre-Course html&css"],
+        "url": "http://localhost:4000/2021/01/TIL/",
+        "teaser": null
       }]
