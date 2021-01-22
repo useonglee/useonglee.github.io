@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>TIL #12 - 꿈을 기록하는 Blog</title>
-<meta name="description" content="1. html 배운 내용 정리     :point_right: html 기초 :     외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용  먼저, HTML은 구조를 만든다!  즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다.     div      화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block)   별 뜻은 없지만 자주 사용.       span      컨텐츠 크기만큼 공간을 차지한다.   줄바꿈 불가능   하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다.   span {     display: line-block;     width: 200px;     height: 50px; }        img : 이미지삽입 &lt;img src = ““이미지 링크 주소&gt; 별도의 &lt;/img&gt; 라는 태그가 없다.             링크 삽입      1.target 은 새 링크에서 열기      &lt;a href=&quot;이미지 링크 주소&quot; target=&quot;_blank&quot;&gt;페이지&lt;/a&gt;   2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명)  &lt;a href=&quot;이미지 링크 주소&quot; title=&quot;링크 내용에 대한 설명&quot;&gt;&lt;/a&gt;   3.id : 같은 페이지 안에서 이동할 때 사용한다.  1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.)  &lt;a id=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;  2. 이름 붙여놓은 앵커들을 다시 &lt;a&gt;의 href 속성으로 연결. &lt;a href=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;&lt;/a&gt;         리스트 목록   &lt;ul&gt;     // 순서가 없음     &lt;li&gt;         리스트 * item1 * item2          &lt;ol&gt;             // 순서를 지정             &lt;li&gt;리스트 1. hello 2. world&lt;/li&gt;         &lt;/ol&gt;     &lt;/li&gt; &lt;/ul&gt;        :point_right: input tag :   // Id 와 Password 입력 상자를 만들어 준다. &lt;div&gt;ID &lt;input =&quot;text&quot; placeholder=&quot;type here&quot; /&gt;&lt;/div&gt;  &lt;div&gt;Password &lt;input =&quot;password&quot; /&gt;&lt;/div&gt;     // 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;a&quot; /&gt; a  &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;b&quot; /&gt; b     &lt;div&gt;     // 여러개 체크 가능     &lt;input type=&quot;checkbox&quot; /&gt; &lt;/div&gt;     // 줄바꿈이 되는 text  &lt;textarea&gt;내용&lt;/textarea&gt;     // button 모양을 만들어준다.  &lt;button&gt;로그인&lt;/button&gt;     &lt;p class=&quot;contents&quot;&gt;Hello World&lt;/p&gt;  // tag란 ? &lt;p&gt;오프닝 태그와&lt;/p&gt; 클로징 태그 // class란 ? attribute (속성)      HTMl 마무리 하면서…  “HTML은 구조를 표현하기 위한 언어다.”  Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!!     2. CSS 문법 기초                 class       id                       . 으로 선택       # 으로 선택                 동일한 값을 가질 수 있음       문서 내에서 유일한 값                 여러개의 엘리먼트 값을 가질 수 있다.       엘리먼트 단 하나의 값을 가짐                 스타일을 분류할 때 사용       특정 엘리먼트                단위      절대 단위 : px, pt 등   상대 단위 : %, em, rem, ch, vw, vh 등        기타 속성      굵기: font-weight   밑줄, 가로줄: text-decoration   자간: letter-spacing   행간: line-height      border 속성   기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음.     (굵은 테두리) border :  solid   (점 선 테두리) border : dashed        (두 줄 테두리) border : thick double           (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다.      border-shadow : 박스 그림자를 만들어준다.      CSS 마무리 하면서…  “CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.”  CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다.     :punch: 내일의 TIW(today I Will)   calculator (계산기)">
+<meta name="description" content="1. html 배운 내용 정리     :point_right: html 기초 :       외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용  먼저, HTML은 구조를 만든다!  즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다.     div      화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block)   별 뜻은 없지만 자주 사용.       span      컨텐츠 크기만큼 공간을 차지한다.   줄바꿈 불가능   하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다.   span {     display: line-block;     width: 200px;     height: 50px; }        img : 이미지삽입 &lt;img src = ““이미지 링크 주소&gt; 별도의 &lt;/img&gt; 라는 태그가 없다.             링크 삽입      1.target 은 새 링크에서 열기      &lt;a href=&quot;이미지 링크 주소&quot; target=&quot;_blank&quot;&gt;페이지&lt;/a&gt;   2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명)  &lt;a href=&quot;이미지 링크 주소&quot; title=&quot;링크 내용에 대한 설명&quot;&gt;&lt;/a&gt;   3.id : 같은 페이지 안에서 이동할 때 사용한다.  1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.)  &lt;a id=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;  2. 이름 붙여놓은 앵커들을 다시 &lt;a&gt;의 href 속성으로 연결. &lt;a href=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;&lt;/a&gt;         리스트 목록   &lt;ul&gt;     // 순서가 없음     &lt;li&gt;         리스트 * item1 * item2          &lt;ol&gt;             // 순서를 지정             &lt;li&gt;리스트 1. hello 2. world&lt;/li&gt;         &lt;/ol&gt;     &lt;/li&gt; &lt;/ul&gt;        :point_right: input tag :     // Id 와 Password 입력 상자를 만들어 준다. &lt;div&gt;ID &lt;input =&quot;text&quot; placeholder=&quot;type here&quot; /&gt;&lt;/div&gt;  &lt;div&gt;Password &lt;input =&quot;password&quot; /&gt;&lt;/div&gt;     // 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;a&quot; /&gt; a  &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;b&quot; /&gt; b     &lt;div&gt;     // 여러개 체크 가능     &lt;input type=&quot;checkbox&quot; /&gt; &lt;/div&gt;     // 줄바꿈이 되는 text  &lt;textarea&gt;내용&lt;/textarea&gt;     // button 모양을 만들어준다.  &lt;button&gt;로그인&lt;/button&gt;     &lt;p class=&quot;contents&quot;&gt;Hello World&lt;/p&gt;  // tag란 ? &lt;p&gt;오프닝 태그와&lt;/p&gt; 클로징 태그 // class란 ? attribute (속성)      HTMl 마무리 하면서…  “HTML은 구조를 표현하기 위한 언어다.”  Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!!     2. CSS 문법 기초                 class       id                       . 으로 선택       # 으로 선택                 동일한 값을 가질 수 있음       문서 내에서 유일한 값                 여러개의 엘리먼트 값을 가질 수 있다.       엘리먼트 단 하나의 값을 가짐                 스타일을 분류할 때 사용       특정 엘리먼트                단위      절대 단위 : px, pt 등   상대 단위 : %, em, rem, ch, vw, vh 등        기타 속성      굵기: font-weight   밑줄, 가로줄: text-decoration   자간: letter-spacing   행간: line-height      border 속성   기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음.     (굵은 테두리) border : solid   (점 선 테두리) border : dashed        (두 줄 테두리) border : thick double           (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다.      border-shadow : 박스 그림자를 만들어준다.      CSS 마무리 하면서…  “CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.”  CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다.     :punch: 내일의 TIW(today I Will)   calculator (계산기)">
 
 
   <meta name="author" content="이우성">
@@ -23,10 +23,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
 <meta property="og:title" content="TIL #12">
-<meta property="og:url" content="http://localhost:4000/2021/01/TIL/">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL12/">
 
 
-  <meta property="og:description" content="1. html 배운 내용 정리     :point_right: html 기초 :     외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용  먼저, HTML은 구조를 만든다!  즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다.     div      화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block)   별 뜻은 없지만 자주 사용.       span      컨텐츠 크기만큼 공간을 차지한다.   줄바꿈 불가능   하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다.   span {     display: line-block;     width: 200px;     height: 50px; }        img : 이미지삽입 &lt;img src = ““이미지 링크 주소&gt; 별도의 &lt;/img&gt; 라는 태그가 없다.             링크 삽입      1.target 은 새 링크에서 열기      &lt;a href=&quot;이미지 링크 주소&quot; target=&quot;_blank&quot;&gt;페이지&lt;/a&gt;   2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명)  &lt;a href=&quot;이미지 링크 주소&quot; title=&quot;링크 내용에 대한 설명&quot;&gt;&lt;/a&gt;   3.id : 같은 페이지 안에서 이동할 때 사용한다.  1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.)  &lt;a id=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;  2. 이름 붙여놓은 앵커들을 다시 &lt;a&gt;의 href 속성으로 연결. &lt;a href=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;&lt;/a&gt;         리스트 목록   &lt;ul&gt;     // 순서가 없음     &lt;li&gt;         리스트 * item1 * item2          &lt;ol&gt;             // 순서를 지정             &lt;li&gt;리스트 1. hello 2. world&lt;/li&gt;         &lt;/ol&gt;     &lt;/li&gt; &lt;/ul&gt;        :point_right: input tag :   // Id 와 Password 입력 상자를 만들어 준다. &lt;div&gt;ID &lt;input =&quot;text&quot; placeholder=&quot;type here&quot; /&gt;&lt;/div&gt;  &lt;div&gt;Password &lt;input =&quot;password&quot; /&gt;&lt;/div&gt;     // 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;a&quot; /&gt; a  &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;b&quot; /&gt; b     &lt;div&gt;     // 여러개 체크 가능     &lt;input type=&quot;checkbox&quot; /&gt; &lt;/div&gt;     // 줄바꿈이 되는 text  &lt;textarea&gt;내용&lt;/textarea&gt;     // button 모양을 만들어준다.  &lt;button&gt;로그인&lt;/button&gt;     &lt;p class=&quot;contents&quot;&gt;Hello World&lt;/p&gt;  // tag란 ? &lt;p&gt;오프닝 태그와&lt;/p&gt; 클로징 태그 // class란 ? attribute (속성)      HTMl 마무리 하면서…  “HTML은 구조를 표현하기 위한 언어다.”  Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!!     2. CSS 문법 기초                 class       id                       . 으로 선택       # 으로 선택                 동일한 값을 가질 수 있음       문서 내에서 유일한 값                 여러개의 엘리먼트 값을 가질 수 있다.       엘리먼트 단 하나의 값을 가짐                 스타일을 분류할 때 사용       특정 엘리먼트                단위      절대 단위 : px, pt 등   상대 단위 : %, em, rem, ch, vw, vh 등        기타 속성      굵기: font-weight   밑줄, 가로줄: text-decoration   자간: letter-spacing   행간: line-height      border 속성   기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음.     (굵은 테두리) border :  solid   (점 선 테두리) border : dashed        (두 줄 테두리) border : thick double           (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다.      border-shadow : 박스 그림자를 만들어준다.      CSS 마무리 하면서…  “CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.”  CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다.     :punch: 내일의 TIW(today I Will)   calculator (계산기)">
+  <meta property="og:description" content="1. html 배운 내용 정리     :point_right: html 기초 :       외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용  먼저, HTML은 구조를 만든다!  즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다.     div      화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block)   별 뜻은 없지만 자주 사용.       span      컨텐츠 크기만큼 공간을 차지한다.   줄바꿈 불가능   하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다.   span {     display: line-block;     width: 200px;     height: 50px; }        img : 이미지삽입 &lt;img src = ““이미지 링크 주소&gt; 별도의 &lt;/img&gt; 라는 태그가 없다.             링크 삽입      1.target 은 새 링크에서 열기      &lt;a href=&quot;이미지 링크 주소&quot; target=&quot;_blank&quot;&gt;페이지&lt;/a&gt;   2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명)  &lt;a href=&quot;이미지 링크 주소&quot; title=&quot;링크 내용에 대한 설명&quot;&gt;&lt;/a&gt;   3.id : 같은 페이지 안에서 이동할 때 사용한다.  1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.)  &lt;a id=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;  2. 이름 붙여놓은 앵커들을 다시 &lt;a&gt;의 href 속성으로 연결. &lt;a href=&quot;앵커이름&quot;&gt;내용&lt;/a&gt;&lt;/a&gt;         리스트 목록   &lt;ul&gt;     // 순서가 없음     &lt;li&gt;         리스트 * item1 * item2          &lt;ol&gt;             // 순서를 지정             &lt;li&gt;리스트 1. hello 2. world&lt;/li&gt;         &lt;/ol&gt;     &lt;/li&gt; &lt;/ul&gt;        :point_right: input tag :     // Id 와 Password 입력 상자를 만들어 준다. &lt;div&gt;ID &lt;input =&quot;text&quot; placeholder=&quot;type here&quot; /&gt;&lt;/div&gt;  &lt;div&gt;Password &lt;input =&quot;password&quot; /&gt;&lt;/div&gt;     // 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;a&quot; /&gt; a  &lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;b&quot; /&gt; b     &lt;div&gt;     // 여러개 체크 가능     &lt;input type=&quot;checkbox&quot; /&gt; &lt;/div&gt;     // 줄바꿈이 되는 text  &lt;textarea&gt;내용&lt;/textarea&gt;     // button 모양을 만들어준다.  &lt;button&gt;로그인&lt;/button&gt;     &lt;p class=&quot;contents&quot;&gt;Hello World&lt;/p&gt;  // tag란 ? &lt;p&gt;오프닝 태그와&lt;/p&gt; 클로징 태그 // class란 ? attribute (속성)      HTMl 마무리 하면서…  “HTML은 구조를 표현하기 위한 언어다.”  Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!!     2. CSS 문법 기초                 class       id                       . 으로 선택       # 으로 선택                 동일한 값을 가질 수 있음       문서 내에서 유일한 값                 여러개의 엘리먼트 값을 가질 수 있다.       엘리먼트 단 하나의 값을 가짐                 스타일을 분류할 때 사용       특정 엘리먼트                단위      절대 단위 : px, pt 등   상대 단위 : %, em, rem, ch, vw, vh 등        기타 속성      굵기: font-weight   밑줄, 가로줄: text-decoration   자간: letter-spacing   행간: line-height      border 속성   기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음.     (굵은 테두리) border : solid   (점 선 테두리) border : dashed        (두 줄 테두리) border : thick double           (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다.      border-shadow : 박스 그림자를 만들어준다.      CSS 마무리 하면서…  “CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.”  CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다.     :punch: 내일의 TIW(today I Will)   calculator (계산기)">
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/2021/01/TIL/">
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL12/">
 
 
 
@@ -277,7 +277,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="TIL #12">
-    <meta itemprop="description" content='1. html 배운 내용 정리  :point_right: html 기초 :외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용먼저, HTML은 구조를 만든다!즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다.  div  화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block)  별 뜻은 없지만 자주 사용.  span  컨텐츠 크기만큼 공간을 차지한다.  줄바꿈 불가능  하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다.span {    display: line-block;    width: 200px;    height: 50px;}  img : 이미지삽입&lt;img src = ““이미지 링크 주소&gt;별도의 &lt;/img&gt; 라는 태그가 없다.      링크 삽입    1.target 은 새 링크에서 열기  &lt;a href="이미지 링크 주소" target="_blank"&gt;페이지&lt;/a&gt;2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명)&lt;a href="이미지 링크 주소" title="링크 내용에 대한 설명"&gt;&lt;/a&gt;3.id : 같은 페이지 안에서 이동할 때 사용한다.1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.)&lt;a id="앵커이름"&gt;내용&lt;/a&gt;2. 이름 붙여놓은 앵커들을 다시 &lt;a&gt;의 href 속성으로 연결.&lt;a href="앵커이름"&gt;내용&lt;/a&gt;&lt;/a&gt;  리스트 목록&lt;ul&gt;    // 순서가 없음    &lt;li&gt;        리스트 * item1 * item2        &lt;ol&gt;            // 순서를 지정            &lt;li&gt;리스트 1. hello 2. world&lt;/li&gt;        &lt;/ol&gt;    &lt;/li&gt;&lt;/ul&gt;  :point_right: input tag :// Id 와 Password 입력 상자를 만들어 준다.&lt;div&gt;ID &lt;input ="text" placeholder="type here" /&gt;&lt;/div&gt;&lt;div&gt;Password &lt;input ="password" /&gt;&lt;/div&gt;// 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &lt;input type="radio" name="choice" value="a" /&gt; a&lt;input type="radio" name="choice" value="b" /&gt; b&lt;div&gt;    // 여러개 체크 가능    &lt;input type="checkbox" /&gt;&lt;/div&gt;// 줄바꿈이 되는 text&lt;textarea&gt;내용&lt;/textarea&gt;// button 모양을 만들어준다.&lt;button&gt;로그인&lt;/button&gt;&lt;p class="contents"&gt;Hello World&lt;/p&gt;// tag란 ?&lt;p&gt;오프닝 태그와&lt;/p&gt;클로징 태그 // class란 ? attribute (속성)HTMl 마무리 하면서…“HTML은 구조를 표현하기 위한 언어다.”Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!!2. CSS 문법 기초            class      id                  . 으로 선택      # 으로 선택              동일한 값을 가질 수 있음      문서 내에서 유일한 값              여러개의 엘리먼트 값을 가질 수 있다.      엘리먼트 단 하나의 값을 가짐              스타일을 분류할 때 사용      특정 엘리먼트        단위  절대 단위 : px, pt 등  상대 단위 : %, em, rem, ch, vw, vh 등  기타 속성  굵기: font-weight  밑줄, 가로줄: text-decoration  자간: letter-spacing  행간: line-height  border 속성기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음.  (굵은 테두리) border :  solid  (점 선 테두리) border : dashed      (두 줄 테두리) border : thick double        (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다.    border-shadow : 박스 그림자를 만들어준다.CSS 마무리 하면서…“CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.”CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다.  :punch: 내일의 TIW(today I Will)calculator (계산기)'>
+    <meta itemprop="description" content='1. html 배운 내용 정리  :point_right: html 기초 :외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용먼저, HTML은 구조를 만든다!즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다.  div  화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block)  별 뜻은 없지만 자주 사용.  span  컨텐츠 크기만큼 공간을 차지한다.  줄바꿈 불가능  하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다.span {    display: line-block;    width: 200px;    height: 50px;}  img : 이미지삽입&lt;img src = ““이미지 링크 주소&gt;별도의 &lt;/img&gt; 라는 태그가 없다.      링크 삽입    1.target 은 새 링크에서 열기  &lt;a href="이미지 링크 주소" target="_blank"&gt;페이지&lt;/a&gt;2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명)&lt;a href="이미지 링크 주소" title="링크 내용에 대한 설명"&gt;&lt;/a&gt;3.id : 같은 페이지 안에서 이동할 때 사용한다.1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.)&lt;a id="앵커이름"&gt;내용&lt;/a&gt;2. 이름 붙여놓은 앵커들을 다시 &lt;a&gt;의 href 속성으로 연결. &lt;a href="앵커이름"&gt;내용&lt;/a&gt;&lt;/a&gt;  리스트 목록&lt;ul&gt;    // 순서가 없음    &lt;li&gt;        리스트 * item1 * item2        &lt;ol&gt;            // 순서를 지정            &lt;li&gt;리스트 1. hello 2. world&lt;/li&gt;        &lt;/ol&gt;    &lt;/li&gt;&lt;/ul&gt;  :point_right: input tag :// Id 와 Password 입력 상자를 만들어 준다.&lt;div&gt;ID &lt;input ="text" placeholder="type here" /&gt;&lt;/div&gt;&lt;div&gt;Password &lt;input ="password" /&gt;&lt;/div&gt;// 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &lt;input type="radio" name="choice" value="a" /&gt; a&lt;input type="radio" name="choice" value="b" /&gt; b&lt;div&gt;    // 여러개 체크 가능    &lt;input type="checkbox" /&gt;&lt;/div&gt;// 줄바꿈이 되는 text&lt;textarea&gt;내용&lt;/textarea&gt;// button 모양을 만들어준다.&lt;button&gt;로그인&lt;/button&gt;&lt;p class="contents"&gt;Hello World&lt;/p&gt;// tag란 ?&lt;p&gt;오프닝 태그와&lt;/p&gt;클로징 태그 // class란 ? attribute (속성)HTMl 마무리 하면서…“HTML은 구조를 표현하기 위한 언어다.”Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!!2. CSS 문법 기초            class      id                  . 으로 선택      # 으로 선택              동일한 값을 가질 수 있음      문서 내에서 유일한 값              여러개의 엘리먼트 값을 가질 수 있다.      엘리먼트 단 하나의 값을 가짐              스타일을 분류할 때 사용      특정 엘리먼트        단위  절대 단위 : px, pt 등  상대 단위 : %, em, rem, ch, vw, vh 등  기타 속성  굵기: font-weight  밑줄, 가로줄: text-decoration  자간: letter-spacing  행간: line-height  border 속성기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음.  (굵은 테두리) border : solid  (점 선 테두리) border : dashed      (두 줄 테두리) border : thick double        (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다.    border-shadow : 박스 그림자를 만들어준다.CSS 마무리 하면서…“CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.”CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다.  :punch: 내일의 TIW(today I Will)calculator (계산기)'>
     <meta itemprop="datePublished" content="2021-01-21T00:00:00+09:00">
     
 
@@ -318,8 +318,6 @@
 <i class="fas fa-file-alt"></i> 페이지 주요 목차</h4></header>
               <ul class="toc__menu">
 <li><a href="#1-html-%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9-%EC%A0%95%EB%A6%AC">1. html 배운 내용 정리</a></li>
-<li><a href="#point_right-html-%EA%B8%B0%EC%B4%88-"><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> html 기초 :</a></li>
-<li><a href="#point_right-input-tag-"><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> input tag :</a></li>
 <li><a href="#2-css-%EB%AC%B8%EB%B2%95-%EA%B8%B0%EC%B4%88">2. CSS 문법 기초</a></li>
 </ul>
 
@@ -329,9 +327,10 @@
         <h2 id="1-html-배운-내용-정리">1. html 배운 내용 정리</h2>
 
 <blockquote>
-  <h2 id="point_right-html-기초-">
-<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> html 기초 :</h2>
+  <p><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> html 기초 :</p>
 </blockquote>
+
+<hr>
 
 <p><br></p>
 
@@ -401,8 +400,7 @@
 
 <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"앵커이름"</span><span class="nt">&gt;</span>내용<span class="nt">&lt;/a&gt;</span>
 
-2. 이름 붙여놓은 앵커들을 다시 <span class="nt">&lt;a&gt;</span>의 href 속성으로 연결.
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"앵커이름"</span><span class="nt">&gt;</span>내용<span class="nt">&lt;/a&gt;&lt;/a&gt;</span>
+2. 이름 붙여놓은 앵커들을 다시 <span class="nt">&lt;a&gt;</span>의 href 속성으로 연결. <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"앵커이름"</span><span class="nt">&gt;</span>내용<span class="nt">&lt;/a&gt;&lt;/a&gt;</span>
 </code></pre></div></div>
 
 <p><br>
@@ -428,9 +426,10 @@
 <p><br></p>
 
 <blockquote>
-  <h2 id="point_right-input-tag-">
-<img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> input tag :</h2>
+  <p><img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> input tag :</p>
 </blockquote>
+
+<hr>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Id 와 Password 입력 상자를 만들어 준다.
 <span class="nt">&lt;div&gt;</span>ID <span class="nt">&lt;input</span> <span class="err">="</span><span class="na">text</span><span class="err">"</span> <span class="na">placeholder=</span><span class="s">"type here"</span> <span class="nt">/&gt;&lt;/div&gt;</span>
@@ -552,7 +551,7 @@
 <p>기본적으로 <strong><code class="language-plaintext highlighter-rouge">border : 너비 | 스타일 | 색</code></strong> 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음.</p>
 
 <ul>
-  <li>(굵은 테두리) border :  <code class="language-plaintext highlighter-rouge">solid</code>
+  <li>(굵은 테두리) border : <code class="language-plaintext highlighter-rouge">solid</code>
 </li>
   <li>(점 선 테두리) border : <code class="language-plaintext highlighter-rouge">dashed</code>
 </li>
@@ -599,7 +598,15 @@
     
       
       
-      <a href="/tags/#pre-course-html-css" class="page__taxonomy-item" rel="tag">Pre-Course html&amp;css</a>
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a>
     
     </span>
   </p>
@@ -635,22 +642,23 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=TIL+%2312%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=TIL+%2312%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL12%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL12%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL12%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/2021/01/TIL/" class="pagination--pager" title="TIL #11
+      <a href="/2021/01/TIL11/" class="pagination--pager" title="TIL #11
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/2021/01/TIL13/" class="pagination--pager" title="TIL #13
+">Next</a>
     
   </nav>
 
@@ -674,7 +682,59 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL/" rel="permalink">TIL #11
+        <a href="/2021/01/TIL13/" rel="permalink">TIL #13
+</a>
+      
+    </h2>
+
+    
+		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course, HTML&amp;CSS</p>
+	
+<!-- 카테고리만 보여주는 코드 -->
+
+    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/22/2021 </p>
+<!-- 날짜만 보여주는 코드 -->
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">계산기 이쁘게 구현하기
+
+오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.
+
+
+많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/2021/01/TIL11/" rel="permalink">TIL #11
 </a>
       
     </h2>
@@ -840,64 +900,6 @@ else {
 변수에 이름을 지어주고(선언) 값을 넣어준다(할당).
 
 let number = 1;      // 값이 숫자가 될 수도 있고...</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL8/" rel="permalink">TIL #8
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/17/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. test 6번
-
-
-  test 6번문제 풀이 :
-
-
-피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.
-
-
-  주의 사항 :
-    
-      리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 ...</p>
   </article>
 </div>
 

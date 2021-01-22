@@ -1,13 +1,13 @@
 var store = [{
         "title": "나의 첫 포스트",
         "excerpt":"나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다.   지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다.   미칠 것 같다. 깃블로그 너무 어렵다.   하지만 개발자가 되기 위해 하나의 시련이라고 생각한다…   1일 1잔디를 위하여ㅠㅠ   ","categories": [],
-        "tags": ["Posts"],
+        "tags": [],
         "url": "http://localhost:4000/first-post/",
         "teaser": null
       },{
         "title": "TIL #1",
         "excerpt":"##드디어 깃블로그를 마치다. 금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다. 아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가….. 테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다. 하지만!!!!!! _conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다....","categories": ["2021/01"],
-        "tags": ["TIL","Pre-Course"],
+        "tags": [],
         "url": "http://localhost:4000/2021/01/TIL1/",
         "teaser": null
       },{
@@ -68,12 +68,18 @@ var store = [{
         "title": "TIL #11",
         "excerpt":"1. 반복문 for while :point_right: for, while : 1-1 for loop 문법 반복문은 반복할 조건을 초기화, 조건식, 증감문 순으로 넣어준다. 초기화 : 시작부분이라고도 표현할 수 있다. i = 0 // 0부터 시작하겠다. 조건식 : 보통 언제까지 반복하겠다. 이런식으로 쓰인다. i &lt;= 5라고 하면 0 부터 0, 1, 2, 3, 4,...","categories": ["2021/01"],
         "tags": ["Pre-Course"],
-        "url": "http://localhost:4000/2021/01/TIL/",
+        "url": "http://localhost:4000/2021/01/TIL11/",
         "teaser": null
       },{
         "title": "TIL #12",
         "excerpt":"1. html 배운 내용 정리 :point_right: html 기초 : 외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용 먼저, HTML은 구조를 만든다! 즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수...","categories": ["2021/01"],
-        "tags": ["Pre-Course html&css"],
-        "url": "http://localhost:4000/2021/01/TIL/",
+        "tags": ["Pre-Course, HTML&CSS"],
+        "url": "http://localhost:4000/2021/01/TIL12/",
+        "teaser": null
+      },{
+        "title": "TIL #13",
+        "excerpt":"계산기 이쁘게 구현하기 오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다. 많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다. 내가 알고 있는...","categories": ["2021/01"],
+        "tags": ["Pre-Course, HTML&CSS"],
+        "url": "http://localhost:4000/2021/01/TIL13/",
         "teaser": null
       }]

@@ -9,25 +9,24 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>꿈을 기록하는 Blog</title>
-<meta name="description" content="우성’s Dream Coding">
+<!-- begin _includes/seo.html --><title>TIL #13 - 꿈을 기록하는 Blog</title>
+<meta name="description" content="계산기 이쁘게 구현하기  오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.   많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다.  내가 알고 있는 지식을 동기들과 공유를 하고 싶어서 발표를 신청했고, 나는 120명 가까이되는 동기들 앞에서 zoom 으로 실시간 발표를 하였다… 많이 긴장도 했지만 발표를 잘 한 것 같아서 만족스럽다!:+1:        내가 핵심적으로 발표한 내용은 CSS 가상클래스 중에서도 hover 와 active 였다. 특히 box-shadow 기능을 넣어줬다가 none 을 해줬다가 하면서 역동적이게 보인 것이 강사님께서 인상 깊었다고 말씀해주셨다!   그리고 어디서 강의를 하다가 오신 것 같다고 해주셨을 때가 사실 기분이 무척 좋았다. 동기분들의 반응도 좋아서 이번 발표는 정말 만족스럽게 끝났다!   페어 프로그램을 하면서 항상 커뮤니케이션이 잘 되어왔다고 생각했는데 코드스테이츠를 하면서 나의 커뮤니케이션 스킬은 더더욱 발전하고 있는 것 같아서 오늘 하루는 정말 뿌듯했다!!  계산기는 내 github에 저장해놨으니 생각날 때 또 보러가야겠다!       :punch: 내일의 TIW(today I Will)   (주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!">
 
 
   <meta name="author" content="이우성">
   
+  <meta property="article:author" content="이우성">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="꿈을 기록하는 Blog">
-<meta property="og:title" content="꿈을 기록하는 Blog">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="TIL #13">
+<meta property="og:url" content="http://localhost:4000/2021/01/TIL13/">
 
 
-  <meta property="og:description" content="우성’s Dream Coding">
-
-
-
+  <meta property="og:description" content="계산기 이쁘게 구현하기  오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.   많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다.  내가 알고 있는 지식을 동기들과 공유를 하고 싶어서 발표를 신청했고, 나는 120명 가까이되는 동기들 앞에서 zoom 으로 실시간 발표를 하였다… 많이 긴장도 했지만 발표를 잘 한 것 같아서 만족스럽다!:+1:        내가 핵심적으로 발표한 내용은 CSS 가상클래스 중에서도 hover 와 active 였다. 특히 box-shadow 기능을 넣어줬다가 none 을 해줬다가 하면서 역동적이게 보인 것이 강사님께서 인상 깊었다고 말씀해주셨다!   그리고 어디서 강의를 하다가 오신 것 같다고 해주셨을 때가 사실 기분이 무척 좋았다. 동기분들의 반응도 좋아서 이번 발표는 정말 만족스럽게 끝났다!   페어 프로그램을 하면서 항상 커뮤니케이션이 잘 되어왔다고 생각했는데 코드스테이츠를 하면서 나의 커뮤니케이션 스킬은 더더욱 발전하고 있는 것 같아서 오늘 하루는 정말 뿌듯했다!!  계산기는 내 github에 저장해놨으니 생각날 때 또 보러가야겠다!       :punch: 내일의 TIW(today I Will)   (주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!">
 
 
 
@@ -35,13 +34,16 @@
 
 
 
+  <meta property="article:published_time" content="2021-01-22T00:00:00+09:00">
 
 
-<link rel="canonical" href="http://localhost:4000/">
 
 
 
-  <link rel="next" href="http://localhost:4000/page2/">
+
+<link rel="canonical" href="http://localhost:4000/2021/01/TIL13/">
+
+
 
 
 <script type="application/ld+json">
@@ -101,7 +103,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -273,41 +275,18 @@
 
 
 
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
-
-<h3 class="archive__subtitle">Recent Posts</h3>
-
-
-
-
-<div class="entries-list">
-  
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="TIL #13">
+    <meta itemprop="description" content="계산기 이쁘게 구현하기오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다.내가 알고 있는 지식을 동기들과 공유를 하고 싶어서 발표를 신청했고,나는 120명 가까이되는 동기들 앞에서 zoom 으로 실시간 발표를 하였다…많이 긴장도 했지만 발표를 잘 한 것 같아서 만족스럽다!:+1:내가 핵심적으로 발표한 내용은 CSS 가상클래스 중에서도 hover 와 active 였다.특히 box-shadow 기능을 넣어줬다가 none 을 해줬다가 하면서 역동적이게 보인 것이강사님께서 인상 깊었다고 말씀해주셨다!그리고 어디서 강의를 하다가 오신 것 같다고 해주셨을 때가 사실 기분이 무척 좋았다.동기분들의 반응도 좋아서 이번 발표는 정말 만족스럽게 끝났다!페어 프로그램을 하면서 항상 커뮤니케이션이 잘 되어왔다고 생각했는데코드스테이츠를 하면서 나의 커뮤니케이션 스킬은 더더욱 발전하고 있는 것 같아서 오늘 하루는 정말 뿌듯했다!!계산기는 내 github에 저장해놨으니 생각날 때 또 보러가야겠다!  :punch: 내일의 TIW(today I Will)(주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!">
+    <meta itemprop="datePublished" content="2021-01-22T00:00:00+09:00">
     
 
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+    <div class="page__inner-wrap">
       
-        <a href="/2021/01/TIL13/" rel="permalink">TIL #13
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course, HTML&amp;CSS</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/22/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">TIL #13
+</h1>
+          
 
   <p class="page__meta">
     
@@ -328,21 +307,158 @@
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">계산기 이쁘게 구현하기
+        </header>
+      
 
-오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title">
+<i class="fas fa-file-alt"></i> 페이지 주요 목차</h4></header>
+              <ul class="toc__menu"><li><a href="#%EA%B3%84%EC%82%B0%EA%B8%B0-%EC%9D%B4%EC%81%98%EA%B2%8C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">계산기 이쁘게 구현하기</a></li></ul>
 
+            </nav>
+          </aside>
+        
+        <h2 id="계산기-이쁘게-구현하기">계산기 이쁘게 구현하기</h2>
 
-많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리...</p>
-  </article>
-</div>
+<p>오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.
+<br></p>
+
+<p>많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다.</p>
+
+<p>내가 알고 있는 지식을 동기들과 공유를 하고 싶어서 발표를 신청했고,
+나는 120명 가까이되는 동기들 앞에서 zoom 으로 실시간 발표를 하였다…
+많이 긴장도 했지만 발표를 잘 한 것 같아서 만족스럽다!<img class="emoji" title=":+1:" alt=":+1:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20">
+<br></p>
+
+<center>
+<img src="https://user-images.githubusercontent.com/75570915/105506902-ea317580-5d0d-11eb-8328-9614da1ee957.gif" width="50%" height="50%">
+</center>
+
+<p><br></p>
+
+<p>내가 핵심적으로 발표한 내용은 CSS 가상클래스 중에서도 hover 와 active 였다.
+특히 <code class="language-plaintext highlighter-rouge">box-shadow</code> 기능을 넣어줬다가 none 을 해줬다가 하면서 역동적이게 보인 것이
+강사님께서 인상 깊었다고 말씀해주셨다!
+<br></p>
+
+<p>그리고 어디서 강의를 하다가 오신 것 같다고 해주셨을 때가 사실 기분이 무척 좋았다.
+동기분들의 반응도 좋아서 이번 발표는 정말 만족스럽게 끝났다!
+<br></p>
+
+<p>페어 프로그램을 하면서 항상 커뮤니케이션이 잘 되어왔다고 생각했는데
+코드스테이츠를 하면서 나의 커뮤니케이션 스킬은 더더욱 발전하고 있는 것 같아서 오늘 하루는 정말 뿌듯했다!!</p>
+
+<p>계산기는 내 github에 저장해놨으니 생각날 때 또 보러가야겠다!</p>
+
+<p><br></p>
+
+<blockquote>
+  <p><img class="emoji" title=":punch:" alt=":punch:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png" height="20" width="20"> <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>(주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
 
   
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
+      
+      
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#pre-course" class="page__taxonomy-item" rel="tag">Pre-Course</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/" class="page__taxonomy-item" rel="tag"></a>
+    
+    </span>
+  </p>
 
 
 
-<div class="list__item">
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#2021-01" class="page__taxonomy-item" rel="tag">2021/01</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-01-22T00:00:00+09:00">January 22, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=TIL+%2313%20http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL13%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL13%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2F2021%2F01%2FTIL13%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/2021/01/TIL12/" class="pagination--pager" title="TIL #12
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -398,12 +514,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -457,12 +573,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -518,12 +634,12 @@ else {
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -577,169 +693,13 @@ let number = 1;      // 값이 숫자가 될 수도 있고...</p>
   </article>
 </div>
 
+        
+      </div>
+    </div>
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL8/" rel="permalink">TIL #8
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/17/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. test 6번
-
-
-  test 6번문제 풀이 :
-
-
-피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.
-
-
-  주의 사항 :
-    
-      리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 ...</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL7/" rel="permalink">TIL #7
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/16/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">test 2번
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 2번문제 풀이 :
-
-
-수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.
-
-
-  주의 사항 :
-    
-      음수를 입력받은 경우, 첫번째 수는 음수로 계산
-      number 타입을 리턴
-    
-  
-  입출...</p>
-  </article>
-</div>
-
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-
-    
-    
-
-    
-      <li><a href="/page2/">2</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">Next</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     

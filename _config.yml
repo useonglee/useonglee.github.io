@@ -62,7 +62,7 @@ plugins:
 author:
   name   : "이우성"
   avatar : "/assets/images/20201205_010626.jpg"
-  bio    : "JavaScript기반 개발공부<br/><br/> 코드스테이츠 Full pre 9기"
+  bio    : "JavaScript기반 개발공부<br/><br/> 코드스테이츠 Full pre 10기"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
