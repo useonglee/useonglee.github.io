@@ -1,9 +1,175 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-23T00:37:42+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">꿈을 기록하는 Blog</title><subtitle>우성's Dream Coding</subtitle><author><name>이우성</name></author><entry><title type="html">TIL #13</title><link href="http://localhost:4000/2021/01/TIL13/" rel="alternate" type="text/html" title="TIL #13" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL13</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL13/">&lt;h2 id=&quot;계산기-이쁘게-구현하기&quot;&gt;계산기 이쁘게 구현하기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-24T00:27:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">꿈을 기록하는 Blog</title><subtitle>우성's Dream Coding</subtitle><author><name>이우성</name></author><entry><title type="html">TIL #14</title><link href="http://localhost:4000/2021/01/TIL14/" rel="alternate" type="text/html" title="TIL #14" /><published>2021-01-23T00:00:00+09:00</published><updated>2021-01-23T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL14</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL14/">&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;center&gt;
+반복문은 정말 셀 수 없을 정도로 복습을 많이 한 것 같다.&lt;br /&gt;
+
+아는 내용도 또 풀고, 모르는 내용은 그거에 몇 십번은 더 풀어보고 할 정도였다...&lt;br /&gt;
+
+오늘은 이번주 중에서 반복문이 핵심내용이였기 때문에 한 번 더 복습하려고 한다.&lt;br /&gt; 내 TIL에서 마지막 반복문 블로깅이 될 것 같다.
+
+&lt;/center&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;반복문-기초-알고리즘&quot;&gt;반복문 기초 알고리즘&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;point_right-while을-사용해서-홀수-반복하기&quot;&gt;:point_right: while을 사용해서 홀수 반복하기&lt;/h2&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;주의사항 : String 타입으로 리턴&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;입출력 예시&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeOddDigits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; &quot;135&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeOddDigits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; &quot;13579&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pseudocode(수도코드)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;문자열 숫자를 넣어 줄 빈 문자열 할당&lt;/li&gt;
+  &lt;li&gt;num의 숫자만큼 반복되어야 하므로 count를 한다.&lt;/li&gt;
+  &lt;li&gt;홀수인지 여부를 판단하기 위해 i를 할당한다.&lt;/li&gt;
+  &lt;li&gt;홀수이면 빈 문자열에 넣어준다.&lt;/li&gt;
+  &lt;li&gt;빈 문자열 리턴&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// num의 숫자가 count이기 때문에&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// += 2 를 하게 되면 홀수만 입력된다.&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;point_right-반복문을-이용해서-repeat-구현&quot;&gt;:point_right: 반복문을 이용해서 repeat() 구현&lt;/h2&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;특정 문자(from)가 다른 문자 (to)로 바뀐 문자을 리턴해야 한다.&lt;/p&gt;
+
+&lt;p&gt;repeat() 메서드 구현&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입출력 예시&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;replaceAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hekko&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 'hello'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pseudocode(수도코드)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;값을 저장할 빈 문자열 할당&lt;/li&gt;
+  &lt;li&gt;반복문으로 문자열을 순회하면서 특정 문자를 만나면 빈 문자열에 다른 문자를 넣어준다.&lt;/li&gt;
+  &lt;li&gt;그렇지않으면, 일반 문자를 넣어준다.&lt;/li&gt;
+  &lt;li&gt;빈 문자열 리턴&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h2 id=&quot;point_right-이중-반복문-사용해서-문자열-반복&quot;&gt;:point_right: 이중 반복문 사용해서 문자열 반복&lt;/h2&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;문자열을 입력받아 해당 문자열을 처음부터 한 글자씩 다시 작성해야 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주의사항 :&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;이중 반복문을 사용&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;str.slice, str.substr, str.substring&lt;/code&gt; 사용 금지&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;입출력 예시&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeMarginalString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;abc&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 'aababc'&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeMarginalString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Useong&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; 'UUsUseUseoUseonUseong'&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;makeMarginalString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; ''&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pseudocode(수도코드)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;값을 저장해 줄 빈 문자열 할당&lt;/li&gt;
+  &lt;li&gt;이중 반복문으로 문자열을 순회&lt;/li&gt;
+  &lt;li&gt;두번째 반복문은 i까지 순회한다. (이중 반복문의 특성을 활용)&lt;/li&gt;
+  &lt;li&gt;빈 문자열에는 j만 값을 넣어준다.&lt;/li&gt;
+  &lt;li&gt;값을 저장했던 문자열 리턴&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이로써 내 마지막 반복문 블로깅은 끝이 났다!!:v:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;:punch: &lt;strong&gt;내일의 TIW(today I Will)&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;(주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course" /><summary type="html">반복문은 정말 셀 수 없을 정도로 복습을 많이 한 것 같다. 아는 내용도 또 풀고, 모르는 내용은 그거에 몇 십번은 더 풀어보고 할 정도였다... 오늘은 이번주 중에서 반복문이 핵심내용이였기 때문에 한 번 더 복습하려고 한다. 내 TIL에서 마지막 반복문 블로깅이 될 것 같다. 반복문 기초 알고리즘 :point_right: while을 사용해서 홀수 반복하기 주의사항 : String 타입으로 리턴 입출력 예시 let output = makeOddDigits(3); console.log(output); // --&amp;gt; &quot;135&quot; output = makeOddDigits(5); console.log(output); // --&amp;gt; &quot;13579&quot; pseudocode(수도코드) 문자열 숫자를 넣어 줄 빈 문자열 할당 num의 숫자만큼 반복되어야 하므로 count를 한다. 홀수인지 여부를 판단하기 위해 i를 할당한다. 홀수이면 빈 문자열에 넣어준다. 빈 문자열 리턴 let result = &quot;&quot;; let count = 1; // num의 숫자가 count이기 때문에 let i = 1; while (count &amp;lt;= num) { result += i; i += 2; // += 2 를 하게 되면 홀수만 입력된다. count++; } return result; :point_right: 반복문을 이용해서 repeat() 구현 특정 문자(from)가 다른 문자 (to)로 바뀐 문자을 리턴해야 한다. repeat() 메서드 구현 입출력 예시 let output = replaceAll(&quot;hekko&quot;, &quot;k&quot;, &quot;l&quot;); console.log(output); // --&amp;gt; 'hello' pseudocode(수도코드) 값을 저장할 빈 문자열 할당 반복문으로 문자열을 순회하면서 특정 문자를 만나면 빈 문자열에 다른 문자를 넣어준다. 그렇지않으면, 일반 문자를 넣어준다. 빈 문자열 리턴 let result = &quot;&quot;; for (let i = 0; i &amp;lt; str.length; i++) { if (str[i] === from) { result += to; } else { result += str[i]; } } return result; :point_right: 이중 반복문 사용해서 문자열 반복 문자열을 입력받아 해당 문자열을 처음부터 한 글자씩 다시 작성해야 한다. 주의사항 : 이중 반복문을 사용 str.slice, str.substr, str.substring 사용 금지 입출력 예시 let output = makeMarginalString(&quot;abc&quot;); console.log(output); // --&amp;gt; 'aababc' output = makeMarginalString(&quot;Useong&quot;); console.log(output); // --&amp;gt; 'UUsUseUseoUseonUseong' output = makeMarginalString(&quot;&quot;); console.log(output); // --&amp;gt; '' pseudocode(수도코드) 값을 저장해 줄 빈 문자열 할당 이중 반복문으로 문자열을 순회 두번째 반복문은 i까지 순회한다. (이중 반복문의 특성을 활용) 빈 문자열에는 j만 값을 넣어준다. 값을 저장했던 문자열 리턴 let result = &quot;&quot;; for (let i = 0; i &amp;lt; str.length; i++) { for (let j = 0; j &amp;lt;= i; j++) { result += str[j]; } } return result; 이로써 내 마지막 반복문 블로깅은 끝이 났다!!:v: :punch: 내일의 TIW(today I Will) (주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!</summary></entry><entry><title type="html">TIL #13</title><link href="http://localhost:4000/2021/01/TIL13/" rel="alternate" type="text/html" title="TIL #13" /><published>2021-01-22T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL13</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL13/">&lt;h2 id=&quot;계산기-이쁘게-구현하기&quot;&gt;계산기 이쁘게 구현하기&lt;/h2&gt;
 
 &lt;p&gt;오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.
 &lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다.&lt;/p&gt;
+&lt;p&gt;많은 동기들이 계산기를 구현하느라 JS파일에만 집중을해서 대부분 동기들이 CSS부분은 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다.&lt;/p&gt;
 
 &lt;p&gt;내가 알고 있는 지식을 동기들과 공유를 하고 싶어서 발표를 신청했고,
 나는 120명 가까이되는 동기들 앞에서 zoom 으로 실시간 발표를 하였다…
@@ -35,7 +201,7 @@
   &lt;p&gt;:punch: &lt;strong&gt;내일의 TIW(today I Will)&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;(주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course, HTML&amp;CSS" /><summary type="html">계산기 이쁘게 구현하기 오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다. 많은 동기들이 계산기를 구현하느라 JS파일에만 집중했을 것 같아서 CSS부분은 다들 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다. 내가 알고 있는 지식을 동기들과 공유를 하고 싶어서 발표를 신청했고, 나는 120명 가까이되는 동기들 앞에서 zoom 으로 실시간 발표를 하였다… 많이 긴장도 했지만 발표를 잘 한 것 같아서 만족스럽다!:+1: 내가 핵심적으로 발표한 내용은 CSS 가상클래스 중에서도 hover 와 active 였다. 특히 box-shadow 기능을 넣어줬다가 none 을 해줬다가 하면서 역동적이게 보인 것이 강사님께서 인상 깊었다고 말씀해주셨다! 그리고 어디서 강의를 하다가 오신 것 같다고 해주셨을 때가 사실 기분이 무척 좋았다. 동기분들의 반응도 좋아서 이번 발표는 정말 만족스럽게 끝났다! 페어 프로그램을 하면서 항상 커뮤니케이션이 잘 되어왔다고 생각했는데 코드스테이츠를 하면서 나의 커뮤니케이션 스킬은 더더욱 발전하고 있는 것 같아서 오늘 하루는 정말 뿌듯했다!! 계산기는 내 github에 저장해놨으니 생각날 때 또 보러가야겠다! :punch: 내일의 TIW(today I Will) (주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!</summary></entry><entry><title type="html">TIL #12</title><link href="http://localhost:4000/2021/01/TIL12/" rel="alternate" type="text/html" title="TIL #12" /><published>2021-01-21T00:00:00+09:00</published><updated>2021-01-21T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL12</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL12/">&lt;h2 id=&quot;1-html-배운-내용-정리&quot;&gt;1. html 배운 내용 정리&lt;/h2&gt;
+&lt;p&gt;(주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course" /><category term="HTML&amp;CSS" /><summary type="html">계산기 이쁘게 구현하기 오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다. 많은 동기들이 계산기를 구현하느라 JS파일에만 집중을해서 대부분 동기들이 CSS부분은 건드리지도 못한 것 같았다. 그래서 나는 구현을 빨리 끝내고 CSS파일을 많이 건드려봤다. 내가 알고 있는 지식을 동기들과 공유를 하고 싶어서 발표를 신청했고, 나는 120명 가까이되는 동기들 앞에서 zoom 으로 실시간 발표를 하였다… 많이 긴장도 했지만 발표를 잘 한 것 같아서 만족스럽다!:+1: 내가 핵심적으로 발표한 내용은 CSS 가상클래스 중에서도 hover 와 active 였다. 특히 box-shadow 기능을 넣어줬다가 none 을 해줬다가 하면서 역동적이게 보인 것이 강사님께서 인상 깊었다고 말씀해주셨다! 그리고 어디서 강의를 하다가 오신 것 같다고 해주셨을 때가 사실 기분이 무척 좋았다. 동기분들의 반응도 좋아서 이번 발표는 정말 만족스럽게 끝났다! 페어 프로그램을 하면서 항상 커뮤니케이션이 잘 되어왔다고 생각했는데 코드스테이츠를 하면서 나의 커뮤니케이션 스킬은 더더욱 발전하고 있는 것 같아서 오늘 하루는 정말 뿌듯했다!! 계산기는 내 github에 저장해놨으니 생각날 때 또 보러가야겠다! :punch: 내일의 TIW(today I Will) (주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!</summary></entry><entry><title type="html">TIL #12</title><link href="http://localhost:4000/2021/01/TIL12/" rel="alternate" type="text/html" title="TIL #12" /><published>2021-01-21T00:00:00+09:00</published><updated>2021-01-21T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL12</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL12/">&lt;h2 id=&quot;1-html-배운-내용-정리&quot;&gt;1. html 배운 내용 정리&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;:point_right: html 기초 :&lt;/p&gt;
@@ -281,7 +447,7 @@
   &lt;p&gt;:punch: &lt;strong&gt;내일의 TIW(today I Will)&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;calculator (계산기)&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course, HTML&amp;CSS" /><summary type="html">1. html 배운 내용 정리 :point_right: html 기초 : 외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용 먼저, HTML은 구조를 만든다! 즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다. div 화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block) 별 뜻은 없지만 자주 사용. span 컨텐츠 크기만큼 공간을 차지한다. 줄바꿈 불가능 하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다. span { display: line-block; width: 200px; height: 50px; } img : 이미지삽입 &amp;lt;img src = ““이미지 링크 주소&amp;gt; 별도의 &amp;lt;/img&amp;gt; 라는 태그가 없다. 링크 삽입 1.target 은 새 링크에서 열기 &amp;lt;a href=&quot;이미지 링크 주소&quot; target=&quot;_blank&quot;&amp;gt;페이지&amp;lt;/a&amp;gt; 2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명) &amp;lt;a href=&quot;이미지 링크 주소&quot; title=&quot;링크 내용에 대한 설명&quot;&amp;gt;&amp;lt;/a&amp;gt; 3.id : 같은 페이지 안에서 이동할 때 사용한다. 1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.) &amp;lt;a id=&quot;앵커이름&quot;&amp;gt;내용&amp;lt;/a&amp;gt; 2. 이름 붙여놓은 앵커들을 다시 &amp;lt;a&amp;gt;의 href 속성으로 연결. &amp;lt;a href=&quot;앵커이름&quot;&amp;gt;내용&amp;lt;/a&amp;gt;&amp;lt;/a&amp;gt; 리스트 목록 &amp;lt;ul&amp;gt; // 순서가 없음 &amp;lt;li&amp;gt; 리스트 * item1 * item2 &amp;lt;ol&amp;gt; // 순서를 지정 &amp;lt;li&amp;gt;리스트 1. hello 2. world&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; :point_right: input tag : // Id 와 Password 입력 상자를 만들어 준다. &amp;lt;div&amp;gt;ID &amp;lt;input =&quot;text&quot; placeholder=&quot;type here&quot; /&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;Password &amp;lt;input =&quot;password&quot; /&amp;gt;&amp;lt;/div&amp;gt; // 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &amp;lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;a&quot; /&amp;gt; a &amp;lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;b&quot; /&amp;gt; b &amp;lt;div&amp;gt; // 여러개 체크 가능 &amp;lt;input type=&quot;checkbox&quot; /&amp;gt; &amp;lt;/div&amp;gt; // 줄바꿈이 되는 text &amp;lt;textarea&amp;gt;내용&amp;lt;/textarea&amp;gt; // button 모양을 만들어준다. &amp;lt;button&amp;gt;로그인&amp;lt;/button&amp;gt; &amp;lt;p class=&quot;contents&quot;&amp;gt;Hello World&amp;lt;/p&amp;gt; // tag란 ? &amp;lt;p&amp;gt;오프닝 태그와&amp;lt;/p&amp;gt; 클로징 태그 // class란 ? attribute (속성) HTMl 마무리 하면서… “HTML은 구조를 표현하기 위한 언어다.” Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!! 2. CSS 문법 기초 class id . 으로 선택 # 으로 선택 동일한 값을 가질 수 있음 문서 내에서 유일한 값 여러개의 엘리먼트 값을 가질 수 있다. 엘리먼트 단 하나의 값을 가짐 스타일을 분류할 때 사용 특정 엘리먼트 단위 절대 단위 : px, pt 등 상대 단위 : %, em, rem, ch, vw, vh 등 기타 속성 굵기: font-weight 밑줄, 가로줄: text-decoration 자간: letter-spacing 행간: line-height border 속성 기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음. (굵은 테두리) border : solid (점 선 테두리) border : dashed (두 줄 테두리) border : thick double (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다. border-shadow : 박스 그림자를 만들어준다. CSS 마무리 하면서… “CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.” CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다. :punch: 내일의 TIW(today I Will) calculator (계산기)</summary></entry><entry><title type="html">TIL #11</title><link href="http://localhost:4000/2021/01/TIL11/" rel="alternate" type="text/html" title="TIL #11" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL11</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL11/">&lt;h2 id=&quot;1-반복문-for-while&quot;&gt;1. 반복문 for while&lt;/h2&gt;
+&lt;p&gt;calculator (계산기)&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course" /><category term="HTML&amp;CSS" /><summary type="html">1. html 배운 내용 정리 :point_right: html 기초 : 외우자! :facepunch: HTML = 구조 CSS = 스타일 JS = 상호작용 먼저, HTML은 구조를 만든다! 즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들면 부실공사로도 이어질 수 있다는 뜻이다. 틀이 잘 짜여져있어야 그 다음 구상도 순조롭게 이루어질 수 있다. div 화면에서 한 줄을 차지한다. 2. 줄바꿈이 가능 (block) 별 뜻은 없지만 자주 사용. span 컨텐츠 크기만큼 공간을 차지한다. 줄바꿈 불가능 하지만 display : line-block 으로 변경해주면 width 와 height 를 설정할 수 있다. span { display: line-block; width: 200px; height: 50px; } img : 이미지삽입 &amp;lt;img src = ““이미지 링크 주소&amp;gt; 별도의 &amp;lt;/img&amp;gt; 라는 태그가 없다. 링크 삽입 1.target 은 새 링크에서 열기 &amp;lt;a href=&quot;이미지 링크 주소&quot; target=&quot;_blank&quot;&amp;gt;페이지&amp;lt;/a&amp;gt; 2.title 로 바꿔주면 링크의 툴팁을 표시 (커서를 올렸을 때 나오는 설명) &amp;lt;a href=&quot;이미지 링크 주소&quot; title=&quot;링크 내용에 대한 설명&quot;&amp;gt;&amp;lt;/a&amp;gt; 3.id : 같은 페이지 안에서 이동할 때 사용한다. 1. 이동하고 싶은 위치마다 id 속성을 이용하여 앵커를 만든다(각각 다른 이름으로 지정해야 함.) &amp;lt;a id=&quot;앵커이름&quot;&amp;gt;내용&amp;lt;/a&amp;gt; 2. 이름 붙여놓은 앵커들을 다시 &amp;lt;a&amp;gt;의 href 속성으로 연결. &amp;lt;a href=&quot;앵커이름&quot;&amp;gt;내용&amp;lt;/a&amp;gt;&amp;lt;/a&amp;gt; 리스트 목록 &amp;lt;ul&amp;gt; // 순서가 없음 &amp;lt;li&amp;gt; 리스트 * item1 * item2 &amp;lt;ol&amp;gt; // 순서를 지정 &amp;lt;li&amp;gt;리스트 1. hello 2. world&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; :point_right: input tag : // Id 와 Password 입력 상자를 만들어 준다. &amp;lt;div&amp;gt;ID &amp;lt;input =&quot;text&quot; placeholder=&quot;type here&quot; /&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div&amp;gt;Password &amp;lt;input =&quot;password&quot; /&amp;gt;&amp;lt;/div&amp;gt; // 둘 중 하나만 선택할 수 있는 박스 (name 이라는 그룹을 만들어줘서 하나로 인식해줘야 함) &amp;lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;a&quot; /&amp;gt; a &amp;lt;input type=&quot;radio&quot; name=&quot;choice&quot; value=&quot;b&quot; /&amp;gt; b &amp;lt;div&amp;gt; // 여러개 체크 가능 &amp;lt;input type=&quot;checkbox&quot; /&amp;gt; &amp;lt;/div&amp;gt; // 줄바꿈이 되는 text &amp;lt;textarea&amp;gt;내용&amp;lt;/textarea&amp;gt; // button 모양을 만들어준다. &amp;lt;button&amp;gt;로그인&amp;lt;/button&amp;gt; &amp;lt;p class=&quot;contents&quot;&amp;gt;Hello World&amp;lt;/p&amp;gt; // tag란 ? &amp;lt;p&amp;gt;오프닝 태그와&amp;lt;/p&amp;gt; 클로징 태그 // class란 ? attribute (속성) HTMl 마무리 하면서… “HTML은 구조를 표현하기 위한 언어다.” Javascript는 본래 브라우저에 웹 문서를 표현하기 위한 스크립팅 언어였으나, 이제는 node.js를 활용하여 서버 제작 및 PC를 위한 앱 / 프로그램을 만들 수 있는 범용적인 프로그래밍 언어가 되었다!! 2. CSS 문법 기초 class id . 으로 선택 # 으로 선택 동일한 값을 가질 수 있음 문서 내에서 유일한 값 여러개의 엘리먼트 값을 가질 수 있다. 엘리먼트 단 하나의 값을 가짐 스타일을 분류할 때 사용 특정 엘리먼트 단위 절대 단위 : px, pt 등 상대 단위 : %, em, rem, ch, vw, vh 등 기타 속성 굵기: font-weight 밑줄, 가로줄: text-decoration 자간: letter-spacing 행간: line-height border 속성 기본적으로 border : 너비 | 스타일 | 색 값을 세개중에 선택해서 지정하며, 순서는 영향을 주지 않음. (굵은 테두리) border : solid (점 선 테두리) border : dashed (두 줄 테두리) border : thick double (둥근 테두리) border-radius : px, %, rem 등등 값을 지정해준다. border-shadow : 박스 그림자를 만들어준다. CSS 마무리 하면서… “CSS는 시멘틱하게 해야한다. 즉, 문서에 의미를 부여한다. 문서의 특정구역이 어떤 가치를 의미하고 있는지 구분해야 한다.” CSS는 구조적인 문서를 어떻게 시각적으로 표현하는지에 대한 언어다. :punch: 내일의 TIW(today I Will) calculator (계산기)</summary></entry><entry><title type="html">TIL #11</title><link href="http://localhost:4000/2021/01/TIL11/" rel="alternate" type="text/html" title="TIL #11" /><published>2021-01-20T00:00:00+09:00</published><updated>2021-01-20T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL11</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL11/">&lt;h2 id=&quot;1-반복문-for-while&quot;&gt;1. 반복문 for while&lt;/h2&gt;
 &lt;blockquote&gt;
   &lt;p&gt;:point_right: for, while :&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1381,164 +1547,4 @@ undefined를 무시하고 이어주는 것은 join이 해주는 역할입니다.
   &lt;p&gt;:punch: &lt;strong&gt;내일의 TIW(today I Will)&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;socrative 복습, onclick 함수&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course" /><summary type="html">1. 유효성 검사 :point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다. 코드를 보면서 설명 // html &amp;lt;button id=&quot;btn-signup&quot;&amp;gt;회원가입&amp;lt;/button&amp;gt; // js // html 버튼요소를 불러온다. const btnSignup = document.querySelector('#btn-signup') // 이벤트 핸들러 function handleInputIdChange() { let valid = moreThanLength(inputId.value, 4) if (valid) { setAsValid('#input-id') // 아이디 입력 value가 참 일 경우 } else { // 아이디 입력이 옳지 않을 경우 displayErrorMessage('#input-id', '아이디는 4자 이상을 입력') } } function handleBtnSignupClick() { let validId = moreThanLength(inputId.value, 4) let validPw = strongPassword(inputPassword.value) if (validId &amp;amp;&amp;amp; validPw) { hideInvalidMessage() } // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음 else { showInvalidMessage('필요한 정보를 다 입력하지 않았어요'); } // 하나라도 잘못 입력할 경우 } function setAsValid(selector) { // 입력값이 참일 경우 class('valid')를 추가해준다. let form = document.querySelector(selector) form.classList.remove('invalid') form.classList.add('valid') } // 엘리먼트와 이벤트핸들러 연결 btnSignup.onclick = handleBtnSignupClick; 2. DOM :point_up: What is the DOM? DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다. DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다. console.dir 개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태 :point_up_2: DOM 문법 const target = document.querySelector('#container') // html에 있는 ul#container 불러오기 const testDiv = document.createElement('div'); // &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; 생성 testDiv.textContent = 'hello'; console.log(testDiv) // &amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt; testDiv.classlist.add('name') console.log(testDiv) // &amp;lt;div class = &quot;name&quot;&amp;gt;hello&amp;lt;/div&amp;gt; target.append(testDiv) // 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다. let btn = document.querySelectorAll('.name'); // 모든 class = name 을 가져온다. btn.onclick = handleClick; // onclick 이벤트 function handleClick () { console.log(input.value) } 3. HA 4번 :point_right: HA 4번 풀이하면서 공부 문제 : 사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다. 주의사항 : &amp;lt;a&amp;gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다. 입출력 예시 : let list = [ { firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk' }, { firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager' }, ]; test4(list); // --&amp;gt; 'ul#container'가 아래와 같이 변경되어야 합니다. &amp;lt;ul id=&quot;container&quot;&amp;gt; &amp;lt;li&amp;gt; &amp;lt;a class=&quot;name&quot;&amp;gt;Joe Blow&amp;lt;/a&amp;gt; &amp;lt;div class=&quot;age&quot;&amp;gt;42&amp;lt;/div&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; &amp;lt;a class=&quot;name&quot;&amp;gt;Mary Jenkins&amp;lt;/a&amp;gt; &amp;lt;div class=&quot;age&quot;&amp;gt;36&amp;lt;/div&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; -------------------------------------------------------- &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;ul id=&quot;container&quot;&amp;gt;&amp;lt;/ul&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; pseudocode(수도코드) html에 있는 container를 불러온다. forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다. 사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다. for loop 를 활용해 모든 class에 onclick 함수를 적용한다. 만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다. click 함수를 실행한다. function printRole(user) { // Joe Blow를 클릭하면 clerk 이 // Mary Jenkins를 클릭하면 manager 가 찍힙니다. // 이 함수는 수정하지 마십시오. console.log(user.role); } function test4(arr) { const target = document.querySelector('#container'); arr.forEach(el =&amp;gt; { const li = document.createElement('li'); const a = document.createElement('a'); const div = document.createElement('div'); a.className = 'name'; a.textContent = el.firstName + ' ' + el.lastName; div.className = 'age'; div.textContent = el.age; target.append(li); li.append(a); li.append(div); }); let btn = document.querySelectorAll('.name'); function click () { for (let i = 0; i &amp;lt; btn.length; i++) { btn[i].onclick = function () { for (let j = 0; j &amp;lt; arr.length; j++) { let name = arr[j].firstName + ' ' + arr[j].lastName; if (btn[i].textContent === name) { return printRole (arr[j]); } } } } } click(); } HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다. :punch: 내일의 TIW(today I Will) socrative 복습, onclick 함수</summary></entry><entry><title type="html">TIL #4</title><link href="http://localhost:4000/2021/01/TIL4/" rel="alternate" type="text/html" title="TIL #4" /><published>2021-01-13T00:00:00+09:00</published><updated>2021-01-13T00:00:00+09:00</updated><id>http://localhost:4000/2021/01/TIL4</id><content type="html" xml:base="http://localhost:4000/2021/01/TIL4/">&lt;h2 id=&quot;1-재귀함수-15번&quot;&gt;1. 재귀함수 15번&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;재귀함수 문제 :&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;다차원 배열을 입력받아 1차원 배열로 변환하여 리턴&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;주의사항 :
-    &lt;ol&gt;
-      &lt;li&gt;배열을 리턴&lt;/li&gt;
-      &lt;li&gt;immutability&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;입출력 예시&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flattenArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; [1, 2, 3, 4, 5]&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flattenArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]]);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// --&amp;gt; [2, 3, 4, 5]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;pseudocode(수도코드)
-    &lt;ol&gt;
-      &lt;li&gt;1차원 배열을 담아줄 빈 배열을 할당한다.&lt;/li&gt;
-      &lt;li&gt;반복문으로 배열을 돌며 배열인지 아닌지를 구분한다.&lt;/li&gt;
-      &lt;li&gt;배열일 경우 먼저 재귀함수 호출을 할당한다.&lt;/li&gt;
-      &lt;li&gt;그 후에 할당한 변수를 빈 배열에 push 한다. 단, 몇차원 배열이 나올지 모르니 spread syntax 사용한다.&lt;/li&gt;
-      &lt;li&gt;배열이 아닐 경우 바로 빈 배열에 push 한다.&lt;/li&gt;
-      &lt;li&gt;빈 배열을 리턴(반환) 한다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resultArr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flattenArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;resultArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;resultArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resultArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 문제를 복습하면서 spread syntax 에 대해 다시 짚고 넘어갈 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;근데 사실 내가 처음 풀었을 때는 전혀 다른 코드로 풀었다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;flattenArr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},[]);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;reduce 메서드를 활용한 재귀함수 풀이방식이다. 다른 각도에서 문제를 풀어보았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;2-알고리즘-16번&quot;&gt;2. 알고리즘 16번&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;알고리즘 문제 :&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;문자열을 입력받아 아이소그램(isogram)인지 여부를 리턴해야 합니다. 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;주의사항 :
-    &lt;ol&gt;
-      &lt;li&gt;대소문자를 구별하지 않는다.&lt;/li&gt;
-      &lt;li&gt;빈 문자열을 입력받은 경우, true를 리턴해야 한다.&lt;/li&gt;
-      &lt;li&gt;빈 문자열을 입력받은 경우, 빈 문자열을 리턴&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;입출력 예시&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isIsogram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;aba&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isIsogram&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Dermatoglyphics&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;pseudocode(수도코드)
-    &lt;ol&gt;
-      &lt;li&gt;먼저 문자열을 대문자로 모두 바꿔준다.&lt;/li&gt;
-      &lt;li&gt;이중 반복문을 사용한다.&lt;/li&gt;
-      &lt;li&gt;두번째 반복문은 첫번째 반복문 i 와 겹치지 않기위해 i + 1부터 시작한다.&lt;/li&gt;
-      &lt;li&gt;i === j 가 되면 false 를 반환한다.&lt;/li&gt;
-      &lt;li&gt;그렇지 않으면 true를 반환한다.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toUpperCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;upper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;나는 이러한 방식으로 문제를 풀어 보았다. 하지만 레퍼런스 코드는 for loop 를 한 번만 활용하였다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strLowered&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strLowered&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;strLowered&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;strLowered&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;아무래도 for loop 를 한 번만 활용했으니까 레퍼런스 코드가 더 좋은 코드일까?&lt;/p&gt;
-
-&lt;p&gt;레퍼런스 코드를 보고 “아~ 저렇게도 풀 수 있구나를 느꼈다” 문제를 풀 때는 쉽게 풀었지만&lt;br /&gt;레퍼런스 코드를 보면서 다른 각도에서 코드를 보는 법도 배우게 되었다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;:punch: &lt;strong&gt;내일의 TIW(today I Will)&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;DOM, 유효성 검사&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course" /><summary type="html">1. 재귀함수 15번 재귀함수 문제 : 다차원 배열을 입력받아 1차원 배열로 변환하여 리턴 주의사항 : 배열을 리턴 immutability 입출력 예시 let output = flattenArr([[1], 2, [3, 4], 5]); console.log(output); // --&amp;gt; [1, 2, 3, 4, 5] output = flattenArr([[2, [[3]]], 4, [[[5]]]); console.log(output); // --&amp;gt; [2, 3, 4, 5] pseudocode(수도코드) 1차원 배열을 담아줄 빈 배열을 할당한다. 반복문으로 배열을 돌며 배열인지 아닌지를 구분한다. 배열일 경우 먼저 재귀함수 호출을 할당한다. 그 후에 할당한 변수를 빈 배열에 push 한다. 단, 몇차원 배열이 나올지 모르니 spread syntax 사용한다. 배열이 아닐 경우 바로 빈 배열에 push 한다. 빈 배열을 리턴(반환) 한다. code let resultArr = []; if (arr.length === 0) { return []; } for (let i = 0; i &amp;lt; arr.length; i++) { if (Array.isArray(arr[i])) { const result = flattenArr(arr[i]); resultArr.push(...result); } else { resultArr.push(arr[i]); } } return resultArr; 이 문제를 복습하면서 spread syntax 에 대해 다시 짚고 넘어갈 수 있었다. 근데 사실 내가 처음 풀었을 때는 전혀 다른 코드로 풀었다. return arr.reduce(function(acc, cur) { return acc.concat(Array.isArray(cur) ? flattenArr(cur) : cur); },[]); } reduce 메서드를 활용한 재귀함수 풀이방식이다. 다른 각도에서 문제를 풀어보았다. 2. 알고리즘 16번 알고리즘 문제 : 문자열을 입력받아 아이소그램(isogram)인지 여부를 리턴해야 합니다. 각 알파벳을 한번씩만 이용해서 만든 단어나 문구를 말합니다. 주의사항 : 대소문자를 구별하지 않는다. 빈 문자열을 입력받은 경우, true를 리턴해야 한다. 빈 문자열을 입력받은 경우, 빈 문자열을 리턴 입출력 예시 let output = isIsogram('aba'); console.log(output); // false output = isIsogram('Dermatoglyphics'); console.log(output); // true pseudocode(수도코드) 먼저 문자열을 대문자로 모두 바꿔준다. 이중 반복문을 사용한다. 두번째 반복문은 첫번째 반복문 i 와 겹치지 않기위해 i + 1부터 시작한다. i === j 가 되면 false 를 반환한다. 그렇지 않으면 true를 반환한다. if (str === '') { return true; } let upper = str.toUpperCase(); for (let i = 0; i &amp;lt; upper.length; i++) { for (let j = i+1; j &amp;lt; upper.length; j++) { if (upper[i] === upper[j]) { return false; } } } return true; 나는 이러한 방식으로 문제를 풀어 보았다. 하지만 레퍼런스 코드는 for loop 를 한 번만 활용하였다. if (str.length === 0) { return true; } let cache = {}; let strLowered = str.toLowerCase(); for (let i = 0; i &amp;lt; strLowered.length; i++) { if (cache[strLowered[i]]) { return false; } cache[strLowered[i]] = true; } return true; 아무래도 for loop 를 한 번만 활용했으니까 레퍼런스 코드가 더 좋은 코드일까? 레퍼런스 코드를 보고 “아~ 저렇게도 풀 수 있구나를 느꼈다” 문제를 풀 때는 쉽게 풀었지만레퍼런스 코드를 보면서 다른 각도에서 코드를 보는 법도 배우게 되었다. :punch: 내일의 TIW(today I Will) DOM, 유효성 검사</summary></entry></feed>
+&lt;p&gt;socrative 복습, onclick 함수&lt;/p&gt;</content><author><name>이우성</name></author><category term="2021/01" /><category term="Pre-Course" /><summary type="html">1. 유효성 검사 :point_right: 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다. 코드를 보면서 설명 // html &amp;lt;button id=&quot;btn-signup&quot;&amp;gt;회원가입&amp;lt;/button&amp;gt; // js // html 버튼요소를 불러온다. const btnSignup = document.querySelector('#btn-signup') // 이벤트 핸들러 function handleInputIdChange() { let valid = moreThanLength(inputId.value, 4) if (valid) { setAsValid('#input-id') // 아이디 입력 value가 참 일 경우 } else { // 아이디 입력이 옳지 않을 경우 displayErrorMessage('#input-id', '아이디는 4자 이상을 입력') } } function handleBtnSignupClick() { let validId = moreThanLength(inputId.value, 4) let validPw = strongPassword(inputPassword.value) if (validId &amp;amp;&amp;amp; validPw) { hideInvalidMessage() } // 아이디, 비밀번호를 옳바르게 입력했다면 별도의 메세지가 없음 else { showInvalidMessage('필요한 정보를 다 입력하지 않았어요'); } // 하나라도 잘못 입력할 경우 } function setAsValid(selector) { // 입력값이 참일 경우 class('valid')를 추가해준다. let form = document.querySelector(selector) form.classList.remove('invalid') form.classList.add('valid') } // 엘리먼트와 이벤트핸들러 연결 btnSignup.onclick = handleBtnSignupClick; 2. DOM :point_up: What is the DOM? DOM은 Document Object Model의 약자로, HTML(Document)에 접근하여 Object(JavaScript Object)처럼 HTML을 조작(Manipulation)할 수 있는 Model이라는 의미를 가지고 있다. DOM은 여러 언어에 해당되는데 나는 자바스크립트를 이용해서 DOM에 접근할 뿐이다. console.dir 개발자도구에서 해당콘솔을 찍으면 HTML의 모든 요소가 나온다.나오는 모양이 object처럼 나온다. 즉, [key: value] 형태 :point_up_2: DOM 문법 const target = document.querySelector('#container') // html에 있는 ul#container 불러오기 const testDiv = document.createElement('div'); // &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; 생성 testDiv.textContent = 'hello'; console.log(testDiv) // &amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt; testDiv.classlist.add('name') console.log(testDiv) // &amp;lt;div class = &quot;name&quot;&amp;gt;hello&amp;lt;/div&amp;gt; target.append(testDiv) // 잘 만들어놓은 div를 target(ui)에다가 append(추가)해준다. let btn = document.querySelectorAll('.name'); // 모든 class = name 을 가져온다. btn.onclick = handleClick; // onclick 이벤트 function handleClick () { console.log(input.value) } 3. HA 4번 :point_right: HA 4번 풀이하면서 공부 문제 : 사원들의 정보를 배열로 입력받아 HTML 엘리먼트의 형태로 변형해서 ul#container에 append 합니다. 주의사항 : &amp;lt;a&amp;gt;요소로 만들어진 사원의 이름을 클릭할 경우, 제공되는 printRole 함수가 실행되어 해당 사원의 role이 콘솔에 출력되어야 합니다. 입출력 예시 : let list = [ { firstName: 'Joe', lastName: 'Blow', age: 42, role: 'clerk' }, { firstName: 'Mary', lastName: 'Jenkins', age: 36, role: 'manager' }, ]; test4(list); // --&amp;gt; 'ul#container'가 아래와 같이 변경되어야 합니다. &amp;lt;ul id=&quot;container&quot;&amp;gt; &amp;lt;li&amp;gt; &amp;lt;a class=&quot;name&quot;&amp;gt;Joe Blow&amp;lt;/a&amp;gt; &amp;lt;div class=&quot;age&quot;&amp;gt;42&amp;lt;/div&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; &amp;lt;a class=&quot;name&quot;&amp;gt;Mary Jenkins&amp;lt;/a&amp;gt; &amp;lt;div class=&quot;age&quot;&amp;gt;36&amp;lt;/div&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; -------------------------------------------------------- &amp;lt;html&amp;gt; &amp;lt;body&amp;gt; &amp;lt;ul id=&quot;container&quot;&amp;gt;&amp;lt;/ul&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; pseudocode(수도코드) html에 있는 container를 불러온다. forEach 메서드를 사용해서 DOM에 접근한다. 즉, html 형태로 만든다. 사원의 이름을 클릭할 경우 이벤트가 실행되어야 하므로, 이벤트함수를 만든다. for loop 를 활용해 모든 class에 onclick 함수를 적용한다. 만약 클릭된 이름과 객체안의 이름이 맞다면 이미 만들어져있는 printRole 함수를 리턴한다. click 함수를 실행한다. function printRole(user) { // Joe Blow를 클릭하면 clerk 이 // Mary Jenkins를 클릭하면 manager 가 찍힙니다. // 이 함수는 수정하지 마십시오. console.log(user.role); } function test4(arr) { const target = document.querySelector('#container'); arr.forEach(el =&amp;gt; { const li = document.createElement('li'); const a = document.createElement('a'); const div = document.createElement('div'); a.className = 'name'; a.textContent = el.firstName + ' ' + el.lastName; div.className = 'age'; div.textContent = el.age; target.append(li); li.append(a); li.append(div); }); let btn = document.querySelectorAll('.name'); function click () { for (let i = 0; i &amp;lt; btn.length; i++) { btn[i].onclick = function () { for (let j = 0; j &amp;lt; arr.length; j++) { let name = arr[j].firstName + ' ' + arr[j].lastName; if (btn[i].textContent === name) { return printRole (arr[j]); } } } } } click(); } HA 시험때는 전혀 풀지 못했던 문제이다. 차근차근 복습을 하면서 다시 풀어보니 풀 수 있었다. 특히 onclick 함수부분이 많이 어려웠는데 계속 복습을 하다보니 어느정도 이해가 되는 것 같다. :punch: 내일의 TIW(today I Will) socrative 복습, onclick 함수</summary></entry></feed>
