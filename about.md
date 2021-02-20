@@ -70,7 +70,7 @@ const useong_stacks = stack => {
 
 <p style="display: block; margin-top: 0px;margin-bottom: 40px" > </p>
 
-#### 저에게 자유롭게 연락주세요. 코시국에서도 즐겁게 대화합시다 😎
+#### 저에게 자유롭게 연락주세요. 😎
 
 <p style="display: block; margin-top: 0px; margin-bottom: 12px" > </p>
 
