@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #22 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/02/01/TIL22.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #22</h1>
+            
+            <h2 class="subheading">고차 함수</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <p><br /></p>
+
+<h2 id="-절차형-프로그래밍-vs-선언형-프로그래밍">👉 절차형 프로그래밍 vs 선언형 프로그래밍</h2>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="1절차형-프로그래밍-imperative-programming">1.절차형 프로그래밍 (imperative programming)</h2>
+</blockquote>
+
+<p><em>원하는 작업을 <strong>“어떻게 할 것 인가”</strong></em></p>
+
+<p>절차형 프로그래밍은 어떻게 중점을 두고 프로그래밍을 할 것인지에 대해 중점을 두는 것을 말한다.</p>
+
+<p>즉, 코드에 무엇을 어떻게 하고 싶은지 표현해야 한다! 코드를 보면서 이해해보자!</p>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 배열을 파라미터로 받고 각 요소들의 값에 2를 곱하는 함수</span>
+<span class="kd">function</span> <span class="nx">getDoubledElements</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">resultArr</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">resultArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">resultArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// [2, 4, 6];</span>
+</code></pre></div></div>
+
+<p>위 코드처럼 절차형 프로그래밍 방식은 반복문을 이용해 모든 요소에 한 번씩 접근을 해서</p>
+
+<p>결과값을 반환하는 방법을 구현하고 있다.</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="2선언형-프로그래밍-declarative-programming">2.선언형 프로그래밍 (declarative programming)</h2>
+</blockquote>
+
+<p><em>로직이 <strong>“무엇인지를”</strong> 표현식으로 나타낸다</em></p>
+
+<p>내부적으로 코드를 어떻게 구현했는지, 데이터는 어떻게 흘러가는지 밝히지 않은 채 연산/ 작업을 표현하는 방식을 선언적 프로그래밍이라고 한다.</p>
+
+<p>즉, 필요한 것에 대한 과정을 하나하나 구현하는 것 보다는 필요한 것이 어떤 것인지에 대해 중점을 두는 방식이다.</p>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//배열을 파라미터로 받고 모든 요소들의 값에 2를 곱하는 함수</span>
+<span class="kd">function</span> <span class="nx">getDoubledElement</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">resultArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">el</span> <span class="o">=&gt;</span> <span class="nx">el</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">resultArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// [2, 4, 6];</span>
+</code></pre></div></div>
+
+<p>이 처럼 절차형 프로그래밍 방식이 추상화 된 것이라고 볼 수 있다. 선언형 프로그래밍은 map () 과 같이 어떻게</p>
+
+<p>작동되는지 알 필요없이 무엇을 원하는지에 중점을 두는 방식이다.</p>
+
+<p><u>하지만 어플리케이션의 복잡도가 높아질수록 코드의 유지보수성은 떨어지며 리팩토링하기가 매우 어려워진다.</u></p>
+
+<p>또한 항상 같은 결과값을 기대할 수 없으므로 <strong>언제 어디서 에러가 나오는지 모르는 위험도 안고 가야한다!! 명심!</strong></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="-고차함수-문제-getindexarr-num">👉 고차함수 문제 getIndex(arr, num)</h2>
+
+<blockquote>
+  <h2 id="코플릿-13번">코플릿 13번</h2>
+</blockquote>
+
+<p>비교적 어려웠던 문제는 아니였지만 이 한 문제로 다양한 코드를 작성하게 된 계기가 있어서 적어보려고 한다!</p>
+
+<p><br /></p>
+
+<ul>
+  <li>문제 :</li>
+</ul>
+
+<p>정수를 요소로 갖는 배열과 정수(num)를 입력받아 num을 배열에 추가하고 정렬한다고 가정할 경우, num의 인덱스를 리턴</p>
+
+<p><br /></p>
+
+<ul>
+  <li>주의사항 :</li>
+</ul>
+
+<ol>
+  <li>반복문(for, while) 사용 금지</li>
+  <li>arr.sort , arr.indexOf 사용 금지</li>
+  <li>빈 배열일 경우, 0을 리턴</li>
+  <li>num은 arr의 어떤 요소와도 같지 않다고 가정</li>
+</ol>
+
+<p><br /></p>
+
+<ul>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">getIndex</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; 1</span>
+
+<span class="nx">output</span> <span class="o">=</span> <span class="nx">getIndex</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">13</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; 4</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>수도코드</li>
+</ul>
+
+<ol>
+  <li>filter 함수를 사용해서 num 보다 작은 수만 가져온다.</li>
+  <li>num 보다 작은 수의 length 를 리턴 한다.</li>
+</ol>
+
+<p><br />
+<br /></p>
+
+<ul>
+  <li>code</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//filter 사용</span>
+<span class="kd">function</span> <span class="nx">getIndex</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">el</span> <span class="o">=&gt;</span> <span class="nx">el</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>나는 이런식으로 filter 를 사용해서 문제를 해결하였다. 하지만 reduce를 사용해서 풀 수도 있었고, reduce로도 구현을 해보았다.</p>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//reduce 사용 1</span>
+<span class="kd">function</span> <span class="nx">getIndex</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cur</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">acc</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cur</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//reduce 사용 2</span>
+<span class="kd">function</span> <span class="nx">getIndex</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cur</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">acc</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이미 문제를 해결했지만 reduce를 활용해서 한 번 더 풀어 본 이유는 reduce에 더 적응하기 위해서 였다.</p>
+
+<p>오늘 고차함수, filter, map, reduce 에 대해서 많은 문제를 풀어보고 다루는 연습을 하였다!! :muscle:</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>코플릿 알고리즘</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/01/31/Twittler2.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #21">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/02/02/TIL23.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #23">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

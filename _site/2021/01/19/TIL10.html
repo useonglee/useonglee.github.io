@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #10 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="1. 조건문 조건문 기초 :">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/01/19/TIL10.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #10</h1>
+            
+            <h2 class="subheading">조건문과 문자열</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 id="1-조건문">1. 조건문</h2>
+<blockquote>
+  <h2 id="조건문-기초-">조건문 기초 :</h2>
+</blockquote>
+
+<p><strong>1. if…else if…문법</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">truthy</span> <span class="nx">or</span> <span class="nx">falsy</span> <span class="nx">한</span> <span class="nx">값</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//괄호안에 대한 결과값</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="cm">/*if안에 괄호가 falsy한 경우*/</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//괄호안에 대한 결과값</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="c1">//if 와 else if에 대한 조건이 모두 다 만족하지 않을 때의 값</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>조건문은 기본적으로 이 문법에 해당한다. 여기서 주의해야 할 점은 자바스크립트에서는 거짓으로 취급하는 값이 있다.</p>
+
+<p>기본적으로</p>
+<ol>
+  <li>false</li>
+  <li>undefined</li>
+  <li>null</li>
+  <li>0</li>
+  <li>NaN</li>
+  <li>the empty string (“”)</li>
+</ol>
+
+<p>에 대한 값은 false 값으로 취급된다.</p>
+
+<p><strong>2. if 중첩문</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">truthy</span> <span class="nx">or</span> <span class="nx">falsy</span> <span class="nx">한</span> <span class="nx">값</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">첫번째에</span> <span class="nx">해당되면서</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 두가지 if에 해당되는 값</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">// 첫번째 if 조건에는 해당되지만 두번째는 해당이 안될 때 </span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이런식으로 if 문은 중첩해서 사용할 수 도 있다.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="2-조건문-알고리즘-13번-문제">2. 조건문 알고리즘 13번 문제</h2>
+<blockquote>
+  <h2 id="조건문-13번-">조건문 13번 :</h2>
+</blockquote>
+
+<p>점수를 입력받아 점수에 해당하는 등급을 리턴해야 합니다.</p>
+
+<ul>
+  <li>주의사항 :
+    <ol>
+      <li>만약 주어진 점수가 100을 초과하거나 0 미만인 경우, 문자열 ‘INVALID SCORE’를 리턴해야 합니다.</li>
+      <li>각 등급의 최고 점수보다 7점 이하인 경우, 등급과 함께 ‘-‘를 리턴해야 합니다.</li>
+      <li>각 등급의 최저 점수보다 8점 이상인 경우, 등급과 함께 ‘+’를 리턴해야 합니다.
+F+ 와 F- 는 존재하지 않습니다.</li>
+    </ol>
+  </li>
+  <li>입출력 예시 :
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">convertScoreToGradeWithPlusAndMinus</span><span class="p">(</span><span class="mi">91</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// 'A-'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>pseudocode(수도코드)
+    <ol>
+      <li>주의사항 1번째를 먼저 해결해 준다.</li>
+      <li>1의 자리를 구해서 0~2 는 ‘-‘ , 8~9 는 ‘+’ 값이 나오도록 만든다.</li>
+      <li>100점일 경우 따로 조건문을 만들어준다.</li>
+      <li>각 점수마다 해당하는 등급의 값을 넣어준다.</li>
+      <li>return (반환) 할 때 등급 + 일의자리 를 해준다.</li>
+    </ol>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">if</span> <span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="nx">score</span> <span class="o">||</span> <span class="nx">score</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">INVALID SCORE</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">let</span> <span class="nx">ones</span> <span class="o">=</span> <span class="nx">score</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">plusAndMinus</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">grade</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ones</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">ones</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">plusAndMinus</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">ones</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="nx">ones</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">plusAndMinus</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">+</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">===</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">A+</span><span class="dl">'</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">A</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">B</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">C</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grade</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">D</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">F</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">grade</span> <span class="o">+</span> <span class="nx">plusAndMinus</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>처음 접했을 때는 상당히 어려웠었던 문제!!:thumbsup: <br />
+계속 반복하다보니… 이젠 기계적으로 푸는 경지에 오르게 되었다..</p>
+
+<p>그래도 그만큼 실력이 늘었다는 뜻이니 뿌듯하다 :)</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="3-문자열-다루기">3. 문자열 다루기</h2>
+<blockquote>
+  <h2 id="문자열-다루기-기초-">문자열 다루기 기초 :</h2>
+</blockquote>
+
+<p><strong>1. 문자열 속성 및 메서드 정리!</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//String()</span>
+<span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="c1">// '123';</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//indexOf()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">findIndex</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">w</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// 찾고 싶은 문자를 넣는다.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">findIndex</span><span class="p">)</span> <span class="c1">// 6;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//replace()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">replaceStr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hi</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 문자를 바꾼다.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">replaceStr</span><span class="p">)</span> <span class="c1">// 'hi world';</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//substring(), substr()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sliceStr1</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">sliceStr2</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sliceStr1</span><span class="p">);</span> <span class="c1">// hello;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sliceStr2</span><span class="p">);</span> <span class="c1">// world;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//split()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">splitStr1</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>  <span class="c1">// 괄호안에는 쪼개는 기준을 넣어준다.</span>
+<span class="kd">let</span> <span class="nx">splitStr2</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span> 
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">splitStr1</span><span class="p">);</span> <span class="c1">//["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">splitStr2</span><span class="p">);</span> <span class="c1">//["hello", "world"]</span>
+
+<span class="c1">//단, split은 배열로 변한다는 점을 명심하자!</span>
+</code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//concat()</span>
+<span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">concatStr</span> <span class="o">=</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">str2</span><span class="p">);</span> <span class="c1">// 1과 2를 합침.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">concatStr</span><span class="p">)</span> <span class="c1">// 'helloworld'</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//trim()</span>
+<span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">  hello world  </span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>  
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 'hello world'</span>
+
+<span class="c1">// 양 쪽 끝의 공백만 잡아주니 명심하자!</span>
+</code></pre></div></div>
+<blockquote>
+  <h2 id="advanced-challanges"><strong>Advanced Challanges</strong></h2>
+  <ul>
+    <li>띄어쓰기 (“ “) 로 문자열을 구분하여, 배열로 바꿀 수 있다. str.split(“ “).join(“ “)</li>
+  </ul>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello world</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span> <span class="c1">// ['hello', 'world']</span>
+
+<span class="kd">let</span> <span class="nx">joinArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span> <span class="c1">// 'hello world'  다시 문자열로 변환</span>
+
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// 메서드 체이닝</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="c1">// 'hello world'</span>
+</code></pre></div></div>
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="4-parsefloat-과-parseint">4. parseFloat 과 parseInt</h2>
+<blockquote>
+  <h2 id="parsefloat-parseint-정리-">parseFloat, parseInt 정리 :</h2>
+</blockquote>
+
+<p><strong>1. parseFloat</strong></p>
+<ul>
+  <li>수로 시작할 때 그 수를 실수로 바꾼다.</li>
+  <li>띄어쓰기로 여러개의 수가 있으면 첫번째 수만 가져온다.</li>
+  <li>공백으로 시작하면 그 공백은 무시한다.</li>
+  <li>수가 아닌 문자로 시작하면 NaN을 반환한다.</li>
+  <li>첫글자 이후에 숫자로 변환할 수 없는 값이 오는 경우, 그 이후 값들은 무시합니다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">12.34</span><span class="dl">'</span><span class="p">));</span>         <span class="c1">// 12.34</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">12.34 56.78</span><span class="dl">'</span><span class="p">));</span>  <span class="c1">// 12.34</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1"> 12.34</span><span class="dl">'</span><span class="p">));</span>       <span class="c1">// 12.34</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">A 12.34</span><span class="dl">'</span><span class="p">));</span>     <span class="c1">// NaN</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="dl">'</span><span class="s1">12.34abcd55</span><span class="dl">'</span><span class="p">));</span> <span class="c1">// 12.34</span>
+<span class="c1">// 이 경우 55도 숫자로 변환할 수 있지만 'abcd' 뒤에 있으므로 무시된다.</span>
+</code></pre></div></div>
+
+<p><strong>2. parseInt</strong></p>
+
+<ul>
+  <li>10진수 처리는 parseFloat 과 동일하다.</li>
+  <li>2진법과 16진법 등 다른 처리가 있다.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//parseInt(string, radix)</span>
+
+<span class="cm">/* radix = 
+- optional
+- string 문자열을 읽을 진법(수의 진법 체계의 진법)
+- 2~36의 수
+*/</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">'</span><span class="s1">10</span><span class="dl">'</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// 2 </span>
+<span class="c1">// 10을 2진법으로 변환했기 때문에 2가 나온다.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// NaN</span>
+<span class="c1">// 2진법에서는 2라는 숫자가 없으므로 NaN을 리턴.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">0xF</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 15</span>
+<span class="c1">// 첫 번째 파라미터인 문자열이 '0x' 또는 '0X'로 시작한다면</span>
+<span class="c1">// 자동으로 문자열을 16진수로 읽어서, 10진수로 변환한 값을 리턴.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">0XF</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 15</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="dl">"</span><span class="s2">0XFkk</span><span class="dl">"</span><span class="p">));</span> <span class="c1">// 15</span>
+</code></pre></div></div>
+
+<p>※ parseInt() 사용 시 두 번째 파라미터를 입력하지 않아도,<br />
+첫 번째 문자열 파라미터의 값에 따라 자동으로 진법을 구분하기도 한다.</p>
+
+<p>따라서, 특정 값에 따른 오류를 방지하기 위해<br />
+두 번째 파라미터인 <strong>radix</strong> 값을 반드시 입력해 주는 것이 좋다.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="5-nan의-이해">5. NaN의 이해</h2>
+<blockquote>
+  <h2 id="nan-정리-">NaN 정리 :</h2>
+</blockquote>
+
+<p><strong>1. 오늘 배운 NaN에 대한 개념!</strong></p>
+
+<p>mdn : 전역 NaN 속성은 Not-A-Number(숫자가 아님)를 나타냅니다.</p>
+
+<ul>
+  <li>NaN 판별</li>
+</ul>
+
+<p><strong>NaN은 다른 모든 값과 비교(==, !=, ===, !==)했을 때 같지 않으며</strong>, 다른 NaN과도 같지 않습니다.</p>
+
+<p>NaN의 판별은 Number.isNaN() 또는 isNaN()을 사용하면 제일 분명하게 수행할 수 있습니다.</p>
+
+<p>아니면, 오로지 NaN만이 자기자신과 비교했을 때 같지 않음을 이용할 수도 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">NaN</span> <span class="o">===</span> <span class="kc">NaN</span><span class="p">;</span>        <span class="c1">// false</span>
+
+<span class="nb">Number</span><span class="p">.</span><span class="kc">NaN</span> <span class="o">===</span> <span class="kc">NaN</span><span class="p">;</span> <span class="c1">// false</span>
+
+<span class="nb">isNaN</span><span class="p">(</span><span class="kc">NaN</span><span class="p">);</span>         <span class="c1">// true</span>
+
+<span class="nb">isNaN</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="kc">NaN</span><span class="p">);</span>  <span class="c1">// true</span>
+</code></pre></div></div>
+<p>마지막으로 이해를 돕기 위한 사진…!</p>
+
+<p><img src="https://user-images.githubusercontent.com/75570915/105057361-7cd8d700-5ab8-11eb-967d-fc798e73c3be.jpg" width="70%" height="70%" /></p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>반복문과 반복문-알고리즘 문제</p>
+
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/01/18/TIL9.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #9">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/01/20/TIL11.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #11">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

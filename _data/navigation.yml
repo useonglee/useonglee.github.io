@@ -1,9 +1,0 @@
-main:
-  - title: "TIL"
-    url: /posts/
-  - title: "Monthly"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "About"
-    url: /about/

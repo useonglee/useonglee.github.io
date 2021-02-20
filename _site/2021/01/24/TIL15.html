@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #15 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/01/24/TIL15.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #15</h1>
+            
+            <h2 class="subheading">0.1 + 0.2 === 0.3</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <p><br /></p>
+
+<h2 id="01--02--03">0.1 + 0.2 === 0.3</h2>
+
+<p><code class="language-plaintext highlighter-rouge">0.1 + 0.2 === 0.3 // false</code> 에 대해서 나는 오늘 깨닫게 되었다.</p>
+
+<p>알고리즘만 풀고 자바스크립트에 대해 더 깊게 공부하지 않았던 탓에 오늘 깨달은 것 같다.</p>
+
+<p>그러면 <code class="language-plaintext highlighter-rouge">0.1 + 0.2 === 0.3</code> 은 왜 <strong>false</strong> 일까?</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">loh</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">);</span> <span class="c1">// 0.4</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">);</span> <span class="c1">// 0.30000000000000004;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>자바스크립트에서는 실수를 부동소수점 방식으로 표현하는데 부동소수점은 실수를 정확히 표현할 수 없는 문제가 있다. 그래서 정확히 0.3이 아닌 0.30000000000000004가 나온다.</p>
+
+<p>0.30000000000000004 는 0.3 을 표현하기 위한 근삿값이다. 이렇게 실수를 근삿값으로 표현하면서 발생하는 문제를 부동소수점 반올림 오차(rounding error)라고 한다.</p>
+
+<p><br /></p>
+
+<p>그러면 true 값이 나오게 하려면 ? <strong><em>toFixed() 함수</em></strong>를 써주면 된다. 매개변수로 받은 숫자만큼의 소수자리까지 반올림해서 출력한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 0.3</span>
+</code></pre></div></div>
+
+<p>주말동안 이 내용에 대해서 찾아보면서 자바스크립트에 대해서 조금 더 알아가는 계기가 된 것 같다! 부동소수점에 대해서 알아보고 블로깅을 해보려고 했지만, 아직은 더 공부를 해봐야할 것 같다!</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊  <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>배열(array)</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/01/23/TIL14.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #14">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/01/25/TIL16.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #16">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

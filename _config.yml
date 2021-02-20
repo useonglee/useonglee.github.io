@@ -1,108 +1,23 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: 꿈을 기록하는 Blog
 email: useong0830@gmail.com
-subtitle: "since 2021"
-url: https://useonglee.github.io/
+description: 웹 개발자 이우성의 개발 블로그입니다.
+author: useonglee
 baseurl: ""
-description: >- # this means to ignore newlines until "baseurl:"
-  우성's Dream Coding
-twitter_username:
+url: "https://useong.github.io"
+
+# Social Profiles
 github_username: useonglee
-minimal_mistakes_skin: "default"
-search: true
+instagram_username: hyeonyeongggg_
+# rocket_username: 2247han
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics: UA-134593008-1 # out your google-analytics code
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
-# Outputting
-permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-include:
-  - _pages
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
-# Plugins (previously gems:)
+paginate: 5
+paginate_path: "/posts/page:num/"
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
-  
-
-author:
-  name   : "이우성"
-  avatar : "/assets/images/20201205_010626.jpg"
-  bio    : "JavaScript기반 개발공부<br/><br/> 코드스테이츠 Full pre 10기"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/useonglee"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:useong0830@gmail.com
-
-footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/useonglee"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:useong0830@gmail.com
-
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-  # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site

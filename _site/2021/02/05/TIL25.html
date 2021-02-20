@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #25 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="👉 트위틀러 끝!">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/02/05/TIL25.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #25</h1>
+            
+            <h2 class="subheading">twittler 구현3</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=js">
+                <span class="tag">Javascript</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=HTML&CSS">
+                <span class="tag">HTML&CSS</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 id="-트위틀러-끝">👉 트위틀러 끝!</h2>
+
+<p><br /></p>
+
+<center><img src="https://user-images.githubusercontent.com/75570915/107041902-6777e280-6804-11eb-815f-ae73043fb9c1.png" width="130%" height="130%" />
+</center>
+
+<p><br />
+<br /></p>
+
+<p>트위틀러 목업을 완성하고 이제 실제로 트윗이 추가가 되고, 새로고침 버튼을 구현하였다.</p>
+
+<p>그리고 닉네임을 클릭하면 원하는 트위터만 볼 수 있게 필터링하는 과정까지 구현하였다!!</p>
+
+<p>지금은 코드가 정리가 완벽하게 되지가 않아서 올리지 않았지만, 리팩토링이 끝나면 올릴 예정이다!!</p>
+
+<p><br /></p>
+
+<p>그리고 localStorage 를 사용해서 인간친화적이게 실시간으로 (ex.1분 전) 나타내려고 했지만 결국 실패했다…</p>
+
+<p>삽질 과정만 3시간이 넘게..(그 당시 시각 새벽1시..) 했지만.. 결국 수포로 돌아갔고..</p>
+
+<p>나의 최종 선택은 moment.js 를 사용할 수 밖에 없었던 것이다 ㅠㅠㅠ</p>
+
+<p>물론 이전에 알았던 것도 아니고 자바스크립트 시간관련해서 찾다가 알게 되었다!! (이렇게 좋은게 있었다니!)</p>
+
+<p>하지만 이 스프린트 과정에서 원하는건 localStorage로 함수 계산까지 다해서 구현하는 것이였을 것이다.</p>
+
+<p>내 능력 밖이 라는 것을 참 늦게도 깨달았다.. 진짜 하고 싶어서 집요하게 해보려고 삽질 정말 많이 했는데ㅜㅜ</p>
+
+<p>시간이 너무 부족해서 포기하고 말았다. 하지만 내겐 주말이 있다!! 과제제출은 끝났지만 주말에 시간을 내서 다시 도전해봐야겠다!!</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="-오늘-새로-배운-것">👉 오늘 새로 배운 것!!</h2>
+
+<blockquote>
+  <p>flex-flow</p>
+</blockquote>
+
+<hr />
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">flex</span><span class="o">-</span><span class="nx">direction</span><span class="p">:</span> <span class="nx">row</span><span class="p">;</span>
+<span class="nx">flex</span><span class="o">-</span><span class="nx">direction</span><span class="p">:</span> <span class="nx">wrap</span><span class="p">;</span>
+
+<span class="c1">//이렇게 하면 한 번에 쓸 수 있다!</span>
+<span class="nx">flex</span><span class="o">-</span><span class="nx">flow</span><span class="p">:</span> <span class="nx">row</span> <span class="nx">wrap</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>hasChildNodes</p>
+</blockquote>
+
+<hr />
+
+<p><span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px"><strong><em>node.hasChildNodes() 란?</em></strong></span></p>
+
+<p><br /></p>
+
+<p>현재 노드에게 자식 노드(child nodes)가 있는지를 <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px"><strong><em>Boolean</em></strong></span> 값으로 반환한다!!</p>
+
+<p>:point_down: 실제 사용 예제 :point_down:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">removeList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">#main</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="k">while</span><span class="p">(</span><span class="nx">removeList</span><span class="p">.</span><span class="nx">hasChildNodes</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">removeList</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">.(</span><span class="nx">removeList</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 이런식으로 자식노드들을 전부 제거해주었다.</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>moment.js</p>
+</blockquote>
+
+<hr />
+
+<p>자바스크립트에서 시간에 대해 다루게 된다면 moment.js 만한 건 아직 없는 것 같다…</p>
+
+<p>나중에 혹시나 또 사용해야 되는 날이 올 것 같아서 설치 방법만 적어두려고 한다.</p>
+
+<p>먼저</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// node.js가 설치 되어있는 지 확인, 없으면 쉽게 설치 가능</span>
+<span class="nx">node</span> <span class="o">-</span> <span class="nx">v</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// moment 설치</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="nx">moment</span>
+</code></pre></div></div>
+
+<p>그리고 다른 블로그를 보면 <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px"><strong><em><code class="language-plaintext highlighter-rouge">import moment from "moment"</code></em></strong></span> 나, <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px"><strong><em><code class="language-plaintext highlighter-rouge">"const moment = require("moment")"</code></em></strong></span> 를 추가해주라고 한다.</p>
+
+<p>근데 난 이상하게 오히려 추가하면 작동이 안되고, 그냥 moment().seconds() 이런식으로 바로 moment 메소드를 사용해주면 구현이 되었다. (무슨 일인지….)</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>마무리..</p>
+</blockquote>
+
+<hr />
+
+<p>어제 트위틀러 스프린트를 하고 오늘까지 마무리한다고.. 어제 새벽 4시30분까지 하고 말았다.. 프리코스 과정을</p>
+
+<p>진행하면서 이렇게 페이스 조절을 못한 적이 없었는데 어제는 욕심이 과했던 걸까 ㅜㅜ 구현이 안되기 전까진 자기가 싫었다….</p>
+
+<p>그래도 결국 오늘 마무리를 해서 다행이다!! 내일 주말에 리팩토링을 조금만 다시 해볼 예정이다!</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>트위틀러 함수</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/02/03/TIL24.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #24">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/02/06/TIL26.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #26">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

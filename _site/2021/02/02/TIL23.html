@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #23 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="👉 코플릿 알고리즘 7번">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/02/02/TIL23.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #23</h1>
+            
+            <h2 class="subheading"></h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 id="-코플릿-알고리즘-7번">👉 코플릿 알고리즘 7번</h2>
+
+<blockquote>
+  <p>function toObject(arr)</p>
+</blockquote>
+
+<hr />
+
+<p>내가 이 문제를 풀었음에도 불구하고 블로그에 적는 이유는</p>
+
+<p>문제가 어렵진 않았지만 나는 너무 어렵게 풀었고, Reference 코드는 엄청 쉽게 쓰여있기 때문이다.</p>
+
+<p>그래서 기록해두기 위해 블로깅을 하려고 한다!</p>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>문제 : 2차원 배열을 입력받아 각 배열을 이용해 객체를 리턴</p>
+  </li>
+  <li>
+    <p>주의사항 :</p>
+  </li>
+</ul>
+
+<ol>
+  <li>arr[i].length는 0 또는 2</li>
+  <li>중복되는 키의 경우, 초기의 값을 사용</li>
+  <li>빈 배열일 경우, 빈 객체를 리턴</li>
+</ol>
+
+<ul>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">make</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Ford</span><span class="dl">'</span><span class="p">],</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">model</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Mustang</span><span class="dl">'</span><span class="p">],</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">year</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1964</span><span class="dl">'</span><span class="p">],</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">make</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bill</span><span class="dl">'</span><span class="p">],</span>
+<span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">toObject</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="c1">// --&gt;</span>
+<span class="p">{</span>
+  <span class="nl">make</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Ford</span><span class="dl">'</span>
+  <span class="nx">model</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Mustang</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">year</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">1964</span><span class="dl">'</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>값을 저장해놓기 위해 빈 객체를 할당한다.</li>
+  <li>2차원 배열을 이중 반복문을 통해 모든 요소를 다 확인한다.</li>
+  <li>중복되는 요소(키 값)이 있는지, 있으면 undefined로 값을 없애준다.</li>
+  <li>i[0]은 key, i[1]은 value 값으로 할당한다.</li>
+  <li>객체의 형태로 만들어준다.</li>
+  <li>undefined 는 제거해준다 (빈 배열일 경우, 중복되는 요소가 있을 경우를 대비한다.)</li>
+  <li>저장되어 있는 객체를 반환한다.</li>
+</ol>
+
+<p><br />
+<br /></p>
+
+<ul>
+  <li>나의 code</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">toObject</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: 여기에 코드를 작성합니다.</span>
+
+  <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{};</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">key</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">key</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">value</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+
+    <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="kc">undefined</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>정말 길게도 썼다… 푸는데 오래 걸리진 않았지만 길게 작성하고 풀어서 그런지 쾌감은 짜릿했다!!:+1:</p>
+
+<p>그 다음은 레퍼런스 코드를 확인해보자…..</p>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>웬만하면 나도 쉽게 짜려고 노력했는데 이번 문제 만큼은 정말 길어졌던 것 같다…</p>
+
+<p>레퍼런스 코드를 보면서 다시 한 번 반성하게 되는 계기가 되었다 ㅜㅜㅜ 물론 풀었다는게 가장 중요하지만</p>
+
+<p>이제 풀었으니까 또 간략하게 쓰고 싶은 욕심(?) 이 생긴다… 욕심은 끝이 없는 것인가… 하하</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>Javascript DOM</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/02/01/TIL22.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #22">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/02/03/TIL24.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #24">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

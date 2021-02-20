@@ -1,0 +1,271 @@
+I"�!<p><br /></p>
+
+<h2 id="-git-간단한-명령어">👉 git 간단한 명령어</h2>
+
+<blockquote>
+  <h2 id="1파일-조회">1.파일 조회</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>현재 디렉토리에서 모든 파일 조회 (홈에서 하면 홈에서 모든 파일 조회)<br />
+=&gt; ls</p>
+  </li>
+  <li>
+    <p>모든 파일에 대한 세부적인 내용까지 알고 싶을 때 (ex. 만든 시간, 관리자이름 등등)<br />
+=&gt; ls -al</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="2디렉토리-이동">2.디렉토리 이동</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>홈 디렉토리 (현재 사용자의 개인화 파일들이 있는 디렉토리)<br />
+=&gt; cd ~ (여기서 cd 의 뜻은 change directory의 약자)</p>
+  </li>
+  <li>
+    <p>루트 디렉토리 (시스템의 최상위 디렉토리)<br />
+=&gt; cd /</p>
+  </li>
+  <li>
+    <p>현재 디렉토리<br />
+=&gt; cd .</p>
+  </li>
+  <li>
+    <p>부모 디렉토리(상위 디렉토리)로 이동<br />
+=&gt; cd ..</p>
+  </li>
+  <li>
+    <p>현재 디렉토리 확인<br />
+=&gt; pwd (print working directory)</p>
+  </li>
+</ul>
+
+<p>:point_up: 파일 이름을 끝까지 다 칠 필요없이, 중간에 [tap] 키를 누르면 자동 완성이 된다.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="3파일-생성">3.파일 생성</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>빈 파일 생성 (ex. txt, html, js 같은 파일)<br />
+=&gt; touch [파일이름.확장자] (ex. touch hello.txt)</p>
+  </li>
+  <li>
+    <p>빈 디렉토리 생성<br />
+=&gt; mkdir [파일 이름]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="4파일-및-디렉토리-수정">4.파일 및 디렉토리 수정</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>파일 및 디렉토리 옮기기<br />
+=&gt; mv [파일 or 디렉토리 이름] [타겟 디렉토리]</p>
+  </li>
+  <li>
+    <p>파일 및 디렉토리 이름 바꾸기<br />
+=&gt; mv [파일 or 디렉토리 이름] [타겟 새로운 이름]</p>
+  </li>
+  <li>
+    <p>파일 복사<br />
+=&gt; cp [파일] [타겟 디렉토리]</p>
+  </li>
+  <li>
+    <p>디렉토리 복사<br />
+=&gt; cp -r [디렉토리 이름]</p>
+  </li>
+  <li>
+    <p>파일안의 내용 확인<br />
+=&gt; cat [파일 이름]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="5삭제">5.삭제</h2>
+</blockquote>
+
+<p><strong>rm 명령어는 정말 삭제할 것인지 확인을 하지 않는다. 한 번 삭제된 파일은 휴지통에 들어가지 않는다. 명심할 것!!</strong></p>
+
+<ul>
+  <li>
+    <p>파일 삭제<br />
+=&gt; rm [파일 이름]</p>
+  </li>
+  <li>
+    <p>디렉토리 삭제<br />
+=&gt; rm -r [디렉토리 이름]</p>
+  </li>
+</ul>
+
+<p><strong>절대 쓰면 안되는 명령어, 전부 다 삭제한다.</strong><br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=&gt; rm -rf/
+</code></pre></div></div>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="6관리자-권한">6.관리자 권한</h2>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=&gt; sudo 명령어는 관리자 권한으로 실행한다는 뜻. ('super user do' 의 약자)
+</code></pre></div></div>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="7파일-소유권-변경">7.파일 소유권 변경</h2>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=&gt; sudo chown owner: group file
+</code></pre></div></div>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="8텍스트-에디터">8.텍스트 에디터</h2>
+</blockquote>
+
+<ul>
+  <li>파일 내용을 CLI 에서 수정할 수 있다. 알아두면 언젠간 도움 될 명령어!<br />
+=&gt; vim [파일 이름]</li>
+</ul>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="9파일열기">9.파일열기</h2>
+</blockquote>
+
+<ul>
+  <li>해당 위치에서 디렉토리 열기<br />
+=&gt; open . 또는 xdg-open .</li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="-git-커밋-히스토리-조회">👉 git 커밋 히스토리 조회</h2>
+
+<blockquote>
+  <h2 id="1git-log">1.git log</h2>
+</blockquote>
+
+<p>git에는 히스토리를 조회하는 명령어 git log가 있다.</p>
+
+<p><br /></p>
+
+<ul>
+  <li>git diff<br />
+이 명령어를 사용하면 아래 사진처럼 수정된 라인과 수정한 라인을 비교해 볼 수 있다.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/75570915/106015077-74f4e480-6101-11eb-8822-b20ffd2d7392.png" alt="스크린샷, 2021-01-27 23-44-46" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>git log –graph<br />
+이 명령어는 커밋한 브랜치와 히스토리 정보까지 그래프로 볼 수 있다.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/75570915/106015138-84742d80-6101-11eb-9398-4adb8f45a92b.png" alt="스크린샷, 2021-01-27 23-46-36" /></p>
+
+<ul>
+  <li>git log -p<br />
+여러 옵션 중 -p, –patch 는 굉장히 유용한 옵션이다. -p 는 각 커밋의 diff 결과를 보여준다. 다른 유용한 옵션으로 <code class="language-plaintext highlighter-rouge">-2</code>가 있는데 최근 두 개의 결과만 보여주는 옵션이다.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/75570915/106015149-863df100-6101-11eb-9788-621871ea4098.png" alt="스크린샷, 2021-01-27 23-50-41" /></p>
+
+<blockquote>
+  <p>:exclamation: git log 주요 옵션</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>옵션</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-p</code></td>
+      <td>각 커밋에 적용된 패치를 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--stat</code></td>
+      <td>각 커밋에서 수정된 파일의 통계정보를 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--shortstat</code></td>
+      <td>–stat 명령의 결과 중에서 수정한 파일, 추가된 라인, 삭제된 라인만 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--name-only</code></td>
+      <td>커밋 정보중에서 수정된 파일의 목록만 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--name-status</code></td>
+      <td>수정된 파일의 목록을 보여줄 뿐만 아니라 파일을 추가한 것인지, 수정한 것인지, 삭제한 것인지도 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--abbrev-commit</code></td>
+      <td>40자 짜리 SHA-1 체크섬을 전부 보여주는 것이 아니라 처음 몇 자만 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--relative-date</code></td>
+      <td>정확한 시간을 보여주는 것이 아니라 “2 weeks ago” 처럼 상대적인 형식으로 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--graph</code></td>
+      <td>브랜치와 머지 히스토리 정보까지 아스키 그래프로 보여준다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--pretty</code></td>
+      <td>지정한 형식으로 보여준다. 이 옵션에는 oneline, short, full, fuller, format이 있다. format은 원하는 형식으로 출력하고자 할 때 사용한다.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--oneline</code></td>
+      <td>–pretty=oneline –abbrev-commit 두 옵션을 함께 사용한 것과 같다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<ul>
+  <li>조회 제한조건</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">--since</code>나 <code class="language-plaintext highlighter-rouge">--until</code> 같은 시간을 기준으로 조회하는 옵션은 매우 유용하다. 지난 2주 동안 만들어진 커밋들만 조회하는 명령은 아래와 같다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">$ git log --since=2.weeks</code> - -</p>
+
+<p>이 옵션은 다양한 형식을 지원한다.”2021-01-28” 같이 정확한 날짜도 사용할 수 있고 “1 years 2 day 3 minutes ago” 같이 상대적인 기간을 사용할 수도 있다.</p>
+
+<p>:pray: <a href="https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%BB%A4%EB%B0%8B-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0" title="git 커밋 히스토리 조회하기!">참조 링크</a></p>
+
+<blockquote>
+  <p>👊  <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>CSS Selector</p>
+:ET

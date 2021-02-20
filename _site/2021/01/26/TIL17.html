@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #17 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/01/26/TIL17.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #17</h1>
+            
+            <h2 class="subheading">객체, 스코프와 클로져</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <p><br /></p>
+
+<h2 id="-객체object">👉 객체(Object)</h2>
+
+<blockquote>
+  <h2 id="1extend-obj1-obj2">1.extend (obj1, obj2)</h2>
+</blockquote>
+
+<p>두 개의 객체를 입력받아 두번째 객체의 속성들을 첫번째 객체에 추가해야 한다.</p>
+
+<ul>
+  <li>주의사항 :</li>
+</ul>
+
+<ol>
+  <li>두번째 객체는 수정하지 않아야 함.</li>
+  <li>추가하려는 속성이 이미 첫번째 객체에 있는 경우, 기존값 유지</li>
+</ol>
+
+<ul>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">b</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="na">c</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">};</span>
+
+<span class="nx">extend</span><span class="p">(</span><span class="nx">obj1</span><span class="p">,</span> <span class="nx">obj2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span><span class="p">);</span> <span class="c1">// --&gt; {a: 1, b: 2, c: 3}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj2</span><span class="p">);</span> <span class="c1">// --&gt; {b: 4, c: 3}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>for..in loop 를 이용해서 obj2 객체를 순회한다.</li>
+  <li>obj1 에 obj2의 key가 있는지 확인한다.</li>
+  <li>없으면 obj1에 obj2의 속성을 넣어준다.</li>
+</ol>
+
+<p><br /></p>
+
+<ul>
+  <li>code</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">obj2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">key</span> <span class="k">in</span> <span class="nx">obj1</span><span class="p">))</span> <span class="p">{</span>      <span class="c1">// 이런식으로 obj1에 obj2의 key값이 있는지 확인한다.</span>
+      <span class="nx">obj1</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">obj2</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>    <span class="c1">// 없다면 그 속성을 obj1에 할당한다.</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="2countallcharacters-str">2.countAllCharacters (str)</h2>
+</blockquote>
+
+<p>각 키의 값은 해당 문자가 문자열에서 등장하는 횟수를 의미하는 <code class="language-plaintext highlighter-rouge">number</code> 타입의 값이어야 한다.</p>
+
+<ul>
+  <li>주의사항 :</li>
+</ul>
+
+<ol>
+  <li>빈 문자열을 입력받은 경우, 빈 객체를 리턴</li>
+  <li>띄어쓰기는 제외</li>
+</ol>
+
+<ul>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">countAllCharacters</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello blog</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; {h: 1, e: 1, l: 3, o: 2, b: 1, g: 1}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>요소를 담아 줄 새로운 빈 객체를 할당한다.</li>
+  <li>반복문으로 문자열을 순회한다.</li>
+  <li>공백을 만났을 경우 건너뛴다.</li>
+  <li>순회를 하면서 빈 객체의 key 값은 아직 undefined 이므로, 빈 객체의 요소가 undefined 이면 0 으로 할당을 해준다.</li>
+  <li>그리고 반복문이 순회 할 동안 key 의 value값을 ++ 해준다.</li>
+  <li>빈 객체에 값이 들어간 객체를 리턴해준다.</li>
+</ol>
+
+<p><br /></p>
+
+<ul>
+  <li>code</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>객체는 확실히 이론보다는 문제를 풀면서 공부를 해야 더 빨리 이해가 되는 것 같다!!</p>
+
+<p>처음에는 객체에 value 값은 어떻게 할당이 되는건지, key값은 뭐지? 이러고 많이 어려워 했었는데, 끊임없이 복습하고 계속 문제를 풀다보니 이러한 문제들은 가볍게 풀게 되었다!</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="-primitive-vs-reference">👉 Primitive vs Reference</h2>
+
+<blockquote>
+  <h2 id="1primitive-type">1.Primitive type</h2>
+</blockquote>
+
+<p>Primitive type, 원시 자료형의 타입은 변수에는 하나의 원시 자료형만을 담을 수 있다.</p>
+
+<p>여기서 자바스크립트에는 <strong>number, string, boolean, undefined, null</strong>, symbol, bigint 가 있다.</p>
+
+<p>원시타입에 속하는 값은 <strong><em>단 하나의 데이터 값만을 가지고 있다.</em></strong></p>
+
+<p>그렇기 때문에, 원시 자료형의 저장 공간의 크기는 고정이라고 보면 된다. 그리고 이 저장 공간은 <strong>“Call Stack”</strong> 이라고 부른다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">word</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello blog!</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">word</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">welcome to my blog!</span><span class="dl">"</span><span class="p">;</span>
+<span class="c1">// 원시타입인 string은 변경할 수 없는 고정된 값이지만,</span>
+<span class="c1">// 이런식으로 재할당을 하여 변수 "word"에 담긴 내용을 변경할 수 는 있다.</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li>원시 자료형의 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">str2</span> <span class="o">=</span> <span class="nx">str1</span><span class="p">;</span>
+<span class="nx">str2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str1</span><span class="p">);</span> <span class="c1">// "hello"</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="2reference-type">2.Reference type</h2>
+</blockquote>
+
+<p>자바스크립트에서 원시 자료형이 아닌 모든 것은 참조 자료형(Reference type) 이라고 보면 된다.</p>
+
+<p>대표적인 것은 배열([])과 객체({}), 함수(function(){})이 있다.</p>
+
+<p>참조 자료형은 원시 자료형과는 달리 저장 공간의 주소값을 할당한다. 그래서 이 저장 공간은 고정된 크기가 아니라, 동적으로 크기가 변하는 특별한 저장 공간을 사용한다. 우리는 이 저장 공간을 <strong>“heap”</strong> 이라고 부른다.</p>
+
+<ul>
+  <li>참조 자료형의 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">{</span> <span class="na">foo</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+<span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+<span class="nx">y</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// 2</span>
+</code></pre></div></div>
+
+<p>x 에 <code class="language-plaintext highlighter-rouge">{foo: 1}</code> 를 할당했고, <strong>y에는 x의 주소값을 할당했다.</strong> x와 y는 같은 주소를 바라보고 있으며, y.foo가 2로 변경되었으니, <strong>같은 곳을 바라보던 x.foo도 2로 바뀌게 된다.</strong></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="-scope">👉 Scope</h2>
+
+<p><br /></p>
+
+<p>스코프는 <strong><u>변수 접근 규칙에 따른 유효 범위</u></strong></p>
+
+<p>변수와 그 값이, 어디서부터 어디까지 유효한지를 판단하는 범위</p>
+
+<p>JavaScript는 기본적으로, <strong>함수가 선언되는(lexical) 동시에 자신만의 Scope를 가진다.</strong></p>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">git</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 전역 변수</span>
+
+<span class="kd">function</span> <span class="nx">welcomeToMyBlog</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">myName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Useong</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 지역 변수</span>
+
+    <span class="k">return</span> <span class="nx">git</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">myName</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">welcomeToMyBlog</span><span class="p">());</span> <span class="c1">// 'Hello Useong'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myName</span><span class="p">);</span> <span class="c1">// ReferenceError</span>
+</code></pre></div></div>
+
+<p>여기서 git 은 전역 변수에 해당하고, myName 은 지역 변수에 해당한다.</p>
+
+<p>Scope는 중첩이 가능하다. 전역 변수는 어디서든 접근이 가능하다.</p>
+
+<p>지역 변수는 함수 내에서 전역 변수보다 더 높은 우선순위를 가진다.</p>
+
+<blockquote>
+  <h2 id="1스코프-문제">1.스코프 문제</h2>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">outer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">inner</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">x</span><span class="p">;</span>
+        <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">20</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">inner</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">outer</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">outer</span><span class="p">());</span> <span class="c1">// undefined</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span> <span class="c1">// 20</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>1.result 는 왜 20 일까 ?</p>
+
+<p>outer 함수에서 전역 변수 x 에 20을 재할당했기 때문이다. 그래서 result 의 값은 20 이다. outer 내부에서 inner 함수가 호출 되고 있지만, <strong>inner 함수는 바깥 스코프에 아무런 영향을 미치지 않는다.</strong></p>
+
+<p>2.그러면 왜 아무런 영향을 미치지 않을까 ?</p>
+
+<p>inner 함수에는 x 라는 지역 변수, 새로운 변수가 할당되어 있다. 그렇기 때문에, inner 함수 안에 있는 x는 바깥 스코프에는 영향을 미칠 수 가 없다.</p>
+
+<p>그리고 <strong><code class="language-plaintext highlighter-rouge">let x;</code> 는 선언은 되어있지만, 할당이 되어있지 않기 때문에</strong> x 의 값은 undefined 이다. 그리고 <code class="language-plaintext highlighter-rouge">x = x + 20</code>은 undefined 에 숫자 20을 더했기 때문에 NaN 이라는 결과값이 나온다.</p>
+
+<p>inner 함수는 <code class="language-plaintext highlighter-rouge">NaN</code> 을 반환하게 되고 inner 함수를 반환하는 outer 함수는 undefined가 된다. 그래서 결국, outer() 의 결과값은 undefined 인 셈이다.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="-closure">👉 Closure</h2>
+
+<p>클로저는 <strong><u>외부 함수의 변수에 접근할 수 있는 내부 함수</u></strong>를 뜻한다. 외부함수의 실행이 종료된 후에도, 클로저는 외부함수의 스코프를 참조할 수 있다.</p>
+
+<p><strong>클로저의 단점 :</strong> 일반 함수였다면 함수 실행 종료 후 가비지 컬렉션(참고 자료: MDN ‘자바스크립트의 메모리 관리’) 대상이 되었을 객체가, 클로저 패턴에서는 메모리 상에 남아 있게 된다.</p>
+
+<p>외부 함수 스코프가 내부 함수에 의해 언제든지 참조될 수 있기 때문이다. 따라서 클로저를 남발할 경우 퍼포먼스가 저하될 수 도 있다.</p>
+
+<p><br /></p>
+
+<p>:point_up: <strong>가비지 컬렉션이란,</strong> 자바스크립트에서 객체가 생성되었을 때 자동으로 메모리를 할당하고 쓸모 없어졌을 때 자동으로 해제하는 것이다. 값을 선언할 때 자동으로 메모리를 할당한다고 보면 된다.</p>
+
+<p>그래서 자바스크립트는 가비지 컬렉션을 통해 메모리를 관리한다. 객체가 참조 대상이 아닐 때, 가비지 컬렉션에 의해 자동으로 메모리 할당이 해제된다.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="1커링-currying">1.커링 (currying)</h2>
+</blockquote>
+
+<p>커링 (currying) : 함수 하나가 n 개의 인자를 받는 대신, n개의 함수를 만들어 각각 인자를 받게 하는 방법</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">adder</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// 5</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">htmlMaker</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">startTag</span> <span class="o">=</span> <span class="s2">`&lt;</span><span class="p">${</span><span class="nx">tag</span><span class="p">}</span><span class="s2">&gt;`</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">endTag</span> <span class="o">=</span> <span class="s2">`&lt;/</span><span class="p">${</span><span class="nx">tag</span><span class="p">}</span><span class="s2">&gt;`</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">textContent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">startTag</span> <span class="o">+</span> <span class="nx">textContent</span> <span class="o">+</span> <span class="nx">endTag</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">divMaker</span> <span class="o">=</span> <span class="nx">htmlMaker</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">divMaker</span><span class="p">(</span><span class="dl">"</span><span class="s2">안녕하세요</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// "&lt;div&gt;안녕하세요&lt;/div&gt;"</span>
+
+<span class="kd">let</span> <span class="nx">spanMaker</span> <span class="o">=</span> <span class="nx">htmlMaker</span><span class="p">(</span><span class="dl">"</span><span class="s2">span</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">spanMaker</span><span class="p">(</span><span class="dl">"</span><span class="s2">블로그에 오신 걸 환영합니다.</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// "&lt;span&gt;블로그에 오신 걸 환영합니다.&lt;/span&gt;"</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="2클로저-모듈-패턴">2.클로저 모듈 패턴</h2>
+</blockquote>
+
+<p>클로저 모듈 패턴 : 변수를 스코프 안쪽에 가두어 함수 밖으로 노출 시키지 않는 방법</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">makeCounter</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">privateCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="na">increment</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">privateCounter</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="na">decrement</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">privateCounter</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="na">getValue</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">privateCounter</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">counter1</span> <span class="o">=</span> <span class="nx">makeCounter</span><span class="p">();</span>
+
+<span class="nx">counter1</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+<span class="nx">counter1</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter1</span><span class="p">.</span><span class="nx">getValue</span><span class="p">());</span> <span class="c1">// 2</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="3클로저-문제">3.클로저 문제</h2>
+</blockquote>
+
+<p>클로저 함수의 문제를 풀어보면서 이해를 해보자! total의 값은 무엇일까?</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">add</span> <span class="o">=</span> <span class="nx">fucntion</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">total</span><span class="p">)</span> <span class="c1">// ?</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>total = 7</strong></p>
+
+<p>total 은 왜 7값이 나올까 ?</p>
+
+<p>함수 add 는 x를 매개변수로 하며, sum을 반환한다. 여기서 전달받은 x 는 내부함수 sum에 전달을 해준다. <strong>이때, sum 은 x + y 를 반환하면서 외부함수인 add의 매개변수 x 에 접근할 수 있다.</strong> <em>(클로저 함수의 개념)</em></p>
+
+<p>그렇다면 foo는 add(1) 을 할당하고, total은 foo(6)을 할당했기 때문에, let total = foo(1)(6) 과 같은 뜻이 된다.</p>
+
+<p>따라서, return x + y =&gt; 1 + 6 이 되고 7을 반환하게 된다.</p>
+
+<p>foo(3) 은 무슨 역할을 할까?</p>
+
+<p>foo(3) 을 실행하게 되면 foo(1)(3) 이 되어 4라는 값이 반환될 수 도 있지만, 현재 foo(3)은 어디에도 할당이 되어 있지 않으므로 total 에는 아무런 영향을 미치지 않는다.</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊  <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>git</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/01/25/TIL16.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #16">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/01/27/git.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #18">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

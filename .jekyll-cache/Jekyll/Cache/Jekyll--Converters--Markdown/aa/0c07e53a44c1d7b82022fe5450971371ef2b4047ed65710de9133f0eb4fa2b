@@ -1,0 +1,150 @@
+I"�<h2 id="-css-selector-정리">👉 CSS Selector 정리</h2>
+
+<blockquote>
+  <h2 id="1selector-기초">1.Selector 기초</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>전체 셀렉터<br />
+=&gt; *{…}</p>
+  </li>
+  <li>
+    <p>ID 셀렉터<br />
+=&gt; #name{…}</p>
+  </li>
+  <li>
+    <p>class 셀렉터<br />
+=&gt; .list{…}</p>
+  </li>
+  <li>
+    <p>후손 셀렉터<br />
+=&gt; header h1{…}</p>
+  </li>
+  <li>
+    <p>자식 셀렉터<br />
+=&gt; header &gt; p{…}</p>
+  </li>
+  <li>
+    <p>인접 형제 셀렉터<br />
+=&gt; section + p{…}</p>
+  </li>
+  <li>
+    <p>형제 셀렉터<br />
+=&gt; section ~ p{…}</p>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="2selector-구조-가상-클래스">2.Selector 구조 가상 클래스</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>부모안에 모든 요소 중 <strong>첫번째</strong> 요소<br />
+=&gt; 부모 요소: first-child{…}</p>
+  </li>
+  <li>
+    <p>부모안에 모든 요소 중 <strong>마지막</strong> 요소<br />
+=&gt; 부모 요소: last-child{…}</p>
+  </li>
+  <li>
+    <p>부모안에 모든 요소 중 <strong>N번째</strong> 요소<br />
+=&gt; 부모 요소: nth-child(N){…}</p>
+  </li>
+  <li>
+    <p>부모안에 모든 요소 중 <strong>홀수번째</strong> 요소<br />
+=&gt; 부모 요소: nth-child(2n + 1){…}</p>
+  </li>
+  <li>
+    <p>부모안에 모든 요소 중 <strong>3번째부터 간격이 2씩 떨어진</strong> 요소<br />
+=&gt; 부모 요소: nth-child(2n + 3){…}</p>
+  </li>
+  <li>
+    <p>부모안에 A라는 요소 중 <strong>N번째</strong> 요소<br />
+=&gt; A: nth-of-type(N){…}</p>
+  </li>
+  <li>
+    <p>부모안에 A라는 요소 중 <strong>첫번째</strong> 요소<br />
+=&gt; A:first-of-type{…}</p>
+  </li>
+  <li>
+    <p>A 셀렉터의 모든 요소<br />
+=&gt; A:only-of-type{…}</p>
+  </li>
+  <li>
+    <p>부모안에 A라는 요소 중 <strong>마지막</strong> 요소<br />
+=&gt; A:last-of-type{…}</p>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="3부정-selector">3.부정 Selector</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">div</code>자식들 중에 2번째 요소만 제외하고 모든 요소<br />
+=&gt; div:not(:nth-of-type(2))</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">input</code> 중에 tpye이 “password” 인 것만 제외<br />
+=&gt; input:not([type=”password”])</p>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="4attribute-selector">4.attribute Selector</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>a 요소 중에서 href 속성을 갖는 모든 요소<br />
+=&gt; a[href]{…}</p>
+  </li>
+  <li>
+    <p>div의 id 요소 이름중에서 <strong>앞에서 부터</strong> “sect” 가 겹치는 모든 요소<br />
+=&gt; div[id^=”sect”]{…}</p>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 둘다 해당
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sector"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>div의 class 요소 이름중에서 <strong>뒤에서 부터</strong> “blog” 가 겹치는 모든 요소<br />
+=&gt; div[class$=”blog”]{…}</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 둘다 해당
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"My-blog"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"git-blog"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>div의 class 이름 <strong>같은 위치에서</strong> “w” 가 겹치는 모든 요소<br />
+=&gt; div[class*=”w”]{…}</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 둘다 해당
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"two"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"swim"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>twittler 목업 구현</p>
+:ET

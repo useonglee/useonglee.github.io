@@ -1,17 +1,16 @@
 ---
-title: "TIL #19 - CSS Selector"
+layout: post
+title: "📅 TIL #19"
+subtitle: "CSS-Selector"
 toc: true
 toc_sticky: true
 toc_label: "페이지 주요 목차"
-excerpt_separator: "<!--more-->"
-categories:
-    - 2021/01
-tags:
-    - Pre-Course
-    - HTML&CSS
+date: 2021-01-28
+background: "/img/posts/post-TIL.png"
+tags: [TIL, pre-course, HTML&CSS]
 ---
 
-## :point_right: CSS Selector 정리
+## 👉 CSS Selector 정리
 
 > 1.Selector 기초
 ---
@@ -118,6 +117,9 @@ tags:
 <div class="swim"></div>
 ```
 
-> :punch: **내일의 TIW(today I Will)**
+<br/>
+<br/>
+
+> 👊 **내일의 TIW(today I Will)**
 
 twittler 목업 구현

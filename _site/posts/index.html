@@ -1,1228 +1,1233 @@
-<!doctype html>
-<!--
-  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
-  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
-  Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
--->
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
 
-<!-- begin _includes/seo.html --><title>Today I Learned - 꿈을 기록하는 Blog</title>
-<meta name="description" content="우성’s Dream Coding">
+<html>
 
+<head>
 
-  <meta name="author" content="이우성">
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="꿈을 기록하는 Blog">
-<meta property="og:title" content="Today I Learned">
-<meta property="og:url" content="http://localhost:4000/posts/">
-
-
-  <meta property="og:description" content="우성’s Dream Coding">
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="canonical" href="http://localhost:4000/posts/">
-
-
-
-
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+  <title>
+    Posts - 꿈을 기록하는 Blog
     
-      "@type": "Person",
-      "name": null,
-      "url": "http://localhost:4000/"
-    
-  }
-</script>
+  </title>
 
+  <meta name="description" content="웹 개발자 이우성의 개발 블로그입니다.">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-
-
-
-
-<!-- end _includes/seo.html -->
-
-
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="꿈을 기록하는 Blog Feed">
-
-<!-- https://t.co/dKP3o1e -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-</script>
-
-<!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
-
-<!--[if IE]>
-  <style>
-    /* old IE unsupported flexbox fixes */
-    .greedy-nav .site-title {
-      padding-right: 3em;
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
     }
-    .greedy-nav button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-    }
-  </style>
-<![endif]-->
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/posts/">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
 
 
+<body>
 
-    <!-- start custom head snippets -->
-
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- end custom head snippets -->
-
-  </head>
-
-  <body class="layout--posts">
-    <nav class="skip-links">
-  <h2 class="screen-reader-text">Skip links</h2>
-  <ul>
-    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
-    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
-    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
-  </ul>
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
 </nav>
 
-    <!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
 
-    
+  <!-- Page Header -->
 
-<div class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        
-        <a class="site-title" href="/">
-          꿈을 기록하는 Blog
-          <span class="site-subtitle">since 2021</span>
-        </a>
-        <ul class="visible-links">
-<li class="masthead__menu-item">
-              <a href="/posts/">TIL</a>
-            </li>
-<li class="masthead__menu-item">
-              <a href="/categories/">Monthly</a>
-            </li>
-<li class="masthead__menu-item">
-              <a href="/tags/">Tags</a>
-            </li>
-<li class="masthead__menu-item">
-              <a href="/about/">About</a>
-            </li>
-</ul>
-        
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">Toggle search</span>
-          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16">
-            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
-          </svg>
-        </button>
-        
-        <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">Toggle menu</span>
-          <div class="navicon"></div>
-        </button>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
-  </div>
-</div>
-
-
-    <div class="initial-content">
-      
-
-
-
-<div id="main" role="main">
+<header class="masthead" style="background-image: url('/img/post-banner.png')">
   
-  <div class="sidebar sticky">
-  
-
-
-<div itemscope itemtype="https://schema.org/Person">
-
-  
-    <div class="author__avatar">
-      
-        <img src="/assets/images/20201205_010626.jpg" alt="이우성" itemprop="image">
-      
-    </div>
-  
-
-  <div class="author__content">
-    
-      <h3 class="author__name" itemprop="name">이우성</h3>
-    
-    
-      <div class="author__bio" itemprop="description">
-        <p>JavaScript기반 개발공부<br><br> 코드스테이츠 Full pre 10기</p>
-
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <!-- <div class="page-heading">
+            <h1>Posts</h1>
+            
+          </div> -->
+        </div>
       </div>
-    
-  </div>
+    </div>
+  </header>
 
-  <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
-    <ul class="author__urls social-icons">
-      
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
 
-      
         
-          
-            <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
-          
-        
-          
-            <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
-          
-        
-      
+  <span class="tag" data-tag="TIL">
+    📅 TIL
+  </span>
 
-      
+  <span class="tag" data-tag="pre-course">
+    pre-course
+  </span>
 
-      
+  <span class="tag" data-tag="immersive-course">
+    immersive-course
+  </span>
 
-      
+  <span class="tag" data-tag="HTML&CSS">
+    HTML&CSS
+  </span>
 
-      
+  <span class="tag" data-tag="js">
+    Javascript
+  </span>
 
-      
+  <span class="tag" data-tag="ts">
+    Typescript
+  </span>
 
-      
+  <span class="tag" data-tag="frontend">
+    Front-End
+  </span>
 
-      
+  <span class="tag" data-tag="backend">
+    Back-End
+  </span>
 
-      
+  <span class="tag" data-tag="react">
+    React
+  </span>
 
-      
+  <span class="tag" data-tag="node">
+    Node
+  </span>
 
-      
+  <span class="tag" data-tag="webpack">
+    Webpack
+  </span>
 
-      
+  <span class="tag" data-tag="redux">
+    Redux
+  </span>
 
-      
+  <span class="tag" data-tag="database">
+    Database
+  </span>
 
-      
+  <span class="tag" data-tag="회고록">
+    ✍ 회고록
+  </span>
 
-      
 
-      
 
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      <!--
-  <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
-      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
-    </a>
-  </li>
--->
-    </ul>
-  </div>
-</div>
+<div class="post-wrapper"
 
   
-  </div>
-
-
-
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title">Today I Learned</h1>
-    
-    
-
-
-<ul class="taxonomy__index">
+    data-pre-course
   
+    data-회고록
   
-    <li>
-      <a href="#2021">
-        <strong>2021</strong> <span class="taxonomy__count">15</span>
+>
+    <article class="post-preview">
+      <a href="/2021/02/17/preview.html">
+        <h2 class="post-title">✍ 코드스테이츠 pre-course 회고록</h2>
+        
+        <h3 class="post-subtitle">지난 한 달, 나의 회고록</h3>
+        
       </a>
-    </li>
-  
-</ul>
-
-
-
-
-  <section id="2021" class="taxonomy__section">
-    <h2 class="archive__subtitle">2021</h2>
-    <div class="entries-list">
+      <p class="post-meta">
+        2021-02-17
+      </p>
       
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/2021/01/TIL14/" rel="permalink">TIL #14
-</a>
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
       
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/23/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
       
+          <span class="tag" data-tag="회고록">✍ 회고록</span>
+          
       
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-
-
-반복문은 정말 셀 수 없을 정도로 복습을 많이 한 것 같다.
-
-아는 내용도 또 풀고, 모르는 내용은 그거에 몇 십번은 더 풀어보고 할 정도였다...
-
-오늘은 이번주 중에서 반복문이 핵심내용이였기 때문에 한 번 더 복습하려고 한다. 내 TIL에서 마지막 반복문 블로깅이 될 것 ...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL13/" rel="permalink">TIL #13
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-CourseHTML&amp;CSS</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/22/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">계산기 이쁘게 구현하기
-
-오늘은 계산기에 대해 기본적인 구현방법에 대해서 배워보고 직접 해보는 시간을 가졌다. 어느정도 할 줄을 알았기에 나는 빠르게 구현을 끝내고 CSS에 집중을 했다.
-
-
-많은 동기들이 계산기를 구현하느라 JS파일에만 집중을해서 대부분 동기들이 CSS부분은 건드...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL12/" rel="permalink">TIL #12
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-CourseHTML&amp;CSS</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/21/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. html 배운 내용 정리
-
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> html 기초 :
-
-
-
-
-
-
-외우자! <img class="emoji" title=":facepunch:" alt=":facepunch:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png" height="20" width="20"> HTML = 구조 CSS = 스타일 JS = 상호작용
-
-먼저, HTML은 구조를 만든다!
-
-즉, 공사를 하기전에 틀을 만들어 주는 것 인데, 이 틀을 대충 만들...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL11/" rel="permalink">TIL #11
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/20/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 반복문 for while
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> for, while :
-
-
-
-1-1 for loop 문법
-
-반복문은 반복할 조건을 초기화, 조건식, 증감문 순으로 넣어준다.
-
-
-  초기화 : 시작부분이라고도 표현할 수 있다. i = 0 // 0부터 시작하겠다.
-  조건...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL10/" rel="permalink">TIL #10
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/19/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 조건문
-
-  조건문 기초 :
-
-
-1. if…else if…문법
-
-if (truthy or falsy 한 값) {
-  //괄호안에 대한 결과값
-}
-else if (/*if안에 괄호가 falsy한 경우*/) {
-  //괄호안에 대한 결과값
-}
-else {
-  //if 와 else...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL9/" rel="permalink">TIL #9
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/18/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 변수와 타입
-
-
-  변수와 타입 기초 :
-
-
-1. 변수(variable)
-
-변수란, 프로그래밍의 세계에서는 이름(Label)이 붙은 값으로 정의된다.
-
-변수에 이름을 지어주고(선언) 값을 넣어준다(할당).
-
-let number = 1;      // 값이 숫자가 될 수도 있고...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL8/" rel="permalink">TIL #8
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/17/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. test 6번
-
-
-  test 6번문제 풀이 :
-
-
-피보나치 수열을 순차적으로 출력하는 클로저 형태의 함수를 작성해야 합니다.
-
-
-  주의 사항 :
-    
-      리턴되는 클로저 내부 함수(inner function)의 구현은 recursive 혹은 iterative한 ...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL7/" rel="permalink">TIL #7
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/16/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">test 2번
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20">test 2번문제 풀이 :
-
-
-수를 입력받아 각 자릿수를 모두 더한 값을 리턴해야 합니다.
-
-
-  주의 사항 :
-    
-      음수를 입력받은 경우, 첫번째 수는 음수로 계산
-      number 타입을 리턴
-    
-  
-  입출...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL6/" rel="permalink">TIL #6
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/15/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 함수 호이스팅 (Hoisting)
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 호이스팅은 말 그대로 끌어 올린 다는 것이다.
-
-
-자바스크립트에서 끌어 올리는 것은 변수 ‘선언’과 함수 ‘선언’ 을 끌어올리는 것이다.함수 호이스팅이 발생하는 원인은 자바스크립트의 변수 생성(Instantiat...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL5/" rel="permalink">TIL #5
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/14/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 유효성 검사
-
-
-  <img class="emoji" title=":point_right:" alt=":point_right:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png" height="20" width="20"> 예를들어 회원가입을 할 경우 조건에 맞게 반드시 형식을 입력해야 하는 경우, 유효성 검사가 필요하다.
-
-
-
-  코드를 보면서 설명
-
-
-// html
-<button id="btn-signup">회원가입</button></p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL4/" rel="permalink">TIL #4
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/13/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 재귀함수 15번
-
-
-  재귀함수 문제 :
-
-
-다차원 배열을 입력받아 1차원 배열로 변환하여 리턴
-
-
-  주의사항 :
-    
-      배열을 리턴
-      immutability
-    
-  
-  입출력 예시
-
-
-let output = flattenArr([[1], 2, ...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL3/" rel="permalink">TIL #3
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/12/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. shuffle 메서드 설명
-
-
-  shuffle 레퍼런스 설명 :
-
-
-아래 shuffle 레퍼런스 코드에 대해서 최대한 자세히 설명해주세요!
-
-
-  코드를 한 줄씩 설명해보세요. (코드의 각 키워드가 무슨 의미인지 한 번 되돌아봅시다.)
-  이 메서드의 작동 원리에 대해서 설...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL2/" rel="permalink">TIL #2
-</a>
-      
-    </h2>
-
-    
-		<p class="archive__item-excerpt"><i class="far fa-folder-open"></i> Pre-Course</p>
-	
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/11/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. 코드 변환(고차함수)
-
-
-  고차함수 문제 :
-
-
-아래 코드를 reduce메서드 한 번만 사용한 코드로 변경하여 스스로 작성하고, 직접 설명한 내용을 적어주세요.
-
-const filterMaped = arr.filter(x =&gt; x % 2 !== 0).map(x =&amp;gt...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/2021/01/TIL1/" rel="permalink">TIL #1
-</a>
-      
-    </h2>
-
-    
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/10/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">##드디어 깃블로그를 마치다.
-
-금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.
-
-아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..
-
-테마를 다운받고 레퍼지토리에 커밋하는건 어렵...</p>
-  </article>
-</div>
-
-      
-        
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/first-post/" rel="permalink">나의 첫 포스트
-</a>
-      
-    </h2>
-
-    
-<!-- 카테고리만 보여주는 코드 -->
-
-    <p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 01/09/2021 </p>
-<!-- 날짜만 보여주는 코드 -->
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          less than 1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">나의 첫 포스트라고 했지만 깃블로그를 위해 삽질을 3일 동안 했다.
-
-지우고 다시 깔고를 수십번 반복했다. 이 포스트 또한 또 지워질 수 도 있다.
-
-미칠 것 같다. 깃블로그 너무 어렵다.
-
-하지만 개발자가 되기 위해 하나의 시련이라고 생각한다…
-
-1일 1잔디를 위하여ㅠㅠ
-
-</p>
-  </article>
-</div>
-
-      
-    </div>
-    <a href="#page-title" class="back-to-top">Back to Top ↑</a>
-  </section>
-
-
+    </article>
+    <hr />
   </div>
-</div>
-    </div>
 
-    
-      <div class="search-content">
-        <div class="search-content__inner-wrap">
-<form class="search-content__form" onkeydown="return event.key != 'Enter';">
-    <label class="sr-only" for="search">
-      Enter your search term...
-    </label>
-    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term...">
-  </form>
-  <div id="results" class="results"></div>
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/16/TIL30.html">
+        <h2 class="post-title">📅 TIL #30</h2>
+        
+        <h3 class="post-subtitle">날씨 API</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-16
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-js
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/15/TIL29.html">
+        <h2 class="post-title">📅 TIL #29</h2>
+        
+        <h3 class="post-subtitle">재귀함수로 stringify-JSON 및 tree-UI 구현</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-15
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="js">Javascript</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/09/TIL28.html">
+        <h2 class="post-title">📅 TIL #28</h2>
+        
+        <h3 class="post-subtitle">언더바 part2</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-09
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/08/TIL27.html">
+        <h2 class="post-title">📅 TIL #27</h2>
+        
+        <h3 class="post-subtitle">언더바 part1</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-08
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-js
+  
+    data-HTML&CSS
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/06/TIL26.html">
+        <h2 class="post-title">📅 TIL #26</h2>
+        
+        <h3 class="post-subtitle">twittler 구현4 - 마무리</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-06
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="js">Javascript</span>
+          
+      
+      
+          <span class="tag" data-tag="HTML&CSS">HTML&CSS</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-js
+  
+    data-HTML&CSS
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/05/TIL25.html">
+        <h2 class="post-title">📅 TIL #25</h2>
+        
+        <h3 class="post-subtitle">twittler 구현3</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-05
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="js">Javascript</span>
+          
+      
+      
+          <span class="tag" data-tag="HTML&CSS">HTML&CSS</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-js
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/03/TIL24.html">
+        <h2 class="post-title">📅 TIL #24</h2>
+        
+        <h3 class="post-subtitle">DOM 정리</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-03
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="js">Javascript</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/02/TIL23.html">
+        <h2 class="post-title">📅 TIL #23</h2>
+        
+        <h3 class="post-subtitle"></h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-02
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/02/01/TIL22.html">
+        <h2 class="post-title">📅 TIL #22</h2>
+        
+        <h3 class="post-subtitle">고차 함수</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-02-01
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-HTML&CSS
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/31/Twittler2.html">
+        <h2 class="post-title">📅 TIL #21</h2>
+        
+        <h3 class="post-subtitle">twittler 목업 구현2</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-31
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="HTML&CSS">HTML&CSS</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-HTML&CSS
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/30/Twittler1.html">
+        <h2 class="post-title">📅 TIL #20</h2>
+        
+        <h3 class="post-subtitle">twittler 목업 구현1</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-30
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="HTML&CSS">HTML&CSS</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-HTML&CSS
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/28/CSS-Selector.html">
+        <h2 class="post-title">📅 TIL #19</h2>
+        
+        <h3 class="post-subtitle">CSS-Selector</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-28
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="HTML&CSS">HTML&CSS</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/27/git.html">
+        <h2 class="post-title">📅 TIL #18</h2>
+        
+        <h3 class="post-subtitle">git 간단한 명령어</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-27
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/26/TIL17.html">
+        <h2 class="post-title">📅 TIL #17</h2>
+        
+        <h3 class="post-subtitle">객체, 스코프와 클로져</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-26
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/25/TIL16.html">
+        <h2 class="post-title">📅 TIL #16</h2>
+        
+        <h3 class="post-subtitle"></h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-25
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/24/TIL15.html">
+        <h2 class="post-title">📅 TIL #15</h2>
+        
+        <h3 class="post-subtitle">0.1 + 0.2 === 0.3</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-24
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/23/TIL14.html">
+        <h2 class="post-title">📅 TIL #14</h2>
+        
+        <h3 class="post-subtitle">반복문</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-23
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-HTML&CSS
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/22/TIL13.html">
+        <h2 class="post-title">📅 TIL #13</h2>
+        
+        <h3 class="post-subtitle">계산기</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-22
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="HTML&CSS">HTML&CSS</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+    data-HTML&CSS
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/21/TIL12.html">
+        <h2 class="post-title">📅 TIL #12</h2>
+        
+        <h3 class="post-subtitle">HTML && CSS</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-21
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+      
+          <span class="tag" data-tag="HTML&CSS">HTML&CSS</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/20/TIL11.html">
+        <h2 class="post-title">📅 TIL #11</h2>
+        
+        <h3 class="post-subtitle">반복문</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-20
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/19/TIL10.html">
+        <h2 class="post-title">📅 TIL #10</h2>
+        
+        <h3 class="post-subtitle">조건문과 문자열</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-19
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/18/TIL9.html">
+        <h2 class="post-title">📅 TIL #9</h2>
+        
+        <h3 class="post-subtitle">변수와 타입</h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-18
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/13/TIL4.html">
+        <h2 class="post-title">📅 TIL #4</h2>
+        
+        <h3 class="post-subtitle"></h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-13
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/12/TIL3.html">
+        <h2 class="post-title">📅 TIL #3</h2>
+        
+        <h3 class="post-subtitle"></h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-12
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/11/TIL2.html">
+        <h2 class="post-title">📅 TIL #2</h2>
+        
+        <h3 class="post-subtitle"></h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-11
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+<div class="post-wrapper"
+
+  
+    data-TIL
+  
+    data-pre-course
+  
+>
+    <article class="post-preview">
+      <a href="/2021/01/10/TIL1.html">
+        <h2 class="post-title">📅 TIL #1</h2>
+        
+        <h3 class="post-subtitle"></h3>
+        
+      </a>
+      <p class="post-meta">
+        2021-01-10
+      </p>
+      
+      
+          <span class="tag" data-tag="TIL">📅 TIL</span>
+          
+      
+      
+          <span class="tag" data-tag="pre-course">pre-course</span>
+          
+      
+    </article>
+    <hr />
+  </div>
+
+
+
+
+
+<!-- Pager -->
+<!-- 
+
+<div class="clearfix">
+
+  
+
+  
+  <a class="btn btn-primary float-right" href="/posts/page2/">Older<span class="d-none d-md-inline"> Posts</span> &rarr;</a>
+  
+
 </div>
+
+ -->
+
 
       </div>
-    
-
-    <div id="footer" class="page__footer">
-      <footer>
-        <!-- start custom footer snippets -->
-
-<!-- end custom footer snippets -->
-        <div class="page__footer-follow">
-  <ul class="social-icons">
-    
-
-    
-      
-        
-          <li><a href="https://github.com/useonglee" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-        
-      
-        
-          <li><a href="mailto:useong0830@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
-        
-      
-    
-
-    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
-  </ul>
-</div>
-
-<div class="page__footer-copyright">© 2021 꿈을 기록하는 Blog. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
-
-      </footer>
     </div>
-
-    
-  <script src="/assets/js/main.min.js"></script>
+  </div>
 
 
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 
-<script src="/assets/js/lunr/lunr.min.js"></script>
-<script src="/assets/js/lunr/lunr-store.js"></script>
-<script src="/assets/js/lunr/lunr-en.js"></script>
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
 
 
 
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
 
 
 
-  </body>
+</body>
+
 </html>

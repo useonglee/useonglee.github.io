@@ -1,0 +1,139 @@
+I"
+&<h2 id="-코플릿-알고리즘-7번">👉 코플릿 알고리즘 7번</h2>
+
+<blockquote>
+  <p>function toObject(arr)</p>
+</blockquote>
+
+<hr />
+
+<p>내가 이 문제를 풀었음에도 불구하고 블로그에 적는 이유는</p>
+
+<p>문제가 어렵진 않았지만 나는 너무 어렵게 풀었고, Reference 코드는 엄청 쉽게 쓰여있기 때문이다.</p>
+
+<p>그래서 기록해두기 위해 블로깅을 하려고 한다!</p>
+
+<p><br /></p>
+
+<ul>
+  <li>
+    <p>문제 : 2차원 배열을 입력받아 각 배열을 이용해 객체를 리턴</p>
+  </li>
+  <li>
+    <p>주의사항 :</p>
+  </li>
+</ul>
+
+<ol>
+  <li>arr[i].length는 0 또는 2</li>
+  <li>중복되는 키의 경우, 초기의 값을 사용</li>
+  <li>빈 배열일 경우, 빈 객체를 리턴</li>
+</ol>
+
+<ul>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">make</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Ford</span><span class="dl">'</span><span class="p">],</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">model</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Mustang</span><span class="dl">'</span><span class="p">],</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">year</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">1964</span><span class="dl">'</span><span class="p">],</span>
+  <span class="p">[</span><span class="dl">'</span><span class="s1">make</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bill</span><span class="dl">'</span><span class="p">],</span>
+<span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">toObject</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">)</span> <span class="c1">// --&gt;</span>
+<span class="p">{</span>
+  <span class="nl">make</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Ford</span><span class="dl">'</span>
+  <span class="nx">model</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Mustang</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">year</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">1964</span><span class="dl">'</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>값을 저장해놓기 위해 빈 객체를 할당한다.</li>
+  <li>2차원 배열을 이중 반복문을 통해 모든 요소를 다 확인한다.</li>
+  <li>중복되는 요소(키 값)이 있는지, 있으면 undefined로 값을 없애준다.</li>
+  <li>i[0]은 key, i[1]은 value 값으로 할당한다.</li>
+  <li>객체의 형태로 만들어준다.</li>
+  <li>undefined 는 제거해준다 (빈 배열일 경우, 중복되는 요소가 있을 경우를 대비한다.)</li>
+  <li>저장되어 있는 객체를 반환한다.</li>
+</ol>
+
+<p><br />
+<br /></p>
+
+<ul>
+  <li>나의 code</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">toObject</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: 여기에 코드를 작성합니다.</span>
+
+  <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{};</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">key</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">key</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">value</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+
+    <span class="k">delete</span> <span class="nx">obj</span><span class="p">.</span><span class="kc">undefined</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>정말 길게도 썼다… 푸는데 오래 걸리진 않았지만 길게 작성하고 풀어서 그런지 쾌감은 짜릿했다!!:+1:</p>
+
+<p>그 다음은 레퍼런스 코드를 확인해보자…..</p>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>웬만하면 나도 쉽게 짜려고 노력했는데 이번 문제 만큼은 정말 길어졌던 것 같다…</p>
+
+<p>레퍼런스 코드를 보면서 다시 한 번 반성하게 되는 계기가 되었다 ㅜㅜㅜ 물론 풀었다는게 가장 중요하지만</p>
+
+<p>이제 풀었으니까 또 간략하게 쓰고 싶은 욕심(?) 이 생긴다… 욕심은 끝이 없는 것인가… 하하</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>:punch: <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>Javascript DOM</p>
+:ET

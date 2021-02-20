@@ -1,0 +1,44 @@
+I"<h2 id="드디어-깃블로그를-마치다">드디어 깃블로그를 마치다.</h2>
+
+<p>금요일 오후 1시부터 시작을해서 드디어 깃블로그를 어느정도 알게 된 것 같다.</p>
+
+<p>아직도 많이 미숙하지만 3일동안 삽질한 덕에 대충은 어떻게 돌아가는지 알게 되었다. 역시 삽질해봐야 알게 되는 것인가…..</p>
+
+<p>테마를 다운받고 레퍼지토리에 커밋하는건 어렵지않았다.</p>
+
+<p>하지만!!!!!!</p>
+
+<p>_conpig 파일을 수정하고 bundle exec jekyll serve 로 블로그를 수정하려고 하면 계속 오류가 났다.</p>
+
+<p>오류를 찾지못해서 레퍼지토리 자체를 삭제하고 다시 커밋하고를 수십번 반복한 것 같다. 삽질 그 자체였다.</p>
+
+<p>깃블로그 404 오류 떴을 때</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit --allow-empty -m 'Trigger rebuild'
+git push origin
+</code></pre></div></div>
+
+<p>이것도 몇 번을 했는지 모른다.. ㅠㅠㅠ</p>
+
+<p>깃허브 인증</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote set-url origin ~
+git push -u origin master
+</code></pre></div></div>
+
+<p>이 과정도 엄청 했던 것 같다……. ㅠㅠㅠㅠㅠㅠ</p>
+
+<p>그래도 삽질덕분에 대충은 알았으니.. 이제 좀 능숙해지고 싶지만.. 아직도 갈 길이 멀다..</p>
+
+<p>🙏 <strong>깃블로그를 수정하고 싶으면 꼭!!! 수정하기전에</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre></div></div>
+<p>부터 열고 시작하자!!</p>
+
+<p>이제는 오류나면 큰 일 난다.. 삭제하고 다시 다운받고 하기에는 먼 길을 왔다.</p>
+
+<p>깃블로그.. 진짜 코린이한테는 지옥 그 자체였지만 개발자로서 거쳐가야 하는 과정이라고 생각하고 참고 했다.</p>
+
+<p>앞으로 TIL 매일 써야지!!!</p>
+:ET

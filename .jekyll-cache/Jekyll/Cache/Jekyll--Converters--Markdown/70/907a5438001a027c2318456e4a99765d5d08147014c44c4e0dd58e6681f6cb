@@ -1,0 +1,74 @@
+I"3<center>
+Who am I? <br />
+
+<img src="https://user-images.githubusercontent.com/75570915/106154982-869ec080-61c3-11eb-9a3a-c387778c327f.jpg" width="50%" height="50%" />
+
+
+</center>
+
+<h2 id="hello-world-">hello world 🖐</h2>
+
+<h2 id="기록하며-성장하는-개발자--이우성--입니다">기록하며 성장하는 개발자 { 이우성 } 입니다.</h2>
+
+<!-- <img src="https://ghchart.rshah.org/e68805/hankyeolk" alt="hankyeolk's Github Contribution" /> -->
+
+<p style="display: block; margin-top: 0px; margin-bottom: 40px"> </p>
+
+<!-- #### 저는
+
+<p style="display: block; margin-top: 0px; margin-bottom: 12px" > </p>
+
+- 😆 웃으면서 즐겁게 나누는 대화가 모여 ☀️ 더 밝은 세상을 만들 수 있다고 생각합니다.
+- <mark style="background-color: #fff3bf"><b>☕️ 풍미있는 커피</b></mark>는 참지 못합니다. <mark style="background-color: #fff3bf"><b>🍺 뼈까지 시원해지는 맥주</b></mark>와 함께하는 🍗 맛있는 음식에는 돈을 아끼지 않습니다.
+- 약속을 소중하게 생각하고, 까먹지 않기 위해서 <mark style="background-color: #fff3bf"><b>꼼꼼하게 ✍️ 기록하는 습관</b></mark>이 있습니다.
+- 영원히 <mark style="background-color: #fff3bf"><b>🧙🏻‍♂️ 해리포터</b></mark>를 좋아할 예정이고, <mark style="background-color: #fff3bf"><b>베르나르 베르베르</b>의 상상력</mark>을 좋아합니다. <br />
+
+<hr />
+<p style="display: block; margin-top: 0px;margin-bottom: 40px" > </p> -->
+
+<h4 id="저는-이렇게-개발하고-있습니다">저는 이렇게 개발하고 있습니다.</h4>
+
+<p style="display: block; margin-top: 0px; margin-bottom: 12px"> </p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">useong_stacks</span> <span class="o">=</span> <span class="nx">stack</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">stack</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="na">개발_언어</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`Javascript, Typescript`</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="na">개발_환경</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`NPM, Webpack, Babel, ESLint, Jest`</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="na">Front_End</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`React, Vue, Redux, Styled-Components`</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="na">Back_End</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`Node.js, Express.js`</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="na">Database</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`MySQL, Sequelize, MongoDB, Mongoose`</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="na">Deploy</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`EC2, S3, RDS, Route53`</span><span class="p">;</span>
+
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">`Github, Notion, Slack, Sketch, Zeplin`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p style="display: block; margin-top: 0px; margin-bottom: 12px"> </p>
+
+<p style="display: block; margin-top: 0px;margin-bottom: 40px"> </p>
+
+<h4 id="저에게-자유롭게-연락주세요-코시국에서도-즐겁게-대화합시다-">저에게 자유롭게 연락주세요. 코시국에서도 즐겁게 대화합시다 😎</h4>
+
+<p style="display: block; margin-top: 0px; margin-bottom: 12px"> </p>
+
+<ul>
+  <li><a href="https://github.com/useonglee">🐈‍⬛ useonglee 깃허브</a> <br />
+<!-- - [👶🏼 개발자 준비생 시절 블로그](https://dddoublek.github.io/TIL) <br /> -->
+<!-- - [📖 개인 위키](https://www.notion.so/ddovblek/Javascript-Do-Something-d8d913babe0647e3ba507b05dbf66186) --></li>
+</ul>
+
+<p style="display: block; margin-top: 0px;margin-bottom: 40px"> </p>
+:ET

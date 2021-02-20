@@ -1,0 +1,35 @@
+I"�	<p><br /></p>
+
+<h2 id="01--02--03">0.1 + 0.2 === 0.3</h2>
+
+<p><code class="language-plaintext highlighter-rouge">0.1 + 0.2 === 0.3 // false</code> 에 대해서 나는 오늘 깨닫게 되었다.</p>
+
+<p>알고리즘만 풀고 자바스크립트에 대해 더 깊게 공부하지 않았던 탓에 오늘 깨달은 것 같다.</p>
+
+<p>그러면 <code class="language-plaintext highlighter-rouge">0.1 + 0.2 === 0.3</code> 은 왜 <strong>false</strong> 일까?</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">loh</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.3</span><span class="p">);</span> <span class="c1">// 0.4</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">);</span> <span class="c1">// 0.30000000000000004;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>자바스크립트에서는 실수를 부동소수점 방식으로 표현하는데 부동소수점은 실수를 정확히 표현할 수 없는 문제가 있다. 그래서 정확히 0.3이 아닌 0.30000000000000004가 나온다.</p>
+
+<p>0.30000000000000004 는 0.3 을 표현하기 위한 근삿값이다. 이렇게 실수를 근삿값으로 표현하면서 발생하는 문제를 부동소수점 반올림 오차(rounding error)라고 한다.</p>
+
+<p><br /></p>
+
+<p>그러면 true 값이 나오게 하려면 ? <strong><em>toFixed() 함수</em></strong>를 써주면 된다. 매개변수로 받은 숫자만큼의 소수자리까지 반올림해서 출력한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 0.3</span>
+</code></pre></div></div>
+
+<p>주말동안 이 내용에 대해서 찾아보면서 자바스크립트에 대해서 조금 더 알아가는 계기가 된 것 같다! 부동소수점에 대해서 알아보고 블로깅을 해보려고 했지만, 아직은 더 공부를 해봐야할 것 같다!</p>
+
+<blockquote>
+  <p>👊  <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>배열(array)</p>
+:ET

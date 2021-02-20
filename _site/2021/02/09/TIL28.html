@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #28 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/02/09/TIL28.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #28</h1>
+            
+            <h2 class="subheading">언더바 part2</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <p><br /></p>
+
+<h2 id="-sort-구현">👉 sort 구현</h2>
+
+<ul>
+  <li>문제 설명</li>
+</ul>
+
+<ol>
+  <li>_.sortBy는 배열의 각 요소에 함수 transform을 적용하여 얻은 결과를 기준으로 정렬합니다.</li>
+  <li>transform이 전달되지 않은 경우, 배열의 요소 값 자체에 대한 비교 연산자의 결과를 따릅니다.</li>
+  <li>예를 들어, number 타입간 비교는 대소 비교이고 string 타입간 비교는 사전식(lexical) 비교입니다.</li>
+  <li>세 번째 인자인 order는 정렬의 방향을 나타냅니다. 생략되거나 1을 입력받은 경우 오름차순, -1을 입력받은 경우 내림차순으로 정렬합니다.</li>
+</ol>
+
+<ul>
+  <li>힌트</li>
+</ul>
+
+<ol>
+  <li>Array.prototype.sort를 사용할 수 있습니다.</li>
+  <li>_.identity를 사용할 수 있습니다. (전달 인자를 그대로 반환하는 함수)</li>
+</ol>
+
+<p><br /></p>
+
+<p>이 문제는 함수 transform이 주어지면 함수에 맞게 정렬을 하는 sortBy라는 함수를 구현하는 문제였다. <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">실제 메소드 sort를 사용해서 구현할 수 있어서 편했으며</span> 이를 잘 활용해서 실제 sort 메소드처럼 구현하는 문제였다.</p>
+
+<p>나의 코드먼저 살펴보자!</p>
+
+<p><br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">_</span><span class="p">.</span><span class="nx">sortBy</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">transform</span><span class="p">,</span> <span class="nx">order</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//새로운 배열을 하나 복사해온다.</span>
+  <span class="kd">let</span> <span class="nx">newArr</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+  <span class="nx">order</span> <span class="o">=</span> <span class="nx">order</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="nx">transform</span> <span class="o">=</span> <span class="nx">transform</span> <span class="o">||</span> <span class="nx">_</span><span class="p">.</span><span class="nx">identity</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="nx">newArr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">order</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 오름 차순</span>
+      <span class="k">return</span> <span class="nx">transform</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">transform</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">?</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// 내림 차순</span>
+      <span class="k">return</span> <span class="nx">transform</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nx">transform</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">?</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+  <span class="k">return</span> <span class="nx">newArr</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<p>나는 이런식으로 언더바 sortBy를 구현하였다. 이 문제는 정말 각각 다른 코드들이 나온 것 같다.</p>
+
+<p>수도코드는 간단히 요약하자면.</p>
+
+<p>1.transform이라는 콜백함수가 있을 경우와 없을 경우로 먼저 나눠줘야 겠다는 생각을 했다.
+<br /></p>
+
+<p><strong>=&gt;</strong> 두번째 인자값에 transform이 undefined가 아니라면 콜백함수가 적용될 것이고, <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">undefined이거나 _.identity가 있다면</span> 반드시 _.identity(그대로 반환하는 함수)가 적용 될 것이다.</p>
+
+<p>2.그 다음 새로운 배열을 가져와서 새로운 배열을 정렬해주고 반환을 해줘야 겠다는 생각을 했다. (slice 사용, 빈 객체에다가 push를 하는 분도 계셨음)
+<br /></p>
+
+<p><strong>=&gt;</strong> 원본을 바꾸지 않은 상태에서 새로운 배열을 반환하기 위해서이다. 원본이 수정되면 코드를 써내려가는 과정에서 힘들어질까봐 그랬다.</p>
+
+<p>3.오름 차순, 내림차순 나눌 때가 사실 조금 해맸었는데 저 부분은 <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">sort mdn</span> 을 검색해서 자세히 읽어본 후에 적용할 수 있었다!!</p>
+
+<p>4.조건문을 최대한 간소화 하기 위해 <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">shortcut circuit</span> 을 썼는데, 이것도 알고는 있었지만 정확한 사용법을 모르고 있었다 ㅠㅠ</p>
+
+<p>5.다행히도 오늘 정규시간에 알려주셨고 바로 적용했더니, 적용한 후에 쉽게 풀 수 있었다!</p>
+
+<p>6.그 후에 코드를 조금 수정하였다. 확실히 <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">shortcut circuit</span> 를 사용하니 코드가 5줄 정도 줄었다.. (처음 적은 코드는 20줄 가까이는 됐을 것이다…)</p>
+
+<p>그 다음 레퍼런스 코드를 살펴보자!</p>
+
+<p><br />
+<br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">_</span><span class="p">.</span><span class="nx">sortBy</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">transform</span><span class="p">,</span> <span class="nx">order</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">order</span> <span class="o">=</span> <span class="nx">order</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="nx">transform</span> <span class="o">=</span> <span class="nx">transform</span> <span class="o">||</span> <span class="nx">_</span><span class="p">.</span><span class="nx">identity</span><span class="p">;</span>
+
+  <span class="kd">const</span> <span class="nx">arrCloned</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">arrCloned</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">transform</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">transform</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">order</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">order</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>정말 간결했다… 내 코드의 몇 줄을 1줄로 줄여버리는 마법… 역시 대단하다..</p>
+
+<p>항상 보고 반성하지만… 왜 항상 나는 코드를 간결하게 짜기는 힘든걸까 ㅜㅜ</p>
+
+<p>코드를 보고 “아~…. 이렇게 하면 되는 구나” 하고 바로 이해는 하는데</p>
+
+<p>문제를 풀 당시에는 전~~~혀 생각이 안난다. 일단 풀고 봐야하니까.. 언젠간 더 잘해지면 간결한 코드도 짤 수 있을거라고 생각한다.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="-sort-예제">👉 sort 예제</h2>
+
+<blockquote>
+  <h2 id="sort-란">sort 란?</h2>
+</blockquote>
+
+<p><strong><em>sort 란?</em></strong></p>
+
+<p><span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">배열의 요소를 적절한 위치에 정렬한 후</span> 그 배열을 반환하는 메소드</p>
+
+<p>확실히 sort함수는 예제코드를 봐야 이해가 된다.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <h2 id="sort-타입마다-정렬">sort 타입마다 정렬</h2>
+</blockquote>
+
+<ul>
+  <li><strong>문자 정렬</strong></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">alpa</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">d</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="nx">alpa</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span> <span class="c1">// ["a", "b", "c", "d", "e"]</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>숫자 정렬</strong></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+
+<span class="c1">// 오류</span>
+<span class="nx">number</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span> <span class="c1">// 숫자에는 적용되지 않음 (ASCII 문자 순서로 정렬되어 있기 때문이다.)</span>
+
+<span class="c1">// 오름 차순</span>
+<span class="nx">number</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">});</span> <span class="c1">// 1, 2, 3, 4, 5, 6</span>
+
+<span class="c1">// 내림 차순</span>
+<span class="nx">number</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">;</span>
+<span class="p">});</span> <span class="c1">// 6, 5, 4, 3, 2, 1</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>객체 정렬</strong></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">whoAmI</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">우성</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">28</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">코딩</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">40</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">깃블로그</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">재밌어요</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">99</span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="cm">/* 이름순 */</span>
+<span class="nx">whoAmI</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 오름차순</span>
+  <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="p">?</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// 깃블로그, 우성, 재밌어요, 코딩</span>
+<span class="p">});</span>
+
+<span class="nx">whoAmI</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 내림차순</span>
+  <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="p">?</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="nx">a</span><span class="p">.</span><span class="nx">name</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// 코딩, 재밌어요, 우성, 깃블로그</span>
+<span class="p">});</span>
+
+<span class="cm">/* 나이순 */</span>
+<span class="nx">whoAmI</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 오름차순</span>
+  <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">age</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
+  <span class="c1">// 1, 28, 40, 99</span>
+<span class="p">});</span>
+
+<span class="nx">whoAmI</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 내림차순</span>
+  <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">age</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">age</span><span class="p">;</span>
+  <span class="c1">// 99, 40, 28, 1</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><br />
+정렬할 Array의 요소의 개수가 2개 미만일 경우 <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">‘sort is not a function’</span> 오류가 난다.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="-short-circuit-">👉 short-circuit ?</h2>
+
+<p>오늘 논리연산자 OR || 에 대해 배웠기 때문에, 블로깅을 해볼 것 이다!
+<br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">true</span> <span class="o">||</span> <span class="kc">true</span><span class="p">;</span>
+<span class="c1">// true</span>
+
+<span class="kc">true</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span>
+<span class="c1">// true;</span>
+
+<span class="kc">false</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span>
+<span class="c1">// false</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>자바스크립트 논리 연산자에는 두가지 중요한 특성이 있다.</p>
+
+<p>첫째, <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">왼쪽부터 오른쪽 방향으로</span> evalutae를 한다.<br />
+둘째, <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">만약 첫번째 피연산자 함수가 true이면</span> 숏서킷은 두번째 피연산자 함수를 확인조차 하지 않는다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">true</span> <span class="o">||</span> <span class="p">????</span>
+<span class="c1">//true</span>
+</code></pre></div></div>
+
+<p>그러면 아래 예제코드를 보면서 이해를 해 보자!</p>
+
+<p>객체 내부에는 name과 age가 있다. 하지만 객체 whoAreYou의 job을 알아보고자 할때,
+<br /></p>
+
+<p>문제는 jop이라는 key값이 존재하는지 여부를 알지 못한다는 것이다. 이때 ||와 숏서킷을 사용하여 이문제를 해결할 수 있다.
+<br /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">whoAreYou</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Useong</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">28</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">whoAreYou</span><span class="p">.</span><span class="nx">job</span> <span class="o">||</span> <span class="dl">"</span><span class="s2">unemployed</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// 'unemployed'</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>whoAreYou.job이 존재하지 않으면 <span style="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">undefined 를 반환한다.</span> undefined는 거짓 값이다.</p>
+
+<p>그렇다면 여기서 ||의 다른 부분에 있는 value값이 무엇이든 그곳에 있는 값을 반환할 것이다.
+<br />
+<br /></p>
+
+<blockquote>
+  <h2 id="또-다른-예제">또 다른 예제</h2>
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">e</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">||</span> <span class="nx">b</span> <span class="o">||</span> <span class="nx">c</span> <span class="o">||</span> <span class="nx">d</span> <span class="o">||</span> <span class="nx">e</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span> <span class="c1">// ???</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>정답은??</p>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<ul>
+  <li>답안</li>
+</ul>
+
+<p>정답은 7이다!!</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">//  undefined (falsy value)</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// null (falsy value)</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span> <span class="c1">//  undefined (falsy value)</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">//  number (NOT falsy)</span>
+<span class="kd">const</span> <span class="nx">e</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// assigment short circuits before reaching here</span>
+
+<span class="kd">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">||</span> <span class="nx">b</span> <span class="o">||</span> <span class="nx">c</span> <span class="o">||</span> <span class="nx">d</span> <span class="o">||</span> <span class="nx">e</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span> <span class="c1">// 7</span>
+</code></pre></div></div>
+
+<p>숏서킷 개념이 헷갈리면 다시 이걸 보면서 이해하면 좋을 것 같다!</p>
+
+<p>오늘 과제도 제 때 잘 끝내서 한결 기분이 좋은 하루다~!</p>
+
+<p>이렇게 언더바 스프린트도 끝이났다!!!:punch: :punch: :punch:</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>설날 연휴 동안 프로그래머스 1단계 다 풀기!! (기회되면 2단계도 풀기)</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/02/08/TIL27.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #27">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/02/15/TIL29.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #29">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #26 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="👉 트위틀러 트윗 추가하기!">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/02/06/TIL26.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #26</h1>
+            
+            <h2 class="subheading">twittler 구현4 - 마무리</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=js">
+                <span class="tag">Javascript</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=HTML&CSS">
+                <span class="tag">HTML&CSS</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 id="-트위틀러-트윗-추가하기">👉 트위틀러 트윗 추가하기!</h2>
+
+<p><br /></p>
+
+<center><img src="https://user-images.githubusercontent.com/75570915/107114791-073c7b80-68ac-11eb-8f4d-fe95556c895e.png" width="130%" height="130%" />
+</center>
+
+<p><br />
+<br /></p>
+
+<p>오늘은 트위틀러를 어떻게 구현했는지 간단하게 블로깅할 예정이다.</p>
+
+<p>먼저 트윗을 추가하는 기능을 구현했다.</p>
+
+<p>👇👇👇👇👇</p>
+
+<center><img src="https://user-images.githubusercontent.com/75570915/107114745-ba58a500-68ab-11eb-8663-b2e646029f9b.gif" width="130%" height="130%" />
+</center>
+
+<blockquote>
+  <p>트윗 추가 기능</p>
+</blockquote>
+
+<hr />
+
+<p>트윗추가는 트윗버튼에 onclick 함수를 만들어서 <strong>객체를 만들고 그 객체를 데이터 배열에 넣어주는 식</strong>으로 구현을 했다.</p>
+
+<p>배열에 unshift를 해서 맨 위에서 보여줄 수 있었다.</p>
+
+<p>그 후, remove()를 활용해 배열을 전부 지웠다가 다시 목록을 보여주는 함수를 실행시켰다.<br />
+(forEach()를 활용해 요소들을 자동으로 만들어주는 함수를 이미 구현해놨음)</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">tweetBtn</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">트윗을 추가합니다!</span><span class="dl">"</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">tweetObj</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">// 트윗을 저장할 공간을 만든다.</span>
+  <span class="nx">tweetObj</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">나는 우성</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nx">tweetObj</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="nx">userInputText</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+  <span class="nx">tweetObj</span><span class="p">.</span><span class="nx">create_at</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">format</span><span class="p">();</span> <span class="c1">// 시간 함수 미리 만들어 놓음</span>
+
+  <span class="nx">DATA</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">tweetObj</span><span class="p">);</span> <span class="c1">// 맨 첫번째 트윗으로 보여주기 위해 unshift 사용</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">DATA</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 지구 끝까지 늘어나는게 싫었음</span>
+    <span class="nx">DATA</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">removeTweet</span><span class="p">();</span> <span class="c1">// 미리 만들어 놓은, 모든 요소를 지우는 함수</span>
+  <span class="nx">printComments</span><span class="p">();</span> <span class="c1">// 미리 만들어 놓은, forEach를 활용해 모든 요소를 다시 불러옴</span>
+
+  <span class="nx">userInputText</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span> <span class="c1">// 트윗을 보내고 입력칸은 다시 공백으로 만듬</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>이런식으로 트윗버튼을 클릭했을 때 트윗이 추가되도록 구현을 했다!</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>필터링 기능</p>
+</blockquote>
+
+<hr />
+
+<p><strong><em>트위터를 클릭하면 <u>해당 트위터의 트윗만</u> 보여준다!</em></strong></p>
+
+<p>👇👇👇👇👇</p>
+
+<center><img src="https://user-images.githubusercontent.com/75570915/107114759-d3615600-68ab-11eb-8bde-2aae444d6a8e.gif" width="130%" height="130%" />
+</center>
+
+<p><br />
+<br /></p>
+
+<p>필터링을 구현할때가 사실 가장 애먹었었는데…ㅋㅋㅋㅋㅋ</p>
+
+<p>필터함수를 따로 만들어주고 이벤트함수에 필터함수를 넣어주는 식으로 구현했다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">listArr</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// 필터링을 담아주기 위해 만듬</span>
+
+<span class="kd">function</span> <span class="nx">filterList</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 필터링 함수</span>
+  <span class="kd">let</span> <span class="nx">targetUser</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">textContent</span><span class="p">;</span>
+  <span class="nx">listArr</span> <span class="o">=</span> <span class="nx">DATA</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">el</span> <span class="o">=&gt;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">user</span> <span class="o">===</span> <span class="nx">targetUser</span><span class="p">);</span>
+
+  <span class="nx">removeTweet</span><span class="p">();</span>
+  <span class="nx">changeList</span><span class="p">(</span><span class="nx">listArr</span><span class="p">);</span> <span class="c1">// 필터링된 요소들을 보여준다.</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">changeList</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">list</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">printComment</span><span class="p">);</span> <span class="c1">// printComment 함수안에 addfilterList() 를 실행시킴</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">addfilterList</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">userList</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.userName</span><span class="dl">"</span><span class="p">);</span>
+  <span class="c1">//이름을 클릭했을 때 이벤트가 발생되야 하므로 이름을 유사배열로 만들어준다.</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">userList</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//유사배열 반복문</span>
+    <span class="nx">userList</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="nx">filterList</span><span class="p">);</span> <span class="c1">//모든요소에 이벤트 함수 부여</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>나는 이런식으로 구현을 해봤다!! :+1:</p>
+
+<p>이번 트위틀러 과제도 저번 계산기랑 똑같이 발표하고 싶은 사람을 뽑고 다른 사람들의 코드 공유가 있었다.</p>
+
+<p>정말 다 다른 코드들이었고, 각자 자신만의 코드와 css가 돋보여서 좋았다!!</p>
+
+<p>나도 발표를 신청했지만 수업 정규시간이 끝난 상태에서 내 차례가 와서 짧게 하고 끝냈다 ㅜㅜ</p>
+
+<p>짧게 발표한 탓에 많이 아쉬웠다. 자랑하고 싶은게 많았지만 참았다..</p>
+
+<p><br /></p>
+
+<p>이로써 트위틀러 스프린트도 끝!!</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>언더바 (메소드 구현)</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/02/05/TIL25.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #25">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/02/08/TIL27.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #27">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

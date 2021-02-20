@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    📅 TIL #14 - 꿈을 기록하는 Blog
+    
+  </title>
+
+  <meta name="description" content="반복문은 정말 셀 수 없을 정도로 복습을 많이 한 것 같다.">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- google analytics setting -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-134593008-1");
+  </script>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://useong.github.io/2021/01/23/TIL14.html">
+  <link rel="alternate" type="application/rss+xml" title="꿈을 기록하는 Blog" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">꿈을 기록하는 Blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/img/posts/post-TIL.png')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>📅 TIL #14</h1>
+            
+            <h2 class="subheading">반복문</h2>
+            
+            <!-- <span class="meta">
+              <a href="#">useonglee</a>
+              
+            </span> -->
+            <div class="tag-wrapper">
+              
+              
+              
+              <a href="/posts/?tag=TIL">
+                <span class="tag">📅 TIL</span>
+              </a>
+              
+              
+              
+              <a href="/posts/?tag=pre-course">
+                <span class="tag">pre-course</span>
+              </a>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <p><br />
+<br /></p>
+<center>
+반복문은 정말 셀 수 없을 정도로 복습을 많이 한 것 같다.<br />
+
+아는 내용도 또 풀고, 모르는 내용은 그거에 몇 십번은 더 풀어보고 할 정도였다...<br />
+
+오늘은 이번주 중에서 반복문이 핵심내용이였기 때문에 한 번 더 복습하려고 한다.<br /> 내 TIL에서 마지막 반복문 블로깅이 될 것 같다.
+
+</center>
+
+<p><br /></p>
+
+<h2 id="반복문-기초-알고리즘">반복문 기초 알고리즘</h2>
+
+<blockquote>
+  <h2 id="-while을-사용해서-홀수-반복하기">👉 while을 사용해서 홀수 반복하기</h2>
+</blockquote>
+
+<ul>
+  <li>
+    <p>주의사항 : String 타입으로 리턴</p>
+  </li>
+  <li>
+    <p>입출력 예시</p>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">makeOddDigits</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; "135"</span>
+
+<span class="nx">output</span> <span class="o">=</span> <span class="nx">makeOddDigits</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; "13579"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>문자열 숫자를 넣어 줄 빈 문자열 할당</li>
+  <li>num의 숫자만큼 반복되어야 하므로 count를 한다.</li>
+  <li>홀수인지 여부를 판단하기 위해 i를 할당한다.</li>
+  <li>홀수이면 빈 문자열에 넣어준다.</li>
+  <li>빈 문자열 리턴</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// num의 숫자가 count이기 때문에</span>
+
+<span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;=</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// += 2 를 하게 되면 홀수만 입력된다.</span>
+
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="-반복문을-이용해서-repeat-구현">👉 반복문을 이용해서 repeat() 구현</h2>
+</blockquote>
+
+<p>특정 문자(from)가 다른 문자 (to)로 바뀐 문자을 리턴해야 한다.</p>
+
+<p>repeat() 메서드 구현</p>
+
+<ul>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">replaceAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">hekko</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">k</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; 'hello'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>값을 저장할 빈 문자열 할당</li>
+  <li>반복문으로 문자열을 순회하면서 특정 문자를 만나면 빈 문자열에 다른 문자를 넣어준다.</li>
+  <li>그렇지않으면, 일반 문자를 넣어준다.</li>
+  <li>빈 문자열 리턴</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="k">from</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">result</span> <span class="o">+=</span> <span class="nx">to</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">result</span> <span class="o">+=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h2 id="-이중-반복문-사용해서-문자열-반복">👉 이중 반복문 사용해서 문자열 반복</h2>
+</blockquote>
+
+<p>문자열을 입력받아 해당 문자열을 처음부터 한 글자씩 다시 작성해야 한다.</p>
+
+<ul>
+  <li>주의사항 :</li>
+</ul>
+
+<ol>
+  <li>이중 반복문을 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">str.slice, str.substr, str.substring</code> 사용 금지</li>
+</ol>
+
+<ul>
+  <li>입출력 예시</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">makeMarginalString</span><span class="p">(</span><span class="dl">"</span><span class="s2">abc</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; 'aababc'</span>
+
+<span class="nx">output</span> <span class="o">=</span> <span class="nx">makeMarginalString</span><span class="p">(</span><span class="dl">"</span><span class="s2">Useong</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; 'UUsUseUseoUseonUseong'</span>
+
+<span class="nx">output</span> <span class="o">=</span> <span class="nx">makeMarginalString</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// --&gt; ''</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>값을 저장해 줄 빈 문자열 할당</li>
+  <li>이중 반복문으로 문자열을 순회</li>
+  <li>두번째 반복문은 i까지 순회한다. (이중 반복문의 특성을 활용)</li>
+  <li>빈 문자열에는 j만 값을 넣어준다.</li>
+  <li>값을 저장했던 문자열 리턴</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">result</span> <span class="o">+=</span> <span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이로써 내 마지막 반복문 블로깅은 끝이 났다!! ✌</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>(주말동안) 이번주 배운 내용 중에 부족한 부분 찾아보기!</p>
+
+        
+
+        <hr>
+
+          <script src="https://utteranc.es/client.js"
+            repo="useonglee/useonglee.github.io"
+            issue-term="pathname"
+            label="comments"
+            theme="boxy-light"
+            crossorigin="anonymous"
+            async>
+            </script>
+        <div class="clearfix">
+
+          
+          <a class="btn btn-primary float-left"
+            href="/2021/01/22/TIL13.html" data-toggle="tooltip"
+            data-placement="top" title="📅 TIL #13">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/2021/01/24/TIL15.html"
+            data-toggle="tooltip" data-placement="top" title="📅 TIL #15">Next<span
+              class="d-none d-md-inline">
+              Post</span> &rarr;</a>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:useong0830@gmail.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/useonglee">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://instagram.com/">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; useonglee 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/tags.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134593008-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134593008-1');
+</script>
+
+
+
+</body>
+
+</html>

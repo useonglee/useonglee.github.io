@@ -1,0 +1,99 @@
+I"<h2 id="1-반복문-for-while">1. 반복문 for while</h2>
+<blockquote>
+  <p>:point_right: for, while :</p>
+</blockquote>
+
+<p><br />
+<strong>1-1 for loop 문법</strong></p>
+
+<p>반복문은 반복할 조건을 <strong><em>초기화</em>, <em>조건식</em>, <em>증감문</em></strong> 순으로 넣어준다.</p>
+
+<ol>
+  <li>초기화 : 시작부분이라고도 표현할 수 있다. <code class="language-plaintext highlighter-rouge">i = 0 // 0부터 시작하겠다.</code></li>
+  <li>조건식 : 보통 언제까지 반복하겠다. 이런식으로 쓰인다. <code class="language-plaintext highlighter-rouge">i &lt;= 5</code>라고 하면 0 부터 0, 1, 2, 3, 4, 5 를 돌게 된다. ‘몇 번 반복하겠다’ 라는 뜻으로도 쓰인다.</li>
+  <li>증감문 : <code class="language-plaintext highlighter-rouge">i++ , i+=2</code> 이런식으로 i 가 1씩 증가할꺼냐, 2씩증가할꺼냐 반대로 감소해주는 방식도 있다.</li>
+</ol>
+
+<p>기본적인 문법을 알아보았으니, 간단한 문제를 예시로 들어보자!:facepunch:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// num = 3</span>
+
+<span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">=</span> <span class="nx">sum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="c1">// 6 </span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>이 코드가 바로 반복문의 기초라고 할 수 있다!  i는 0부터 num 까지 하나씩 순회를 한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">i = 0</span><span class="dl">'</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="c1">// 0</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">i = 1</span><span class="dl">'</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="c1">// 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">i = 2</span><span class="dl">'</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="c1">// 3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">i = 3</span><span class="dl">'</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="c1">// 6</span>
+</code></pre></div></div>
+<p>이런식으로 1씩 순회를 하면서 조건에 만족한 값을 낸다고 보면 된다.</p>
+
+<p><br />
+<br /></p>
+
+<p><strong>1-2 while loop 문법</strong></p>
+
+<p>for loop와 큰 차이는 없는데, 다만 구조적으로 차이가 있다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이렇게 보면 언제 for loop를 사용하고, 언제 while loop를 사용하지? 라고 생각할 수 있지만, 간단한 기준점이 있다.</p>
+
+<p><strong><em>만약 내가 언제, 어디까지 반복을 해줘야될지 모르겠다?</em></strong> =? <u>while loop</u></p>
+
+<p><strong><em>언제까지 반복해야 되는지 명료하게 나타낸다</em></strong> =&gt; <u>for loop</u></p>
+
+<p><br />
+<br /></p>
+
+<h2 id="2-double-for-loop-문법">2. double for loop 문법</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">abc</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// i와 j가 어떻게 반복하는지 파헤쳐 보자! </span>
+
+<span class="nx">i</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">&lt;</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">a</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">b</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">c</span>
+<span class="c1">// j가 다 돌았으니까 다시 i 부터</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="nx">b</span> <span class="o">&lt;</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">a</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">b</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">c</span>
+<span class="c1">// j가 다 돌았으니까 다시 i 부터</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="nx">c</span> <span class="o">&lt;</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">a</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">b</span>
+<span class="nx">j</span> <span class="o">=</span> <span class="nx">c</span>
+</code></pre></div></div>
+
+<p>이 코드만 잘 이해해도 이중 for문은 충분히 이해가 될 것이라고 생각된다!</p>
+
+<blockquote>
+  <p>👊 <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>html, css 기초</p>
+:ET

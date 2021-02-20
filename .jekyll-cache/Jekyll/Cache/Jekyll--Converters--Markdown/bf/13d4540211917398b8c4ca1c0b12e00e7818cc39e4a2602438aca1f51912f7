@@ -1,0 +1,144 @@
+I"i%<h2 id="1-코드-변환고차함수">1. 코드 변환(고차함수)</h2>
+
+<blockquote>
+  <p>고차함수 문제 :</p>
+</blockquote>
+
+<p>아래 코드를 <strong>reduce메서드 한 번만 사용한 코드로 변경하여</strong> 스스로 작성하고, 직접 설명한 내용을 적어주세요.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">filterMaped</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filterMaped</span><span class="p">);</span> <span class="c1">// [2, 6, 10]</span>
+</code></pre></div></div>
+
+<p>reduce를 사용한 코드로 변경하기에 앞서 나는 먼저 어떤 배열이었길래 콘솔로그에 [2, 4, 10]이라는 배열이 찍혔는지를 생각 해 보았다.</p>
+
+<p>필터와 맵을 거쳐간 과정을 보니 arr = [1, 2, 3, 4, 5] 라고 짐작한다.</p>
+
+<ul>
+  <li>pseudocode (수도코드)</li>
+</ul>
+
+<ol>
+  <li>reduce(function (acc, cur)) 에서 acc(누적값) 과 cur(현재값) 그리고 초기값을 어떻게 설정해줄지 생각해본다.</li>
+  <li>값이 나올 때 마다 값을 넣어줄 빈 배열을 할당한다.</li>
+  <li>초기값을 0으로 설정하고 cur이 홀수이면 cur * 2 를 해준다.</li>
+  <li>cur을 빈 배열에 push 해주면서 누적값을 undefined로 만든다.</li>
+  <li>빈 배열을 리턴(반환) 한다.</li>
+</ol>
+
+<ul>
+  <li>code</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">resultArr</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">cur</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">resultArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cur</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>해설</li>
+</ul>
+
+<p>디버깅을 해보면 알겠지만 acc ,cur 순으로 적어보면</p>
+
+<ol>
+  <li>0, 1</li>
+  <li>undefined, 2</li>
+  <li>undefined, 3</li>
+  <li>undefined, 4</li>
+  <li>undefined, 5</li>
+</ol>
+
+<p>이런식으로 값이 들어가는걸 알 수 있다. 나는 누적값을 적용시키지 않고 cur(현재값)만 빈 배열에 push를 해주는 식으로 reduce코드로 변경시켜봤다. 반복문과 비슷한 형태로 만들어보았다.</p>
+
+<p>이 공부를 통해 나는 reduce 메서드는 확실히 배열의 요소들을 하나씩 돌며(반복문과 비슷하다) 이전 콜백의 리턴값과 현재 콜백의 리턴값을 가지고 활용하기에 유리한 메서드라고 생각했다.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="2-반복문-18번">2. 반복문 18번</h2>
+
+<blockquote>
+  <p>반복문 문제 :</p>
+</blockquote>
+
+<p>수를 입력받아 2부터 해당 수까지의 소수(prime number)들을 리턴해야 합니다.</p>
+
+<ul>
+  <li>
+    <p>주의사항 : 이중 반복문을 사용해야 합니다.</p>
+  </li>
+  <li>
+    <p>입출력 예시</p>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">listPrimes</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span> <span class="c1">// ---&gt; '2-3-5-7-11-13-17'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>pseudocode(수도코드)</li>
+</ul>
+
+<ol>
+  <li>소수 개념 파악 - 1과 자기자신을 제외하고 나누어 떨어지면 안된다.</li>
+</ol>
+
+<ul>
+  <li>2부터 N-1까지의 수 중에서 2의 배수를 모두 체로 거르고 남은 숫자들 중에서 3의 배수로 거르고를 반복해서 제곱근N 까지 나눠서 걸러지지 않고 남은 수들이 모두 소수가 됩니다.</li>
+</ul>
+
+<ol>
+  <li>첫번째 반복문을 2부터 시작하여 2씩 증가하면서 순회를 한다.</li>
+  <li>true 값을 넣어서 이상이 없으면 계속 순회하도록 만든다.</li>
+  <li>두번째 반복문은 본격적으로 소수를 찾아야하기때문에 제곱근까지만 순회하도록 만든다.</li>
+  <li>반복문을 2씩 증가시켰기 때문에 2의 배수를 제외시켰고, 그다음 i(3의 배수) 를 j 로 나누면서 나머지 소수에 부합하지 않은 것들을 거른다.</li>
+  <li>마지막으로, 첫번째 반복문에서 거르고 남겨진 값이 true값이면 소수이기 때문에 소수이면 알맞는 형식으로 리턴한다.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">isReady</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">isPrime</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">isPrime</span><span class="p">;</span> <span class="nx">j</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="nx">j</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">isReady</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isReady</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">result</span><span class="p">}</span><span class="s2">-</span><span class="p">${</span><span class="nx">i</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>이러한 식으로 코드를 만들어 볼 수 있다.</p>
+
+<p>내가 생각했을 때, 반복문 알고리즘 중에서는 가장 어려웠던 문제로 꼽힌다.</p>
+
+<p>소수를 걸러내야 하는 점, 그리고 이중 반복문에 익숙하지 않았던 점에서 많이 힘들었다.</p>
+
+<p>true값을 for문 밖에다가 할당해서 삽질을 했었고, 제곱근 값을 구해놓고 parseInt를 쓰지않아서 삽질을 많이 했었다. 처음 문제를 봤을 때는 어떻게 접근해야 되는지 조차 몰랐던 것 같다.</p>
+
+<p>이제는 여러번 복습끝에 완전히 나의 코드로 만들어냈다. 이 문제만 완벽하게 파악한다면 다른 이중 반복문 문제를 푸는데는 지장이 없을 것으로 여겨진다.</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>👊  <strong>내일의 TIW(today I Will)</strong></p>
+</blockquote>
+
+<p>배열, 객체, 고차함수!</p>
+:ET
