@@ -1,4 +1,4 @@
-![메인 이미지](./img/blog-banner.png)
+![blog-banner](https://user-images.githubusercontent.com/75570915/108599971-9df25780-73d7-11eb-925b-d1b0b8621595.png)
 <br />
 
-# **즐거움을 가장 큰 가치로 두는, 프론트엔드 개발자 강한결입니다.**
+# **코드스테이츠 FULL IM 27기 수강생 이우성입니다.**
