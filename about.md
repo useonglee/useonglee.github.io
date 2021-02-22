@@ -15,13 +15,41 @@ background: "/img/about-banner.png"
 
 <br/>
 
-## hello world 🖐
+## 🤗 Who Am I ?
 
-## 기록하며 성장하는 개발자 { 이우성 } 입니다.
+<br/>
+
+## 새로 만들어 보고 싶고, 기록하는 개발자 꿈나무🌱
+
+<br/>
+
+> 이전에는?
+---
+
+중국대학교 광고학과를 졸업하고 상해에서 중국 마케팅 기업에서 근무
+
+<br/>
+
+> 현재는?
+---
+
+개발자가 되기 위해 <span style ="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">Code States 부트캠프</span> 수강 중 (IM 27기)
+
+<br/>
+<br/>
+
+> 🎯 `Achievement Goals`
+---
+
+* 매일 TIL을 적고, 기록하며 성장하자!
+
+* 다양한 사람들을 만나면서 커뮤니케이션을 더 활발하게!
+
+* 프로젝트 협업 능력이 뛰어난 개발자가 되자!
 
 <!-- <img src="https://ghchart.rshah.org/e68805/hankyeolk" alt="hankyeolk's Github Contribution" /> -->
 
-<p style="display: block; margin-top: 0px; margin-bottom: 40px" > </p>
+<!-- <p style="display: block; margin-top: 0px; margin-bottom: 40px" > </p> -->
 
 <!-- #### 저는
 
@@ -35,7 +63,7 @@ background: "/img/about-banner.png"
 <hr />
 <p style="display: block; margin-top: 0px;margin-bottom: 40px" > </p> -->
 
-#### 저는 이렇게 개발하고 있습니다.
+<!-- #### 저는 이렇게 개발하고 있습니다.
 
 <p style="display: block; margin-top: 0px; margin-bottom: 12px" > </p>
 
@@ -68,14 +96,18 @@ const useong_stacks = stack => {
 
 <p style="display: block; margin-top: 0px; margin-bottom: 12px" > </p>
 
-<p style="display: block; margin-top: 0px;margin-bottom: 40px" > </p>
+<p style="display: block; margin-top: 0px;margin-bottom: 40px" > </p> -->
 
-#### 저에게 자유롭게 연락주세요. 😎
+<br/>
+<br/>
 
-<p style="display: block; margin-top: 0px; margin-bottom: 12px" > </p>
+#### Social
 
-- [🐈‍⬛ useonglee 깃허브](https://github.com/useonglee) <br />
+<!-- <p style="display: block; margin-top: 0px; margin-bottom: 12px" > </p> -->
+
+- Github : [https://github.com/useonglee](https://github.com/useonglee) <br />
+
 <!-- - [👶🏼 개발자 준비생 시절 블로그](https://dddoublek.github.io/TIL) <br /> -->
 <!-- - [📖 개인 위키](https://www.notion.so/ddovblek/Javascript-Do-Something-d8d913babe0647e3ba507b05dbf66186) -->
 
-<p style="display: block; margin-top: 0px;margin-bottom: 40px" > </p>
+<!-- <p style="display: block; margin-top: 0px;margin-bottom: 40px" > </p> -->
