@@ -17,14 +17,12 @@
 <br/>
 
 > 이전에는?
----
 
 중국대학교 광고학과를 졸업하고 상해에서 중국 마케팅 기업에서 근무
 
 <br/>
 
 > 현재는?
----
 
 개발자가 되기 위해 <span style ="background-color:#4e5357; color:#f2b810; border-radius:4px; padding:2px">Code States 부트캠프</span> 수강 중 (IM 27기)
 
@@ -32,7 +30,6 @@
 <br/>
 
 > 🎯 `Achievement Goals`
----
 
 * 매일 TIL을 적고, 기록하며 성장하자!
 
