@@ -29,7 +29,7 @@
 <br/>
 <br/>
 
-> 🎯 `Achievement Goals`
+> `Achievement Goals`
 
 * 매일 TIL을 적고, 기록하며 성장하자!
 
