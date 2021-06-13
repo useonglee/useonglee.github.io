@@ -3,8 +3,9 @@
 - pre-course
 - immersive-course
 - project
+- cs
 - Algorithm
-- HTML&CSS 
+- HTML&CSS
 - js
 - ts
 - frontend
@@ -17,11 +18,10 @@
 # - gl
 # - env
 # - git
-- webpack
+# - webpack
 # - work
 # - book
 # - series
 - redux
-- database
+# - database
 - 회고록
-
